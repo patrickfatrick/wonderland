@@ -19,12 +19,11 @@ class Book extends React.Component {
         fontSize: '1.3rem',
         fontFamily: '\'Cormorant Garamond\', Garamond, Georgia, serif',
         width: '100%',
-        marginTop: '3rem',
+        marginTop: '6rem',
         marginBottom: '3rem'
       },
       readerLargeScreen: {
-        maxWidth: '600px',
-        marginTop: '6rem'
+        maxWidth: '600px'
       }
     }
   }

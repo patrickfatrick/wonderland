@@ -26,8 +26,10 @@ The demo includes the following features:
 
 ## Architecture
 
-State is handled in a typical Redux fashion with actions, action creators, and reducers. The state tree is fully immutable (no immutable.js here, just returning clones of the state tree throughout). Also uses the concept of smart and dumb components espouses by Redux. The wrappers folder contains the smart components that have access to the state and actions, the components folder contains the "dumb" components that are bound to the smart components using `connect`. 
+State is handled in a typical Redux fashion with actions, action creators, and reducers. The state tree is fully immutable (no immutable.js here, just returning clones of the state tree throughout). Also uses the concept of smart and dumb components espouses by Redux. The wrappers folder contains the smart components that have access to the state and actions, the components folder contains the "dumb" components that are bound to the smart components using `connect`.
+
+Uses webpack to compile/transpile.
 
 Data and assets are all retrieved by the client, using the `fetch` API (which polyfilled by isomorphic-fetch).
 
-Styles are inline in the JSX (I would like to investigate better ways of doing this, but for the purposes of the demo it works okay).
+Styles are inline in the JSX (I would like to investigate better ways of doing this, but for the purposes of the demo it works okay). Not all styles are responsive. The navbar in particular is an issue at the moment but I may not get around to fixing it.
