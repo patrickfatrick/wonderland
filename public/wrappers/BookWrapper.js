@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setContainers, setBookLocation, setAssetsLocation, setActiveChapter } from '../store/actions'
-import { getBook } from '../services/book-service'
+import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setContainers, setBookLocation, setAssetsLocation, setActiveChapter, setAudioSrc } from '../store/actions'
+import { getBook, getMedia } from '../services/book-service'
 import Book from '../components/Book.jsx'
 
 function mapStateToProps (state) {
@@ -17,12 +17,21 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch, ownProps) {
-  function getBookAsync (location) {
+  function getAudioAsync (location) {
     return (dispatch) => {
+      getMedia(location, (blob) => {
+        dispatch(setAudioSrc(blob))
+      })
+    }
+  }
+
+  function getBookAsync (location) {
+    return (dispatch, getState) => {
       getBook(location, (response) => {
         dispatch(setBook(response))
         dispatch(setChapters(response.chapters))
         dispatch(setContainers(response))
+        dispatch(getAudioAsync(getState().book.assetsLocation + 'audio/' + response.audioSource))
       })
     }
   }
@@ -49,7 +58,7 @@ function mapDispatchToProps (dispatch, ownProps) {
     refPlayer (node) {
       dispatch(setAudioPlayer(node))
     },
-    getAndSetBook (location) {
+    mountBookAndMedia (location) {
       dispatch(getBookAsync(location))
     },
     updateLocations (path, cb) {

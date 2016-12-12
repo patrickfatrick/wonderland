@@ -33,8 +33,7 @@ class Book extends React.Component {
       <div>
         <div id='audio-container' style={m(this.styles.audioContainer)}>
           <audio
-            controls
-            autoPlay
+            preload
             {...(this.props.audioSrc && { src: this.props.audioSrc })}
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.bookViewer, this.props.autoscroll)
@@ -63,7 +62,9 @@ class Book extends React.Component {
 
   componentWillMount () {
     this.props.updateLocations(this.props.path)
-    .then(() => this.props.getAndSetBook(this.props.book.bookLocation))
+    .then(() => {
+      this.props.mountBookAndMedia(this.props.book.bookLocation)
+    })
   }
 
   componentDidMount () {

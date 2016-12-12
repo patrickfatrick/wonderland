@@ -32,6 +32,9 @@ class Buttons extends React.Component {
         paddingLeft: '1rem',
         paddingRight: '1rem',
         borderRadius: '4px'
+      },
+      buttonDisabled: {
+        backgroundColor: '#c1c1c1'
       }
     }
   }
@@ -40,10 +43,13 @@ class Buttons extends React.Component {
     return (
       <div id='button-container' style={m(this.styles.buttonContainer)}>
         <button
-          id='closed-captions-button'
-          title='Closed Captions'
-          style={m(this.styles.button)}
-          onClick={() => this.props.toggleAudio(this.props.player, this.props.audioLocation, !this.props.audioOn)}>
+          id='control-audio-button'
+          title='Control Audio'
+          style={m(
+            this.styles.button,
+            (!this.props.audioPlayer.audioSrc) && this.styles.buttonDisabled
+          )}
+          onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
           {(this.props.audioOn) ? 'Pause' : 'Play'}
         </button>
         {(this.props.audioOn) &&
@@ -61,6 +67,7 @@ class Buttons extends React.Component {
 }
 
 Buttons.propTypes = {
+  audioPlayer: PropTypes.object.isRequired,
   audioOn: PropTypes.bool.isRequired,
   autoscroll: PropTypes.bool.isRequired,
   audioLocation: PropTypes.string.isRequired
