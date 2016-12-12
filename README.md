@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-$ git clone git@gitlab.com:patrickfatrick/closed-captioning-demo-react.git
+$ git clone git@gitlab.com:patrickfatrick/audio-book-react.git
 $ yarn
 $ yarn run quiet
 ```
