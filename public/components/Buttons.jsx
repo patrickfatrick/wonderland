@@ -49,8 +49,8 @@ class Buttons extends React.Component {
             this.styles.button,
             (!this.props.audioPlayer.audioSrc) && this.styles.buttonDisabled
           )}
-          onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
-          {(this.props.audioOn) ? 'Pause' : 'Play'}
+          onClick={() => this.props.audioPlayer.audioSrc && this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
+          {(!this.props.audioPlayer.audioSrc) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
         </button>
         {(this.props.audioOn) &&
           <button
