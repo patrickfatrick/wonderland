@@ -52,7 +52,7 @@ class Buttons extends React.Component {
             title='Auto-Scroll'
             style={m(this.styles.button)}
             onClick={() => this.props.toggleAutoscroll(!this.props.autoscroll)}>
-            Turn {(this.props.autoscroll) ? 'off' : 'on' } Auto-Scroll
+            {(this.props.autoscroll) ? 'Disable' : 'Enable' } Auto-Scroll
           </button>
         }
       </div>
