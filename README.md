@@ -10,7 +10,7 @@ $ yarn run quiet
 
 Navigate to localhost:8080.
 
-[Yarn](https://yarnpkg.com) is a new package manager that is more secure than npm since it uses a lock file, but you can also `npm install` just as usual. To get verbose logging in the console of any state changes (using [redux-logger](https://github.com/evgenyrodionov/redux-logger)), run it with `yarn run dev` or `npm run dev`.
+[Yarn](https://yarnpkg.com) is a new package manager that is faster than npm, and more secure since it uses a lock file, but you can also `npm install` just as usual. To get verbose logging in the console of any state changes (using [redux-logger](https://github.com/evgenyrodionov/redux-logger)), run it with `yarn run dev` or `npm run dev`.
 
 ## What is it?
 
