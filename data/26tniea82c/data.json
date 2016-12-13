@@ -1509,6 +1509,9 @@
               "timestampEnd": 1419
             }
           ]
+        },
+        {
+          "type": "flourish"
         }
       ]
     },
@@ -2302,6 +2305,9 @@
               "timestampEnd": 2007
             }
           ]
+        },
+        {
+          "type": "flourish"
         }
       ]
     }
