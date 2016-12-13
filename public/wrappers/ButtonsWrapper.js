@@ -15,17 +15,18 @@ function mapStatetoProps (state) {
 }
 
 function mapDispatchToProps (dispatch, ownProps) {
-  function getAudioAsync (location) {
+  function getAudioAsync (location, player) {
     return (dispatch) => {
       getMedia(location, (blob) => {
         dispatch(setAudioSrc(blob))
+        player.play()
       })
     }
   }
   return {
     toggleAudio (player, location, bool) {
       dispatch(setAudioOn(bool))
-      if (bool && !player.src) return dispatch(getAudioAsync(location))
+      if (bool && !player.src) return dispatch(getAudioAsync(location, player))
       if (bool && player.src) return player.play()
       player.pause()
     },
