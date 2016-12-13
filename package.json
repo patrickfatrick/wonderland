@@ -7,8 +7,7 @@
     "test": "test",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --quiet",
     "debug": "cross-env NODE_ENV=debug webpack-dev-server --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack -p",
-    "push": "yarn run build && git add . &&"
+    "build": "cross-env NODE_ENV=production webpack -p"
   },
   "author": "Patrick Fricano <patrick.fricano@icloud.com>",
   "license": "MIT",
