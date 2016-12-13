@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loaders: ['react-hot', 'babel']
       }
     ]
   },
@@ -46,6 +46,7 @@ if (process.env.NODE_ENV === 'development') {
     })
   )
   module.exports.devtool = '#source-map'
+  module.exports.entry.unshift('webpack/hot/dev-server')
 } else {
   module.exports.plugins.unshift(
     new webpack.DefinePlugin({
