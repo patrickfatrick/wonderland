@@ -3,18 +3,14 @@ import initialState from './initial-state'
 export default function (state = initialState.chapters, action) {
   function setActiveChapter (state, scrollPos) {
     let index
-    const newState = state.map((chapter, i) => {
-      if (scrollPos < chapter.el.offsetTop) return { ...chapter, active: false }
-      if (scrollPos >= chapter.el.offsetTop) {
-        index = i
-        return { ...chapter, active: true }
-      }
-      return chapter
+    state.forEach((chapter, i) => {
+      if (scrollPos >= chapter.el.offsetTop - 20) index = i
     })
 
-    return newState.map((chapter, i) => {
-      if (i < index) return { ...chapter, active: false }
-      return chapter
+    return state.map((newChapter, i) => {
+      if (i === index) return { ...newChapter, active: true }
+      if (i !== index) return { ...newChapter, active: false }
+      return newChapter
     })
   }
 

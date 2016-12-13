@@ -5,9 +5,10 @@
   "main": "index.html",
   "scripts": {
     "test": "test",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
-    "quiet": "webpack-dev-server --inline --hot --quiet",
-    "build": "cross-env NODE_ENV=production webpack -p"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --quiet",
+    "debug": "cross-env NODE_ENV=debug webpack-dev-server --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "push": "yarn run build && git add . &&"
   },
   "author": "Patrick Fricano <patrick.fricano@icloud.com>",
   "license": "MIT",
@@ -31,14 +32,14 @@
   },
   "dependencies": {
     "es6-promise": "^4.0.5",
-    "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.1",
     "react-addons-pure-render-mixin": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.0",
     "redux": "^3.3.1",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "whatwg-fetch": "^2.0.1"
   },
   "repository": {
     "type": "git",

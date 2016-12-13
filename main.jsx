@@ -9,7 +9,7 @@ import App from './public/App.jsx'
 
 const middlewares = [thunk]
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'debug') {
   const logger = createLogger()
   middlewares.push(logger)
 }

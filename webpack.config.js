@@ -7,7 +7,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, '/public/dist/'),
-    publicPath: '/public/dist/',
+    publicPath: 'http://localhost:8080/public/dist/',
     filename: 'bundle.js'
   },
   module: {
@@ -31,29 +31,21 @@ module.exports = {
     plugins: ['transform-runtime']
   },
   plugins: [
+    // Babel does not support promises out of the box, it must be polyfilled
     new webpack.ProvidePlugin({
-      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise'
-    })
+      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV'
+    ])
   ]
 }
 
-if (process.env.NODE_ENV === 'development') {
-  module.exports.plugins.unshift(
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    })
-  )
+if (process.env.NODE_ENV !== 'production') {
   module.exports.devtool = '#source-map'
-  module.exports.entry.unshift('webpack/hot/dev-server')
 } else {
   module.exports.plugins.unshift(
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
