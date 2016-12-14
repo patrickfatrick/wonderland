@@ -47,10 +47,10 @@ class Buttons extends React.Component {
           title='Control Audio'
           style={m(
             this.styles.button,
-            (this.props.audioOn && !this.props.audioPlayer.audioSrc) && this.styles.buttonDisabled
+            (this.props.audioOn && !this.props.audioSrc) && this.styles.buttonDisabled
           )}
-          onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, this.props.audioLocation, !this.props.audioOn)}>
-          {(this.props.audioOn && !this.props.audioPlayer.audioSrc) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
+          onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
+          {(this.props.audioOn && !this.props.audioSrc) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
         </button>
         {(this.props.audioOn) &&
           <button
@@ -70,7 +70,7 @@ Buttons.propTypes = {
   audioPlayer: PropTypes.object.isRequired,
   audioOn: PropTypes.bool.isRequired,
   autoscroll: PropTypes.bool.isRequired,
-  audioLocation: PropTypes.string.isRequired
+  audioSrc: PropTypes.string.isRequired
 }
 
 export default Buttons

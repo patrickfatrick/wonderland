@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
-import { setAudioOn, setAutoscroll, setAudioSrc } from '../store/actions'
-import { getMedia } from '../services/book-service'
+import { setAudioOn, setAutoscroll } from '../store/actions'
 import Buttons from '../components/Buttons.jsx'
 
 function mapStatetoProps (state) {
@@ -10,23 +9,14 @@ function mapStatetoProps (state) {
     captions: state.captions,
     audioOn: state.audioPlayer.audioOn,
     autoscroll: state.audioPlayer.autoscroll,
-    audioLocation: state.book.assetsLocation + 'audio/' + state.book.audioSource
+    audioSrc: state.book.assetsLocation + 'audio/' + state.book.audioSrc
   }
 }
 
 function mapDispatchToProps (dispatch, ownProps) {
-  function getAudioAsync (location, player) {
-    return (dispatch) => {
-      getMedia(location, (blob) => {
-        dispatch(setAudioSrc(blob))
-        player.play()
-      })
-    }
-  }
   return {
-    toggleAudio (player, location, bool) {
+    toggleAudio (player, bool) {
       dispatch(setAudioOn(bool))
-      if (bool && !player.src) return dispatch(getAudioAsync(location, player))
       if (bool && player.src) return player.play()
       player.pause()
     },

@@ -6,7 +6,6 @@ import Book from '../components/Book.jsx'
 function mapStateToProps (state) {
   return {
     audioOn: state.audioPlayer.audioOn,
-    audioSrc: state.audioPlayer.audioSrc,
     autoscroll: state.audioPlayer.autoscroll,
     chapters: state.chapters,
     timestamp: state.audioPlayer.timestamp,
@@ -49,7 +48,7 @@ function mapDispatchToProps (dispatch, ownProps) {
     refPlayer (node) {
       dispatch(setAudioPlayer(node))
     },
-    mountBookFile (location) {
+    mountBookAndAssets (location) {
       dispatch(getBookAsync(location))
     },
     updateLocations (path, cb) {

@@ -33,8 +33,7 @@ class Book extends React.Component {
       <div>
         <div id='audio-container' style={m(this.styles.audioContainer)}>
           <audio
-            autoPlay
-            {...(this.props.audioSrc && { src: this.props.audioSrc })}
+            {...(this.props.book.audioSrc && { src: this.props.book.assetsLocation + 'audio/' + this.props.book.audioSrc })}
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.bookViewer, this.props.autoscroll)
             }}
@@ -63,7 +62,7 @@ class Book extends React.Component {
   componentWillMount () {
     this.props.updateLocations(this.props.path)
     .then(() => {
-      this.props.mountBookFile(this.props.book.bookLocation)
+      this.props.mountBookAndAssets(this.props.book.bookLocation)
     })
   }
 
@@ -75,7 +74,6 @@ class Book extends React.Component {
 
 Book.propTypes = {
   audioOn: PropTypes.bool.isRequired,
-  audioSrc: PropTypes.string.isRequired,
   autoscroll: PropTypes.bool.isRequired,
   book: PropTypes.object.isRequired,
   chapters: PropTypes.array.isRequired,

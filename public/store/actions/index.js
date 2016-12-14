@@ -26,10 +26,10 @@ export function setAudioOn (bool) {
   }
 }
 
-export function setAudioSrc (blob) {
+export function setAudioSrc (location) {
   return {
     type: 'SET_AUDIO_SRC',
-    blob
+    location
   }
 }
 

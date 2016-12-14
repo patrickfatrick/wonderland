@@ -1,4 +1,3 @@
-/* global URL */
 import initialState from './initial-state'
 
 export default function (state = initialState.audioPlayer, action) {
@@ -8,7 +7,7 @@ export default function (state = initialState.audioPlayer, action) {
     case 'SET_AUDIO_PLAYER':
       return { ...state, element: action.el }
     case 'SET_AUDIO_SRC':
-      return { ...state, audioSrc: URL.createObjectURL(action.blob) }
+      return { ...state, audioSrc: action.location }
     case 'SET_TIMESTAMP':
       return { ...state, timestamp: action.seconds }
     case 'SET_AUTOSCROLL':
