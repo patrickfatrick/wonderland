@@ -1,32 +1,33 @@
 import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import Container from './Container.jsx'
-import m from './m'
+import injectSheet from 'react-jss'
+
+const styles = {
+  containers: {
+    paddingLeft: '0.5rem',
+    paddingRight: '0.5rem'
+  },
+  '@media (min-width: 668px)': {
+    container: {
+      paddingLeft: 0,
+      paddingRight: 0
+    }
+  }
+}
 
 class Containers extends React.Component {
   constructor (props) {
     super(props)
     this.mixins = [PureRenderMixin]
-    this.styles = {
-      containers: {
-        paddingLeft: '0.5rem',
-        paddingRight: '0.5rem'
-      },
-      containersLargeScreen: {
-        paddingLeft: 0,
-        paddingRight: 0
-      }
-    }
   }
 
   render () {
+    const classes = this.props.sheet.classes
     return (
       <div
         id='containers'
-        style={m(
-          this.styles.containers,
-          document.body.clientWidth >= 668 && this.styles.containersLargeScreen
-        )}
+        className={classes.containers}
         ref={(el) => {
           this.bookViewerElement = el
         }}>
@@ -59,4 +60,4 @@ Containers.propTypes = {
   imagesLocation: PropTypes.string.isRequired
 }
 
-export default Containers
+export default injectSheet(styles)(Containers)

@@ -1,35 +1,36 @@
 import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import injectSheet from 'react-jss'
 import LineWrapper from '../wrappers/LineWrapper'
 import Flourish from './Flourish.jsx'
 import Image from './Image.jsx'
-import m from './m'
+
+const styles = {
+  indent: {
+    paddingRight: '1rem',
+    paddingLeft: '1rem'
+  },
+  chapterHeading: {
+    fontSize: '2rem',
+    textAlign: 'center',
+    marginTop: '1rem',
+    marginBottom: '1rem'
+  }
+}
 
 class Container extends React.Component {
   constructor (props) {
     super(props)
     this.mixins = [PureRenderMixin]
-    this.styles = {
-      indent: {
-        paddingRight: '1rem',
-        paddingLeft: '1rem'
-      },
-      chapterHeading: {
-        fontSize: '2rem',
-        textAlign: 'center',
-        marginTop: '1rem',
-        marginBottom: '1rem'
-      }
-    }
   }
 
   render () {
+    const classes = this.props.sheet.classes
     return (
       <div className='page-item'>
         {(this.props.container[0].lineType === 'normal') &&
           <span
-            className='indent'
-            style={m(this.styles.indent)}
+            className={classes.indent}
           />
         }
         {this.props.container.map((lineItem, i) => {
@@ -47,8 +48,7 @@ class Container extends React.Component {
             return (
               <div
                 key={i}
-                className='chapter-heading'
-                style={m(this.styles.chapterHeading)}
+                className={classes.chapterHeading}
                 ref={(node) => {
                   this.chapterHeading = node
                 }}>
@@ -80,4 +80,4 @@ Container.propTypes = {
   refChapterHeading: PropTypes.func.isRequired
 }
 
-export default Container
+export default injectSheet(styles)(Container)

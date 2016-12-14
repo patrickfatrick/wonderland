@@ -1,22 +1,24 @@
 import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import m from './m'
+import injectSheet from 'react-jss'
+
+const styles = {
+  image: {
+    width: '100%'
+  }
+}
 
 class Image extends React.Component {
   constructor (props) {
     super(props)
     this.mixins = [PureRenderMixin]
-    this.styles = {
-      image: {
-        width: '100%'
-      }
-    }
   }
 
   render () {
+    const classes = this.props.sheet.classes
     return (
       <img
-        style={m(this.styles.image)}
+        className={classes.image}
         {...(this.props.image.src && { src: this.props.imagesLocation + this.props.image.src })}
       />
     )
@@ -28,4 +30,4 @@ Image.propTypes = {
   imagesLocation: PropTypes.string.isRequired
 }
 
-export default Image
+export default injectSheet(styles)(Image)

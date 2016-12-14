@@ -32,6 +32,6 @@ State is handled in a typical Redux fashion with actions, action creators, and r
 
 Uses webpack to compile/transpile javascript and JSX assets, with hot-reloading in dev. Code is linted with [StandardJS](http://standardjs.com).
 
-Uses the [fetch API](https://github.com/github/fetch) (polyfilled) to retrieve data and media assets from the server.
+Uses the [fetch API](https://github.com/github/fetch) (polyfilled) to retrieve data from the server.
 
-Styles are inline in the JSX (I would like to investigate better ways of doing this, but for the purposes of the demo it works okay). Not all styles are responsive. The navbar in particular is an issue at the moment but I may not get around to fixing it.
+Styles are created using [jss](https://github.com/cssinjs/jss) with the help of [classnames](https://github.com/JedWatson/classnames). Inline styles simply have too many shortcomings.

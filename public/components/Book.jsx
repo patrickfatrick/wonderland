@@ -1,37 +1,41 @@
 import React, { PropTypes } from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import injectSheet from 'react-jss'
 import ContainersWrapper from '../wrappers/ContainersWrapper'
 import NavBar from './NavBar.jsx'
-import m from './m'
+
+const styles = {
+  audioContainer: {
+    display: 'none'
+  },
+  reader: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'justify',
+    fontSize: '1.3rem',
+    fontFamily: '\'Cormorant Garamond\', Garamond, Georgia, serif',
+    width: '100%',
+    marginTop: '6rem',
+    marginBottom: '3rem'
+  },
+  '@media(min-width: 668px)': {
+    reader: {
+      maxWidth: '600px'
+    }
+  }
+}
 
 class Book extends React.Component {
   constructor (props) {
     super(props)
     this.mixins = [PureRenderMixin]
-    this.styles = {
-      audioContainer: {
-        display: 'none'
-      },
-      reader: {
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        textAlign: 'justify',
-        fontSize: '1.3rem',
-        fontFamily: '\'Cormorant Garamond\', Garamond, Georgia, serif',
-        width: '100%',
-        marginTop: '6rem',
-        marginBottom: '3rem'
-      },
-      readerLargeScreen: {
-        maxWidth: '600px'
-      }
-    }
   }
 
   render () {
+    const classes = this.props.sheet.classes
     return (
       <div>
-        <div id='audio-container' style={m(this.styles.audioContainer)}>
+        <div id='audio-container' className={classes.audioContainer}>
           <audio
             preload='metadata'
             {...(this.props.book.audioSrc && { src: this.props.book.assetsLocation + 'audio/' + this.props.book.audioSrc })}
@@ -48,10 +52,7 @@ class Book extends React.Component {
         />
         <div
           id='reader'
-          style={m(
-            this.styles.reader,
-            document.body.clientWidth >= 668 && this.styles.readerLargeScreen
-          )}>
+          className={classes.reader}>
           <ContainersWrapper
             seek={this.props.seek}
           />
@@ -86,4 +87,4 @@ Book.propTypes = {
   setActiveChapterWithScroll: PropTypes.func.isRequired
 }
 
-export default Book
+export default injectSheet(styles)(Book)
