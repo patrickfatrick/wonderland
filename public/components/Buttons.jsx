@@ -47,10 +47,10 @@ class Buttons extends React.Component {
           title='Control Audio'
           style={m(
             this.styles.button,
-            (this.props.audioOn && !this.props.audioSrc) && this.styles.buttonDisabled
+            (this.buffering(this.props.audioPlayer.element)) && this.styles.buttonDisabled
           )}
           onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
-          {(this.props.audioOn && !this.props.audioSrc) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
+          {this.buffering(this.props.audioPlayer.element) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
         </button>
         {(this.props.audioOn) &&
           <button
@@ -63,6 +63,18 @@ class Buttons extends React.Component {
         }
       </div>
     )
+  }
+
+  buffering (audio) {
+    // Length should not be more than 1
+    if (audio.buffered.length) {
+      // Chrome behaves very strangely with buffer times while playing,
+      // so this is as good as it gets for checking
+      return audio.buffered.end(0) === 0
+    }
+    // Return true if audio is playing but we don't have a buffer yet
+    if (!audio.paused) return true
+    return false
   }
 }
 

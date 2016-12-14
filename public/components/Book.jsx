@@ -33,6 +33,7 @@ class Book extends React.Component {
       <div>
         <div id='audio-container' style={m(this.styles.audioContainer)}>
           <audio
+            preload='metadata'
             {...(this.props.book.audioSrc && { src: this.props.book.assetsLocation + 'audio/' + this.props.book.audioSrc })}
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.bookViewer, this.props.autoscroll)
