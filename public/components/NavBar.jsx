@@ -10,12 +10,12 @@ const styles = {
     top: '0',
     background: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.10) 0 5px 10px',
-    '& list': {
+    '& .list': {
       position: 'relative',
       margin: 0,
       padding: '1rem 30px 1rem 30px'
     },
-    '& item': {
+    '& .item': {
       display: 'inline-block',
       fontFamily: '"Cormorant Garamond", Garamond, Georgia, serif'
     }
@@ -51,8 +51,8 @@ class NavBar extends React.Component {
         {this.props.book.info && (
           <ul
             id='navbar-items'
-            className={classNames(classes.navbar, 'list')}>
-            <li className={classNames(classes.navbar, 'item')}>
+            className='list'>
+            <li className='item'>
               <span className={classes.title}>
                 {this.props.book.info.title}
               </span>
