@@ -51,9 +51,7 @@ class NavBar extends React.Component {
         {this.props.book.info && (
           <ul
             id='navbar-items'
-            className={classNames(classes.navbar, 'list')
-            })}
-            >
+            className={classNames(classes.navbar, 'list')}>
             <li className={classNames(classes.navbar, 'item')}>
               <span className={classes.title}>
                 {this.props.book.info.title}
