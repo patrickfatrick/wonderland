@@ -17,24 +17,20 @@ const styles = {
     marginRight: '3px',
     fontSize: '0.8rem',
     lineHeight: '0.8rem',
-    cursor: 'pointer',
     border: '1px solid #919191',
-    padding: '6px',
+    padding: '0.5rem 1rem 0.5rem 1rem',
     minWidth: '1.5rem',
     minHeight: '1.5rem',
     textAlign: 'center',
     backgroundColor: 'white',
     color: '#666',
-    borderLeft: '1px solid #919191',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
     borderRadius: '4px',
     '&:active': {
       backgroundColor: '#c1c1c1'
+    },
+    '&.disabled': {
+      backgroundColor: '#c1c1c1'
     }
-  },
-  buttonDisabled: {
-    backgroundColor: '#c1c1c1'
   }
 }
 
@@ -53,16 +49,15 @@ class Buttons extends React.Component {
         <button
           id='control-audio-button'
           title='Control Audio'
-          className={classNames({
-            [classes.button]: true,
-            [classes.buttonDisabled]: this.buffering(this.props.audioPlayer.element)
+          className={classNames(classes.button, {
+            disabled: this.buffering(this.props.audioPlayer.element)
           })}
           onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
           {this.buffering(this.props.audioPlayer.element) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
         </button>
         {(this.props.audioOn) &&
           <button
-            id='closed-captions-scroll-button'
+            id='scroll-button'
             title='Auto-Scroll'
             className={classes.button}
             onClick={() => this.props.toggleAutoscroll(!this.props.autoscroll)}>

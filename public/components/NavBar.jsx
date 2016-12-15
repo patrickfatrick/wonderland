@@ -9,16 +9,16 @@ const styles = {
     width: '100%',
     top: '0',
     background: 'white',
-    boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.10) 0 5px 10px'
-  },
-  navbarList: {
-    position: 'relative',
-    margin: 0,
-    padding: '1rem 30px 1rem 30px'
-  },
-  navbarItem: {
-    display: 'inline-block',
-    fontFamily: '"Cormorant Garamond", Garamond, Georgia, serif'
+    boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.10) 0 5px 10px',
+    '& list': {
+      position: 'relative',
+      margin: 0,
+      padding: '1rem 30px 1rem 30px'
+    },
+    '& item': {
+      display: 'inline-block',
+      fontFamily: '"Cormorant Garamond", Garamond, Georgia, serif'
+    }
   },
   chapterHeading: {
     fontSize: '2rem',
@@ -30,10 +30,10 @@ const styles = {
     top: '10px',
     left: 0,
     width: '100%',
-    display: 'none'
-  },
-  chapterHeadingActive: {
-    display: 'inline-block'
+    display: 'none',
+    '&.active': {
+      display: 'inline-block'
+    }
   },
   title: {
     fontStyle: 'italic',
@@ -51,9 +51,10 @@ class NavBar extends React.Component {
         {this.props.book.info && (
           <ul
             id='navbar-items'
-            className={classes.navbarList}
+            className={classNames(classes.navbar, 'list')
+            })}
             >
-            <li className={classes.navbarItem}>
+            <li className={classNames(classes.navbar, 'item')}>
               <span className={classes.title}>
                 {this.props.book.info.title}
               </span>
@@ -64,10 +65,7 @@ class NavBar extends React.Component {
               return (
                 <li
                   key={i}
-                  className={classNames({
-                    [classes.chapterHeading]: true,
-                    [classes.chapterHeadingActive]: chapter.active
-                  })}>
+                  className={classNames(classes.chapterHeading, { active: chapter.active })}>
                   {chapter.title}
                 </li>
               )

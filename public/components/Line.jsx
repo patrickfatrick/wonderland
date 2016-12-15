@@ -8,12 +8,14 @@ const styles = {
     paddingLeft: '0.1rem',
     paddingRight: '0.2rem'
   },
-  lineActive: {
-    backgroundColor: '#FFCC66'
-  },
-  lineFormatted: {
-    fontStyle: 'italic',
-    marginTop: '1rem'
+  line: {
+    '&.active': {
+      backgroundColor: '#FFCC66'
+    },
+    '&.formatted': {
+      fontStyle: 'italic',
+      marginTop: '1rem'
+    }
   }
 }
 
@@ -32,9 +34,9 @@ class Line extends React.Component {
           active: this.props.line.active
         })}>
         <a
-          className={classNames({
-            [classes.lineActive]: (this.props.line.active && this.props.audioOn),
-            [classes.lineFormatted]: this.props.line.lineType === 'formatted'
+          className={classNames(classes.line, {
+            active: (this.props.line.active && this.props.audioOn),
+            formatted: this.props.line.lineType === 'formatted'
           })}
           onClick={() => this.props.lineHandler(this.props.player, this.props.line.timestampStart)}>
           {(this.props.line.content.includes('\n'))

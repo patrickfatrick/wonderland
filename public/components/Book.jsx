@@ -35,7 +35,9 @@ class Book extends React.Component {
     const classes = this.props.sheet.classes
     return (
       <div>
-        <div id='audio-container' className={classes.audioContainer}>
+        <div
+          id='audio-container'
+          className={classes.audioContainer}>
           <audio
             preload='metadata'
             {...(this.props.book.audioSrc && { src: this.props.book.assetsLocation + 'audio/' + this.props.book.audioSrc })}
