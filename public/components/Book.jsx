@@ -34,7 +34,7 @@ class Book extends PureComponent {
     timeUpdate: PropTypes.func.isRequired,
     seek: PropTypes.func.isRequired,
     refPlayer: PropTypes.func.isRequired,
-    updateLocations: PropTypes.func.isRequired,
+    mountBookAndAssets: PropTypes.func.isRequired,
     setActiveChapterWithScroll: PropTypes.func.isRequired
   }
 
