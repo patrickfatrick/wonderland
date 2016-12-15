@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import injectSheet from 'react-jss'
 import classNames from 'classnames'
 
@@ -34,12 +33,13 @@ const styles = {
   }
 }
 
-class Buttons extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Buttons extends PureComponent {
+  static propTypes = {
+    audioPlayer: PropTypes.object.isRequired,
+    audioOn: PropTypes.bool.isRequired,
+    autoscroll: PropTypes.bool.isRequired,
+    audioSrc: PropTypes.string.isRequired
   }
-
   render () {
     const classes = this.props.sheet.classes
     return (
@@ -79,13 +79,6 @@ class Buttons extends React.Component {
     if (!audio.paused) return true
     return false
   }
-}
-
-Buttons.propTypes = {
-  audioPlayer: PropTypes.object.isRequired,
-  audioOn: PropTypes.bool.isRequired,
-  autoscroll: PropTypes.bool.isRequired,
-  audioSrc: PropTypes.string.isRequired
 }
 
 export default injectSheet(styles)(Buttons)

@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import injectSheet from 'react-jss'
 import LineWrapper from '../wrappers/LineWrapper'
 import Flourish from './Flourish.jsx'
@@ -18,10 +17,12 @@ const styles = {
   }
 }
 
-class Container extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Container extends PureComponent {
+  static propTypes = {
+    container: PropTypes.array.isRequired,
+    chapters: PropTypes.array.isRequired,
+    seek: PropTypes.func.isRequired,
+    refChapterHeading: PropTypes.func.isRequired
   }
 
   render () {
@@ -71,13 +72,6 @@ class Container extends React.Component {
   componentDidMount () {
     if (this.chapterHeading) this.props.refChapterHeading(this.chapterHeading, this.props.container[0].title)
   }
-}
-
-Container.propTypes = {
-  container: PropTypes.array.isRequired,
-  chapters: PropTypes.array.isRequired,
-  seek: PropTypes.func.isRequired,
-  refChapterHeading: PropTypes.func.isRequired
 }
 
 export default injectSheet(styles)(Container)

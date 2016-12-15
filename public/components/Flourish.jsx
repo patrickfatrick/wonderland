@@ -1,5 +1,4 @@
-import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent } from 'react'
 import injectSheet from 'react-jss'
 
 const styles = {
@@ -16,12 +15,7 @@ const styles = {
   }
 }
 
-class Flourish extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
-  }
-
+class Flourish extends PureComponent {
   render () {
     const classes = this.props.sheet.classes
     return (

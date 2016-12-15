@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import Container from './Container.jsx'
 import injectSheet from 'react-jss'
 
@@ -16,10 +15,13 @@ const styles = {
   }
 }
 
-class Containers extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Containers extends PureComponent {
+  static propTypes = {
+    chapters: PropTypes.array.isRequired,
+    pageItems: PropTypes.array.isRequired,
+    seek: PropTypes.func.isRequired,
+    refBookViewer: PropTypes.func.isRequired,
+    imagesLocation: PropTypes.string.isRequired
   }
 
   render () {
@@ -50,14 +52,6 @@ class Containers extends React.Component {
   componentDidMount () {
     this.props.refBookViewer(this.bookViewerElement)
   }
-}
-
-Containers.propTypes = {
-  chapters: PropTypes.array.isRequired,
-  pageItems: PropTypes.array.isRequired,
-  seek: PropTypes.func.isRequired,
-  refBookViewer: PropTypes.func.isRequired,
-  imagesLocation: PropTypes.string.isRequired
 }
 
 export default injectSheet(styles)(Containers)

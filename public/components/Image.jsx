@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import injectSheet from 'react-jss'
 
 const styles = {
@@ -8,12 +7,11 @@ const styles = {
   }
 }
 
-class Image extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Image extends PureComponent {
+  static propTypes = {
+    image: PropTypes.object.isRequired,
+    imagesLocation: PropTypes.string.isRequired
   }
-
   render () {
     const classes = this.props.sheet.classes
     return (
@@ -23,11 +21,6 @@ class Image extends React.Component {
       />
     )
   }
-}
-
-Image.propTypes = {
-  image: PropTypes.object.isRequired,
-  imagesLocation: PropTypes.string.isRequired
 }
 
 export default injectSheet(styles)(Image)

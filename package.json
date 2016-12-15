@@ -30,6 +30,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "babel-eslint": "^7.1.1",
     "classnames": "^2.2.5",
     "es6-promise": "^4.0.5",
     "react": "^15.4.1",
@@ -45,5 +46,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/patrickfatrick/audio-book-react.git"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }

@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import injectSheet from 'react-jss'
 import ContainersWrapper from '../wrappers/ContainersWrapper'
 import NavBar from './NavBar.jsx'
@@ -25,10 +24,18 @@ const styles = {
   }
 }
 
-class Book extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Book extends PureComponent {
+  static propTypes = {
+    audioOn: PropTypes.bool.isRequired,
+    autoscroll: PropTypes.bool.isRequired,
+    book: PropTypes.object.isRequired,
+    chapters: PropTypes.array.isRequired,
+    timestamp: PropTypes.number.isRequired,
+    timeUpdate: PropTypes.func.isRequired,
+    seek: PropTypes.func.isRequired,
+    refPlayer: PropTypes.func.isRequired,
+    updateLocations: PropTypes.func.isRequired,
+    setActiveChapterWithScroll: PropTypes.func.isRequired
   }
 
   render () {
@@ -74,19 +81,6 @@ class Book extends React.Component {
     this.props.refPlayer(this.player)
     window.addEventListener('scroll', () => this.props.setActiveChapterWithScroll(window.scrollY))
   }
-}
-
-Book.propTypes = {
-  audioOn: PropTypes.bool.isRequired,
-  autoscroll: PropTypes.bool.isRequired,
-  book: PropTypes.object.isRequired,
-  chapters: PropTypes.array.isRequired,
-  timestamp: PropTypes.number.isRequired,
-  timeUpdate: PropTypes.func.isRequired,
-  seek: PropTypes.func.isRequired,
-  refPlayer: PropTypes.func.isRequired,
-  updateLocations: PropTypes.func.isRequired,
-  setActiveChapterWithScroll: PropTypes.func.isRequired
 }
 
 export default injectSheet(styles)(Book)

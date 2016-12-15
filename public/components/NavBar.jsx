@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { PureComponent, PropTypes } from 'react'
 import ButtonsWrapper from '../wrappers/ButtonsWrapper'
 import injectSheet from 'react-jss'
 import classNames from 'classnames'
@@ -41,7 +41,12 @@ const styles = {
   }
 }
 
-class NavBar extends React.Component {
+class NavBar extends PureComponent {
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    chapters: PropTypes.array.isRequired
+  }
+
   render () {
     const classes = this.props.sheet.classes
     return (
@@ -76,8 +81,4 @@ class NavBar extends React.Component {
   }
 }
 
-NavBar.propTypes = {
-  book: PropTypes.object.isRequired,
-  chapters: PropTypes.array.isRequired
-}
 export default injectSheet(styles)(NavBar)

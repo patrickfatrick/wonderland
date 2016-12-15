@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import React, { PureComponent, PropTypes } from 'react'
 import injectSheet from 'react-jss'
 import classNames from 'classnames'
 
@@ -19,10 +18,11 @@ const styles = {
   }
 }
 
-class Line extends React.Component {
-  constructor (props) {
-    super(props)
-    this.mixins = [PureRenderMixin]
+class Line extends PureComponent {
+  static propTypes = {
+    audioOn: PropTypes.bool.isRequired,
+    line: PropTypes.object.isRequired,
+    lineHandler: PropTypes.func.isRequired
   }
 
   render () {
@@ -54,12 +54,6 @@ class Line extends React.Component {
       </span>
     )
   }
-}
-
-Line.propTypes = {
-  audioOn: PropTypes.bool.isRequired,
-  line: PropTypes.object.isRequired,
-  lineHandler: PropTypes.func.isRequired
 }
 
 export default injectSheet(styles)(Line)
