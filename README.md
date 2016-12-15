@@ -16,7 +16,7 @@ Navigate to localhost:8080.
 
 ## What is it?
 
-This is a demonstration of a guided reading experience using React and Redux. The book (in this case the first three chapters of _Alice's Adventure's in Wonderland_) is actually just a JSON interpretation of the book, which the client then builds the book UI out of. With the same JSON schema any book could be dropped in theoretically. (The JSON file for the demo is located at data/data.json)
+This is a demonstration of a guided reading experience using React and Redux. The book (in this case the first three chapters of _Alice's Adventure's in Wonderland_) is actually just a JSON interpretation of the book, which the client then builds the book UI out of. With the same JSON schema any book could be dropped in theoretically. (The JSON file for the demo is located at [data/data.json](https://github.com/patrickfatrick/audio-book-react/blob/master/data/26tniea82c/data.json))
 
 The demo includes the following features:
 
@@ -34,4 +34,4 @@ Uses webpack to compile/transpile javascript and JSX assets, with hot-reloading 
 
 Uses the [fetch API](https://github.com/github/fetch) (polyfilled) to retrieve data from the server.
 
-Styles are created using [jss](https://github.com/cssinjs/jss) with the help of [classnames](https://github.com/JedWatson/classnames). Inline styles simply have too many shortcomings.
+Styles are created using [jss](https://github.com/cssinjs/jss). Inline styles simply have too many shortcomings.
