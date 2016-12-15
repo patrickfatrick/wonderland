@@ -71,10 +71,7 @@ class Book extends PureComponent {
   }
 
   componentWillMount () {
-    this.props.updateLocations(this.props.path)
-    .then(() => {
-      this.props.mountBookAndAssets(this.props.book.bookLocation)
-    })
+    this.props.mountBookAndAssets(this.props.path)
   }
 
   componentDidMount () {

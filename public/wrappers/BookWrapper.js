@@ -18,7 +18,8 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch, ownProps) {
   function getBookAsync (location) {
     return (dispatch, getState) => {
-      getBook(location, (response) => {
+      getBook(location)
+      .then((response) => {
         dispatch(setBook(response))
         dispatch(setChapters(response.chapters))
         dispatch(setContainers(response))
@@ -48,16 +49,10 @@ function mapDispatchToProps (dispatch, ownProps) {
     refPlayer (node) {
       dispatch(setAudioPlayer(node))
     },
-    mountBookAndAssets (location) {
-      dispatch(getBookAsync(location))
-    },
-    updateLocations (path, cb) {
-      // Assure the locations are set before we actually retrieve them
-      return new Promise((resolve) => {
-        dispatch(setBookLocation(path + 'data.json'))
-        dispatch(setAssetsLocation(path + 'assets/'))
-        resolve(true)
-      })
+    mountBookAndAssets (path) {
+      dispatch(getBookAsync(path + 'data.json'))
+      dispatch(setBookLocation(path + 'data.json'))
+      dispatch(setAssetsLocation(path + 'assets/'))
     },
     setActiveChapterWithScroll (scrollPos) {
       dispatch(setActiveChapter(scrollPos))

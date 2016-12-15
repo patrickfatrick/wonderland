@@ -1,7 +1,6 @@
 /* globals fetch */
 
-export function getBook (location, cb) {
-  return fetch(location)
-  .then((response) => response.json())
-  .then((json) => cb(json))
+export async function getBook (location) {
+  const response = await fetch(location)
+  return await response.json()
 }
