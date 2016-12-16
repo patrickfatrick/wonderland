@@ -35,7 +35,7 @@ class Book extends PureComponent {
     seek: PropTypes.func.isRequired,
     refPlayer: PropTypes.func.isRequired,
     mountBookAndAssets: PropTypes.func.isRequired,
-    setActiveChapterWithScroll: PropTypes.func.isRequired
+    scrollHandler: PropTypes.func.isRequired
   }
 
   render () {
@@ -76,7 +76,9 @@ class Book extends PureComponent {
 
   componentDidMount () {
     this.props.refPlayer(this.player)
-    window.addEventListener('scroll', () => this.props.setActiveChapterWithScroll(window.scrollY))
+    window.addEventListener('scroll', () => {
+      this.props.scrollHandler(this.props.book, window.scrollY, document.body.clientHeight - window.innerHeight)
+    })
   }
 }
 

@@ -25,6 +25,7 @@ The demo includes the following features:
 - Auto-scroll can be turned on when the reading is enabled.
 - You can select any line of the book to jump to it in the reading.
 - Since the book is just one long sheet instead of multiple pages, the navbar at the top displays the current chapter (at some point I will likely put in a jump-to-chapter feature there)
+- Chapters are rendered dynamically: scroll down to the end of chapter 1 and chapter 2 will be rendered, etc.
 
 ## Architecture
 

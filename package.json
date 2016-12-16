@@ -1,6 +1,6 @@
 {
-  "name": "closed-captioning",
-  "version": "1.0.0",
+  "name": "audio-book-react",
+  "version": "1.0.1",
   "description": "A guided reading experience using React and Redux",
   "main": "index.html",
   "scripts": {

@@ -55,9 +55,9 @@ export function setActiveChapter (scrollPos) {
   }
 }
 
-export function setContainers (book) {
+export function renderContainers (book) {
   return {
-    type: 'SET_CONTAINERS',
+    type: 'RENDER_CONTAINERS',
     book
   }
 }

@@ -1,20 +1,22 @@
 import initialState from './initial-state'
 
 export default function (state = initialState.containers, action) {
-  function setContainers (state, book) {
+  function renderContainers (state, book) {
     const containers = []
-    book.chapters.forEach((chapter, chapterIndex) => {
-      chapter.containers.forEach((container, containerIndex) => {
-        if (container.type === 'paragraph') {
-          containers.push(...container.lines.map((line) => {
-            return { ...line, active: false, containerId: containerIndex, chapterId: chapterIndex }
-          }))
-        } else {
-          containers.push({ ...container, containerId: containerIndex, chapterId: chapterIndex })
-        }
-      })
+    const chapterIndex = state.length
+      ? state[state.length - 1].chapterId + 1
+      : 0
+    if (chapterIndex === book.chapters.length) return state
+    book.chapters[chapterIndex].containers.forEach((container, containerIndex) => {
+      if (container.type === 'paragraph') {
+        containers.push(...container.lines.map((line) => {
+          return { ...line, active: false, containerId: containerIndex, chapterId: chapterIndex }
+        }))
+      } else {
+        containers.push({ ...container, containerId: containerIndex, chapterId: chapterIndex })
+      }
     })
-    return containers
+    return [...state, ...containers]
   }
 
   function setActiveLine (state, timestamp) {
@@ -29,8 +31,8 @@ export default function (state = initialState.containers, action) {
   }
 
   switch (action.type) {
-    case 'SET_CONTAINERS':
-      return setContainers(state, action.book)
+    case 'RENDER_CONTAINERS':
+      return renderContainers(state, action.book)
     case 'SET_ACTIVE_LINE':
       return setActiveLine(state, action.timestamp)
     default:

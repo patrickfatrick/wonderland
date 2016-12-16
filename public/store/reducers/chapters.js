@@ -4,6 +4,7 @@ export default function (state = initialState.chapters, action) {
   function setActiveChapter (state, scrollPos) {
     let index
     state.forEach((chapter, i) => {
+      if (!chapter.el) return
       if (scrollPos >= chapter.el.offsetTop - 20) index = i
     })
 

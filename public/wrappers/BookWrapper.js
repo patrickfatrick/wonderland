@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setContainers, setBookLocation, setAssetsLocation, setActiveChapter } from '../store/actions'
+import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setBookLocation, setAssetsLocation, setActiveChapter, renderContainers } from '../store/actions'
 import { getBook } from '../services/book-service'
 import Book from '../components/Book.jsx'
 
@@ -15,14 +15,14 @@ function mapStateToProps (state) {
   }
 }
 
-function mapDispatchToProps (dispatch, ownProps) {
+function mapDispatchToProps (dispatch) {
   function getBookAsync (location) {
     return (dispatch, getState) => {
       getBook(location)
       .then((response) => {
         dispatch(setBook(response))
         dispatch(setChapters(response.chapters))
-        dispatch(setContainers(response))
+        dispatch(renderContainers(response))
       })
     }
   }
@@ -54,7 +54,8 @@ function mapDispatchToProps (dispatch, ownProps) {
       dispatch(setBookLocation(path + 'data.json'))
       dispatch(setAssetsLocation(path + 'assets/'))
     },
-    setActiveChapterWithScroll (scrollPos) {
+    scrollHandler (book, scrollPos, clientHeight) {
+      if (scrollPos >= clientHeight - 200) dispatch(renderContainers(book))
       dispatch(setActiveChapter(scrollPos))
     }
   }
