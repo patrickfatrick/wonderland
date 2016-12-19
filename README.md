@@ -31,7 +31,7 @@ The demo includes the following features:
 
 State is handled in a typical Redux fashion with actions, action creators, and reducers. The state tree is fully immutable (no immutable.js here, just returning clones of the state tree throughout). Also uses the concept of smart and dumb components espoused by Redux. The wrappers folder contains the smart components that have access to the state and actions, the components folder contains the "dumb" components that are bound to the smart components using `connect`.
 
-Uses webpack to compile/transpile javascript and JSX assets, with hot-reloading in dev. Code is linted with [StandardJS](http://standardjs.com).
+Uses webpack to compile/transpile javascript and JSX assets, with hot-reloading in dev. JS and JSX code is linted using the [Airbnb style guide](https://github.com/airbnb/javascript).
 
 Uses the [fetch API](https://github.com/github/fetch) (polyfilled) to retrieve data from the server.
 
