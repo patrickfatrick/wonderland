@@ -1,7 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react'
-import ButtonsWrapper from '../wrappers/ButtonsWrapper'
-import injectSheet from 'react-jss'
-import classNames from 'classnames'
+import React, { PropTypes } from 'react';
+import injectSheet from 'react-jss';
+import classNames from 'classnames';
+import ButtonsWrapper from '../wrappers/ButtonsWrapper';
 
 const styles = {
   navbar: {
@@ -13,12 +13,12 @@ const styles = {
     '& .list': {
       position: 'relative',
       margin: 0,
-      padding: '1rem 30px 1rem 30px'
+      padding: '1rem 30px 1rem 30px',
     },
     '& .item': {
       display: 'inline-block',
-      fontFamily: '"Cormorant Garamond", Garamond, Georgia, serif'
-    }
+      fontFamily: '"Cormorant Garamond", Garamond, Georgia, serif',
+    },
   },
   chapterHeading: {
     fontSize: '2rem',
@@ -32,53 +32,58 @@ const styles = {
     width: '100%',
     display: 'none',
     '&.active': {
-      display: 'inline-block'
-    }
+      display: 'inline-block',
+    },
   },
   title: {
     fontStyle: 'italic',
-    fontSize: '1.2rem'
-  }
-}
+    fontSize: '1.2rem',
+  },
+};
 
-class NavBar extends PureComponent {
-  static propTypes = {
-    book: PropTypes.object.isRequired,
-    chapters: PropTypes.array.isRequired
-  }
-
-  render () {
-    const classes = this.props.sheet.classes
-    return (
-      <div
-        id='navbar'
-        className={classes.navbar}>
-        {this.props.book.info && (
-          <ul
-            id='navbar-items'
-            className='list'>
-            <li className='item'>
-              <span className={classes.title}>
-                {this.props.book.info.title}
-              </span>
-              <br />
-              {this.props.book.info.author}
+function NavBar({
+  info,
+  chapters,
+  sheet: { classes }, // eslint-disable-line react/prop-types
+}) {
+  return (
+    <div
+      id="navbar"
+      className={classes.navbar}
+    >
+      {info && (
+        <ul
+          id="navbar-items"
+          className="list"
+        >
+          <li className="item">
+            <span className={classes.title}>
+              {info.title}
+            </span>
+            <br />
+            {info.author}
+          </li>
+          {chapters.map(chapter => (
+            <li
+              key={chapter.id}
+              className={classNames(classes.chapterHeading, { active: chapter.active })}
+            >
+              {chapter.title}
             </li>
-            {this.props.chapters.map((chapter, i) => {
-              return (
-                <li
-                  key={i}
-                  className={classNames(classes.chapterHeading, { active: chapter.active })}>
-                  {chapter.title}
-                </li>
-              )
-            })}
-            <ButtonsWrapper />
-          </ul>
-        )}
-      </div>
-    )
-  }
+          ))}
+          <ButtonsWrapper />
+        </ul>
+      )}
+    </div>
+  );
 }
 
-export default injectSheet(styles)(NavBar)
+NavBar.propTypes = {
+  info: PropTypes.shape({
+    author: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+  chapters: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default injectSheet(styles)(NavBar);

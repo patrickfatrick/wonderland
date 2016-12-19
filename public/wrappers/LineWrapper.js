@@ -1,25 +1,25 @@
-import { connect } from 'react-redux'
-import { setTimestamp } from '../store/actions'
-import Line from '../components/Line.jsx'
+import { connect } from 'react-redux';
+import { setTimestamp } from '../store/actions';
+import Line from '../components/Line';
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     audioOn: state.audioPlayer.audioOn,
     timestamp: state.audioPlayer.timestamp,
-    player: state.audioPlayer.element
-  }
+    audioPlayerElement: state.audioPlayer.element,
+  };
 }
 
-function mapDispatchToProps (dispatch, ownProps) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
-    lineHandler (player, seconds) {
-      dispatch(setTimestamp(seconds))
-      ownProps.seek(player, seconds)
-    }
-  }
+    lineHandler(player, seconds) {
+      dispatch(setTimestamp(seconds));
+      ownProps.seek(player, seconds);
+    },
+  };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Line)
+  mapDispatchToProps,
+)(Line);

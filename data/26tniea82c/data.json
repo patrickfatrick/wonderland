@@ -1,10 +1,12 @@
 {
+  "id": "26tniea82c",
   "info": {
     "title": "Alice's Adventures in Wonderland",
     "author": "Lewis Carroll"
   },
   "frontmatter": [
     {
+      "id": "1wapgwcgl",
       "type": "image",
       "src": "00.png"
     }
@@ -12,24 +14,34 @@
   "audioSrc": "26tniea82c.m4a",
   "chapters": [
     {
+      "id": "919lje3xy",
       "title": "Down the Rabbit Hole",
       "containers": [
         {
+          "id": "j4f42e1nen",
+          "type": "chapterheading",
+          "title": "Down the Rabbit Hole"
+        },
+        {
+          "id": "8e031ejo7e",
           "type": "paragraph",
           "lines": [
             {
+              "id": "9o1a2g2wm",
               "lineType": "normal",
               "content": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do:",
               "timestampStart": 18,
               "timestampEnd": 23
             },
             {
+              "id": "5ftr82bdk",
               "lineType": "normal",
               "content": "once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it,",
               "timestampStart": 23,
               "timestampEnd": 29
             },
             {
+              "id": "cgq318kl1g",
               "lineType": "normal",
               "content": "‘and what is the use of a book,’ thought Alice ‘without pictures or conversation?’",
               "timestampStart": 29,
@@ -38,21 +50,25 @@
           ]
         },
         {
+          "id": "gz8zqiyf0",
           "type": "paragraph",
           "lines": [
             {
+              "id": "a3jx7j78i",
               "lineType": "normal",
               "content": "So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid),",
               "timestampStart": 34,
               "timestampEnd": 44
             },
             {
+              "id": "vb8j23pfp",
               "lineType": "normal",
               "content": "whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies,",
               "timestampStart": 44,
               "timestampEnd": 51
             },
             {
+              "id": "katt19e1l",
               "lineType": "normal",
               "content": "when suddenly a White Rabbit with pink eyes ran close by her.",
               "timestampStart": 51,
@@ -61,45 +77,53 @@
           ]
         },
         {
+          "id": "knb11rgmh2",
           "type": "paragraph",
           "lines": [
             {
+              "id": "3gv7f3oyl",
               "lineType": "normal",
               "content": "There was nothing so very remarkable in that;",
               "timestampStart": 55,
               "timestampEnd": 59
             },
             {
+              "id": "fyjkiy6n1s",
               "lineType": "normal",
               "content": "nor did Alice think it so very much out of the way to hear the Rabbit say to itself, ‘Oh dear! Oh dear! I shall be late!’",
               "timestampStart": 59,
               "timestampEnd": 67
             },
             {
+              "id": "ilh82een09",
               "lineType": "normal",
               "content": "(when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed quite natural);",
               "timestampStart": 67,
               "timestampEnd": 76
             },
             {
+              "id": "8herfkqzj",
               "lineType": "normal",
               "content": "but when the Rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, Alice started to her feet,",
               "timestampStart": 76,
               "timestampEnd": 85
             },
             {
+              "id": "cvf4cedc1j",
               "lineType": "normal",
               "content": "for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it,",
               "timestampStart": 85,
               "timestampEnd": 93
             },
             {
+              "id": "i4gp2852dq",
               "lineType": "normal",
               "content": "and burning with curiosity, she ran across the field after it,",
               "timestampStart": 93,
               "timestampEnd": 98
             },
             {
+              "id": "23xi1m6a1r",
               "lineType": "normal",
               "content": "and fortunately was just in time to see it pop down a large rabbit-hole under the hedge.",
               "timestampStart": 98,
@@ -108,13 +132,16 @@
           ]
         },
         {
+          "id": "6vv67xdcz",
           "type": "image",
           "src": "01.png"
         },
         {
+          "id": "6x412q2cgf",
           "type": "paragraph",
           "lines": [
             {
+              "id": "5zb1dcf31o",
               "lineType": "normal",
               "content": "In another moment down went Alice after it, never once considering how in the world she was to get out again.",
               "timestampStart": 104,
@@ -123,15 +150,18 @@
           ]
         },
         {
+          "id": "ea1r29l63h",
           "type": "paragraph",
           "lines": [
             {
+              "id": "cab21w3r0u",
               "lineType": "normal",
               "content": "The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down,",
               "timestampStart": 111,
               "timestampEnd": 116
             },
             {
+              "id": "eeiy2naorn",
               "lineType": "normal",
               "content": "so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well.",
               "timestampStart": 116,
@@ -140,39 +170,46 @@
           ]
         },
         {
+          "id": "5d22gumy1j",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2e67k353qs",
               "lineType": "normal",
               "content": "Either the well was very deep, or she fell very slowly, for she had plenty of time as she went down to look about her and to wonder what was going to happen next.",
               "timestampStart": 124,
               "timestampEnd": 135
             },
             {
+              "id": "kdmbvg1q4",
               "lineType": "normal",
               "content": "First, she tried to look down and make out what she was coming to, but it was too dark to see anything;",
               "timestampStart": 135,
               "timestampEnd": 140
             },
             {
+              "id": "dzzpemoz2g",
               "lineType": "normal",
               "content": "then she looked at the sides of the well, and noticed that they were filled with cupboards and book-shelves;",
               "timestampStart": 140,
               "timestampEnd": 147
             },
             {
+              "id": "2nelv5g0tw",
               "lineType": "normal",
               "content": "here and there she saw maps and pictures hung upon pegs.",
               "timestampStart": 147,
               "timestampEnd": 151
             },
             {
+              "id": "ktz54aic1o",
               "lineType": "normal",
               "content": "She took down a jar from one of the shelves as she passed; it was labelled ‘ORANGE MARMALADE’, but to her great disappointment it was empty:",
               "timestampStart": 151,
               "timestampEnd": 160
             },
             {
+              "id": "21bj9x1pva",
               "lineType": "normal",
               "content": "she did not like to drop the jar for fear of killing somebody, so managed to put it into one of the cupboards as she fell past it.",
               "timestampStart": 160,
@@ -181,15 +218,18 @@
           ]
         },
         {
+          "id": "8gvk6unm2c",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1jixvwigmf",
               "lineType": "normal",
               "content": "‘Well!’ thought Alice to herself, ‘after such a fall as this, I shall think nothing of tumbling down stairs! How brave they’ll all think me at home!",
               "timestampStart": 168,
               "timestampEnd": 177
             },
             {
+              "id": "3bam1n6s30",
               "lineType": "normal",
               "content": "Why, I wouldn’t say anything about it, even if I fell off the top of the house!’ (Which was very likely true.)",
               "timestampStart": 177,
@@ -198,39 +238,46 @@
           ]
         },
         {
+          "id": "82g1ri54l",
           "type": "paragraph",
           "lines": [
             {
+              "id": "yaytv7hgr",
               "lineType": "normal",
               "content": "Down, down, down. Would the fall never come to an end!",
               "timestampStart": 184,
               "timestampEnd": 193
             },
             {
+              "id": "1e8ekn7l8h",
               "lineType": "normal",
               "content": "‘I wonder how many miles I’ve fallen by this time?’ she said aloud.",
               "timestampStart": 193,
               "timestampEnd": 197
             },
             {
+              "id": "2ekt55cy8z",
               "lineType": "normal",
               "content": "‘I must be getting somewhere near the centre of the earth. Let me see: that would be four thousand miles down, I think —’",
               "timestampStart": 197,
               "timestampEnd": 205
             },
             {
+              "id": "1sc8jg31w",
               "lineType": "normal",
               "content": "(for, you see, Alice had learnt several things of this sort in her lessons in the schoolroom, and though this was not a very good opportunity for showing off her knowledge, as there was no one to listen to her, still it was good practice to say it over)",
               "timestampStart": 205,
               "timestampEnd": 219
             },
             {
+              "id": "1v791r285l",
               "lineType": "normal",
               "content": "‘— yes, that’s about the right distance — but then I wonder what Latitude or Longitude I’ve got to?’",
               "timestampStart": 219,
               "timestampEnd": 225
             },
             {
+              "id": "253lkd4ep6",
               "lineType": "normal",
               "content": "(Alice had no idea what Latitude was, or Longitude either, but thought they were nice grand words to say.)",
               "timestampStart": 225,
@@ -239,39 +286,46 @@
           ]
         },
         {
+          "id": "9zxc7ahcu",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2f97j8e4c4",
               "lineType": "normal",
               "content": "Presently she began again. ‘I wonder if I shall fall right through the earth!",
               "timestampStart": 233,
               "timestampEnd": 238
             },
             {
+              "id": "cdpexcchl",
               "lineType": "normal",
               "content": "How funny it’ll seem to come out among the people that walk with their heads downward! The Antipathies, I think —’",
               "timestampStart": 238,
               "timestampEnd": 245
             },
             {
+              "id": "3hx66dua1c",
               "lineType": "normal",
               "content": "(she was rather glad there was no one listening, this time, as it didn’t sound at all the right word)",
               "timestampStart": 245,
               "timestampEnd": 251
             },
             {
+              "id": "j8fz2g4at9",
               "lineType": "normal",
               "content": "‘— but I shall have to ask them what the name of the country is, you know. Please, Ma’am, is this New Zealand or Australia?’",
               "timestampStart": 251,
               "timestampEnd": 258
             },
             {
+              "id": "dhqc58s22k",
               "lineType": "normal",
               "content": "(and she tried to curtsey as she spoke — fancy curtseying as you’re falling through the air! Do you think you could manage it?)",
               "timestampStart": 258,
               "timestampEnd": 266
             },
             {
+              "id": "wi7dx9ij1",
               "lineType": "normal",
               "content": "‘And what an ignorant little girl she’ll think me for asking! No, it’ll never do to ask: perhaps I shall see it written up somewhere.’",
               "timestampStart": 266,
@@ -280,63 +334,74 @@
           ]
         },
         {
+          "id": "45jol7ciq",
           "type": "paragraph",
           "lines": [
             {
+              "id": "hd71js3v1t",
               "lineType": "normal",
               "content": "Down, down, down. There was nothing else to do, so Alice soon began talking again.",
               "timestampStart": 275,
               "timestampEnd": 283
             },
             {
+              "id": "fhej20bdul",
               "lineType": "normal",
               "content": "‘Dinah’ll miss me very much to-night, I should think!’ (Dinah was the cat.)",
               "timestampStart": 283,
               "timestampEnd": 288
             },
             {
+              "id": "2bg9qyf430",
               "lineType": "normal",
               "content": "‘I hope they’ll remember her saucer of milk at tea-time. Dinah my dear! I wish you were down here with me!",
               "timestampStart": 288,
               "timestampEnd": 295
             },
             {
+              "id": "fic815200b",
               "lineType": "normal",
               "content": "There are no mice in the air, I’m afraid, but you might catch a bat, and that’s very like a mouse, you know. But do cats eat bats, I wonder?’",
               "timestampStart": 295,
               "timestampEnd": 302
             },
             {
+              "id": "l7ege8k3l",
               "lineType": "normal",
               "content": "And here Alice began to get rather sleepy, and went on saying to herself, in a dreamy sort of way,",
               "timestampStart": 302,
               "timestampEnd": 309
             },
             {
+              "id": "1hdzacjd52",
               "lineType": "normal",
               "content": "‘Do cats eat bats? Do cats eat bats?’ and sometimes, ‘Do bats eat cats?’",
               "timestampStart": 309,
               "timestampEnd": 320
             },
             {
+              "id": "56meo4ygr",
               "lineType": "normal",
               "content": "for, you see, as she couldn’t answer either question, it didn’t much matter which way she put it.",
               "timestampStart": 320,
               "timestampEnd": 326
             },
             {
+              "id": "54gqdtuy1x",
               "lineType": "normal",
               "content": "She felt that she was dozing off, and had just begun to dream that she was walking hand in hand with Dinah, and saying to her very earnestly,",
               "timestampStart": 326,
               "timestampEnd": 335
             },
             {
+              "id": "ic8n1q9hv1",
               "lineType": "normal",
               "content": "‘Now, Dinah, tell me the truth: did you ever eat a bat?’",
               "timestampStart": 335,
               "timestampEnd": 340
             },
             {
+              "id": "1cm27ihd4",
               "lineType": "normal",
               "content": "when suddenly, thump! thump! down she came upon a heap of sticks and dry leaves, and the fall was over.",
               "timestampStart": 340,
@@ -345,39 +410,46 @@
           ]
         },
         {
+          "id": "2e7ldg164o",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1i3cohb5j2",
               "lineType": "normal",
               "content": "Alice was not a bit hurt, and she jumped up on to her feet in a moment: she looked up, but it was all dark overhead;",
               "timestampStart": 346,
               "timestampEnd": 354
             },
             {
+              "id": "9tje2gpej",
               "lineType": "normal",
               "content": "before her was another long passage, and the White Rabbit was still in sight, hurrying down it.",
               "timestampStart": 354,
               "timestampEnd": 360
             },
             {
+              "id": "1bisx4cn1d",
               "lineType": "normal",
               "content": "There was not a moment to be lost: away went Alice like the wind, and was just in time to hear it say, as it turned a corner,",
               "timestampStart": 360,
               "timestampEnd": 367
             },
             {
+              "id": "4qu7dvmv2r",
               "lineType": "normal",
               "content": "‘Oh my ears and whiskers, how late it’s getting!’",
               "timestampStart": 367,
               "timestampEnd": 372
             },
             {
+              "id": "cbuehhr81c",
               "lineType": "normal",
               "content": "She was close behind it when she turned the corner, but the Rabbit was no longer to be seen:",
               "timestampStart": 372,
               "timestampEnd": 376
             },
             {
+              "id": "mc1bsht0m",
               "lineType": "normal",
               "content": "she found herself in a long, low hall, which was lit up by a row of lamps hanging from the roof.",
               "timestampStart": 376,
@@ -386,15 +458,18 @@
           ]
         },
         {
+          "id": "hbhgbf630",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2a8bxrcqk8",
               "lineType": "normal",
               "content": "There were doors all round the hall, but they were all locked;",
               "timestampStart": 383,
               "timestampEnd": 386
             },
             {
+              "id": "c071h1kg7",
               "lineType": "normal",
               "content": "and when Alice had been all the way down one side and up the other, trying every door, she walked sadly down the middle, wondering how she was ever to get out again.",
               "timestampStart": 386,
@@ -403,33 +478,39 @@
           ]
         },
         {
+          "id": "ai6girk1h",
           "type": "paragraph",
           "lines": [
             {
+              "id": "13awqg5g30",
               "lineType": "normal",
               "content": "Suddenly she came upon a little three-legged table, all made of solid glass;",
               "timestampStart": 395,
               "timestampEnd": 401
             },
             {
+              "id": "cctegvv620",
               "lineType": "normal",
               "content": "there was nothing on it except a tiny golden key, and Alice’s first thought was that it might belong to one of the doors of the hall;",
               "timestampStart": 401,
               "timestampEnd": 408
             },
             {
+              "id": "99dle9pcy",
               "lineType": "normal",
               "content": "but, alas! either the locks were too large, or the key was too small, but at any rate it would not open any of them.",
               "timestampStart": 408,
               "timestampEnd": 416
             },
             {
+              "id": "i4ask1b2k",
               "lineType": "normal",
               "content": "However, on the second time round, she came upon a low curtain she had not noticed before, and behind it was a little door about fifteen inches high:",
               "timestampStart": 416,
               "timestampEnd": 425
             },
             {
+              "id": "9aerdikj15",
               "lineType": "normal",
               "content": "she tried the little golden key in the lock, and to her great delight it fitted!",
               "timestampStart": 425,
@@ -438,43 +519,51 @@
           ]
         },
         {
+          "id": "cze41fc8iz",
           "type": "image",
           "src": "02.png"
         },
         {
+          "id": "f2da42a115",
           "type": "paragraph",
           "lines": [
             {
+              "id": "ijonicln1q",
               "lineType": "normal",
               "content": "Alice opened the door and found that it led into a small passage, not much larger than a rat-hole:",
               "timestampStart": 430,
               "timestampEnd": 436
             },
             {
+              "id": "2e2yipe72b",
               "lineType": "normal",
               "content": "she knelt down and looked along the passage into the loveliest garden you ever saw.",
               "timestampStart": 436,
               "timestampEnd": 441
             },
             {
+              "id": "2gdht66fma",
               "lineType": "normal",
               "content": "How she longed to get out of that dark hall, and wander about among those beds of bright flowers and those cool fountains, but she could not even get her head though the doorway;",
               "timestampStart": 441,
               "timestampEnd": 453
             },
             {
+              "id": "19difve3u4",
               "lineType": "normal",
               "content": "‘and even if my head would go through,’ thought poor Alice, ‘it would be of very little use without my shoulders.",
               "timestampStart": 453,
               "timestampEnd": 459
             },
             {
+              "id": "5fmf1udqg5",
               "lineType": "normal",
               "content": "Oh, how I wish I could shut up like a telescope! I think I could, if I only know how to begin.’",
               "timestampStart": 459,
               "timestampEnd": 466
             },
             {
+              "id": "k55w1bk3z1",
               "lineType": "normal",
               "content": "For, you see, so many out-of-the-way things had happened lately, that Alice had begun to think that very few things indeed were really impossible.",
               "timestampStart": 466,
@@ -483,33 +572,39 @@
           ]
         },
         {
+          "id": "fjsnnk0s",
           "type": "paragraph",
           "lines": [
             {
+              "id": "jyvlkga2o",
               "lineType": "normal",
               "content": "There seemed to be no use in waiting by the little door, so she went back to the table, half hoping she might find another key on it,",
               "timestampStart": 475,
               "timestampEnd": 483
             },
             {
+              "id": "2q64enl8se",
               "lineType": "normal",
               "content": "or at any rate a book of rules for shutting people up like telescopes:",
               "timestampStart": 483,
               "timestampEnd": 487
             },
             {
+              "id": "fxfv2ldwcb",
               "lineType": "normal",
               "content": "this time she found a little bottle on it,",
               "timestampStart": 487,
               "timestampEnd": 490
             },
             {
+              "id": "9iumimsz2b",
               "lineType": "normal",
               "content": "(‘which certainly was not here before,’ said Alice,)",
               "timestampStart": 490,
               "timestampEnd": 494
             },
             {
+              "id": "1begwf6aj",
               "lineType": "normal",
               "content": "and round the neck of the bottle was a paper label, with the words ‘DRINK ME’ beautifully printed on it in large letters.",
               "timestampStart": 494,
@@ -518,43 +613,51 @@
           ]
         },
         {
+          "id": "2pt1296qyd",
           "type": "image",
           "src": "03.png"
         },
         {
+          "id": "7j2x4xyw",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1cl3ttcu22",
               "lineType": "normal",
               "content": "It was all very well to say ‘Drink me,’ but the wise little Alice was not going to do that in a hurry.",
               "timestampStart": 501,
               "timestampEnd": 508
             },
             {
+              "id": "2j8j3g7iy",
               "lineType": "normal",
               "content": "‘No, I’ll look first,’ she said, ‘and see whether it’s marked “poison” or not’;",
               "timestampStart": 508,
               "timestampEnd": 514
             },
             {
+              "id": "1k81ur60gl",
               "lineType": "normal",
               "content": "for she had read several nice little histories about children who had got burnt, and eaten up by wild beasts and other unpleasant things,",
               "timestampStart": 514,
               "timestampEnd": 523
             },
             {
+              "id": "1mcdbu2hpq",
               "lineType": "normal",
               "content": "all because they would not remember the simple rules their friends had taught them:",
               "timestampStart": 523,
               "timestampEnd": 529
             },
             {
+              "id": "3e7w1le641",
               "lineType": "normal",
               "content": "such as, that a red-hot poker will burn you if you hold it too long; and that if you cut your finger very deeply with a knife, it usually bleeds;",
               "timestampStart": 529,
               "timestampEnd": 537
             },
             {
+              "id": "d5421z3t5w",
               "lineType": "normal",
               "content": "and she had never forgotten that, if you drink much from a bottle marked ‘poison,’ it is almost certain to disagree with you, sooner or later.",
               "timestampStart": 537,
@@ -563,21 +666,25 @@
           ]
         },
         {
+          "id": "s75ki7xsc",
           "type": "paragraph",
           "lines": [
             {
+              "id": "j9p61ucjbo",
               "lineType": "normal",
               "content": "However, this bottle was not marked ‘poison,’ so Alice ventured to taste it, and finding it very nice,",
               "timestampStart": 544,
               "timestampEnd": 551
             },
             {
+              "id": "2jebjs795u",
               "lineType": "normal",
               "content": "(it had, in fact, a sort of mixed flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, and hot buttered toast,)",
               "timestampStart": 551,
               "timestampEnd": 561
             },
             {
+              "id": "9p1n1y8lcx",
               "lineType": "normal",
               "content": "she very soon finished it off.",
               "timestampStart": 561,
@@ -586,12 +693,15 @@
           ]
         },
         {
+          "id": "7z2v7vi6d",
           "type": "flourish"
         },
         {
+          "id": "z3ff5hf93",
           "type": "paragraph",
           "lines": [
             {
+              "id": "d7tu1afksn",
               "lineType": "normal",
               "content": "‘What a curious feeling!’ said Alice; ‘I must be shutting up like a telescope.’",
               "timestampStart": 563,
@@ -600,27 +710,32 @@
           ]
         },
         {
+          "id": "9ui4tl54c",
           "type": "paragraph",
           "lines": [
             {
+              "id": "5psechkv1n",
               "lineType": "normal",
               "content": "And so it was indeed: she was now only ten inches high, and her face brightened up at the thought that she was now the right size for going through the little door into that lovely garden.",
               "timestampStart": 568,
               "timestampEnd": 579
             },
             {
+              "id": "9iqb1odbay",
               "lineType": "normal",
               "content": "First, however, she waited for a few minutes to see if she was going to shrink any further: she felt a little nervous about this;",
               "timestampStart": 579,
               "timestampEnd": 586
             },
             {
+              "id": "hdfoff201o",
               "lineType": "normal",
               "content": "‘for it might end, you know,’ said Alice to herself, ‘in my going out altogether, like a candle. I wonder what I should be like then?’",
               "timestampStart": 586,
               "timestampEnd": 595
             },
             {
+              "id": "9stgm1yi8",
               "lineType": "normal",
               "content": "And she tried to fancy what the flame of a candle is like after the candle is blown out, for she could not remember ever having seen such a thing.",
               "timestampStart": 595,
@@ -629,33 +744,39 @@
           ]
         },
         {
+          "id": "d1d21wh5ff",
           "type": "paragraph",
           "lines": [
             {
+              "id": "13b5ye6a9a",
               "lineType": "normal",
               "content": "After a while, finding that nothing more happened, she decided on going into the garden at once;",
               "timestampStart": 602,
               "timestampEnd": 609
             },
             {
+              "id": "3mpi154tum",
               "lineType": "normal",
               "content": "but, alas for poor Alice! when she got to the door, she found she had forgotten the little golden key",
               "timestampStart": 609,
               "timestampEnd": 616
             },
             {
+              "id": "cqev1k19gg",
               "lineType": "normal",
               "content": "and when she went back to the table for it, she found she could not possibly reach it:",
               "timestampStart": 616,
               "timestampEnd": 620
             },
             {
+              "id": "defg5g91",
               "lineType": "normal",
               "content": "she could see it quite plainly through the glass, and she tried her best to climb up one of the legs of the table, but it was too slippery;",
               "timestampStart": 620,
               "timestampEnd": 628
             },
             {
+              "id": "dszjjht7j",
               "lineType": "normal",
               "content": "and when she had tired herself out with trying, the poor little thing sat down and cried.",
               "timestampStart": 628,
@@ -664,39 +785,46 @@
           ]
         },
         {
+          "id": "3o9c1bgqz7",
           "type": "paragraph",
           "lines": [
             {
+              "id": "h06a22718g",
               "lineType": "normal",
               "content": "‘Come, there’s no use in crying like that!’ said Alice to herself, rather sharply; ‘I advise you to leave off this minute!’",
               "timestampStart": 634,
               "timestampEnd": 646
             },
             {
+              "id": "b37cb4hhu",
               "lineType": "normal",
               "content": "She generally gave herself very good advice, (though she very seldom followed it),",
               "timestampStart": 646,
               "timestampEnd": 651
             },
             {
+              "id": "286bqegvuy",
               "lineType": "normal",
               "content": "and sometimes she scolded herself so severely as to bring tears into her eyes;",
               "timestampStart": 651,
               "timestampEnd": 656
             },
             {
+              "id": "3a4y27bw61",
               "lineType": "normal",
               "content": "and once she remembered trying to box her own ears for having cheated herself in a game of croquet she was playing against herself, for this curious child was very fond of pretending to be two people.",
               "timestampStart": 656,
               "timestampEnd": 668
             },
             {
+              "id": "4zu5ezkn2g",
               "lineType": "normal",
               "content": "‘But it’s no use now,’ thought poor Alice, ‘to pretend to be two people!",
               "timestampStart": 668,
               "timestampEnd": 673
             },
             {
+              "id": "we2wy5m8z",
               "lineType": "normal",
               "content": "Why, there’s hardly enough of me left to make one respectable person!’",
               "timestampStart": 673,
@@ -705,27 +833,32 @@
           ]
         },
         {
+          "id": "k6jpm8gqf",
           "type": "paragraph",
           "lines": [
             {
+              "id": "i133cc51e",
               "lineType": "normal",
               "content": "Soon her eye fell on a little glass box that was lying under the table: ",
               "timestampStart": 677,
-              "timestampEnd": 681 
+              "timestampEnd": 681
             },
             {
+              "id": "2a2hljdhb4",
               "lineType": "normal",
               "content": "she opened it, and found in it a very small cake, on which the words ‘EAT ME’ were beautifully marked in currants.",
               "timestampStart": 681,
               "timestampEnd": 689
             },
             {
+              "id": "8lcu1phfih",
               "lineType": "normal",
               "content": "‘Well, I’ll eat it,’ said Alice, ‘and if it makes me grow larger, I can reach the key; and if it makes me grow smaller, I can creep under the door;",
               "timestampStart": 689,
               "timestampEnd": 698
             },
             {
+              "id": "1fy9hbx0f",
               "lineType": "normal",
               "content": "so either way I’ll get into the garden, and I don’t care which happens!’",
               "timestampStart": 698,
@@ -734,27 +867,32 @@
           ]
         },
         {
+          "id": "63pjcgpg5",
           "type": "paragraph",
           "lines": [
             {
+              "id": "di4yewos1z",
               "lineType": "normal",
               "content": "She ate a little bit, and said anxiously to herself, ‘Which way? Which way?’,",
               "timestampStart": 702,
               "timestampEnd": 707
             },
             {
+              "id": "1nj6yqaz20",
               "lineType": "normal",
               "content": "holding her hand on the top of her head to feel which way it was growing, and she was quite surprised to find that she remained the same size:",
               "timestampStart": 707,
               "timestampEnd": 715
             },
             {
+              "id": "494ccpkp2e",
               "lineType": "normal",
               "content": "to be sure, this generally happens when one eats cake, but Alice had got so much into the way of expecting nothing but out-of-the-way things to happen,",
               "timestampStart": 715,
               "timestampEnd": 724
             },
             {
+              "id": "3p9qhhq721",
               "lineType": "normal",
               "content": "that it seemed quite dull and stupid for life to go on in the common way.",
               "timestampStart": 724,
@@ -763,9 +901,11 @@
           ]
         },
         {
+          "id": "cicl9ih2g",
           "type": "paragraph",
           "lines": [
             {
+              "id": "ixmx20fufd",
               "lineType": "normal",
               "content": "So she set to work, and very soon finished off the cake.",
               "timestampStart": 729,
@@ -774,53 +914,68 @@
           ]
         },
         {
+          "id": "1leho9l070",
           "type": "flourish"
         }
       ]
     },
     {
+      "id": "ju601t767z",
       "title": "The Pool of Tears",
       "containers": [
         {
+          "id": "g91tf2iwi",
+          "type": "chapterheading",
+          "title": "The Pool of Tears"
+        },
+        {
+          "id": "9f6029ha3s",
           "type": "paragraph",
           "lines": [
             {
+              "id": "11390h6h3",
               "lineType": "normal",
               "content": "‘Curiouser and curiouser!’ cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English);",
               "timestampStart": 758,
               "timestampEnd": 765
             },
             {
+              "id": "wh7dui8f",
               "lineType": "normal",
               "content": "‘now I’m opening out like the largest telescope that ever was! Good-bye, feet!’",
               "timestampStart": 765,
               "timestampEnd": 770
             },
             {
+              "id": "801n1nfobf",
               "lineType": "normal",
               "content": "(for when she looked down at her feet, they seemed to be almost out of sight, they were getting so far off). ",
               "timestampStart": 770,
               "timestampEnd": 775
             },
             {
+              "id": "6rvq2iektv",
               "lineType": "normal",
               "content": "‘Oh, my poor little feet, I wonder who will put on your shoes and stockings for you now, dears? I’m sure I shan’t be able!",
               "timestampStart": 775,
               "timestampEnd": 784
             },
             {
+              "id": "1bdp24mgi",
               "lineType": "normal",
               "content": "I shall be a great deal too far off to trouble myself about you: you must manage the best way you can;",
               "timestampStart": 784,
               "timestampEnd": 790
             },
             {
+              "id": "2k6zutee0l",
               "lineType": "normal",
               "content": "— but I must be kind to them,’ thought Alice, ‘or perhaps they won’t walk the way I want to go! ",
               "timestampStart": 790,
               "timestampEnd": 796
             },
             {
+              "id": "1q3g0jji9q",
               "lineType": "normal",
               "content": "Let me see: I’ll give them a new pair of boots every Christmas.’",
               "timestampStart": 796,
@@ -829,19 +984,23 @@
           ]
         },
         {
+          "id": "jero2qkw2l",
           "type": "image",
           "src": "04.png"
         },
         {
+          "id": "9o1ggo7u1l",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1p5tdm811x",
               "lineType": "normal",
               "content": "And she went on planning to herself how she would manage it.",
               "timestampStart": 801,
               "timestampEnd": 804
             },
             {
+              "id": "i9alp5tfb",
               "lineType": "normal",
               "content": "‘They must go by the carrier,’ she thought; ‘and how funny it’ll seem, sending presents to one’s own feet! And how odd the directions will look!",
               "timestampStart": 804,
@@ -850,10 +1009,12 @@
           ]
         },
         {
+          "id": "g7nffug61b",
           "type": "paragraph",
           "lines": [
             {
-               "lineType": "formatted",
+              "id": "7x1a2k4axa",
+              "lineType": "formatted",
               "content": "\n  Alice’s Right Foot, Esq.\n Hearthrug,\n  Near the fender,\n   (with Alice’s love).",
               "timestampStart": 812,
               "timestampEnd": 819
@@ -861,9 +1022,11 @@
           ]
         },
         {
+          "id": "dh55fq5220",
           "type": "paragraph",
           "lines": [
             {
+              "id": "f0gv1cbfr5",
               "lineType": "normal",
               "content": "Oh dear, what nonsense I’m talking!’",
               "timestampStart": 819,
@@ -872,15 +1035,18 @@
           ]
         },
         {
+          "id": "9hqu1tkbx8",
           "type": "paragraph",
           "lines": [
             {
+              "id": "j9hkxcu4e",
               "lineType": "normal",
               "content": "Just then her head struck against the roof of the hall:",
               "timestampStart": 822,
               "timestampEnd": 825
             },
             {
+              "id": "3mpedsrh28",
               "lineType": "normal",
               "content": "in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.",
               "timestampStart": 825,
@@ -889,15 +1055,18 @@
           ]
         },
         {
+          "id": "77wm1o2ain",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1f71525j1a",
               "lineType": "normal",
               "content": "Poor Alice! It was as much as she could do, lying down on one side, to look through into the garden with one eye;",
               "timestampStart": 831,
               "timestampEnd": 838
             },
             {
+              "id": "l8c6c9l9v",
               "lineType": "normal",
               "content": "but to get through was more hopeless than ever: she sat down and began to cry again.",
               "timestampStart": 838,
@@ -906,21 +1075,25 @@
           ]
         },
         {
+          "id": "1bhlbybm4u",
           "type": "paragraph",
           "lines": [
             {
+              "id": "fj7uiozn2h",
               "lineType": "normal",
               "content": "‘You ought to be ashamed of yourself,’ said Alice, ‘a great girl like you,’ (she might well say this),",
               "timestampStart": 843,
               "timestampEnd": 853
             },
             {
+              "id": "yg7znf1ka",
               "lineType": "normal",
               "content": "‘to go on crying in this way! Stop this moment, I tell you!’",
               "timestampStart": 853,
               "timestampEnd": 856
             },
             {
+              "id": "k27x3dilw",
               "lineType": "normal",
               "content": "But she went on all the same, shedding gallons of tears, until there was a large pool all round her, about four inches deep and reaching half down the hall.",
               "timestampStart": 856,
@@ -929,39 +1102,46 @@
           ]
         },
         {
+          "id": "05emc69li",
           "type": "paragraph",
           "lines": [
             {
+              "id": "21hth6g76w",
               "lineType": "normal",
               "content": "After a time she heard a little pattering of feet in the distance, and she hastily dried her eyes to see what was coming.",
               "timestampStart": 865,
               "timestampEnd": 881
             },
             {
+              "id": "2yhf14x1f",
               "lineType": "normal",
               "content": "It was the White Rabbit returning, splendidly dressed, with a pair of white kid gloves in one hand and a large fan in the other:",
               "timestampStart": 871,
               "timestampEnd": 877
             },
             {
+              "id": "6dd4khvfv",
               "lineType": "normal",
               "content": "he came trotting along in a great hurry, muttering to himself as he came,",
               "timestampStart": 877,
               "timestampEnd": 881
             },
             {
+              "id": "f6nee68f11",
               "lineType": "normal",
               "content": "‘Oh! the Duchess, the Duchess! Oh! won’t she be savage if I’ve kept her waiting!’",
               "timestampStart": 881,
               "timestampEnd": 887
             },
             {
+              "id": "94teeazwf",
               "lineType": "normal",
               "content": "Alice felt so desperate that she was ready to ask help of any one; so, when the Rabbit came near her, she began, in a low, timid voice,",
               "timestampStart": 887,
               "timestampEnd": 894
             },
             {
+              "id": "71sfcit8f",
               "lineType": "normal",
               "content": "‘If you please, sir —’ The Rabbit started violently, dropped the white kid gloves and the fan, and skurried away into the darkness as hard as he could go.",
               "timestampStart": 894,
@@ -970,37 +1150,44 @@
           ]
         },
         {
+          "id": "hfht1869t8",
           "type": "image",
           "src": "05.png"
         },
         {
+          "id": "ebai1q8s8w",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1wl82ieuum",
               "lineType": "normal",
               "content": "Alice took up the fan and gloves, and, as the hall was very hot, she kept fanning herself all the time she went on talking:",
               "timestampStart": 903,
               "timestampEnd": 909
             },
             {
+              "id": "eiinubyg5",
               "lineType": "normal",
               "content": "‘Dear, dear! How queer everything is to-day! And yesterday things went on just as usual.",
               "timestampStart": 909,
               "timestampEnd": 916
             },
             {
+              "id": "1lr694t3p",
               "lineType": "normal",
               "content": "I wonder if I’ve been changed in the night? Let me think: was I the same when I got up this morning? I almost think I can remember feeling a little different.",
               "timestampStart": 916,
               "timestampEnd": 927
             },
             {
+              "id": "5cur2je9t",
               "lineType": "normal",
               "content": "But if I’m not the same, the next question is, Who in the world am I? Ah, that’s the great puzzle!’",
               "timestampStart": 927,
               "timestampEnd": 935
             },
             {
+              "id": "1g8dng4y5a",
               "lineType": "normal",
               "content": "And she began thinking over all the children she knew that were of the same age as herself, to see if she could have been changed for any of them.",
               "timestampStart": 935,
@@ -1009,51 +1196,60 @@
           ]
         },
         {
+          "id": "f5i27m4r15",
           "type": "paragraph",
           "lines": [
             {
+              "id": "ughku6az4",
               "lineType": "normal",
               "content": "‘I’m sure I’m not Ada,’ she said, ‘for her hair goes in such long ringlets, and mine doesn’t go in ringlets at all;",
               "timestampStart": 942,
               "timestampEnd": 949
             },
             {
+              "id": "eie521el43",
               "lineType": "normal",
               "content": "and I’m sure I can’t be Mabel, for I know all sorts of things, and she, oh! she knows such a very little!",
               "timestampStart": 949,
               "timestampEnd": 956
             },
             {
+              "id": "4c4m2a1w4a",
               "lineType": "normal",
               "content": "Besides, she’s she, and I’m I, and — oh dear, how puzzling it all is! I’ll try if I know all the things I used to know.",
               "timestampStart": 956,
               "timestampEnd": 965
             },
             {
+              "id": "b4grtfh7q",
               "lineType": "normal",
               "content": "Let me see: four times five is twelve, and four times six is thirteen, and four times seven is — oh dear!",
               "timestampStart": 965,
               "timestampEnd": 974
             },
             {
+              "id": "05fl8gu4b",
               "lineType": "normal",
               "content": "I shall never get to twenty at that rate! However, the Multiplication Table doesn’t signify: let’s try Geography.",
               "timestampStart": 974,
               "timestampEnd": 982
             },
             {
+              "id": "aevzte4zj",
               "lineType": "normal",
               "content": "London is the capital of Paris, and Paris is the capital of Rome, and Rome — no, that’s all wrong, I’m certain!",
               "timestampStart": 982,
               "timestampEnd": 991
             },
             {
+              "id": "17ejftgmal",
               "lineType": "normal",
               "content": "I must have been changed for Mabel! I’ll try and say “How doth the little —”’",
               "timestampStart": 991,
               "timestampEnd": 996
             },
             {
+              "id": "doz68qeop",
               "lineType": "normal",
               "content": "and she crossed her hands on her lap as if she were saying lessons, and began to repeat it, but her voice sounded hoarse and strange, and the words did not come the same as they used to do:—",
               "timestampStart": 996,
@@ -1062,10 +1258,12 @@
           ]
         },
         {
+          "id": "i7td2r3c7y",
           "type": "paragraph",
           "lines": [
             {
-               "lineType": "formatted",
+              "id": "2gfvgpdq29",
+              "lineType": "formatted",
               "content": "\n‘How doth the little crocodile\nImprove his shining tail,\nAnd pour the waters of the Nile\nOn every golden scale!\n\n‘How cheerfully he seems to grin,\nHow neatly spread his claws,\nAnd welcome little fishes in\nWith gently smiling jaws!’",
               "timestampStart": 1006,
               "timestampEnd": 1022
@@ -1073,39 +1271,46 @@
           ]
         },
         {
+          "id": "95fx7i9p2i",
           "type": "paragraph",
           "lines": [
             {
+              "id": "b9nt1z1ded",
               "lineType": "normal",
               "content": "‘I’m sure those are not the right words,’ said poor Alice, and her eyes filled with tears again as she went on,",
               "timestampStart": 1022,
               "timestampEnd": 1029
             },
             {
+              "id": "rgqrgccw5",
               "lineType": "normal",
               "content": "‘I must be Mabel after all, and I shall have to go and live in that poky little house, and have next to no toys to play with, and oh! ever so many lessons to learn!",
               "timestampStart": 1029,
               "timestampEnd": 1038
             },
             {
+              "id": "2kf7x7h5s1",
               "lineType": "normal",
               "content": "No, I’ve made up my mind about it; if I’m Mabel, I’ll stay down here! It’ll be no use their putting their heads down and saying “Come up again, dear!”",
               "timestampStart": 1038,
               "timestampEnd": 1048
             },
             {
+              "id": "kalm1h784w",
               "lineType": "normal",
               "content": "I shall only look up and say “Who am I then? Tell me that first, and then, if I like being that person, I’ll come up:",
               "timestampStart": 1048,
               "timestampEnd": 1055
             },
             {
+              "id": "22h3qj30b",
               "lineType": "normal",
               "content": "if not, I’ll stay down here till I’m somebody else”— but, oh dear!’ cried Alice, with a sudden burst of tears,",
               "timestampStart": 1055,
               "timestampEnd": 1066
             },
             {
+              "id": "1p1q2g1ucy",
               "lineType": "normal",
               "content": "‘I do wish they would put their heads down! I am so very tired of being all alone here!’",
               "timestampStart": 1066,
@@ -1114,27 +1319,32 @@
           ]
         },
         {
+          "id": "j3mta7wi25",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2la3qs5die",
               "lineType": "normal",
               "content": "As she said this she looked down at her hands, and was surprised to see that she had put on one of the Rabbit’s little white kid gloves while she was talking.",
               "timestampStart": 1072,
               "timestampEnd": 1079
             },
             {
+              "id": "9tcocckl13",
               "lineType": "normal",
               "content": "‘How can I have done that?’ she thought. ‘I must be growing small again.’",
               "timestampStart": 1079,
               "timestampEnd": 1085
             },
             {
+              "id": "eq9v9kjy3",
               "lineType": "normal",
               "content": "She got up and went to the table to measure herself by it, and found that, as nearly as she could guess, she was now about two feet high, and was going on shrinking rapidly:",
               "timestampStart": 1085,
               "timestampEnd": 1092
             },
             {
+              "id": "179fitii1k",
               "lineType": "normal",
               "content": "she soon found out that the cause of this was the fan she was holding, and she dropped it hastily, just in time to avoid shrinking away altogether.",
               "timestampStart": 1092,
@@ -1143,27 +1353,32 @@
           ]
         },
         {
+          "id": "k8h0113w2v",
           "type": "paragraph",
           "lines": [
             {
+              "id": "4ydsc2dwn",
               "lineType": "normal",
               "content": "‘That was a narrow escape!’ said Alice, a good deal frightened at the sudden change, but very glad to find herself still in existence;",
               "timestampStart": 1099,
               "timestampEnd": 1107
             },
             {
+              "id": "h3pv4wo38",
               "lineType": "normal",
               "content": "‘and now for the garden!’ and she ran with all speed back to the little door:",
               "timestampStart": 1107,
               "timestampEnd": 1112
             },
             {
+              "id": "ek6ki9d2m",
               "lineType": "normal",
               "content": "but, alas! the little door was shut again, and the little golden key was lying on the glass table as before,",
               "timestampStart": 1112,
               "timestampEnd": 1118
             },
             {
+              "id": "bo7q20og2e",
               "lineType": "normal",
               "content": "‘and things are worse than ever,’ thought the poor child, ‘for I never was so small as this before, never! And I declare it’s too bad, that it is!’",
               "timestampStart": 1118,
@@ -1172,33 +1387,39 @@
           ]
         },
         {
+          "id": "6jb5dj1nw",
           "type": "paragraph",
           "lines": [
             {
+              "id": "k3yy3k1r",
               "lineType": "normal",
               "content": "As she said these words her foot slipped, and in another moment, splash! she was up to her chin in salt water.",
               "timestampStart": 1128,
               "timestampEnd": 1134
             },
             {
+              "id": "8nz71xhv9l",
               "lineType": "normal",
               "content": "Her first idea was that she had somehow fallen into the sea, ‘and in that case I can go back by railway,’ she said to herself.",
               "timestampStart": 1134,
               "timestampEnd": 1142
             },
             {
+              "id": "1n65s41txh",
               "lineType": "normal",
               "content": "(Alice had been to the seaside once in her life, and had come to the general conclusion,",
               "timestampStart": 1142,
               "timestampEnd": 1146
             },
             {
+              "id": "api526wu1v",
               "lineType": "normal",
               "content": "that wherever you go to on the English coast you find a number of bathing machines in the sea, some children digging in the sand with wooden spades, then a row of lodging houses, and behind them a railway station.)",
               "timestampStart": 1146,
               "timestampEnd": 1156
             },
             {
+              "id": "2g9vxp7nat",
               "lineType": "normal",
               "content": "However, she soon made out that she was in the pool of tears which she had wept when she was nine feet high.",
               "timestampStart": 1156,
@@ -1207,25 +1428,30 @@
           ]
         },
         {
+          "id": "e4lezjqgd",
           "type": "image",
           "src": "06.png"
         },
         {
+          "id": "1lh1df1ovm",
           "type": "paragraph",
           "lines": [
             {
+              "id": "epvdjap81z",
               "lineType": "normal",
               "content": "‘I wish I hadn’t cried so much!’ said Alice, as she swam about, trying to find her way out.",
               "timestampStart": 1161,
               "timestampEnd": 1167
             },
             {
+              "id": "1j1ue9d6qv",
               "lineType": "normal",
               "content": "‘I shall be punished for it now, I suppose, by being drowned in my own tears! That will be a queer thing, to be sure!",
               "timestampStart": 1167,
               "timestampEnd": 1176
             },
             {
+              "id": "c6be0g1h2",
               "lineType": "normal",
               "content": "However, everything is queer to-day.’",
               "timestampStart": 1176,
@@ -1234,21 +1460,25 @@
           ]
         },
         {
+          "id": "2216ew0j2c",
           "type": "paragraph",
           "lines": [
             {
+              "id": "7ljz2rd15r",
               "lineType": "normal",
               "content": "Just then she heard something splashing about in the pool a little way off, and she swam nearer to make out what it was:",
               "timestampStart": 1179,
               "timestampEnd": 1185
             },
             {
+              "id": "ensyljle9",
               "lineType": "normal",
               "content": "at first she thought it must be a walrus or hippopotamus, but then she remembered how small she was now,",
               "timestampStart": 1185,
               "timestampEnd": 1190
             },
             {
+              "id": "2aklaf4f5u",
               "lineType": "normal",
               "content": "and she soon made out that it was only a mouse that had slipped in like herself.",
               "timestampStart": 1190,
@@ -1257,39 +1487,46 @@
           ]
         },
         {
+          "id": "ihzahfodi",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2sup2ia3hs",
               "lineType": "normal",
               "content": "‘Would it be of any use, now,’ thought Alice, ‘to speak to this mouse?",
               "timestampStart": 1194,
               "timestampEnd": 1200
             },
             {
+              "id": "149z2wcin",
               "lineType": "normal",
               "content": "Everything is so out-of-the-way down here, that I should think very likely it can talk: at any rate, there’s no harm in trying.’",
               "timestampStart": 1200,
               "timestampEnd": 1209
             },
             {
+              "id": "184m7jf8kw",
               "lineType": "normal",
               "content": "So she began: ‘O Mouse, do you know the way out of this pool? I am very tired of swimming about here, O Mouse!’",
               "timestampStart": 1209,
               "timestampEnd": 1219
             },
             {
+              "id": "7ocl1y4mm2",
               "lineType": "normal",
               "content": "(Alice thought this must be the right way of speaking to a mouse: she had never done such a thing before,",
               "timestampStart": 1219,
               "timestampEnd": 1223
             },
             {
+              "id": "yqdga8m1k",
               "lineType": "normal",
               "content": "but she remembered having seen in her brother’s Latin Grammar, ‘A mouse — of a mouse — to a mouse — a mouse — O mouse!’)",
               "timestampStart": 1223,
               "timestampEnd": 1232
             },
             {
+              "id": "a8yqh9mm1w",
               "lineType": "normal",
               "content": "The Mouse looked at her rather inquisitively, and seemed to her to wink with one of its little eyes, but it said nothing.",
               "timestampStart": 1232,
@@ -1298,33 +1535,39 @@
           ]
         },
         {
+          "id": "h3psypit",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2p839idxnr",
               "lineType": "normal",
               "content": "‘Perhaps it doesn’t understand English,’ thought Alice; ‘I daresay it’s a French mouse, come over with William the Conqueror.’",
               "timestampStart": 1238,
               "timestampEnd": 1245
             },
             {
+              "id": "2a3r1wl23y",
               "lineType": "normal",
               "content": "(For, with all her knowledge of history, Alice had no very clear notion how long ago anything had happened.)",
               "timestampStart": 1245,
               "timestampEnd": 1251
             },
             {
+              "id": "2kd2cfl8nu",
               "lineType": "normal",
               "content": "So she began again: ‘Ou est ma chatte?’ which was the first sentence in her French lesson-book.",
               "timestampStart": 1251,
               "timestampEnd": 1257
             },
             {
+              "id": "jkx53owju",
               "lineType": "normal",
               "content": "The Mouse gave a sudden leap out of the water, and seemed to quiver all over with fright.",
               "timestampStart": 1257,
               "timestampEnd": 1260
             },
             {
+              "id": "f1bx2e2pew",
               "lineType": "normal",
               "content": "‘Oh, I beg your pardon!’ cried Alice hastily, afraid that she had hurt the poor animal’s feelings. ‘I quite forgot you didn’t like cats.’",
               "timestampStart": 1260,
@@ -1333,9 +1576,11 @@
           ]
         },
         {
+          "id": "3aq26i63v",
           "type": "paragraph",
           "lines": [
             {
+              "id": "arzyzl9t",
               "lineType": "normal",
               "content": "‘Not like cats!’ cried the Mouse, in a shrill, passionate voice. ‘Would you like cats if you were me?’",
               "timestampStart": 1268,
@@ -1344,49 +1589,58 @@
           ]
         },
         {
+          "id": "jqg11sflll",
           "type": "image",
           "src": "07.png"
         },
         {
+          "id": "csvodfsf4",
           "type": "paragraph",
           "lines": [
             {
+              "id": "7qf32ogy1v",
               "lineType": "normal",
               "content": "‘Well, perhaps not,’ said Alice in a soothing tone: ‘don’t be angry about it.",
               "timestampStart": 1275,
               "timestampEnd": 1281
             },
             {
+              "id": "7y782opq1",
               "lineType": "normal",
               "content": "And yet I wish I could show you our cat Dinah: I think you’d take a fancy to cats if you could only see her.",
               "timestampStart": 1281,
               "timestampEnd": 1288
             },
             {
+              "id": "1idpbzakzz",
               "lineType": "normal",
               "content": "She is such a dear quiet thing,’ Alice went on, half to herself, as she swam lazily about in the pool,",
               "timestampStart": 1288,
               "timestampEnd": 1296
             },
             {
+              "id": "apby4h4fw",
               "lineType": "normal",
               "content": "‘and she sits purring so nicely by the fire, licking her paws and washing her face —",
               "timestampStart": 1296,
               "timestampEnd": 1301
             },
             {
+              "id": "1pes99f64d",
               "lineType": "normal",
               "content": "and she is such a nice soft thing to nurse — and she’s such a capital one for catching mice —",
               "timestampStart": 1301,
               "timestampEnd": 1306
             },
             {
+              "id": "g1o12i4p1",
               "lineType": "normal",
               "content": "oh, I beg your pardon!’ cried Alice again, for this time the Mouse was bristling all over,",
               "timestampStart": 1306,
               "timestampEnd": 1311
             },
             {
+              "id": "1sb1qml8po",
               "lineType": "normal",
               "content": "and she felt certain it must be really offended. ‘We won’t talk about her any more if you’d rather not.’",
               "timestampStart": 1311,
@@ -1395,15 +1649,18 @@
           ]
         },
         {
+          "id": "al9bi0b5l",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1fivtidqo6",
               "lineType": "normal",
               "content": "‘We indeed!’ cried the Mouse, who was trembling down to the end of his tail.",
               "timestampStart": 1318,
               "timestampEnd": 1323
             },
             {
+              "id": "5lrg1vuoc",
               "lineType": "normal",
               "content": "‘As if I would talk on such a subject! Our family always hated cats: nasty, low, vulgar things! Don’t let me hear the name again!’",
               "timestampStart": 1323,
@@ -1412,45 +1669,53 @@
           ]
         },
         {
+          "id": "h1wt21fios",
           "type": "paragraph",
           "lines": [
             {
+              "id": "q7io06mtq",
               "lineType": "normal",
               "content": "‘I won’t indeed!’ said Alice, in a great hurry to change the subject of conversation.",
               "timestampStart": 1333,
               "timestampEnd": 1337
             },
             {
+              "id": "flmh8b932a",
               "lineType": "normal",
               "content": "‘Are you — are you fond — of — of dogs?’ The Mouse did not answer, so Alice went on eagerly:",
               "timestampStart": 1337,
               "timestampEnd": 1345
             },
             {
+              "id": "1t8w2l2do4",
               "lineType": "normal",
               "content": "‘There is such a nice little dog near our house I should like to show you!",
               "timestampStart": 1345,
               "timestampEnd": 1349
             },
             {
+              "id": "1ll5qy92l7",
               "lineType": "normal",
               "content": "A little bright-eyed terrier, you know, with oh, such long curly brown hair! And it’ll fetch things when you throw them, and it’ll sit up and beg for its dinner, and all sorts of things —",
               "timestampStart": 1349,
               "timestampEnd": 1360
             },
             {
+              "id": "2ulh2sdb",
               "lineType": "normal",
               "content": "I can’t remember half of them — and it belongs to a farmer, you know, and he says it’s so useful, it’s worth a hundred pounds!",
               "timestampStart": 1360,
               "timestampEnd": 1367
             },
             {
+              "id": "cglxgt6ni",
               "lineType": "normal",
               "content": "He says it kills all the rats and — oh dear!’ cried Alice in a sorrowful tone,",
               "timestampStart": 1367,
               "timestampEnd": 1372
             },
             {
+              "id": "aai71bttn",
               "lineType": "normal",
               "content": "‘I’m afraid I’ve offended it again!’ For the Mouse was swimming away from her as hard as it could go, and making quite a commotion in the pool as it went.",
               "timestampStart": 1372,
@@ -1459,27 +1724,32 @@
           ]
         },
         {
+          "id": "7bffesr2f",
           "type": "paragraph",
           "lines": [
             {
+              "id": "gmtq8uu527",
               "lineType": "normal",
               "content": "So she called softly after it, ‘Mouse dear! Do come back again, and we won’t talk about cats or dogs either, if you don’t like them!’",
               "timestampStart": 1380,
               "timestampEnd": 1389
             },
             {
+              "id": "jid1r5qsy",
               "lineType": "normal",
               "content": "When the Mouse heard this, it turned round and swam slowly back to her:",
               "timestampStart": 1389,
               "timestampEnd": 1392
             },
             {
+              "id": "1wd3qc6he2",
               "lineType": "normal",
               "content": "its face was quite pale (with passion, Alice thought), and it said in a low trembling voice,",
               "timestampStart": 1392,
               "timestampEnd": 1397
             },
             {
+              "id": "53pds9sof",
               "lineType": "normal",
               "content": "‘Let us get to the shore, and then I’ll tell you my history, and you’ll understand why it is I hate cats and dogs.’",
               "timestampStart": 1397,
@@ -1488,21 +1758,25 @@
           ]
         },
         {
+          "id": "s84be55p0",
           "type": "paragraph",
           "lines": [
             {
+              "id": "jjbqp8rvc",
               "lineType": "normal",
               "content": "It was high time to go, for the pool was getting quite crowded with the birds and animals that had fallen into it:",
               "timestampStart": 1406,
               "timestampEnd": 1411
             },
             {
+              "id": "17jswvf9lt",
               "lineType": "normal",
               "content": "there were a Duck and a Dodo, a Lory and an Eaglet, and several other curious creatures.",
               "timestampStart": 1411,
               "timestampEnd": 1416
             },
             {
+              "id": "19gehthag",
               "lineType": "normal",
               "content": "Alice led the way, and the whole party swam to the shore.",
               "timestampStart": 1416,
@@ -1511,23 +1785,33 @@
           ]
         },
         {
+          "id": "8esor32mw",
           "type": "flourish"
         }
       ]
     },
     {
+      "id": "i51bae0o1d",
       "title": "A Caucus-Race and a Long Tale",
       "containers": [
         {
+          "id": "hswcbl042m",
+          "type": "chapterheading",
+          "title": "A Caucus-Race and a Long Tale"
+        },
+        {
+          "id": "3oc7j9781m",
           "type": "paragraph",
           "lines": [
             {
+              "id": "hux1n4dwd",
               "lineType": "normal",
               "content": "They were indeed a queer-looking party that assembled on the bank — the birds with draggled feathers,",
               "timestampStart": 1446,
               "timestampEnd": 1450
             },
             {
+              "id": "1xb3p9g0vf",
               "lineType": "normal",
               "content": "the animals with their fur clinging close to them, and all dripping wet, cross, and uncomfortable.",
               "timestampStart": 1450,
@@ -1536,33 +1820,39 @@
           ]
         },
         {
+          "id": "2f8md7jj1h",
           "type": "paragraph",
           "lines": [
             {
+              "id": "geye64t71p",
               "lineType": "normal",
               "content": "The first question of course was, how to get dry again:",
               "timestampStart": 1456,
               "timestampEnd": 1459
             },
             {
+              "id": "5s44hakx3",
               "lineType": "normal",
               "content": "they had a consultation about this, and after a few minutes it seemed quite natural to Alice to find herself talking familiarly with them, as if she had known them all her life.",
               "timestampStart": 1459,
               "timestampEnd": 1468
             },
             {
+              "id": "afg3t8tqn",
               "lineType": "normal",
               "content": "Indeed, she had quite a long argument with the Lory, who at last turned sulky, and would only say,",
               "timestampStart": 1468,
               "timestampEnd": 1473
             },
             {
+              "id": "i2pb1haq59",
               "lineType": "normal",
               "content": "‘I am older than you, and must know better’;",
               "timestampStart": 1473,
               "timestampEnd": 1478
             },
             {
+              "id": "g7291y1rwm",
               "lineType": "normal",
               "content": "and this Alice would not allow without knowing how old it was, and, as the Lory positively refused to tell its age, there was no more to be said.",
               "timestampStart": 1478,
@@ -1571,27 +1861,32 @@
           ]
         },
         {
+          "id": "ccq9z4p0q",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2w1jdicif",
               "lineType": "normal",
               "content": "At last the Mouse, who seemed to be a person of authority among them, called out,",
               "timestampStart": 1486,
               "timestampEnd": 1489
             },
             {
+              "id": "8dqxvki52",
               "lineType": "normal",
               "content": "‘Sit down, all of you, and listen to me! I’ll soon make you dry enough!’",
               "timestampStart": 1489,
               "timestampEnd": 1494
             },
             {
+              "id": "i9wl40dp2f",
               "lineType": "normal",
               "content": "They all sat down at once, in a large ring, with the Mouse in the middle.",
               "timestampStart": 1494,
               "timestampEnd": 1498
             },
             {
+              "id": "fh2s35k8c",
               "lineType": "normal",
               "content": "Alice kept her eyes anxiously fixed on it, for she felt sure she would catch a bad cold if she did not get dry very soon.",
               "timestampStart": 1498,
@@ -1600,21 +1895,25 @@
           ]
         },
         {
+          "id": "frhg8cx32l",
           "type": "paragraph",
           "lines": [
             {
+              "id": "dq6s2m4eyj",
               "lineType": "normal",
               "content": "‘Ahem!’ said the Mouse with an important air, ‘are you all ready? This is the driest thing I know. Silence all round, if you please!",
               "timestampStart": 1504,
               "timestampEnd": 1513
             },
             {
+              "id": "1fjxtedacb",
               "lineType": "normal",
               "content": "“William the Conqueror, whose cause was favoured by the pope, was soon submitted to by the English, who wanted leaders,",
               "timestampStart": 1513,
               "timestampEnd": 1521
             },
             {
+              "id": "3ohghtrjz",
               "lineType": "normal",
               "content": "and had been of late much accustomed to usurpation and conquest. Edwin and Morcar, the earls of Mercia and Northumbria —”’",
               "timestampStart": 1521,
@@ -1623,9 +1922,11 @@
           ]
         },
         {
+          "id": "fjld6gkp4",
           "type": "paragraph",
           "lines": [
             {
+              "id": "gkrqjhciv",
               "lineType": "normal",
               "content": "‘Ugh!’ said the Lory, with a shiver.",
               "timestampStart": 1530,
@@ -1634,9 +1935,11 @@
           ]
         },
         {
+          "id": "fk5qb8qw0",
           "type": "paragraph",
           "lines": [
             {
+              "id": "8elv1og3y1",
               "lineType": "normal",
               "content": "‘I beg your pardon!’ said the Mouse, frowning, but very politely: ‘Did you speak?’",
               "timestampStart": 1533,
@@ -1645,9 +1948,11 @@
           ]
         },
         {
+          "id": "1xk57ekffr",
           "type": "paragraph",
           "lines": [
             {
+              "id": "19jw1l63b9",
               "lineType": "normal",
               "content": "‘Not I!’ said the Lory hastily.",
               "timestampStart": 1539,
@@ -1656,15 +1961,18 @@
           ]
         },
         {
+          "id": "r92f79vtx",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2c1voj8apl",
               "lineType": "normal",
               "content": "‘I thought you did,’ said the Mouse. ‘— I proceed.",
               "timestampStart": 1543,
               "timestampEnd": 1547
             },
             {
+              "id": "iv8u1pfu2n",
               "lineType": "normal",
               "content": "“Edwin and Morcar, the earls of Mercia and Northumbria, declared for him: and even Stigand, the patriotic archbishop of Canterbury, found it advisable —”’",
               "timestampStart": 1547,
@@ -1673,9 +1981,11 @@
           ]
         },
         {
+          "id": "9lcc5kcw9",
           "type": "paragraph",
           "lines": [
             {
+              "id": "uf0qj98oa",
               "lineType": "normal",
               "content": "‘Found what?’ said the Duck.",
               "timestampStart": 1557,
@@ -1684,9 +1994,11 @@
           ]
         },
         {
+          "id": "a55s1cja8c",
           "type": "paragraph",
           "lines": [
             {
+              "id": "cr0f23jt1t",
               "lineType": "normal",
               "content": "‘Found it,’ the Mouse replied rather crossly: ‘of course you know what “it” means.’",
               "timestampStart": 1559,
@@ -1695,15 +2007,18 @@
           ]
         },
         {
+          "id": "l3ym28k7d3",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1we538f61s",
               "lineType": "normal",
               "content": "‘I know what “it” means well enough, when I find a thing,’ said the Duck:",
               "timestampStart": 1565,
               "timestampEnd": 1571
             },
             {
+              "id": "1xksuthp7u",
               "lineType": "normal",
               "content": "‘it’s generally a frog or a worm. The question is, what did the archbishop find?’",
               "timestampStart": 1571,
@@ -1712,21 +2027,25 @@
           ]
         },
         {
+          "id": "2jjg1wkk0n",
           "type": "paragraph",
           "lines": [
             {
+              "id": "colmb7818",
               "lineType": "normal",
               "content": "The Mouse did not notice this question, but hurriedly went on,",
               "timestampStart": 1577,
               "timestampEnd": 1580
             },
             {
+              "id": "i8tr4hi4p",
               "lineType": "normal",
               "content": "‘”— found it advisable to go with Edgar Atheling to meet William and offer him the crown. William’s conduct at first was moderate. But the insolence of his Normans —”",
               "timestampStart": 1580,
               "timestampEnd": 1590
             },
             {
+              "id": "hg0j28tmg",
               "lineType": "normal",
               "content": "How are you getting on now, my dear?’ it continued, turning to Alice as it spoke.",
               "timestampStart": 1590,
@@ -1735,9 +2054,11 @@
           ]
         },
         {
+          "id": "6dz723757d",
           "type": "paragraph",
           "lines": [
             {
+              "id": "a2xq0i0se",
               "lineType": "normal",
               "content": "‘As wet as ever,’ said Alice in a melancholy tone: ‘it doesn’t seem to dry me at all.’",
               "timestampStart": 1596,
@@ -1746,15 +2067,18 @@
           ]
         },
         {
+          "id": "8r9g1q2ki3",
           "type": "paragraph",
           "lines": [
             {
+              "id": "b9f21h6fzo",
               "lineType": "normal",
               "content": "‘In that case,’ said the Dodo solemnly, rising to its feet,",
               "timestampStart": 1602,
               "timestampEnd": 1607
             },
             {
+              "id": "2zfq2ba4s4",
               "lineType": "normal",
               "content": "‘I move that the meeting adjourn, for the immediate adoption of more energetic remedies —’",
               "timestampStart": 1607,
@@ -1763,15 +2087,18 @@
           ]
         },
         {
+          "id": "8e38j3a0k",
           "type": "paragraph",
           "lines": [
             {
+              "id": "6tol27jof9",
               "lineType": "normal",
               "content": "‘Speak English!’ said the Eaglet. ‘I don’t know the meaning of half those long words, and, what’s more, I don’t believe you do either!’",
               "timestampStart": 1612,
               "timestampEnd": 1622
             },
             {
+              "id": "1ucan9gazg",
               "lineType": "normal",
               "content": "And the Eaglet bent down its head to hide a smile: some of the other birds tittered audibly.",
               "timestampStart": 1622,
@@ -1780,9 +2107,11 @@
           ]
         },
         {
+          "id": "59it78jum",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2hpig46l27",
               "lineType": "normal",
               "content": "‘What I was going to say,’ said the Dodo in an offended tone, ‘was, that the best thing to get us dry would be a Caucus-race.’",
               "timestampStart": 1627,
@@ -1791,26 +2120,31 @@
           ]
         },
         {
+          "id": "pgsljd81a",
           "type": "paragraph",
           "lines": [
             {
+              "id": "7l4d2le644",
               "lineType": "normal",
               "content": "‘What is a Caucus-race?’ said Alice; not that she wanted much to know, but the Dodo had paused as if it thought that somebody ought to speak, and no one else seemed inclined to say anything.",
               "timestampStart": 1635,
-              "timestampEnd": 1346 
+              "timestampEnd": 1646
             }
           ]
         },
         {
+          "id": "19atrc5qu2",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1uw7b5un12",
               "lineType": "normal",
               "content": "‘Why,’ said the Dodo, ‘the best way to explain it is to do it.’",
               "timestampStart": 1646,
               "timestampEnd": 1652
             },
             {
+              "id": "di7v3z3w",
               "lineType": "normal",
               "content": "(And, as you might like to try the thing yourself, some winter day, I will tell you how the Dodo managed it.)",
               "timestampStart": 1652,
@@ -1819,33 +2153,39 @@
           ]
         },
         {
+          "id": "3tmpac0q2j",
           "type": "paragraph",
           "lines": [
             {
+              "id": "54ho7j8v6",
               "lineType": "normal",
               "content": "First it marked out a race-course, in a sort of circle, (‘the exact shape doesn’t matter,’ it said,)",
               "timestampStart": 1657,
               "timestampEnd": 1663
             },
             {
+              "id": "1wh1hbgzo",
               "lineType": "normal",
               "content": "and then all the party were placed along the course, here and there.",
               "timestampStart": 1663,
               "timestampEnd": 1666
             },
             {
+              "id": "2anydcam1c",
               "lineType": "normal",
               "content": "There was no ‘One, two, three, and away,’ but they began running when they liked, and left off when they liked, so that it was not easy to know when the race was over.",
               "timestampStart": 1666,
               "timestampEnd": 1675
             },
             {
+              "id": "afijf8xm21",
               "lineType": "normal",
               "content": "However, when they had been running half an hour or so, and were quite dry again, the Dodo suddenly called out ‘The race is over!’",
               "timestampStart": 1675,
               "timestampEnd": 1681
             },
             {
+              "id": "7iyt86ok16",
               "lineType": "normal",
               "content": "and they all crowded round it, panting, and asking, ‘But who has won?’",
               "timestampStart": 1681,
@@ -1854,21 +2194,25 @@
           ]
         },
         {
+          "id": "1d95jgaij",
           "type": "paragraph",
           "lines": [
             {
+              "id": "fo5cf6glt",
               "lineType": "normal",
               "content": "This question the Dodo could not answer without a great deal of thought, and it sat for a long time with one finger pressed upon its forehead",
               "timestampStart": 1685,
               "timestampEnd": 1693
             },
             {
+              "id": "fvtg1tdolr",
               "lineType": "normal",
               "content": "(the position in which you usually see Shakespeare, in the pictures of him), while the rest waited in silence.",
               "timestampStart": 1693,
               "timestampEnd": 1698
             },
             {
+              "id": "coyg4q8i1g",
               "lineType": "normal",
               "content": "At last the Dodo said, ‘everybody has won, and all must have prizes.’",
               "timestampStart": 1698,
@@ -1877,9 +2221,11 @@
           ]
         },
         {
+          "id": "4lvb27jwpz",
           "type": "paragraph",
           "lines": [
             {
+              "id": "dcm148w9b",
               "lineType": "normal",
               "content": "‘But who is to give the prizes?’ quite a chorus of voices asked.",
               "timestampStart": 1703,
@@ -1888,15 +2234,18 @@
           ]
         },
         {
+          "id": "f9z26fzau",
           "type": "paragraph",
           "lines": [
             {
+              "id": "bdsn1o6rth",
               "lineType": "normal",
               "content": "‘Why, she, of course,’ said the Dodo, pointing to Alice with one finger;",
               "timestampStart": 1708,
               "timestampEnd": 1712
             },
             {
+              "id": "6dk11n8ao",
               "lineType": "normal",
               "content": "and the whole party at once crowded round her, calling out in a confused way, ‘Prizes! Prizes!’",
               "timestampStart": 1712,
@@ -1905,21 +2254,25 @@
           ]
         },
         {
+          "id": "4r7hyqg2r",
           "type": "paragraph",
           "lines": [
             {
+              "id": "6h4a1eahyd",
               "lineType": "normal",
               "content": "Alice had no idea what to do, and in despair she put her hand in her pocket, and pulled out a box of comfits,",
               "timestampStart": 1719,
               "timestampEnd": 1725
             },
             {
+              "id": "l9y29hoe2e",
               "lineType": "normal",
               "content": "(luckily the salt water had not got into it), and handed them round as prizes.",
               "timestampStart": 1725,
               "timestampEnd": 1729
             },
             {
+              "id": "7180irnm1a",
               "lineType": "normal",
               "content": "There was exactly one a-piece all round.",
               "timestampStart": 1729,
@@ -1928,9 +2281,11 @@
           ]
         },
         {
+          "id": "8t551ja421",
           "type": "paragraph",
           "lines": [
             {
+              "id": "15oq328q1t",
               "lineType": "normal",
               "content": "‘But she must have a prize herself, you know,’ said the Mouse.",
               "timestampStart": 1732,
@@ -1939,9 +2294,11 @@
           ]
         },
         {
+          "id": "4mdekv6k2l",
           "type": "paragraph",
           "lines": [
             {
+              "id": "gp9g144qkv",
               "lineType": "normal",
               "content": "‘Of course,’ the Dodo replied very gravely. ‘What else have you got in your pocket?’ he went on, turning to Alice.",
               "timestampStart": 1734,
@@ -1950,9 +2307,11 @@
           ]
         },
         {
+          "id": "dpki9dq019",
           "type": "paragraph",
           "lines": [
             {
+              "id": "crbti1ays",
               "lineType": "normal",
               "content": "‘Only a thimble,’ said Alice sadly.",
               "timestampStart": 1744,
@@ -1961,9 +2320,11 @@
           ]
         },
         {
+          "id": "4hd32lgff",
           "type": "paragraph",
           "lines": [
             {
+              "id": "5ubd219cu1",
               "lineType": "normal",
               "content": "‘Hand it over here,’ said the Dodo.",
               "timestampStart": 1746,
@@ -1972,15 +2333,18 @@
           ]
         },
         {
+          "id": "bkw25le4q",
           "type": "paragraph",
           "lines": [
             {
+              "id": "cqrnza7dc",
               "lineType": "normal",
               "content": "Then they all crowded round her once more, while the Dodo solemnly presented the thimble, saying ‘We beg your acceptance of this elegant thimble’;",
               "timestampStart": 1748,
               "timestampEnd": 1756
             },
             {
+              "id": "8zy8gir26",
               "lineType": "normal",
               "content": " and, when it had finished this short speech, they all cheered.",
               "timestampStart": 1756,
@@ -1989,19 +2353,23 @@
           ]
         },
         {
+          "id": "5gme28goi6",
           "type": "image",
           "src": "08.png"
         },
         {
+          "id": "bwahgtrv2p",
           "type": "paragraph",
           "lines": [
             {
+              "id": "8hbbg4t217",
               "lineType": "normal",
               "content": "Alice thought the whole thing very absurd, but they all looked so grave that she did not dare to laugh;",
               "timestampStart": 1759,
               "timestampEnd": 1764
             },
             {
+              "id": "a470fh7s",
               "lineType": "normal",
               "content": "and, as she could not think of anything to say, she simply bowed, and took the thimble, looking as solemn as she could.",
               "timestampStart": 1764,
@@ -2010,21 +2378,25 @@
           ]
         },
         {
+          "id": "ifc1p4i3e",
           "type": "paragraph",
           "lines": [
             {
+              "id": "6ezq7ig81a",
               "lineType": "normal",
               "content": "The next thing was to eat the comfits:",
               "timestampStart": 1770,
               "timestampEnd": 1773
             },
             {
+              "id": "hu2mg29r2m",
               "lineType": "normal",
               "content": "this caused some noise and confusion, as the large birds complained that they could not taste theirs, and the small ones choked and had to be patted on the back.",
               "timestampStart": 1773,
               "timestampEnd": 1780
             },
             {
+              "id": "2l5eey9b3h",
               "lineType": "normal",
               "content": "However, it was over at last, and they sat down again in a ring, and begged the Mouse to tell them something more.",
               "timestampStart": 1780,
@@ -2033,15 +2405,18 @@
           ]
         },
         {
+          "id": "kt22mho5v",
           "type": "paragraph",
           "lines": [
             {
+              "id": "gssthuf21p",
               "lineType": "normal",
               "content": "‘You promised to tell me your history, you know,’ said Alice,",
               "timestampStart": 1786,
               "timestampEnd": 1790
             },
             {
+              "id": "2k465lfbi6",
               "lineType": "normal",
               "content": "‘and why it is you hate — C and D,’ she added in a whisper, half afraid that it would be offended again.",
               "timestampStart": 1790,
@@ -2050,9 +2425,11 @@
           ]
         },
         {
+          "id": "7cov6c7gq",
           "type": "paragraph",
           "lines": [
             {
+              "id": "bepdb6fo1d",
               "lineType": "normal",
               "content": "‘Mine is a long and a sad tale!’ said the Mouse, turning to Alice, and sighing.",
               "timestampStart": 1796,
@@ -2061,15 +2438,18 @@
           ]
         },
         {
+          "id": "jea11dkd5",
           "type": "paragraph",
           "lines": [
             {
+              "id": "l7t1omz1i",
               "lineType": "normal",
               "content": "‘It is a long tail, certainly,’ said Alice, looking down with wonder at the Mouse’s tail; ‘but why do you call it sad?’",
               "timestampStart": 1801,
               "timestampEnd": 1809
             },
             {
+              "id": "1gbuys3c51",
               "lineType": "normal",
               "content": "And she kept on puzzling about it while the Mouse was speaking, so that her idea of the tale was something like this:—",
               "timestampStart": 1809,
@@ -2078,9 +2458,11 @@
           ]
         },
         {
+          "id": "73ena5na13",
           "type": "paragraph",
           "lines": [
             {
+              "id": "3bopihrt1g",
               "lineType": "formatted",
               "content": "          ‘Fury said to a\n         mouse, That he\n        met in the\n       house,\n      “Let us\n       both go to\n        law: I will\n         prosecute\n          you. — Come,\n           I’ll take no\n            denial; We\n           must have a\n          trial: For\n         really this\n          morning I’ve\n           nothing\n            to do.”\n           Said the\n          mouse to the\n         cur, “Such\n          a trial,\n           dear Sir,\n            With\n             no jury\n            or judge,\n           would be\n          wasting\n         our\n          breath.”\n           “I’ll be\n            judge, I’ll\n             be jury,”\n              Said\n               cunning\n                old Fury:\n               “I’ll\n                try the\n                 whole\n                  cause,\n                   and\n                   condemn\n                  you\n                 to\n                death.”’",
               "timestampStart": 1814,
@@ -2089,13 +2471,16 @@
           ]
         },
         {
+          "id": "co2n61552r",
           "type": "image",
           "src": "09.png"
         },
         {
+          "id": "222cff1hag",
           "type": "paragraph",
           "lines": [
             {
+              "id": "35ud57y429",
               "lineType": "normal",
               "content": "‘You are not attending!’ said the Mouse to Alice severely. ‘What are you thinking of?’",
               "timestampStart": 1845,
@@ -2104,9 +2489,11 @@
           ]
         },
         {
+          "id": "1t8pmh4zy",
           "type": "paragraph",
           "lines": [
             {
+              "id": "37hb1oiy3i",
               "lineType": "normal",
               "content": "‘I beg your pardon,’ said Alice very humbly: ‘you had got to the fifth bend, I think?’",
               "timestampStart": 1852,
@@ -2115,9 +2502,11 @@
           ]
         },
         {
+          "id": "1x8i11d7lk",
           "type": "paragraph",
           "lines": [
             {
+              "id": "gzmf1n36tw",
               "lineType": "normal",
               "content": "‘I had not!’ cried the Mouse, sharply and very angrily.",
               "timestampStart": 1858,
@@ -2126,9 +2515,11 @@
           ]
         },
         {
+          "id": "2l9nj2a5u",
           "type": "paragraph",
           "lines": [
             {
+              "id": "ni7q8vtw",
               "lineType": "normal",
               "content": "‘A knot!’ said Alice, always ready to make herself useful, and looking anxiously about her. ‘Oh, do let me help to undo it!’",
               "timestampStart": 1862,
@@ -2137,9 +2528,11 @@
           ]
         },
         {
+          "id": "2q1hy9gx6k",
           "type": "paragraph",
           "lines": [
             {
+              "id": "f9es1c27hm",
               "lineType": "normal",
               "content": "‘I shall do nothing of the sort,’ said the Mouse, getting up and walking away. ‘You insult me by talking such nonsense!’",
               "timestampStart": 1870,
@@ -2148,9 +2541,11 @@
           ]
         },
         {
+          "id": "1kbnpx1d5q",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2euz1c1b1z",
               "lineType": "normal",
               "content": "‘I didn’t mean it!’ pleaded poor Alice. ‘But you’re so easily offended, you know!’",
               "timestampStart": 1877,
@@ -2159,9 +2554,11 @@
           ]
         },
         {
+          "id": "he88ya2p",
           "type": "paragraph",
           "lines": [
             {
+              "id": "c1zn1j11ya",
               "lineType": "normal",
               "content": "The Mouse only growled in reply.",
               "timestampStart": 1883,
@@ -2170,15 +2567,18 @@
           ]
         },
         {
+          "id": "7box4c6xj",
           "type": "paragraph",
           "lines": [
             {
+              "id": "2rapkmcuje",
               "lineType": "normal",
               "content": "‘Please come back and finish your story!’ Alice called after it; and the others all joined in chorus,",
               "timestampStart": 1887,
               "timestampEnd": 1892
             },
             {
+              "id": "1l9d467c5",
               "lineType": "normal",
               "content": "‘Yes, please do!’ but the Mouse only shook its head impatiently, and walked a little quicker.",
               "timestampStart": 1892,
@@ -2187,21 +2587,25 @@
           ]
         },
         {
+          "id": "jxpz28khn6",
           "type": "paragraph",
           "lines": [
             {
+              "id": "9u5lmc6yj",
               "lineType": "normal",
               "content": "‘What a pity it wouldn’t stay!’ sighed the Lory, as soon as it was quite out of sight;",
               "timestampStart": 1898,
               "timestampEnd": 1905
             },
             {
+              "id": "el3qbhpn8",
               "lineType": "normal",
               "content": "and an old Crab took the opportunity of saying to her daughter ‘Ah, my dear! Let this be a lesson to you never to lose your temper!’",
               "timestampStart": 1905,
               "timestampEnd": 1912
             },
             {
+              "id": "2g3b9488tf",
               "lineType": "normal",
               "content": "‘Hold your tongue, Ma!’ said the young Crab, a little snappishly. ‘You’re enough to try the patience of an oyster!’",
               "timestampStart": 1912,
@@ -2210,9 +2614,11 @@
           ]
         },
         {
+          "id": "e3iw45s78",
           "type": "paragraph",
           "lines": [
             {
+              "id": "129efz4s12",
               "lineType": "normal",
               "content": "‘I wish I had our Dinah here, I know I do!’ said Alice aloud, addressing nobody in particular. ‘She’d soon fetch it back!’",
               "timestampStart": 1919,
@@ -2221,9 +2627,11 @@
           ]
         },
         {
+          "id": "182hnh3yxp",
           "type": "paragraph",
           "lines": [
             {
+              "id": "1i35ekkg",
               "lineType": "normal",
               "content": "‘And who is Dinah, if I might venture to ask the question?’ said the Lory.",
               "timestampStart": 1927,
@@ -2232,15 +2640,18 @@
           ]
         },
         {
+          "id": "f855481i1a",
           "type": "paragraph",
           "lines": [
             {
+              "id": "cgea7nlc19",
               "lineType": "normal",
               "content": "Alice replied eagerly, for she was always ready to talk about her pet: ‘Dinah’s our cat. And she’s such a capital one for catching mice you can’t think!",
               "timestampStart": 1935,
               "timestampEnd": 1943
             },
             {
+              "id": "jaiw6vgb24",
               "lineType": "normal",
               "content": "And oh, I wish you could see her after the birds! Why, she’ll eat a little bird as soon as look at it!’",
               "timestampStart": 1943,
@@ -2249,27 +2660,32 @@
           ]
         },
         {
+          "id": "4g3p748n2n",
           "type": "paragraph",
           "lines": [
             {
+              "id": "sj38pgzrx",
               "lineType": "normal",
               "content": "This speech caused a remarkable sensation among the party. Some of the birds hurried off at once:",
               "timestampStart": 1950,
               "timestampEnd": 1955
             },
             {
+              "id": "1m1wdvlc73",
               "lineType": "normal",
               "content": "one old Magpie began wrapping itself up very carefully, remarking, ‘I really must be getting home; the night-air doesn’t suit my throat!’",
               "timestampStart": 1955,
               "timestampEnd": 1962
             },
             {
+              "id": "8j6u1ajh62",
               "lineType": "normal",
               "content": "and a Canary called out in a trembling voice to its children, ‘Come away, my dears! It’s high time you were all in bed!’",
               "timestampStart": 1962,
               "timestampEnd": 1969
             },
             {
+              "id": "k4ny38fgy",
               "lineType": "normal",
               "content": "On various pretexts they all moved off, and Alice was soon left alone.",
               "timestampStart": 1969,
@@ -2278,27 +2694,32 @@
           ]
         },
         {
+          "id": "1pktazfuki",
           "type": "paragraph",
           "lines": [
             {
+              "id": "amms911jt",
               "lineType": "normal",
               "content": "‘I wish I hadn’t mentioned Dinah!’ she said to herself in a melancholy tone.",
               "timestampStart": 1973,
               "timestampEnd": 1978
             },
             {
+              "id": "jqu6c7m21j",
               "lineType": "normal",
               "content": "‘Nobody seems to like her, down here, and I’m sure she’s the best cat in the world! Oh, my dear Dinah! I wonder if I shall ever see you any more!’",
               "timestampStart": 1978,
               "timestampEnd": 1989
             },
             {
+              "id": "2qlctnbknl",
               "lineType": "normal",
               "content": "And here poor Alice began to cry again, for she felt very lonely and low-spirited.",
               "timestampStart": 1989,
               "timestampEnd": 1997
             },
             {
+              "id": "w2jhknj3",
               "lineType": "normal",
               "content": "In a little while, however, she again heard a little pattering of footsteps in the distance, and she looked up eagerly, half hoping that the Mouse had changed his mind, and was coming back to finish his story.",
               "timestampStart": 1997,
@@ -2307,6 +2728,7 @@
           ]
         },
         {
+          "id": "7hcs1p5z2r",
           "type": "flourish"
         }
       ]

@@ -1,6 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react'
-import injectSheet from 'react-jss'
-import classNames from 'classnames'
+/* globals HTMLAudioElement */
+
+import React, { PropTypes } from 'react';
+import injectSheet from 'react-jss';
+import classNames from 'classnames';
 
 const styles = {
   buttonContainer: {
@@ -8,7 +10,7 @@ const styles = {
     display: 'inline-block',
     position: 'absolute',
     right: '30px',
-    top: '23px'
+    top: '23px',
   },
   button: {
     outline: 'none',
@@ -25,60 +27,60 @@ const styles = {
     color: '#666',
     borderRadius: '4px',
     '&:active': {
-      backgroundColor: '#c1c1c1'
+      backgroundColor: '#c1c1c1',
     },
     '&.disabled': {
-      backgroundColor: '#c1c1c1'
-    }
-  }
-}
+      backgroundColor: '#c1c1c1',
+    },
+  },
+};
 
-class Buttons extends PureComponent {
-  static propTypes = {
-    audioPlayer: PropTypes.object.isRequired,
-    audioOn: PropTypes.bool.isRequired,
-    autoscroll: PropTypes.bool.isRequired,
-    audioSrc: PropTypes.string.isRequired
-  }
-  render () {
-    const classes = this.props.sheet.classes
-    return (
-      <div
-        id='button-container'
-        className={classes.buttonContainer}>
+function Buttons({
+  audioOn,
+  audioPlayerElement,
+  autoscroll,
+  buffering,
+  toggleAudio,
+  toggleAutoscroll,
+  sheet: { classes }, // eslint-disable-line react/prop-types
+}) {
+  return (
+    <div
+      id="button-container"
+      className={classes.buttonContainer}
+    >
+      <button
+        id="control-audio-button"
+        title="Control Audio"
+        className={classNames(classes.button, {
+          disabled: buffering,
+        })}
+        onClick={() => toggleAudio(audioPlayerElement, !audioOn)}
+      >
+        {buffering && 'Loading...'}
+        {!buffering && ((audioOn) ? 'Pause' : 'Play')}
+      </button>
+      {(audioOn) &&
         <button
-          id='control-audio-button'
-          title='Control Audio'
-          className={classNames(classes.button, {
-            disabled: this.buffering(this.props.audioPlayer.element)
-          })}
-          onClick={() => this.props.toggleAudio(this.props.audioPlayer.element, !this.props.audioOn)}>
-          {this.buffering(this.props.audioPlayer.element) ? 'Loading...' : ((this.props.audioOn) ? 'Pause' : 'Play')}
+          id="scroll-button"
+          title="Auto-Scroll"
+          className={classes.button}
+          onClick={() => toggleAutoscroll(!autoscroll)}
+        >
+          {(autoscroll) ? 'Disable' : 'Enable' } Auto-Scroll
         </button>
-        {(this.props.audioOn) &&
-          <button
-            id='scroll-button'
-            title='Auto-Scroll'
-            className={classes.button}
-            onClick={() => this.props.toggleAutoscroll(!this.props.autoscroll)}>
-            {(this.props.autoscroll) ? 'Disable' : 'Enable' } Auto-Scroll
-          </button>
-        }
-      </div>
-    )
-  }
-
-  buffering (audio) {
-    // Length should not be more than 1
-    if (audio.buffered.length) {
-      // Chrome behaves very strangely with buffer times while playing,
-      // so this is as good as it gets for checking
-      return audio.buffered.end(0) === 0
-    }
-    // Return true if audio is playing but we don't have a buffer yet
-    if (!audio.paused) return true
-    return false
-  }
+      }
+    </div>
+  );
 }
 
-export default injectSheet(styles)(Buttons)
+Buttons.propTypes = {
+  audioOn: PropTypes.bool.isRequired,
+  audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
+  autoscroll: PropTypes.bool.isRequired,
+  buffering: PropTypes.bool.isRequired,
+  toggleAudio: PropTypes.func.isRequired,
+  toggleAutoscroll: PropTypes.func.isRequired,
+};
+
+export default injectSheet(styles)(Buttons);

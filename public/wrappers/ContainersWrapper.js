@@ -1,50 +1,49 @@
-import { connect } from 'react-redux'
-import { setBookViewer, setChapterHeadingEl } from '../store/actions'
-import Containers from '../components/Containers.jsx'
+import { connect } from 'react-redux';
+import { setBookViewerElement, setChapterHeadingEl } from '../store/actions';
+import Containers from '../components/Containers';
 
-function mapStateToProps (state) {
-  function assemblePageItems (containers, chapters) {
-    const chapterParagraphs = assembleChapters(containers)
-    .map((containers, i) => {
-      const temp = []
-      containers.forEach((container) => {
-        if (!temp[container.containerId]) temp[container.containerId] = []
-        temp[container.containerId].push(container)
-      })
-      temp.unshift([{ type: 'chapterheading', title: chapters[i].title }])
-      return temp
-    })
-    return [].concat(...chapterParagraphs)
+function mapStateToProps(state) {
+  function assembleChapters(containers) {
+    const chapters = [];
+    containers.forEach((container) => {
+      if (!chapters[container.chapterId]) chapters[container.chapterId] = [];
+      chapters[container.chapterId].push(container);
+    });
+    return chapters;
   }
 
-  function assembleChapters (containers) {
-    const chapters = []
-    containers.forEach((container, i) => {
-      if (!chapters[container.chapterId]) chapters[container.chapterId] = []
-      chapters[container.chapterId].push(container)
-    })
-    return chapters
+  function assemblePageItems(containers) {
+    const chapterParagraphs = assembleChapters(containers)
+    .map((chapter) => {
+      const temp = [];
+      chapter.forEach((container) => {
+        if (!temp[container.containerId]) temp[container.containerId] = [];
+        temp[container.containerId].push(container);
+      });
+      return temp;
+    });
+    return [].concat(...chapterParagraphs);
   }
 
   return {
     chapters: state.chapters,
-    pageItems: assemblePageItems(state.containers, state.chapters),
-    imagesLocation: state.book.assetsLocation + 'images/'
-  }
+    pageItems: assemblePageItems(state.containers),
+    imagesLocation: `${state.book.assetsLocation}images/`,
+  };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    refBookViewer (el) {
-      dispatch(setBookViewer(el))
+    refBookViewer(el) {
+      dispatch(setBookViewerElement(el));
     },
-    refChapterHeading (el, title) {
-      dispatch(setChapterHeadingEl(el, title))
-    }
-  }
+    refChapterHeading(el, title) {
+      dispatch(setChapterHeadingEl(el, title));
+    },
+  };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Containers)
+  mapDispatchToProps,
+)(Containers);

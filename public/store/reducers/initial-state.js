@@ -3,7 +3,12 @@ export default {
   path: '',
   book: {
     bookLocation: '',
-    assetsLocation: ''
+    assetsLocation: '',
+    info: {
+      title: '',
+      author: '',
+    },
+    chapters: [],
   },
   chapters: [],
   containers: [],
@@ -12,8 +17,9 @@ export default {
     audioSrc: '',
     audioOn: false,
     autoscroll: false,
-    timestamp: 0,
+    bookViewerElement: null,
+    buffering: false,
     element: null,
-    bookViewer: null
-  }
-}
+    timestamp: 0,
+  },
+};

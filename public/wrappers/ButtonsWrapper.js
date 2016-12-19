@@ -1,32 +1,36 @@
-import { connect } from 'react-redux'
-import { setAudioOn, setAutoscroll } from '../store/actions'
-import Buttons from '../components/Buttons.jsx'
+import { connect } from 'react-redux';
+import { setAudioOn, setAutoscroll, updateBuffering } from '../store/actions';
+import Buttons from '../components/Buttons';
 
-function mapStatetoProps (state) {
+function mapStatetoProps(state) {
   return {
-    audioPlayer: state.audioPlayer,
-    player: state.audioPlayer.element,
+    audioPlayerElement: state.audioPlayer.element,
+    buffering: state.audioPlayer.buffering,
     captions: state.captions,
     audioOn: state.audioPlayer.audioOn,
     autoscroll: state.audioPlayer.autoscroll,
-    audioSrc: state.book.assetsLocation + 'audio/' + state.book.audioSrc
-  }
+    audioSrc: `${state.book.assetsLocation}audio/${state.book.audioSrc}`,
+  };
 }
 
-function mapDispatchToProps (dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   return {
-    toggleAudio (player, bool) {
-      dispatch(setAudioOn(bool))
-      if (bool && player.src) return player.play()
-      player.pause()
+    toggleAudio(player, bool) {
+      dispatch(setAudioOn(bool));
+      if (bool && player.src) {
+        player.play();
+        dispatch(updateBuffering(player));
+      } else {
+        player.pause();
+      }
     },
-    toggleAutoscroll (bool) {
-      dispatch(setAutoscroll(bool))
-    }
-  }
+    toggleAutoscroll(bool) {
+      dispatch(setAutoscroll(bool));
+    },
+  };
 }
 
 export default connect(
   mapStatetoProps,
-  mapDispatchToProps
-)(Buttons)
+  mapDispatchToProps,
+)(Buttons);
