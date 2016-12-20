@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import injectSheet from 'react-jss';
 import Container from './Container';
 
@@ -15,7 +15,7 @@ const styles = {
   },
 };
 
-class Containers extends PureComponent {
+class Containers extends Component {
   static propTypes = {
     imagesLocation: PropTypes.string.isRequired,
     pageItems: PropTypes.arrayOf(PropTypes.array).isRequired,

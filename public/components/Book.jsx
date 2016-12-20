@@ -1,6 +1,6 @@
 /* globals window document HTMLDivElement */
 
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import injectSheet from 'react-jss';
 import ContainersWrapper from '../wrappers/ContainersWrapper';
 import NavBar from './NavBar';
@@ -26,7 +26,7 @@ const styles = {
   },
 };
 
-class Book extends PureComponent {
+class Book extends Component {
   static propTypes = {
     autoscroll: PropTypes.bool.isRequired,
     book: PropTypes.shape({

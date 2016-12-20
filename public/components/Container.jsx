@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import injectSheet from 'react-jss';
 import LineWrapper from '../wrappers/LineWrapper';
 import Flourish from './Flourish';
@@ -17,7 +17,7 @@ const styles = {
   },
 };
 
-class Container extends PureComponent {
+class Container extends Component {
   static propTypes = {
     container: PropTypes.arrayOf(PropTypes.object).isRequired,
     imagesLocation: PropTypes.string.isRequired,
