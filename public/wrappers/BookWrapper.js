@@ -24,8 +24,8 @@ function mapDispatchToProps(dispatch) {
       getBook(location)
       .then((response) => {
         dispatch(setBook(response));
-        dispatch(setChapters(response.chapters));
-        dispatch(renderContainers(response));
+        // dispatch(setChapters(response.chapters));
+        // dispatch(renderContainers(response));
       });
     };
   }

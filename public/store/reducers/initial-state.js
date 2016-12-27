@@ -4,14 +4,17 @@ export default {
   book: {
     bookLocation: '',
     assetsLocation: '',
+    audioSrc: '',
     info: {
       title: '',
       author: '',
     },
     chapters: [],
+    containers: [],
+    lines: [],
   },
-  chapters: [],
-  containers: [],
+  // chapters: [],
+  renderedContainers: [],
   lines: [],
   audioPlayer: {
     audioSrc: '',

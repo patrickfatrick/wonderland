@@ -36,7 +36,7 @@
     "classnames": "^2.2.5",
     "es6-promise": "^4.0.5",
     "eslint-loader": "^1.6.1",
-    "harsh": "^1.2.2",
+    "normalizr": "2.3.0",
     "react": "^15.4.1",
     "react-addons-pure-render-mixin": "^15.4.1",
     "react-dom": "^15.4.1",

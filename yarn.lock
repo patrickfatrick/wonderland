@@ -1970,10 +1970,6 @@ har-validator@~2.0.6:
     is-my-json-valid "^2.12.4"
     pinkie-promise "^2.0.0"
 
-harsh@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/harsh/-/harsh-1.2.2.tgz#a4141755ff395bc9698d78a7c13d7d9ba32f28e7"
-
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -2717,6 +2713,12 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalizr@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/normalizr/-/normalizr-2.3.0.tgz#e2d76b1c729bbf600190353bbb7061e6388a0b69"
+  dependencies:
+    lodash "^4.17.2"
 
 npmlog@^4.0.1:
   version "4.0.2"

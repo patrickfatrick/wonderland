@@ -38,7 +38,7 @@ function setActiveLine(state, timestamp) {
   });
 }
 
-export default function (state = initialState.containers, action) {
+export default function (state = initialState.renderedContainers, action) {
   switch (action.type) {
     case 'RENDER_CONTAINERS':
       return renderContainers(state, action.book);
