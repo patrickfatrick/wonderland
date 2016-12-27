@@ -67,6 +67,7 @@ Line.propTypes = {
   audioOn: PropTypes.bool.isRequired,
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   line: PropTypes.shape({
+    active: PropTypes.bool,
     content: PropTypes.string,
     timestampStart: PropTypes.number,
     timestampEnd: PropTypes.number,
