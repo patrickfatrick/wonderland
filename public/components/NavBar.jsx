@@ -63,12 +63,12 @@ function NavBar({
             <br />
             {info.author}
           </li>
-          {chapters.map(chapter => (
+          {Object.keys(chapters).map(chapterId => (
             <li
-              key={chapter.id}
-              className={classNames(classes.chapterHeading, { active: chapter.active })}
+              key={chapterId}
+              className={classNames(classes.chapterHeading, { active: chapters[chapterId].active })}
             >
-              {chapter.title}
+              {chapters[chapterId].title}
             </li>
           ))}
           <ButtonsWrapper />
@@ -83,7 +83,10 @@ NavBar.propTypes = {
     author: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
-  chapters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  chapters: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
 };
 
 export default injectSheet(styles)(NavBar);

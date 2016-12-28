@@ -19,7 +19,13 @@ const styles = {
 
 class Container extends Component {
   static propTypes = {
-    container: PropTypes.arrayOf(PropTypes.object).isRequired,
+    container: PropTypes.shape({
+      id: PropTypes.string,
+      chapterId: PropTypes.string,
+      type: PropTypes.string,
+      title: PropTypes.string,
+      lines: PropTypes.array,
+    }).isRequired,
     imagesLocation: PropTypes.string.isRequired,
     refChapterHeading: PropTypes.func.isRequired,
     seek: PropTypes.func.isRequired,
@@ -27,7 +33,7 @@ class Container extends Component {
 
   componentDidMount() {
     if (this.chapterHeading) {
-      this.props.refChapterHeading(this.chapterHeading, this.props.container[0].title);
+      this.props.refChapterHeading(this.chapterHeading, this.props.container.chapterId);
     }
   }
 
@@ -35,43 +41,39 @@ class Container extends Component {
     const classes = this.props.sheet.classes; // eslint-disable-line react/prop-types
     return (
       <div className="page-item">
-        {(this.props.container[0].lineType === 'normal') &&
+        {(this.props.container.type === 'flourish') && <Flourish key={this.props.container.id} />}
+        {(this.props.container.type === 'image') &&
+          <Image
+            key={this.props.container.id}
+            image={this.props.container}
+            imagesLocation={this.props.imagesLocation}
+          />
+        }
+        {(this.props.container.type === 'chapterheading') &&
+          <div
+            key={this.props.container.id}
+            className={classes.chapterHeading}
+            ref={(node) => {
+              this.chapterHeading = node;
+            }}
+          >
+            {this.props.container.title}
+          </div>
+        }
+        {(this.props.container.type === 'paragraph') &&
           <span
             className={classes.indent}
           />
         }
-        {this.props.container.map((lineItem) => {
-          if (lineItem.type === 'flourish') return <Flourish key={lineItem.id} />;
-          if (lineItem.type === 'image') {
-            return (
-              <Image
-                key={lineItem.id}
-                image={lineItem}
-                imagesLocation={this.props.imagesLocation}
-              />
-            );
-          }
-          if (lineItem.type === 'chapterheading') {
-            return (
-              <div
-                key={lineItem.id}
-                className={classes.chapterHeading}
-                ref={(node) => {
-                  this.chapterHeading = node;
-                }}
-              >
-                {lineItem.title}
-              </div>
-            );
-          }
-          return (
+        {(this.props.container.type === 'paragraph') &&
+          this.props.container.lines.map(lineId => (
             <LineWrapper
-              key={lineItem.id}
+              key={lineId}
               seek={this.props.seek}
-              line={lineItem}
+              lineId={lineId}
             />
-          );
-        })}
+          ))
+        }
       </div>
     );
   }

@@ -1,7 +1,7 @@
-export function setBook(book) {
+export function setBook(data) {
   return {
     type: 'SET_BOOK',
-    book,
+    data,
   };
 }
 
@@ -40,11 +40,11 @@ export function setChapters(chapters) {
   };
 }
 
-export function setChapterHeadingEl(el, title) {
+export function setChapterHeadingEl(el, chapterId) {
   return {
     type: 'SET_CHAPTER_HEADING_EL',
     el,
-    title,
+    chapterId,
   };
 }
 
@@ -55,10 +55,23 @@ export function setActiveChapter(scrollPos) {
   };
 }
 
-export function renderContainers(book) {
+export function renderContainers(data) {
   return {
     type: 'RENDER_CONTAINERS',
-    book,
+    data,
+  };
+}
+
+export function incrementRenderIndex() {
+  return {
+    type: 'INCREMENT_RENDER_INDEX',
+  };
+}
+
+export function setLines(lines) {
+  return {
+    type: 'SET_LINES',
+    lines,
   };
 }
 

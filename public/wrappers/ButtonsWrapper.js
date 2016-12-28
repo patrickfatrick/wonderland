@@ -9,7 +9,7 @@ function mapStatetoProps(state) {
     captions: state.captions,
     audioOn: state.audioPlayer.audioOn,
     autoscroll: state.audioPlayer.autoscroll,
-    audioSrc: `${state.book.assetsLocation}audio/${state.book.audioSrc}`,
+    audioSrc: `${state.data.assetsLocation}audio/${state.data.book.audioSrc}`,
   };
 }
 

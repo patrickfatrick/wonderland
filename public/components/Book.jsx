@@ -29,16 +29,21 @@ const styles = {
 class Book extends Component {
   static propTypes = {
     autoscroll: PropTypes.bool.isRequired,
+    assetsLocation: PropTypes.string.isRequired,
     book: PropTypes.shape({
       assetsLocation: PropTypes.string,
       audioSrc: PropTypes.string,
+      chapters: PropTypes.array,
     }).isRequired,
     bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
     info: PropTypes.shape({
       author: PropTypes.string,
       title: PropTypes.string,
     }).isRequired,
-    chapters: PropTypes.arrayOf(PropTypes.object).isRequired,
+    chapters: PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+    }).isRequired,
     mountBookAndAssets: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     refPlayer: PropTypes.func.isRequired,
@@ -55,7 +60,6 @@ class Book extends Component {
     this.props.refPlayer(this.player);
     window.addEventListener('scroll', () => {
       this.props.scrollHandler({
-        book: this.props.book,
         scrollPos: window.scrollY,
         offset: document.body.clientHeight - window.innerHeight,
       });
@@ -72,7 +76,8 @@ class Book extends Component {
         >
           <audio
             preload="metadata"
-            {...(this.props.book.audioSrc && { src: `${this.props.book.assetsLocation}audio/${this.props.book.audioSrc}` })}
+            type="audio/mp4"
+            {...(this.props.book.audioSrc && { src: `${this.props.assetsLocation}audio/${this.props.book.audioSrc}` })}
             onTimeUpdate={(e) => {
               this.props.timeUpdate(e, this.props.bookViewerElement, this.props.autoscroll);
             }}

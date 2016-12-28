@@ -1,7 +1,7 @@
 /* globals window */
 
 import { connect } from 'react-redux';
-import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setBookLocation, setAssetsLocation, setActiveChapter, renderContainers, updateBuffering } from '../store/actions';
+import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setLines, setBookLocation, setAssetsLocation, setActiveChapter, renderContainers, updateBuffering, incrementRenderIndex } from '../store/actions';
 import getBook from '../services/book-service';
 import Book from '../components/Book';
 
@@ -9,23 +9,35 @@ function mapStateToProps(state) {
   return {
     audioOn: state.audioPlayer.audioOn,
     autoscroll: state.audioPlayer.autoscroll,
-    book: state.book,
+    book: state.data.book,
     bookViewerElement: state.audioPlayer.bookViewerElement,
+    assetsLocation: state.data.assetsLocation,
     chapters: state.chapters,
-    info: state.book.info,
+    info: state.data.book.info,
     player: state.audioPlayer.element,
     timestamp: state.audioPlayer.timestamp,
   };
 }
 
 function mapDispatchToProps(dispatch) {
+  // First increment the renderIndex by one, which allows us to render more containers
+  function updateRenderIndexAndRender() {
+    return (dispatch, getState) => { // eslint-disable-line no-shadow
+      dispatch(incrementRenderIndex());
+      dispatch(renderContainers(getState().data));
+    };
+  }
+
+  // Uses book-service to retrieve the book data from the server,
+  // normalize it, and then dispatch the data-setting actions
   function getBookAsync(location) {
     return () => {
       getBook(location)
       .then((response) => {
         dispatch(setBook(response));
-        // dispatch(setChapters(response.chapters));
-        // dispatch(renderContainers(response));
+        dispatch(setChapters(response.chapters));
+        dispatch(setLines(response.lines));
+        dispatch(updateRenderIndexAndRender());
       });
     };
   }
@@ -58,8 +70,8 @@ function mapDispatchToProps(dispatch) {
       dispatch(setBookLocation(`${path}data.json`));
       dispatch(setAssetsLocation(`${path}assets/`));
     },
-    scrollHandler({ book, scrollPos, offset }) {
-      if (scrollPos >= offset - 200) dispatch(renderContainers(book));
+    scrollHandler({ scrollPos, offset }) {
+      if (scrollPos >= offset - 200) dispatch(updateRenderIndexAndRender());
       dispatch(setActiveChapter(scrollPos));
     },
   };

@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import book from './book';
+import data from './data';
 import chapters from './chapters';
-import containers from './containers';
+import renderedContainers from './rendered-containers';
+import lines from './lines';
 import audioPlayer from './audio-player';
 
 export default combineReducers({
-  book,
+  data,
   chapters,
-  containers,
+  renderedContainers,
+  lines,
   audioPlayer,
 });

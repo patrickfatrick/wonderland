@@ -1,28 +1,38 @@
 import initialState from './initial-state';
 
+// Controls the displayed chapter heading in the NavBar
+// Follows the same pattern as `setActiveLine`
 function setActiveChapter(state, scrollPos) {
-  let index;
-  state.forEach((chapter, i) => {
-    if (!chapter.el) return;
-    if (scrollPos >= chapter.el.offsetTop - 20) index = i;
-  });
+  const prev = Object.keys(state).find(chapterId => state[chapterId].active);
+  const next = Object.keys(state).reverse().find(chapterId => (
+    state[chapterId].el && (scrollPos >= state[chapterId].el.offsetTop - 20)
+  ));
 
-  return state.map((newChapter, i) => {
-    if (i === index) return { ...newChapter, active: true };
-    if (i !== index) return { ...newChapter, active: false };
-    return newChapter;
-  });
+  // Return early if they match
+  if (prev === next) return state;
+
+  // Reconstruct the state
+  return {
+    ...state,
+    [prev]: { ...state[prev], active: false },
+    [next]: { ...state[next], active: true },
+  };
+}
+
+function setChapterHeadingEl(state, chapterId, el) {
+  const chapter = state[chapterId];
+  return {
+    ...state,
+    [chapterId]: { ...chapter, el },
+  };
 }
 
 export default function (state = initialState.chapters, action) {
   switch (action.type) {
     case 'SET_CHAPTERS':
-      return action.chapters.map(chapter => ({ ...chapter, active: false }));
+      return { ...state, ...action.chapters };
     case 'SET_CHAPTER_HEADING_EL':
-      return state.map((chapter) => {
-        if (chapter.title === action.title) return { ...chapter, el: action.el };
-        return chapter;
-      });
+      return setChapterHeadingEl(state, action.chapterId, action.el);
     case 'SET_ACTIVE_CHAPTER':
       return setActiveChapter(state, action.scrollPos);
     default:

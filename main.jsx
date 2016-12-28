@@ -20,9 +20,10 @@ const store = createStore(
   applyMiddleware(...middlewares),
 );
 
+// `path` prop would probably be passed in from the server or URL
 render(
   <Provider store={store}>
-    <App />
+    <App path="data/26tniea82c/" />
   </Provider>,
   document.getElementById('app'),
 );

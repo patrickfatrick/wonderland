@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import { setTimestamp } from '../store/actions';
 import Line from '../components/Line';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
     audioOn: state.audioPlayer.audioOn,
     timestamp: state.audioPlayer.timestamp,
     audioPlayerElement: state.audioPlayer.element,
+    line: state.lines[ownProps.lineId],
   };
 }
 

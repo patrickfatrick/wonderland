@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import BookWrapper from './wrappers/BookWrapper';
 
-export default function () {
+function App({
+  path,
+}) {
   return (
     <div className="container">
-      <BookWrapper path="data/26tniea82c/" />
+      <BookWrapper path={path} />
     </div>
   );
 }
+
+App.propTypes = {
+  path: PropTypes.string.isRequired,
+};
+
+export default App;

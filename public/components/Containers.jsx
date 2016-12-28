@@ -18,7 +18,7 @@ const styles = {
 class Containers extends Component {
   static propTypes = {
     imagesLocation: PropTypes.string.isRequired,
-    pageItems: PropTypes.arrayOf(PropTypes.array).isRequired,
+    pageItems: PropTypes.arrayOf(PropTypes.object).isRequired,
     refBookViewer: PropTypes.func.isRequired,
     refChapterHeading: PropTypes.func.isRequired,
     seek: PropTypes.func.isRequired,
