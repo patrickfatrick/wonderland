@@ -2,8 +2,11 @@ import React, { PropTypes } from 'react';
 import injectSheet from 'react-jss';
 
 const styles = {
+  imageContainer: {
+    textAlign: 'center',
+  },
   image: {
-    width: '100%',
+    maxWidth: '100%',
   },
 };
 
@@ -13,11 +16,13 @@ function Image({
   sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
-    <img
-      alt={image.src}
-      className={classes.image}
-      {...(image.src && { src: imagesLocation + image.src })}
-    />
+    <div className={classes.imageContainer}>
+      <img
+        alt={image.src}
+        className={classes.image}
+        {...(image.src && { src: imagesLocation + image.src })}
+      />
+    </div>
   );
 }
 
