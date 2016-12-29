@@ -7,6 +7,7 @@ const styles = {
   navbar: {
     position: 'fixed',
     width: '100%',
+    minHeight: '75px',
     top: '0',
     background: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.10) 0 5px 10px',

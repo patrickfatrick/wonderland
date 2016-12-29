@@ -3,6 +3,8 @@ const path = require('path');
 
 module.exports = {
   entry: [
+    'babel-polyfill',
+    'whatwg-fetch',
     './src/main',
   ],
   output: {
@@ -34,11 +36,6 @@ module.exports = {
     plugins: ['transform-runtime'],
   },
   plugins: [
-    // Babel does not support promises out of the box, it must be polyfilled
-    new webpack.ProvidePlugin({
-      Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
-      fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-    }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),
