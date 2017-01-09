@@ -27,8 +27,8 @@ class Container extends Component {
       lines: PropTypes.array,
     }).isRequired,
     imagesLocation: PropTypes.string.isRequired,
-    refChapterHeading: PropTypes.func.isRequired,
-    seek: PropTypes.func.isRequired,
+    refChapterHeading: PropTypes.func,
+    seek: PropTypes.func,
   };
 
   componentDidMount() {

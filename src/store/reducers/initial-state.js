@@ -31,6 +31,7 @@ export default {
   data: {
     book: {
       audioSrc: '',
+      frontmatter: [],
       info: {
         title: '',
         author: '',

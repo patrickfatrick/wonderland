@@ -6,7 +6,6 @@ function mapStateToProps(state) {
   return {
     chapters: state.data.chapters,
     pageItems: state.renderedContainers,
-    imagesLocation: `${state.data.assetsLocation}images/`,
   };
 }
 

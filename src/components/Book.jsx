@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import injectSheet from 'react-jss';
 import ContainersWrapper from '../wrappers/ContainersWrapper';
 import NavBar from './NavBar';
+import FrontMatter from './FrontMatter';
 
 const styles = {
   audioContainer: {
@@ -36,10 +37,12 @@ class Book extends Component {
       chapters: PropTypes.array,
     }).isRequired,
     bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
+    imagesLocation: PropTypes.string.isRequired,
     info: PropTypes.shape({
       author: PropTypes.string,
       title: PropTypes.string,
     }).isRequired,
+    frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
     chapters: PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
@@ -94,7 +97,13 @@ class Book extends Component {
           id="reader"
           className={classes.reader}
         >
+          <FrontMatter
+            imagesLocation={this.props.imagesLocation}
+            info={this.props.info}
+            frontmatter={this.props.frontmatter}
+          />
           <ContainersWrapper
+            imagesLocation={this.props.imagesLocation}
             seek={this.props.seek}
           />
         </div>

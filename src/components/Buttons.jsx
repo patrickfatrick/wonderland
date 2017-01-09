@@ -9,8 +9,15 @@ const styles = {
     textAlign: 'center',
     display: 'inline-block',
     position: 'absolute',
-    right: '30px',
-    top: '23px',
+    right: '0.5rem',
+    top: '0',
+    paddingTop: '23px',
+    height: '75px',
+    boxSizing: 'border-box',
+    backgroundColor: '#fff',
+    '@media (min-width: 768px)': {
+      right: '30px',
+    },
   },
   button: {
     outline: 'none',
