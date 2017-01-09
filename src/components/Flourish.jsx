@@ -23,9 +23,15 @@ function Flourish({ sheet: { classes } }) { // eslint-disable-line react/prop-ty
       <div
         className={classes.spacer}
       />
-      <div>{[...Array(5)].map((v, i) => <span className={classes.star} key={i}>*</span>)}</div>
-      <div>{[...Array(4)].map((v, i) => <span className={classes.star} key={i}>*</span>)}</div>
-      <div>{[...Array(5)].map((v, i) => <span className={classes.star} key={i}>*</span>)}</div>
+      <div>{[...Array(5)].map(() => (
+        <span className={classes.star} key={Math.random().toString(32)}>*</span>
+      ))}</div>
+      <div>{[...Array(4)].map(() => (
+        <span className={classes.star} key={Math.random().toString(32)}>*</span>
+      ))}</div>
+      <div>{[...Array(5)].map(() => (
+        <span className={classes.star} key={Math.random().toString(32)}>*</span>
+      ))}</div>
       <div
         className={classes.spacer}
       />

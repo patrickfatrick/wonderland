@@ -38,9 +38,9 @@ class Containers extends Component {
           this.bookViewerElement = el;
         }}
       >
-        {this.props.pageItems.map((pageItem, i) => (
+        {this.props.pageItems.map(pageItem => (
           <Container
-            key={i}
+            key={pageItem.id}
             container={pageItem}
             seek={this.props.seek}
             imagesLocation={this.props.imagesLocation}

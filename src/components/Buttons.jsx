@@ -90,4 +90,8 @@ Buttons.propTypes = {
   toggleAutoscroll: PropTypes.func.isRequired,
 };
 
+Buttons.defaultProps = {
+  audioPlayerElement: {},
+};
+
 export default injectSheet(styles)(Buttons);

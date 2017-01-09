@@ -21,6 +21,7 @@ This is a demonstration of a guided reading experience using React and Redux. Th
 The demo includes the following features:
 
 - An audio reading of the book provided by LibriVox [here](https://librivox.org/alices-adventures-in-wonderland-dramatic-reading-by-lewis-carroll/)
+- Fully responsive for small screens.
 - When audio is turned on, lines are highlighted to follow along with the reading.
 - Auto-scroll can be turned on when the reading is enabled.
 - You can select any line of the book to jump to it in the reading.

@@ -55,6 +55,10 @@ class Book extends Component {
     scrollHandler: PropTypes.func.isRequired,
   }
 
+  static defaultProps = {
+    bookViewerElement: {},
+  }
+
   componentWillMount() {
     this.props.mountBookAndAssets(this.props.path);
   }

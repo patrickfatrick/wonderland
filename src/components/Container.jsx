@@ -31,6 +31,11 @@ class Container extends Component {
     seek: PropTypes.func,
   };
 
+  static defaultProps = {
+    refChapterHeading() {},
+    seek() {},
+  }
+
   componentDidMount() {
     if (this.chapterHeading) {
       this.props.refChapterHeading(this.chapterHeading, this.props.container.chapterId);

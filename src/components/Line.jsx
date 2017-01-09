@@ -50,8 +50,8 @@ function Line({
         onClick={() => lineHandler(audioPlayerElement, line.timestampStart)}
       >
         {(line.content.includes('\n'))
-          ? line.content.split('\n').map((piece, i) => (
-            <span key={i}>{piece}<br /></span>
+          ? line.content.split('\n').map(piece => (
+            <span key={Math.random().toString(32)}>{piece}<br /></span>
           ))
           : line.content
         }
@@ -73,6 +73,10 @@ Line.propTypes = {
     timestampEnd: PropTypes.number,
   }).isRequired,
   lineHandler: PropTypes.func.isRequired,
+};
+
+Line.defaultProps = {
+  audioPlayerElement: {},
 };
 
 export default injectSheet(styles)(Line);
