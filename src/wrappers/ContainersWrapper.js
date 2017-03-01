@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { setBookViewerElement, setChapterHeadingEl } from '../store/actions';
+import { setBookViewerElement } from '../store/ducks/audio-player';
+import { setChapterHeadingEl } from '../store/ducks/chapters';
 import Containers from '../components/Containers';
 
 function mapStateToProps(state) {

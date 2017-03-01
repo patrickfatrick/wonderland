@@ -1,8 +1,10 @@
 import initialState from './initial-state';
 
+const RENDER_CONTAINERS = 'rendered-containers/RENDER_CONTAINERS';
+
 // Adds containers to the renderedContainers array in the state
 // Which is what is actually rendered
-function renderContainers(state, { book, chapters, containers, renderIndex }) {
+function renderContainersHandler(state, { book, chapters, containers, renderIndex }) {
   // Return early if we've already rendered everything
   if (renderIndex >= book.chapters.length) return state;
 
@@ -14,11 +16,15 @@ function renderContainers(state, { book, chapters, containers, renderIndex }) {
   ];
 }
 
-export default function (state = initialState.renderedContainers, action) {
+export default function reducer(state = initialState.renderedContainers, action) {
   switch (action.type) {
-    case 'RENDER_CONTAINERS':
-      return renderContainers(state, action.data);
+    case RENDER_CONTAINERS:
+      return renderContainersHandler(state, action.data);
     default:
       return state;
   }
+}
+
+export function renderContainers(data) {
+  return { type: RENDER_CONTAINERS, data };
 }

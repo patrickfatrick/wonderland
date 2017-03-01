@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setAudioOn, setAutoscroll, updateBuffering } from '../store/actions';
+import { setAudioOn, setAutoscroll, updateBuffering } from '../store/ducks/audio-player';
 import Buttons from '../components/Buttons';
 
 function mapStatetoProps(state) {

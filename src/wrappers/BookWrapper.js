@@ -1,7 +1,11 @@
 /* globals window */
 
 import { connect } from 'react-redux';
-import { setTimestamp, setActiveLine, setAudioPlayer, setBook, setChapters, setLines, setBookLocation, setAssetsLocation, setActiveChapter, renderContainers, updateBuffering, incrementRenderIndex } from '../store/actions';
+import { setBook, setBookLocation, setAssetsLocation, incrementRenderIndex } from '../store/ducks/data';
+import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../store/ducks/audio-player';
+import { setChapters, setActiveChapter } from '../store/ducks/chapters';
+import { setActiveLine, setLines } from '../store/ducks/lines';
+import { renderContainers } from '../store/ducks/rendered-containers';
 import getBook from '../services/book-service';
 import Book from '../components/Book';
 
@@ -58,7 +62,7 @@ function mapDispatchToProps(dispatch) {
   return {
     timeUpdate(e, viewer, autoscroll) {
       dispatch(updateTimes(e));
-      dispatch(updateBuffering(e.target));
+      dispatch(updateBufferedTime(e.target));
       if (autoscroll) autoscrollHandler(viewer);
     },
     seek(player, seconds) {

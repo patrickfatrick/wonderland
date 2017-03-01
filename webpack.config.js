@@ -13,27 +13,31 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
-        loader: 'eslint',
+        enforce: 'pre',
+        use: ['eslint-loader'],
       },
-    ],
-    loaders: [
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel'],
-      },
-    ],
+        use: [
+          'react-hot-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react', 'es2015', 'stage-2'],
+              plugins: ['transform-runtime'],
+            }
+          }
+        ]
+      }
+    ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-  },
-  babel: {
-    presets: ['react', 'es2015', 'stage-2'],
-    plugins: ['transform-runtime'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.EnvironmentPlugin([
@@ -47,10 +51,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   module.exports.plugins.unshift(
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
-    new webpack.optimize.OccurenceOrderPlugin()
+      sourceMap: true
+    })
   );
 }

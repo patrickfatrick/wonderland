@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setTimestamp } from '../store/actions';
+import { setTimestamp } from '../store/ducks/audio-player';
 import Line from '../components/Line';
 
 function mapStateToProps(state, ownProps) {
