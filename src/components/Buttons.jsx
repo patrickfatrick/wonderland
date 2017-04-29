@@ -3,6 +3,7 @@
 import React, { PropTypes } from 'react';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
+import { convertRgbToHexWithHash, multiplyRgbChannels } from 'colorizer';
 
 const styles = {
   buttonContainer: {
@@ -25,19 +26,19 @@ const styles = {
     marginRight: '3px',
     fontSize: '0.8rem',
     lineHeight: '0.8rem',
-    border: '1px solid #919191',
+    border: `1px solid ${convertRgbToHexWithHash(multiplyRgbChannels(0.5)('fff'))}`,
     padding: '0.5rem 1rem 0.5rem 1rem',
     minWidth: '1.5rem',
     minHeight: '1.5rem',
     textAlign: 'center',
     backgroundColor: 'white',
-    color: '#666',
+    color: convertRgbToHexWithHash(multiplyRgbChannels(0.4)('fff')),
     borderRadius: '4px',
     '&:active': {
-      backgroundColor: '#c1c1c1',
+      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.8)('fff')),
     },
     '&.disabled': {
-      backgroundColor: '#c1c1c1',
+      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.8)('fff')),
     },
   },
 };

@@ -1,8 +1,5 @@
-#npm
 node_modules
-
-#DS_Store
 .DS_Store
-
-#debug
 npm-debug.log
+yarn-error.log
+.vscode
