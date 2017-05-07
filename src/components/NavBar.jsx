@@ -3,8 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import classNames from 'classnames';
 import ButtonsWrapper from '../wrappers/ButtonsWrapper';
+import Chapters from './Chapters';
+import truncate from '../lib/utils';
 
 const styles = {
   navbar: {
@@ -30,34 +31,7 @@ const styles = {
       padding: '1rem 30px 1rem 30px',
     },
   },
-  chapterHeading: {
-    fontSize: '2rem',
-    fontFamily: '\'Cormorant Garamond\', Garamond, Georgia, serif',
-    textAlign: 'center',
-    marginTop: '0.5rem',
-    marginBottom: '0.5rem',
-    position: 'absolute',
-    top: '4rem',
-    left: 0,
-    width: '100%',
-    display: 'none',
-    '@media (min-width: 768px)': {
-      top: '1rem',
-    },
-    '&.active': {
-      display: 'inline-block',
-    },
-  },
-  title: {
-    fontStyle: 'italic',
-    fontSize: '1.2rem',
-  },
 };
-
-// Helper function to truncate text for small screens
-function truncate(string = '', num) {
-  return string.length >= num ? `${string.substring(0, num)}...` : string;
-}
 
 function NavBar({
   info,
@@ -84,17 +58,7 @@ function NavBar({
             <br />
             {info.author}
           </li>
-          {Object.keys(chapters).map(chapterId => (
-            <li
-              key={chapterId}
-              className={classNames(classes.chapterHeading, { active: chapters[chapterId].active })}
-            >
-              {(document.body.clientWidth <= 480)
-                ? truncate(chapters[chapterId].title, 18)
-                : chapters[chapterId].title
-              }
-            </li>
-          ))}
+          <Chapters chapters={chapters} />
           <ButtonsWrapper />
         </ul>
       )}
