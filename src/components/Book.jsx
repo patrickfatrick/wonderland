@@ -1,6 +1,7 @@
 /* globals window document HTMLDivElement */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import ContainersWrapper from '../wrappers/ContainersWrapper';
 import NavBar from './NavBar';

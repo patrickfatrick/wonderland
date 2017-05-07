@@ -38,6 +38,7 @@
     "eslint-loader": "^1.7.1",
     "jss": "^7.1.1",
     "normalizr": "^3.0.2",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-jss": "^6.1.1",

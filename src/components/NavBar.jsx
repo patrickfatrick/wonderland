@@ -1,6 +1,7 @@
 /* globals document */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import ButtonsWrapper from '../wrappers/ButtonsWrapper';
