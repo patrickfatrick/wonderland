@@ -44,10 +44,6 @@ class Book extends Component {
       title: PropTypes.string,
     }).isRequired,
     frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
-    chapters: PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string,
-    }).isRequired,
     mountBookAndAssets: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     refPlayer: PropTypes.func.isRequired,
@@ -75,7 +71,19 @@ class Book extends Component {
   }
 
   render() {
-    const classes = this.props.sheet.classes; // eslint-disable-line react/prop-types
+    const {
+      book,
+      assetsLocation,
+      imagesLocation,
+      bookViewerElement,
+      autoscroll,
+      info,
+      frontmatter,
+      seek,
+      timeUpdate,
+      sheet: { classes }, // eslint-disable-line react/prop-types
+    } = this.props;
+
     return (
       <div>
         <div
@@ -85,31 +93,28 @@ class Book extends Component {
           <audio
             preload="metadata"
             type="audio/mp4"
-            {...(this.props.book.audioSrc && { src: `${this.props.assetsLocation}audio/${this.props.book.audioSrc}` })}
+            {...(book.audioSrc && { src: `${assetsLocation}audio/${book.audioSrc}` })}
             onTimeUpdate={(e) => {
-              this.props.timeUpdate(e, this.props.bookViewerElement, this.props.autoscroll);
+              timeUpdate(e, bookViewerElement, autoscroll);
             }}
             ref={(node) => {
               this.player = node;
             }}
           />
         </div>
-        <NavBar
-          info={this.props.info}
-          chapters={this.props.chapters}
-        />
+        <NavBar info={info} />
         <div
           id="reader"
           className={classes.reader}
         >
           <FrontMatter
-            imagesLocation={this.props.imagesLocation}
-            info={this.props.info}
-            frontmatter={this.props.frontmatter}
+            imagesLocation={imagesLocation}
+            info={info}
+            frontmatter={frontmatter}
           />
           <ContainersWrapper
-            imagesLocation={this.props.imagesLocation}
-            seek={this.props.seek}
+            imagesLocation={imagesLocation}
+            seek={seek}
           />
         </div>
       </div>

@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import ButtonsWrapper from '../wrappers/ButtonsWrapper';
-import Chapters from './Chapters';
-import truncate from '../lib/utils';
+import ChaptersWrapper from '../wrappers/ChaptersWrapper';
+import { truncate } from '../lib/utils';
 
 const styles = {
   navbar: {
@@ -35,7 +35,6 @@ const styles = {
 
 function NavBar({
   info,
-  chapters,
   sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
@@ -58,7 +57,7 @@ function NavBar({
             <br />
             {info.author}
           </li>
-          <Chapters chapters={chapters} />
+          <ChaptersWrapper />
           <ButtonsWrapper />
         </ul>
       )}
@@ -69,10 +68,6 @@ function NavBar({
 NavBar.propTypes = {
   info: PropTypes.shape({
     author: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
-  chapters: PropTypes.shape({
-    id: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
 };

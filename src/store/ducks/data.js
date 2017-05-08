@@ -14,6 +14,11 @@ function normalizeData(state, data) {
   };
 }
 
+function renderIndexHandler(state, diff) {
+  if (diff <= 0) return state;
+  return { ...state, renderIndex: state.renderIndex + diff };
+}
+
 export default function reducer(state = initialState.data, action) {
   switch (action.type) {
     case SET_BOOK:
@@ -23,7 +28,7 @@ export default function reducer(state = initialState.data, action) {
     case SET_ASSETS_LOCATION:
       return { ...state, assetsLocation: action.location };
     case INCREMENT_RENDER_INDEX:
-      return { ...state, renderIndex: state.renderIndex + 1 };
+      return renderIndexHandler(state, action.diff);
     default:
       return state;
   }
@@ -41,6 +46,6 @@ export function setAssetsLocation(location) {
   return { type: SET_ASSETS_LOCATION, location };
 }
 
-export function incrementRenderIndex() {
-  return { type: INCREMENT_RENDER_INDEX };
+export function incrementRenderIndex(diff = 1) {
+  return { type: INCREMENT_RENDER_INDEX, diff };
 }

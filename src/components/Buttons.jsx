@@ -16,7 +16,7 @@ const styles = {
     paddingTop: '23px',
     height: '75px',
     boxSizing: 'border-box',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     '@media (min-width: 768px)': {
       right: '30px',
     },
@@ -36,10 +36,10 @@ const styles = {
     color: convertRgbToHexWithHash(multiplyRgbChannels(0.4)('fff')),
     borderRadius: '4px',
     '&:active': {
-      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.8)('fff')),
+      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
     },
     '&.disabled': {
-      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.8)('fff')),
+      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
     },
   },
 };

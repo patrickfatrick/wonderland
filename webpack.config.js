@@ -35,13 +35,16 @@ module.exports = {
                     targets: { browsers: ['last 2 versions', '> 5%'] },
                   }
                 ],
-                'react',
-                'stage-2'
+                'react'
               ],
-              plugins: ['transform-runtime'],
+              plugins: ['transform-runtime', 'transform-object-rest-spread', 'transform-class-properties'],
             }
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

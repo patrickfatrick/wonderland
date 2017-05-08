@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setAudioOn, setAutoscroll, updateBuffering } from '../store/ducks/audio-player';
+import { setAudioOn, setAutoscroll, updateBufferedTime } from '../store/ducks/audio-player';
 import Buttons from '../components/Buttons';
 
 function mapStatetoProps(state) {
@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(setAudioOn(bool));
       if (bool && player.src) {
         player.play();
-        dispatch(updateBuffering(player));
+        dispatch(updateBufferedTime(player));
       } else {
         player.pause();
       }

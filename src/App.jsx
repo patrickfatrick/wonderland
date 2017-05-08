@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BookWrapper from './wrappers/BookWrapper';
+import './styles/base.css';
 
 function App({
   path,

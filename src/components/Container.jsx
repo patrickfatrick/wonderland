@@ -44,38 +44,44 @@ class Container extends Component {
   }
 
   render() {
-    const classes = this.props.sheet.classes; // eslint-disable-line react/prop-types
+    const {
+      container,
+      imagesLocation,
+      seek,
+      sheet: { classes }, // eslint-disable-line react/prop-types
+    } = this.props;
+
     return (
       <div className="page-item">
-        {(this.props.container.type === 'flourish') && <Flourish key={this.props.container.id} />}
-        {(this.props.container.type === 'image') &&
+        {(container.type === 'flourish') && <Flourish key={container.id} />}
+        {(container.type === 'image') &&
           <Image
-            key={this.props.container.id}
-            image={this.props.container}
-            imagesLocation={this.props.imagesLocation}
+            key={container.id}
+            image={container}
+            imagesLocation={imagesLocation}
           />
         }
-        {(this.props.container.type === 'chapterheading') &&
+        {(container.type === 'chapterheading') &&
           <div
-            key={this.props.container.id}
+            key={container.id}
             className={classes.chapterHeading}
             ref={(node) => {
               this.chapterHeading = node;
             }}
           >
-            {this.props.container.title}
+            {container.title}
           </div>
         }
-        {(this.props.container.type === 'paragraph') &&
+        {(container.type === 'paragraph') &&
           <span
             className={classes.indent}
           />
         }
-        {(this.props.container.type === 'paragraph') &&
-          this.props.container.lines.map(lineId => (
+        {(container.type === 'paragraph') &&
+          container.lines.map(lineId => (
             <LineWrapper
               key={lineId}
-              seek={this.props.seek}
+              seek={seek}
               lineId={lineId}
             />
           ))

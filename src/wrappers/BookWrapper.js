@@ -16,7 +16,6 @@ function mapStateToProps(state) {
     book: state.data.book,
     bookViewerElement: state.audioPlayer.bookViewerElement,
     assetsLocation: state.data.assetsLocation,
-    chapters: state.chapters,
     imagesLocation: `${state.data.assetsLocation}images/`,
     info: state.data.book.info,
     frontmatter: state.data.book.frontmatter,

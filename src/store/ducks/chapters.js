@@ -1,3 +1,5 @@
+/* globals document */
+
 import initialState from './initial-state';
 
 const SET_CHAPTERS = 'chapters/SET_CHAPTERS';
@@ -9,13 +11,22 @@ const SET_ACTIVE_CHAPTER = 'chapters/SET_ACTIVE_CHAPTER';
 function setActiveChapterHandler(state, scrollPos) {
   const prev = Object.keys(state).find(chapterId => state[chapterId].active);
   const next = Object.keys(state).reverse().find(chapterId => (
-    state[chapterId].el && (scrollPos >= state[chapterId].el.offsetTop - 20)
+    state[chapterId].el &&
+    (scrollPos >= state[chapterId].el.offsetTop - (document.body.clientWidth ? 75 : 30))
   ));
 
   // Return early if they match
   if (prev === next) return state;
 
   // Reconstruct the state
+  // Do not set next if it's undefined
+  if (!next) {
+    return {
+      ...state,
+      [prev]: { ...state[prev], active: false },
+    };
+  }
+
   return {
     ...state,
     [prev]: { ...state[prev], active: false },

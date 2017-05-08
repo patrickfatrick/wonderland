@@ -30,7 +30,14 @@ class Containers extends Component {
   }
 
   render() {
-    const classes = this.props.sheet.classes; // eslint-disable-line react/prop-types
+    const {
+      pageItems,
+      imagesLocation,
+      refChapterHeading,
+      seek,
+      sheet: { classes }, // eslint-disable-line react/prop-types
+    } = this.props;
+
     return (
       <div
         id="book-viewer"
@@ -39,13 +46,13 @@ class Containers extends Component {
           this.bookViewerElement = el;
         }}
       >
-        {this.props.pageItems.map(pageItem => (
+        {pageItems.map(pageItem => (
           <Container
             key={pageItem.id}
             container={pageItem}
-            seek={this.props.seek}
-            imagesLocation={this.props.imagesLocation}
-            refChapterHeading={this.props.refChapterHeading}
+            seek={seek}
+            imagesLocation={imagesLocation}
+            refChapterHeading={refChapterHeading}
           />
         ))}
       </div>
