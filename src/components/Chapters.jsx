@@ -152,7 +152,7 @@ class Chapters extends Component {
                     () => {
                       chapterSelectHandler(i, chapters[chapterId]);
                       this.toggleChapterSelect(false);
-                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 250);
+                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 500);
                     }
                   }
                 >
