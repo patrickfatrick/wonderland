@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import ButtonsWrapper from '../wrappers/ButtonsWrapper';
 import ChaptersWrapper from '../wrappers/ChaptersWrapper';
-import { truncate } from '../lib/utils';
+import { truncate, isSmallScreen } from '../lib/utils';
 
 const styles = {
   navbar: {
@@ -49,7 +49,7 @@ function NavBar({
         >
           <li className="item">
             <span className={classes.title}>
-              {(document.body.clientWidth <= 480)
+              {isSmallScreen()
                 ? truncate(info.title, 30)
                 : info.title
               }

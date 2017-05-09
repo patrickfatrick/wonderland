@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { convertRgbToHexWithHash, multiplyRgbChannels } from 'colorizer';
-import { truncate, scrollToY } from '../lib/utils';
+import { truncate, isSmallScreen, scrollToY } from '../lib/utils';
 
 const styles = {
   chaptersContainer: {
@@ -48,7 +48,7 @@ const styles = {
     width: '100%',
     display: 'inline-block',
     '@media (min-width: 768px)': {
-      top: '1rem',
+      top: '0.5rem',
     },
     '&.chapterOption': {
       display: 'block',
@@ -104,7 +104,7 @@ class Chapters extends Component {
 
   scrollToChapterHeading = (chapterId) => {
     scrollToY(
-      this.props.chapters[chapterId].el.offsetTop - (document.body.clientWidth <= 480 ? 75 : 30),
+      this.props.chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
     );
   }
 
@@ -125,7 +125,7 @@ class Chapters extends Component {
             onClick={this.toggleChapterSelect}
             className={classes.chapterSelectToggle}
           >
-            {activeChapter && ((document.body.clientWidth <= 480)
+            {activeChapter && (isSmallScreen()
               ? truncate(chapters[activeChapter].title, 18)
               : chapters[activeChapter].title)
             }
@@ -155,7 +155,7 @@ class Chapters extends Component {
                     }
                   }
                 >
-                  {(document.body.clientWidth <= 480)
+                  {isSmallScreen()
                     ? truncate(chapters[chapterId].title, 18)
                     : chapters[chapterId].title
                   }

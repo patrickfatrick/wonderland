@@ -1,8 +1,12 @@
-/* globals window */
+/* globals window document */
 
 // Helper function to truncate text for small screens
 export function truncate(string = '', num) {
   return string.length >= num ? `${string.substring(0, num)}...` : string;
+}
+
+export function isSmallScreen() {
+  return document.body.clientWidth <= 480;
 }
 
 // See https://github.com/danro/easing-js/blob/master/easing.js
@@ -26,15 +30,13 @@ export function scrollToY(scrollTargetY = 0, speed = 2000) {
   // add animation loop
   function tick() {
     currentTime += 1 / 60;
-
     const p = currentTime / time / 0.5;
-    const t = easeInOutQuint(p);
 
     if (p < 1) {
       window.requestAnimationFrame(tick);
       window.scrollTo(
         0,
-        window.scrollY + ((scrollTargetY - window.scrollY) * t),
+        window.scrollY + ((scrollTargetY - window.scrollY) * easeInOutQuint(p)),
       );
     } else {
       window.scrollTo(0, scrollTargetY);
