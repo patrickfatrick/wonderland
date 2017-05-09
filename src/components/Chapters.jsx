@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import { convertRgbToHexWithHash, multiplyRgbChannels } from 'colorizer';
-import { truncate } from '../lib/utils';
+import { truncate, scrollToY } from '../lib/utils';
 
 const styles = {
   chaptersContainer: {
@@ -103,8 +103,7 @@ class Chapters extends Component {
   }
 
   scrollToChapterHeading = (chapterId) => {
-    window.scrollTo(
-      0,
+    scrollToY(
       this.props.chapters[chapterId].el.offsetTop - (document.body.clientWidth <= 480 ? 75 : 30),
     );
   }
