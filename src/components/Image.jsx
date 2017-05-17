@@ -1,8 +1,9 @@
-/* globals window */
+/* globals window document */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { isMediumScreen } from '../lib/utils'
 
 const styles = {
   imageContainer: {
@@ -41,6 +42,16 @@ class Image extends Component {
         <img
           alt={image.src}
           className={classes.image}
+          style={(isMediumScreen())
+            ? {
+              minWidth: document.body.clientWidth,
+              minHeight: image.dimensions[1] / (image.dimensions[0] / document.body.clientWidth)
+            }
+            : {
+              minWidth: image.dimensions[0],
+              minHeight: image.dimensions[1]
+            }
+          }
           {...(image.src && { src: imagesLocation + image.thumb })}
           ref={(node) => {
             this.image = node;

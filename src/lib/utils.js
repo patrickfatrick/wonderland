@@ -9,6 +9,10 @@ export function isSmallScreen() {
   return document.body.clientWidth <= 480;
 }
 
+export function isMediumScreen() {
+  return document.body.clientWidth <= 600;
+}
+
 // See https://github.com/danro/easing-js/blob/master/easing.js
 function easeInOutQuint(pos) {
   if ((pos) < 1) {
