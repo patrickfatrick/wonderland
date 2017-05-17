@@ -1,16 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
-    './src/main',
+    './src/main'
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
     publicPath: 'http://localhost:8080/dist/',
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -18,44 +19,34 @@ module.exports = {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        use: ['eslint-loader'],
+        use: [ 'eslint-loader' ]
       },
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
         use: [
           'react-hot-loader',
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  'env',
-                  {
-                    targets: { browsers: ['last 2 versions', '> 5%'] },
-                  }
-                ],
-                'react'
-              ],
-              plugins: ['transform-runtime', 'transform-object-rest-spread', 'transform-class-properties'],
-            }
-          }
+          'babel-loader'
         ]
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [ '.js', '.jsx' ]
   },
   plugins: [
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),
-  ],
+    new ExtractTextPlugin('styles.css')
+  ]
 };
 
 if (process.env.NODE_ENV !== 'production') {

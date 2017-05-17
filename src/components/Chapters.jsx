@@ -15,11 +15,13 @@ const styles = {
   chapterSelectToggle: {
     outline: 'none',
     border: 'none',
+    color: 'inherit',
     backgroundColor: 'inherit',
     fontFamily: 'inherit',
     fontSize: 'inherit',
+    margin: 0,
     '&:active': {
-      backgroundImage: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
+      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
     },
   },
   chapterSelect: {
@@ -73,9 +75,11 @@ const styles = {
   chapterOptionButton: {
     outline: 'none',
     border: 'none',
+    color: 'inherit',
     backgroundColor: 'inherit',
     fontFamily: 'inherit',
     fontSize: 'inherit',
+    margin: 0,
     '&:active': {
       backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
     },
