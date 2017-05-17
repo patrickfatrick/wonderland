@@ -10,7 +10,7 @@ const styles = {
     paddingRight: '1rem',
     paddingLeft: '1rem',
   },
-  chapterHeading: {
+  heading: {
     fontSize: '2rem',
     textAlign: 'center',
     marginTop: '1rem',
@@ -61,10 +61,10 @@ class Container extends Component {
             imagesLocation={imagesLocation}
           />
         }
-        {(container.type === 'chapterheading') &&
+        {(container.type === 'heading') &&
           <div
             key={container.id}
-            className={classes.chapterHeading}
+            className={classes.heading}
             ref={(node) => {
               this.chapterHeading = node;
             }}
@@ -85,9 +85,6 @@ class Container extends Component {
               lineId={lineId}
             />
           ))
-        }
-        {(container.type === 'decorative') &&
-          <div>{container.text}</div>
         }
       </div>
     );
