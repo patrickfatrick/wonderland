@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { isMediumScreen } from '../lib/utils'
+import { isMediumScreen } from '../lib/utils';
 
 const styles = {
   imageContainer: {
@@ -37,21 +37,20 @@ class Image extends Component {
       sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
+    const minWidth = (isMediumScreen())
+    ? '100%'
+    : image.dimensions[0];
+
+    const minHeight = (isMediumScreen())
+    ? image.dimensions[1] / (image.dimensions[0] / document.body.clientWidth)
+    : image.dimensions[1];
+
     return (
       <div className={classes.imageContainer}>
         <img
           alt={image.src}
           className={classes.image}
-          style={(isMediumScreen())
-            ? {
-              minWidth: document.body.clientWidth,
-              minHeight: image.dimensions[1] / (image.dimensions[0] / document.body.clientWidth)
-            }
-            : {
-              minWidth: image.dimensions[0],
-              minHeight: image.dimensions[1]
-            }
-          }
+          style={{ minWidth, minHeight }}
           {...(image.src && { src: imagesLocation + image.thumb })}
           ref={(node) => {
             this.image = node;
