@@ -48,13 +48,3 @@ module.exports = {
     new ExtractTextPlugin('styles.css')
   ]
 };
-
-if (process.env.NODE_ENV !== 'production') {
-  module.exports.devtool = '#source-map';
-} else {
-  module.exports.plugins.unshift(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    })
-  );
-}

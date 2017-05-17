@@ -1,5 +1,3 @@
-/* globals */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -12,7 +10,8 @@ const styles = {
     position: 'fixed',
     width: '100%',
     minHeight: '120px',
-    top: '0',
+    top: 0,
+    left: 0,
     background: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.10) 0 5px 10px',
     '@media (min-width: 768px)': {
