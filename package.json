@@ -7,7 +7,8 @@
     "test": "test",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --inline --hot --quiet",
     "debug": "cross-env NODE_ENV=debug webpack-dev-server --config webpack.config.dev.js --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.build.js"
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.build.js",
+    "deploy": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
   },
   "author": "Patrick Fricano <patrick.fricano@icloud.com>",
   "license": "MIT",
