@@ -6,6 +6,7 @@ import injectSheet from 'react-jss';
 import ContainersWrapper from '../wrappers/ContainersWrapper';
 import NavBar from './NavBar';
 import FrontMatter from './FrontMatter';
+import BackMatter from './BackMatter';
 
 const styles = {
   audioContainer: {
@@ -34,7 +35,7 @@ class Book extends Component {
     assetsLocation: PropTypes.string.isRequired,
     book: PropTypes.shape({
       assetsLocation: PropTypes.string,
-      audioSrc: PropTypes.string,
+      audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }),
       chapters: PropTypes.array,
     }).isRequired,
     bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
@@ -44,12 +45,14 @@ class Book extends Component {
       title: PropTypes.string,
     }).isRequired,
     frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
+    backmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
     mountBookAndAssets: PropTypes.func.isRequired,
     path: PropTypes.string.isRequired,
     refPlayer: PropTypes.func.isRequired,
     seek: PropTypes.func.isRequired,
     timeUpdate: PropTypes.func.isRequired,
     scrollHandler: PropTypes.func.isRequired,
+    renderIndex: PropTypes.number.isRequired,
   }
 
   static defaultProps = {
@@ -79,8 +82,10 @@ class Book extends Component {
       autoscroll,
       info,
       frontmatter,
+      backmatter,
       seek,
       timeUpdate,
+      renderIndex,
       sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
@@ -93,7 +98,7 @@ class Book extends Component {
           <audio
             preload="metadata"
             type="audio/mp4"
-            {...(book.audioSrc && { src: `${assetsLocation}audio/${book.audioSrc}` })}
+            {...(book.audio.src && { src: `${assetsLocation}audio/${book.audio.src}` })}
             onTimeUpdate={(e) => {
               timeUpdate(e, bookViewerElement, autoscroll);
             }}
@@ -102,7 +107,10 @@ class Book extends Component {
             }}
           />
         </div>
-        <NavBar info={info} />
+        <NavBar
+          info={info}
+          seek={seek}
+        />
         <div
           id="reader"
           className={classes.reader}
@@ -116,7 +124,11 @@ class Book extends Component {
             imagesLocation={imagesLocation}
             seek={seek}
           />
-        </div>
+          {renderIndex >= book.chapters.length && (<BackMatter
+            imagesLocation={imagesLocation}
+            backmatter={backmatter}
+          />)}
+        </div>)
       </div>
     );
   }

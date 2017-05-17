@@ -46,6 +46,7 @@ const styles = {
 
 function Buttons({
   audioOn,
+  audio,
   audioPlayerElement,
   autoscroll,
   buffering,
@@ -67,7 +68,7 @@ function Buttons({
         onClick={() => toggleAudio(audioPlayerElement, !audioOn)}
       >
         {buffering && 'Loading...'}
-        {!buffering && ((audioOn) ? 'Pause' : 'Play')}
+        {!buffering && ((audioOn) ? 'Pause' : `Play (${Math.round(audio.size / 1000000)} MB)`)}
       </button>
       {(audioOn) &&
         <button
@@ -90,6 +91,7 @@ Buttons.propTypes = {
   buffering: PropTypes.bool.isRequired,
   toggleAudio: PropTypes.func.isRequired,
   toggleAutoscroll: PropTypes.func.isRequired,
+  audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }).isRequired,
 };
 
 Buttons.defaultProps = {

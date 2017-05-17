@@ -48,11 +48,11 @@ function Line({
           active: (line.active && audioOn),
           formatted: line.lineType === 'formatted',
         })}
-        onClick={() => lineHandler(audioPlayerElement, line.timestampStart)}
+        onClick={e => lineHandler(e, audioPlayerElement, line.timestampStart)}
       >
         {(line.content.includes('\n'))
           ? line.content.split('\n').map(piece => (
-            <span key={Math.random().toString(32)}>{piece}<br /></span>
+            <span key={Math.random().toString(32)}><br />{piece}</span>
           ))
           : line.content
         }

@@ -1,5 +1,6 @@
+/* globals window */
+
 import { connect } from 'react-redux';
-import { setTimestamp } from '../store/ducks/audio-player';
 import Line from '../components/Line';
 
 function mapStateToProps(state, ownProps) {
@@ -13,9 +14,10 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    lineHandler(player, seconds) {
-      dispatch(setTimestamp(seconds));
+    lineHandler(e, player, seconds) {
+      const target = e.currentTarget;
       ownProps.seek(player, seconds);
+      window.setTimeout(() => target.blur(), 100);
     },
   };
 }

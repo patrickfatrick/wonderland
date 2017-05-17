@@ -9,10 +9,11 @@ function mapStatetoProps(state) {
     chapterOrder: state.data.book.chapters,
     activeChapter: Object.keys(state.chapters).find(chapterId => state.chapters[chapterId].active),
     chapterSelectToggled: false,
+    audioPlayerElement: state.audioPlayer.element,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   function updateRenderIndexAndRender(index) {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
       const diff = index - getState().data.renderIndex;
@@ -22,7 +23,8 @@ function mapDispatchToProps(dispatch) {
   }
 
   return {
-    chapterSelectHandler(index) {
+    chapterSelectHandler(index, player, seconds) {
+      ownProps.seek(player, seconds);
       dispatch(updateRenderIndexAndRender(index));
     },
   };

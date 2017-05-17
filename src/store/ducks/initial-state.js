@@ -30,13 +30,17 @@
 export default {
   data: {
     book: {
-      audioSrc: '',
+      audio: {
+        src: '',
+        size: 0,
+      },
       frontmatter: [],
       info: {
         title: '',
         author: '',
       },
       chapters: [],
+      backmatter: [],
     },
     chapters: {},
     containers: {},

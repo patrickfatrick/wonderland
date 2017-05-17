@@ -1,4 +1,4 @@
-/* globals document */
+/* globals */
 
 import { isSmallScreen } from '../../lib/utils';
 import initialState from './initial-state';

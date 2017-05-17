@@ -1,4 +1,4 @@
-/* globals document */
+/* globals */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -35,6 +35,7 @@ const styles = {
 
 function NavBar({
   info,
+  seek,
   sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
@@ -57,7 +58,7 @@ function NavBar({
             <br />
             {info.author}
           </li>
-          <ChaptersWrapper />
+          <ChaptersWrapper seek={seek} />
           <ButtonsWrapper />
         </ul>
       )}
@@ -70,6 +71,7 @@ NavBar.propTypes = {
     author: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
+  seek: PropTypes.func.isRequired,
 };
 
 export default injectSheet(styles)(NavBar);

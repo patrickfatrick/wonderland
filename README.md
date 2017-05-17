@@ -1,22 +1,23 @@
-# Audio Book Guided Reading Demonstration
+# Alice's Adventures in Wonderland Guided Reading
 
-Hosted version can be found at https://patrickfatrick.github.io/audio-book-react/
+Hosted version can be found at https://patrickfatrick.github.io/wonderland/
 
 ## Usage
 
 ```bash
-$ git clone git@github.com:patrickfatrick/audio-book-react.git
+$ git clone git@github.com:patrickfatrick/wonderland.git
 $ yarn # or npm install
 $ yarn run dev # or npm run dev
+$ yarn run debug # to turn on a logging middleware for state changes
 ```
 
 Navigate to localhost:8080.
 
-[Yarn](https://yarnpkg.com) is a new package manager that is faster than npm, and more secure since it uses a lock file, but you can also `npm install` just as usual. To get verbose logging in the console of any state changes (using [redux-logger](https://github.com/evgenyrodionov/redux-logger)), run it with `yarn run debug` or `npm run debug`.
+[Yarn](https://yarnpkg.com) is a new package manager that is faster than npm, and more secure since it uses a lock file, but you can also `npm install` just as usual.
 
 ## What is it?
 
-This is a demonstration of a guided reading experience using React and Redux. The book (in this case the first three chapters of _Alice's Adventure's in Wonderland_) is actually just a JSON interpretation of the book, which the client then builds the book UI out of. With the same JSON schema any book could be dropped in theoretically. (The JSON file for the demo is located at [data/data.json](https://github.com/patrickfatrick/audio-book-react/blob/master/data/26tniea82c/data.json))
+This is a demonstration of a guided reading experience using React and Redux. The book (in this case _Alice's Adventure's in Wonderland_) is actually just a JSON interpretation of the book, which the client then builds the book UI out of. Theoretically, with the same JSON schema any book could be dropped in. (The JSON file for the demo is located at [data/data.json](https://github.com/patrickfatrick/wonderland/blob/master/data/26tniea82c/data.json))
 
 The demo includes the following features:
 
@@ -27,6 +28,7 @@ The demo includes the following features:
 - You can select any line of the book to jump to it in the reading.
 - Since the book is just one long sheet instead of multiple pages, the navbar at the top displays the current chapter (at some point I will likely put in a jump-to-chapter feature there)
 - Chapters are rendered dynamically: scroll down to the end of chapter 1 and chapter 2 will be rendered, etc.
+- Jump to any chapter, even if hasn't been rendered yet.
 
 ## Architecture
 

@@ -1,4 +1,4 @@
-/* globals document window */
+/* globals window, HTMLAudioElement */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -31,9 +31,20 @@ const styles = {
     width: '100%',
     textAlign: 'center',
     backgroundColor: '#fff',
+    overflowY: 'scroll',
+    maxHeight: '250px',
     boxShadow: 'rgba(0, 0, 0, 0.15) 0 0px 30px, rgba(0, 0, 0, 0.10) 0 10px 10px',
     '&.toggled': {
       display: 'block',
+    },
+    '@media (min-height: 600px)': {
+      maxHeight: '400px',
+    },
+    '@media (min-height: 700px)': {
+      maxHeight: '600px',
+    },
+    '@media (min-height: 800px)': {
+      maxHeight: 'none',
     },
   },
   chapterHeading: {
@@ -83,14 +94,17 @@ class Chapters extends Component {
     chapters: PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
+      timestamp: PropTypes.number,
     }).isRequired,
     chapterOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
     activeChapter: PropTypes.string,
     chapterSelectHandler: PropTypes.func.isRequired,
+    audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   }
 
   static defaultProps = {
     activeChapter: '',
+    audioPlayerElement: {},
   }
 
   constructor(props) {
@@ -105,6 +119,7 @@ class Chapters extends Component {
   scrollToChapterHeading = (chapterId) => {
     scrollToY(
       this.props.chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
+      5000,
     );
   }
 
@@ -113,6 +128,7 @@ class Chapters extends Component {
       chapters,
       chapterOrder,
       activeChapter,
+      audioPlayerElement,
       chapterSelectHandler,
       sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
@@ -149,9 +165,9 @@ class Chapters extends Component {
                   }
                   onClick={
                     () => {
-                      chapterSelectHandler(i, chapters[chapterId]);
                       this.toggleChapterSelect(false);
-                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 500);
+                      chapterSelectHandler(i, audioPlayerElement, chapters[chapterId].timestamp);
+                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 1000);
                     }
                   }
                 >

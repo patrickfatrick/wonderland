@@ -19,8 +19,10 @@ function mapStateToProps(state) {
     imagesLocation: `${state.data.assetsLocation}images/`,
     info: state.data.book.info,
     frontmatter: state.data.book.frontmatter,
+    backmatter: state.data.book.backmatter,
     player: state.audioPlayer.element,
     timestamp: state.audioPlayer.timestamp,
+    renderIndex: state.data.renderIndex,
   };
 }
 

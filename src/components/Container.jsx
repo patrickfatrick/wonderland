@@ -86,6 +86,9 @@ class Container extends Component {
             />
           ))
         }
+        {(container.type === 'decorative') &&
+          <div>{container.text}</div>
+        }
       </div>
     );
   }
