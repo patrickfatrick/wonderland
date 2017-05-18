@@ -171,7 +171,7 @@ class Chapters extends Component {
                     () => {
                       this.toggleChapterSelect(false);
                       chapterSelectHandler(i, audioPlayerElement, chapters[chapterId].timestamp);
-                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 1000);
+                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 500);
                     }
                   }
                 >

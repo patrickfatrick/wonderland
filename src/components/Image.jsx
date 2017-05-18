@@ -27,7 +27,7 @@ class Image extends Component {
   componentDidMount() {
     window.setTimeout(() => {
       this.image.src = this.props.imagesLocation + this.props.image.src;
-    }, 1000);
+    }, 500);
   }
 
   render() {
