@@ -123,7 +123,6 @@ class Chapters extends Component {
   scrollToChapterHeading = (chapterId) => {
     scrollToY(
       this.props.chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
-      5000,
     );
   }
 
@@ -171,7 +170,9 @@ class Chapters extends Component {
                     () => {
                       this.toggleChapterSelect(false);
                       chapterSelectHandler(i, audioPlayerElement, chapters[chapterId].timestamp);
-                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 1000);
+                      // Wait until everything has been rendered if that's needed,
+                      // which can potentially take some time
+                      window.setTimeout(() => this.scrollToChapterHeading(chapterId), 1500);
                     }
                   }
                 >

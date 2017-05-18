@@ -44,7 +44,7 @@ const styles = {
   },
 };
 
-function Buttons({
+function Controls({
   audioOn,
   audio,
   audioPlayerElement,
@@ -84,7 +84,7 @@ function Buttons({
   );
 }
 
-Buttons.propTypes = {
+Controls.propTypes = {
   audioOn: PropTypes.bool.isRequired,
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   autoscroll: PropTypes.bool.isRequired,
@@ -94,8 +94,8 @@ Buttons.propTypes = {
   audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }).isRequired,
 };
 
-Buttons.defaultProps = {
+Controls.defaultProps = {
   audioPlayerElement: {},
 };
 
-export default injectSheet(styles)(Buttons);
+export default injectSheet(styles)(Controls);

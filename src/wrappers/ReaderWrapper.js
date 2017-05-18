@@ -7,7 +7,7 @@ import { setChapters, setActiveChapter } from '../store/ducks/chapters';
 import { setActiveLine, setLines } from '../store/ducks/lines';
 import { renderContainers } from '../store/ducks/rendered-containers';
 import getBook from '../services/book-service';
-import Book from '../components/Book';
+import Reader from '../components/Reader';
 
 function mapStateToProps(state) {
   return {
@@ -44,7 +44,7 @@ function mapDispatchToProps(dispatch) {
         dispatch(setBook(response));
         dispatch(setChapters(response.chapters));
         dispatch(setLines(response.lines));
-        dispatch(updateRenderIndexAndRender());
+        // dispatch(updateRenderIndexAndRender());
       });
     };
   }
@@ -87,4 +87,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Book);
+)(Reader);

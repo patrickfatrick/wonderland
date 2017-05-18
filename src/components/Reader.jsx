@@ -29,7 +29,7 @@ const styles = {
   },
 };
 
-class Book extends Component {
+class Reader extends Component {
   static propTypes = {
     autoscroll: PropTypes.bool.isRequired,
     assetsLocation: PropTypes.string.isRequired,
@@ -112,7 +112,6 @@ class Book extends Component {
           seek={seek}
         />
         <div
-          id="reader"
           className={classes.reader}
         >
           <FrontMatter
@@ -134,4 +133,4 @@ class Book extends Component {
   }
 }
 
-export default injectSheet(styles)(Book);
+export default injectSheet(styles)(Reader);

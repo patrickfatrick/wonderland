@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BookWrapper from './wrappers/BookWrapper';
+import ReaderWrapper from './wrappers/ReaderWrapper';
 import './styles/base.css';
 
 function App({
@@ -8,7 +8,7 @@ function App({
 }) {
   return (
     <div className="container">
-      <BookWrapper path={path} />
+      <ReaderWrapper path={path} />
     </div>
   );
 }

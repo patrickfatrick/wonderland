@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setAudioOn, setAutoscroll, updateBufferedTime } from '../store/ducks/audio-player';
-import Buttons from '../components/Buttons';
+import Controls from '../components/Controls';
 
 function mapStatetoProps(state) {
   return {
@@ -33,4 +33,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStatetoProps,
   mapDispatchToProps,
-)(Buttons);
+)(Controls);

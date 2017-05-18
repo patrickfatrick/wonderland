@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import ButtonsWrapper from '../wrappers/ButtonsWrapper';
+import ControlsWrapper from '../wrappers/ControlsWrapper';
 import ChaptersWrapper from '../wrappers/ChaptersWrapper';
 import { truncate, isSmallScreen } from '../lib/utils';
 
@@ -38,15 +38,9 @@ function NavBar({
   sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
-    <div
-      id="navbar"
-      className={classes.navbar}
-    >
+    <div className={classes.navbar}>
       {info && (
-        <ul
-          id="navbar-items"
-          className={classes.list}
-        >
+        <ul className={classes.list}>
           <li className="item">
             <span className={classes.title}>
               {isSmallScreen()
@@ -58,7 +52,7 @@ function NavBar({
             {info.author}
           </li>
           <ChaptersWrapper seek={seek} />
-          <ButtonsWrapper />
+          <ControlsWrapper />
         </ul>
       )}
     </div>

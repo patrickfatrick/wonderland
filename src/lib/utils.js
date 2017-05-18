@@ -21,15 +21,9 @@ function easeInOutQuint(pos) {
   return 0.5 * (((pos - 2) ** 5) + 2);
 }
 
-// See http://stackoverflow.com/questions/12199363/scrollto-with-animation
-export function scrollToY(scrollTargetY = 0, speed = 2000) {
+// Adapted from http://stackoverflow.com/questions/12199363/scrollto-with-animation
+export function scrollToY(scrollTargetY = 0, time = 0.5) {
   let currentTime = 0;
-
-  // min time .1, max time .8 seconds
-  const time = Math.max(
-    0.1,
-    Math.min(Math.abs(window.scrollY - scrollTargetY) / speed, 0.8),
-  );
 
   // add animation loop
   function tick() {
