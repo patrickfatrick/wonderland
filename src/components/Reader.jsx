@@ -123,11 +123,13 @@ class Reader extends Component {
             imagesLocation={imagesLocation}
             seek={seek}
           />
-          {renderIndex >= book.chapters.length && (<BackMatter
-            imagesLocation={imagesLocation}
-            backmatter={backmatter}
-          />)}
-        </div>)
+          {renderIndex >= book.chapters.length - 1 &&
+            <BackMatter
+              imagesLocation={imagesLocation}
+              backmatter={backmatter}
+            />
+          }
+        </div>
       </div>
     );
   }
