@@ -46,17 +46,13 @@ function Line({
         tabIndex="0"
         className={classNames(classes.line, {
           active: (line.active && audioOn),
-          formatted: line.lineType === 'formatted',
         })}
         onClick={e => lineHandler(e, audioPlayerElement, line.timestampStart)}
-      >
-        {(line.content.includes('\n'))
-          ? line.content.split('\n').map(piece => (
-            <span key={Math.random().toString(32)}><br />{piece}</span>
-          ))
-          : line.content
-        }
-      </a>
+        // This is fine as the html would be generated in the server
+        dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+          __html: line.content,
+        }}
+      />
       <span
         className={classes.whitespace}
       />

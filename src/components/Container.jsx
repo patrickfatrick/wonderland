@@ -13,8 +13,8 @@ const styles = {
   heading: {
     fontSize: '2rem',
     textAlign: 'center',
-    marginTop: '1rem',
-    marginBottom: '1rem',
+    marginTop: '3rem',
+    marginBottom: '3rem',
   },
 };
 
@@ -85,6 +85,14 @@ class Container extends Component {
               lineId={lineId}
             />
           ))
+        }
+        {(container.type === 'text') &&
+          // This is fine as the html would be generated in the server
+          <span
+            dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+              __html: container.content,
+            }}
+          />
         }
       </div>
     );
