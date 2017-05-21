@@ -6,10 +6,6 @@
 }
 
 .line {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-
   &:focus,
   &:active {
     background-color: var(--lightGray);
@@ -20,8 +16,8 @@
   &:visited {
     color: inherit;
   }
-}
 
-.lineActive {
-  background-color: var(--yellow) !important;
+  &.lineActive {
+    background-color: var(--yellow) !important;
+  }
 }

@@ -5,8 +5,8 @@
   top: 0;
 }
 
-.chapterSelectToggle {
-  outline: none;
+.chapterSelectToggle,
+.chapterOptionButton {
   border: none;
   color: inherit;
   background-color: inherit;
@@ -14,7 +14,8 @@
   font-size: inherit;
   margin: 0;
 
-  &:active {
+  &:active,
+  &.chapterOptionButtonActive {
     background-color: var(--lightGray);
   }
 }
@@ -44,10 +45,10 @@
   @media (min-height: 800px) {
     max-height: none;
   }
-}
 
-.chapterSelectToggled {
-  display: block;
+  &.chapterSelectToggled {
+    display: block;
+  }
 }
 
 .chapterHeading {
@@ -74,27 +75,4 @@
   background-color: var(--white);
   margin: 0 auto;
   padding: 0.5rem 0;
-}
-
-.chapterOptionButton {
-  outline: none;
-  border: none;
-  color: inherit;
-  background-color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  margin: 0;
-
-  &:active {
-    background-color: var(--lightGray);
-  }
-}
-
-.chapterOptionButtonActive {
-  background-color: var(--lightGray);
-}
-
-title {
-  font-style: italic;
-  font-size: 1.2rem;
 }
