@@ -2,51 +2,24 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 import classNames from 'classnames';
+import styles from './Line.css';
 
-const styles = {
-  whitespace: {
-    paddingLeft: '0.1rem',
-    paddingRight: '0.2rem',
-  },
-  line: {
-    color: '#000',
-    textDecoration: 'none',
-    cursor: 'pointer',
-    '&.formatted': {
-      fontStyle: 'italic',
-      marginTop: '1rem',
-    },
-    '&:focus, :active': {
-      backgroundColor: '#c1c1c1',
-      border: 'none',
-      outline: 'none',
-    },
-    '&:visited': {
-      color: 'inherit',
-    },
-    '&.active': {
-      backgroundColor: '#FFCC66 !important',
-    },
-  },
-};
-
-function Line({
+export default function Line({
   audioOn,
   line,
   lineHandler,
   audioPlayerElement, // eslint-disable-line react/prop-types
-  sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
     <span>
       <a
         href={`#${line.id}`}
         tabIndex="0"
-        className={classNames(classes.line, {
-          active: (line.active && audioOn),
-        })}
+        className={classNames(
+          styles.line,
+          { [styles.lineActive]: (line.active && audioOn) },
+        )}
         onClick={e => lineHandler(e, audioPlayerElement, line.timestampStart)}
         // This is fine as the html would be generated in the server
         dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
@@ -54,7 +27,7 @@ function Line({
         }}
       />
       <span
-        className={classes.whitespace}
+        className={styles.whitespace}
       />
     </span>
   );
@@ -75,5 +48,3 @@ Line.propTypes = {
 Line.defaultProps = {
   audioPlayerElement: {},
 };
-
-export default injectSheet(styles)(Line);

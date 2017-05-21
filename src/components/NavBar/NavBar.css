@@ -1,0 +1,31 @@
+@import "../../styles/variables.css";
+
+.navbar {
+  @apply --boxShadow;
+
+  position: fixed;
+  width: 100%;
+  min-height: 120px;
+  top: 0;
+  left: 0;
+  background: white;
+
+  @media (--medium) {
+    min-height: 75px;
+  }
+}
+
+.item {
+  display: inline-block;
+  font-family: var(--cormorant);
+}
+
+.list {
+  position: relative;
+  margin: 0;
+  padding: 1rem 0.5rem;
+
+  @media (--medium) {
+    padding: 1rem 30px;
+  }
+}

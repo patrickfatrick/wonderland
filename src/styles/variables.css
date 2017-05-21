@@ -1,0 +1,18 @@
+:root {
+  /* Fonts */
+  --cormorant: "Cormorant Garamond", Garamond, Georgia, serif;
+
+  /* Colors */
+  --lightGray: #e6e6e6;
+  --darkGray: #808080;
+  --darkerGray: #666;
+  --yellow: #fc6;
+  --white: #fff;
+
+  /* Mixins */
+  --boxShadow: {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.1) 0 5px 10px;
+  }
+}
+
+@custom-media --medium (width >= 768px);

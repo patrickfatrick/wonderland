@@ -1,0 +1,17 @@
+@import "../../styles/variables.css";
+
+.audioContainer {
+  display: none;
+}
+
+.reader {
+  margin: 6rem auto 3rem;
+  text-align: justify;
+  font-size: 1.3rem;
+  font-family: var(--cormorant);
+  width: 100%;
+
+  @media (--medium) {
+    max-width: 600px;
+  }
+}

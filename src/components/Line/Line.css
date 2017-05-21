@@ -1,0 +1,27 @@
+@import "../../styles/variables.css";
+
+.whitespace {
+  padding-left: 0.1rem;
+  padding-right: 0.2rem;
+}
+
+.line {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    background-color: var(--lightGray);
+    border: none;
+    outline: none;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.lineActive {
+  background-color: var(--yellow) !important;
+}

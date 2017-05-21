@@ -1,0 +1,100 @@
+@import "../../styles/variables.css";
+
+.chaptersContainer {
+  position: absolute;
+  top: 0;
+}
+
+.chapterSelectToggle {
+  outline: none;
+  border: none;
+  color: inherit;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+
+  &:active {
+    background-color: var(--lightGray);
+  }
+}
+
+.chapterSelect {
+  @apply --boxShadow;
+
+  display: none;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  padding-left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: var(--white);
+  overflow-y: scroll;
+  max-height: 250px;
+
+  @media (min-height: 600px) {
+    max-height: 400px;
+  }
+
+  @media (min-height: 700px) {
+    max-height: 600px;
+  }
+
+  @media (min-height: 800px) {
+    max-height: none;
+  }
+}
+
+.chapterSelectToggled {
+  display: block;
+}
+
+.chapterHeading {
+  font-size: 2rem;
+  font-family: var(--cormorant);
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  display: inline-block;
+
+  @media (--medium) {
+    top: 0.5rem;
+  }
+}
+
+.chapterHeadingOption {
+  display: block;
+  position: relative;
+  top: 0;
+  background-color: var(--white);
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.chapterOptionButton {
+  outline: none;
+  border: none;
+  color: inherit;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+
+  &:active {
+    background-color: var(--lightGray);
+  }
+}
+
+.chapterOptionButtonActive {
+  background-color: var(--lightGray);
+}
+
+title {
+  font-style: italic;
+  font-size: 1.2rem;
+}

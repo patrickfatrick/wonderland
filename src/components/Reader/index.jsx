@@ -2,34 +2,13 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import ContainersWrapper from '../wrappers/ContainersWrapper';
-import NavBar from './NavBar';
-import FrontMatter from './FrontMatter';
-import BackMatter from './BackMatter';
+import ContainersWrapper from '../../wrappers/ContainersWrapper';
+import NavBar from '../NavBar';
+import FrontMatter from '../FrontMatter';
+import BackMatter from '../BackMatter';
+import styles from './Reader.css';
 
-const styles = {
-  audioContainer: {
-    display: 'none',
-  },
-  reader: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    textAlign: 'justify',
-    fontSize: '1.3rem',
-    fontFamily: '\'Cormorant Garamond\', Garamond, Georgia, serif',
-    width: '100%',
-    marginTop: '6rem',
-    marginBottom: '3rem',
-  },
-  '@media(min-width: 668px)': {
-    reader: {
-      maxWidth: '600px',
-    },
-  },
-};
-
-class Reader extends Component {
+export default class Reader extends Component {
   static propTypes = {
     autoscroll: PropTypes.bool.isRequired,
     assetsLocation: PropTypes.string.isRequired,
@@ -86,14 +65,13 @@ class Reader extends Component {
       seek,
       timeUpdate,
       renderIndex,
-      sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
     return (
       <div>
         <div
           id="audio-container"
-          className={classes.audioContainer}
+          className={styles.audioContainer}
         >
           <audio
             preload="metadata"
@@ -112,7 +90,7 @@ class Reader extends Component {
           seek={seek}
         />
         <div
-          className={classes.reader}
+          className={styles.reader}
         >
           <FrontMatter
             imagesLocation={imagesLocation}
@@ -134,5 +112,3 @@ class Reader extends Component {
     );
   }
 }
-
-export default injectSheet(styles)(Reader);

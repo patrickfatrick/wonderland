@@ -4,45 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import classNames from 'classnames';
-import { convertRgbToHexWithHash, multiplyRgbChannels } from 'colorizer';
-
-const styles = {
-  buttonContainer: {
-    textAlign: 'center',
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0.5rem',
-    top: '0',
-    paddingTop: '23px',
-    height: '75px',
-    boxSizing: 'border-box',
-    backgroundColor: 'transparent',
-    '@media (min-width: 768px)': {
-      right: '30px',
-    },
-  },
-  button: {
-    outline: 'none',
-    marginLeft: '3px',
-    marginRight: '3px',
-    fontSize: '0.8rem',
-    lineHeight: '0.8rem',
-    border: `1px solid ${convertRgbToHexWithHash(multiplyRgbChannels(0.5)('fff'))}`,
-    padding: '0.5rem 1rem 0.5rem 1rem',
-    minWidth: '1.5rem',
-    minHeight: '1.5rem',
-    textAlign: 'center',
-    backgroundColor: 'white',
-    color: convertRgbToHexWithHash(multiplyRgbChannels(0.4)('fff')),
-    borderRadius: '4px',
-    '&:active': {
-      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
-    },
-    '&.disabled': {
-      backgroundColor: convertRgbToHexWithHash(multiplyRgbChannels(0.9)('fff')),
-    },
-  },
-};
+import styles from './Controls.css';
 
 function Controls({
   audioOn,
@@ -52,17 +14,16 @@ function Controls({
   buffering,
   toggleAudio,
   toggleAutoscroll,
-  sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
     <div
       id="button-container"
-      className={classes.buttonContainer}
+      className={styles.buttonContainer}
     >
       <button
         id="control-audio-button"
         title="Control Audio"
-        className={classNames(classes.button, {
+        className={classNames(styles.button, {
           disabled: buffering,
         })}
         onClick={() => toggleAudio(audioPlayerElement, !audioOn)}
@@ -74,7 +35,7 @@ function Controls({
         <button
           id="scroll-button"
           title="Auto-Scroll"
-          className={classes.button}
+          className={styles.button}
           onClick={() => toggleAutoscroll(!autoscroll)}
         >
           {(autoscroll) ? 'Disable' : 'Enable' } Auto-Scroll

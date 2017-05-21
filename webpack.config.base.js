@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: [
@@ -33,7 +34,10 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: [
+            'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'postcss-loader'
+          ]
         })
       }
     ]
@@ -45,6 +49,9 @@ module.exports = {
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    new StylelintPlugin({
+      files: [ 'src/**/*.css' ]
+    })
   ]
 };

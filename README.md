@@ -38,4 +38,4 @@ Uses webpack to compile/transpile javascript and JSX assets, with hot-reloading 
 
 Uses the [fetch API](https://github.com/github/fetch) (polyfilled) to retrieve data from the server.
 
-Styles are created using [jss](https://github.com/cssinjs/jss). Inline styles simply have too many shortcomings.
+Styles are created using css modules, postcss, css-next.

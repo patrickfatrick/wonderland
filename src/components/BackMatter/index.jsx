@@ -1,23 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import Container from './Container';
+import Container from '../Container';
+import styles from './BackMatter.css';
 
-const styles = {
-  backmatter: {
-    textAlign: 'center',
-    marginBottom: '6rem',
-    marginTop: '6rem',
-  },
-};
-
-function BackMatter({
+export default function BackMatter({
   backmatter,
   imagesLocation,
-  sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
-    <div className={classes.backmatter}>
+    <div className={styles.backmatter}>
       {backmatter.map(container => (
         <Container
           key={container.id}
@@ -33,5 +24,3 @@ BackMatter.propTypes = {
   imagesLocation: PropTypes.string.isRequired,
   backmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default injectSheet(styles)(BackMatter);

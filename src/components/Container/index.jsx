@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import LineWrapper from '../wrappers/LineWrapper';
-import Flourish from './Flourish';
-import Image from './Image';
+import LineWrapper from '../../wrappers/LineWrapper';
+import Flourish from '../Flourish';
+import Image from '../Image';
+import styles from './Container.css';
 
-const styles = {
-  indent: {
-    paddingRight: '1rem',
-    paddingLeft: '1rem',
-  },
-  heading: {
-    fontSize: '2rem',
-    textAlign: 'center',
-    marginTop: '3rem',
-    marginBottom: '3rem',
-  },
-};
-
-class Container extends Component {
+export default class Container extends Component {
   static propTypes = {
     container: PropTypes.shape({
       id: PropTypes.string,
@@ -48,7 +35,6 @@ class Container extends Component {
       container,
       imagesLocation,
       seek,
-      sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
     return (
@@ -64,7 +50,7 @@ class Container extends Component {
         {(container.type === 'heading') &&
           <div
             key={container.id}
-            className={classes.heading}
+            className={styles.heading}
             ref={(node) => {
               this.chapterHeading = node;
             }}
@@ -74,7 +60,7 @@ class Container extends Component {
         }
         {(container.type === 'paragraph') &&
           <span
-            className={classes.indent}
+            className={styles.indent}
           />
         }
         {(container.type === 'paragraph') &&
@@ -98,5 +84,3 @@ class Container extends Component {
     );
   }
 }
-
-export default injectSheet(styles)(Container);

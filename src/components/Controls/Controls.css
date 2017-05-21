@@ -1,0 +1,41 @@
+@import "../../styles/variables.css";
+
+.buttonContainer {
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  right: 0.5rem;
+  top: 0;
+  padding-top: 23px;
+  height: 75px;
+  box-sizing: border-box;
+  background-color: transparent;
+
+  @media (--medium) {
+    right: 30px;
+  }
+}
+
+.button {
+  outline: none;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  border: 1px solid var(--darkGray);
+  padding: 0.5rem 1rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  text-align: center;
+  background-color: var(--white);
+  color: var(--darkerGray);
+  border-radius: 4px;
+
+  &:active {
+    background-color: var(--lightGray);
+  }
+
+  &.disabled {
+    background-color: var(--lightGray);
+  }
+}

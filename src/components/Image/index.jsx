@@ -2,19 +2,10 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import { isMediumScreen } from '../lib/utils';
+import { isMediumScreen } from '../../lib/utils';
+import styles from './Image.css';
 
-const styles = {
-  imageContainer: {
-    textAlign: 'center',
-  },
-  image: {
-    maxWidth: '100%',
-  },
-};
-
-class Image extends Component {
+export default class Image extends Component {
   static propTypes = {
     image: PropTypes.shape({
       type: PropTypes.string,
@@ -34,7 +25,6 @@ class Image extends Component {
     const {
       image,
       imagesLocation,
-      sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
     const minWidth = (isMediumScreen())
@@ -46,10 +36,10 @@ class Image extends Component {
     : image.dimensions[1];
 
     return (
-      <div className={classes.imageContainer}>
+      <div className={styles.imageContainer}>
         <img
           alt={image.src}
-          className={classes.image}
+          className={styles.image}
           style={{ minWidth, minHeight }}
           {...(image.src && { src: imagesLocation + image.thumb })}
           ref={(node) => {
@@ -60,5 +50,3 @@ class Image extends Component {
     );
   }
 }
-
-export default injectSheet(styles)(Image);

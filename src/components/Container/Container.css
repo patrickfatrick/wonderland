@@ -1,0 +1,11 @@
+.indent {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

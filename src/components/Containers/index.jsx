@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import Container from './Container';
+import Container from '../Container';
+import styles from './Containers.css';
 
-const styles = {
-  containers: {
-    paddingLeft: '0.5rem',
-    paddingRight: '0.5rem',
-  },
-  '@media (min-width: 668px)': {
-    container: {
-      paddingLeft: 0,
-      paddingRight: 0,
-    },
-  },
-};
-
-class Containers extends Component {
+export default class Containers extends Component {
   static propTypes = {
     imagesLocation: PropTypes.string.isRequired,
     pageItems: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -35,13 +22,12 @@ class Containers extends Component {
       imagesLocation,
       refChapterHeading,
       seek,
-      sheet: { classes }, // eslint-disable-line react/prop-types
     } = this.props;
 
     return (
       <div
         id="book-viewer"
-        className={classes.containers}
+        className={styles.containers}
         ref={(el) => {
           this.bookViewerElement = el;
         }}
@@ -59,5 +45,3 @@ class Containers extends Component {
     );
   }
 }
-
-export default injectSheet(styles)(Containers);

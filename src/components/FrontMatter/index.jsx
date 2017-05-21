@@ -1,35 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
-import Container from './Container';
+import Container from '../Container';
+import styles from './FrontMatter.css';
 
-const styles = {
-  frontmatter: {
-    textAlign: 'center',
-    marginBottom: '6rem',
-  },
-  title: {
-    fontSize: '2.5rem',
-    marginTop: '12rem',
-  },
-  author: {
-    fontSize: '1.4rem',
-    marginBottom: '6rem',
-  },
-};
-
-function FrontMatter({
+export default function FrontMatter({
   imagesLocation,
   info,
   frontmatter,
-  sheet: { classes }, // eslint-disable-line react/prop-types
 }) {
   return (
-    <div className={classes.frontmatter}>
-      <div className={classes.title}>
+    <div className={styles.frontmatter}>
+      <div className={styles.title}>
         {info.title}
       </div>
-      <div className={classes.author}>
+      <div className={styles.author}>
         {info.author}
       </div>
       {frontmatter.map(container => (
@@ -51,5 +35,3 @@ FrontMatter.propTypes = {
   }).isRequired,
   frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default injectSheet(styles)(FrontMatter);
