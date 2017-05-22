@@ -58,7 +58,8 @@ function mapDispatchToProps(dispatch) {
   }
 
   function autoscrollHandler(viewer) {
-    if (viewer.querySelector('.active')) window.scroll(0, viewer.querySelector('.active').offsetTop - 200);
+    const activeLine = viewer.querySelector('[data-active-line=true]');
+    if (activeLine) window.scroll(0, activeLine.offsetTop - 200);
   }
 
   return {

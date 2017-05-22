@@ -20,6 +20,7 @@ export default function Line({
           styles.line,
           { [styles.lineActive]: (line.active && audioOn) },
         )}
+        data-active-line={line.active && audioOn}
         onClick={e => lineHandler(e, audioPlayerElement, line.timestampStart)}
         // This is fine as the html would be generated in the server
         dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
