@@ -30,6 +30,7 @@ function mapDispatchToProps(dispatch) {
   // First increment the renderIndex by one, which allows us to render more containers
   function updateRenderIndexAndRender() {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
+      if (getState().data.renderIndex >= getState().data.book.chapters.length - 1) return;
       dispatch(incrementRenderIndex());
       dispatch(renderContainers(getState().data));
     };

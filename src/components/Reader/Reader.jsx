@@ -73,7 +73,7 @@ export default class Reader extends Component {
           id="audio-container"
           className={styles.audioContainer}
         >
-          <audio
+          <audio // eslint-disable-line jsx-a11y/media-has-caption
             preload="metadata"
             type="audio/mp4"
             {...(book.audio.src && { src: `${assetsLocation}audio/${book.audio.src}` })}
