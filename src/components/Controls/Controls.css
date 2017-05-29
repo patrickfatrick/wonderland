@@ -1,18 +1,15 @@
 @import "../../styles/variables.css";
 
 .buttonContainer {
-  text-align: center;
+  lost-column: 19/30;
+  text-align: right;
   display: inline-block;
-  position: absolute;
-  right: 0.5rem;
-  top: 0;
-  padding-top: 23px;
-  height: 75px;
+  padding-top: 0.5rem;
   box-sizing: border-box;
   background-color: transparent;
 
-  @media (--medium) {
-    right: 30px;
+  @media (--large) {
+    lost-column: 8/30;
   }
 }
 
@@ -26,15 +23,35 @@
   min-width: 1.5rem;
   min-height: 1.5rem;
   text-align: center;
-  background-color: var(--white);
-  color: var(--darkerGray);
+  background-color: inherit;
+  color: inherit;
   border-radius: 4px;
 
-  &:active {
+  &:active,
+  &:focus {
     background-color: var(--lightGray);
   }
 
-  &.disabled {
+  &.buttonDisabled {
     background-color: var(--lightGray);
   }
+}
+
+.buttonDarkmodeOn {
+  &:active,
+  &:focus {
+    background-color: var(--darkerGray);
+  }
+}
+
+.darkmodeButton {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--darkestGray);
+  border-color: var(--lightGray);
+}
+
+.darkmodeButtonDarkmodeOn {
+  background-color: var(--white);
+  border-color: var(--darkGray);
 }

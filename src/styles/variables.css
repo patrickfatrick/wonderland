@@ -6,13 +6,22 @@
   --lightGray: #e6e6e6;
   --darkGray: #808080;
   --darkerGray: #666;
-  --yellow: #fc6;
+  --darkestGray: #333;
+  --golden: #fc6;
+  --astroTurf: #00ee76;
   --white: #fff;
+  --black: #000;
 
   /* Mixins */
   --boxShadow: {
     box-shadow: rgba(0, 0, 0, 0.15) 0 10px 30px, rgba(0, 0, 0, 0.1) 0 5px 10px;
   }
+
+  --darkmode: {
+    background-color: #333;
+    color: #e6e6e6;
+  }
 }
 
 @custom-media --medium (width >= 768px);
+@custom-media --large (width >= 992px);

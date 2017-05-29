@@ -12,8 +12,10 @@ function Controls({
   audioPlayerElement,
   autoscroll,
   buffering,
+  darkmode,
   toggleAudio,
   toggleAutoscroll,
+  toggleDarkmode,
 }) {
   return (
     <div
@@ -21,24 +23,45 @@ function Controls({
       className={styles.buttonContainer}
     >
       <button
-        id="control-audio-button"
+        type="button"
+        title="Darkmode"
+        className={
+          classNames({
+            [styles.button]: true,
+            [styles.darkmodeButton]: true,
+            [styles.darkmodeButtonDarkmodeOn]: darkmode,
+          })
+        }
+        onClick={e => toggleDarkmode(e, !darkmode)}
+      />
+      <button
+        type="button"
         title="Control Audio"
-        className={classNames(styles.button, {
-          disabled: buffering,
-        })}
-        onClick={() => toggleAudio(audioPlayerElement, !audioOn)}
+        className={
+          classNames({
+            [styles.button]: true,
+            [styles.buttonDisabled]: buffering,
+            [styles.buttonDarkmodeOn]: darkmode,
+          })
+        }
+        onClick={e => toggleAudio(e, audioPlayerElement, !audioOn)}
       >
         {buffering && 'Loading...'}
         {!buffering && ((audioOn) ? 'Pause' : `Play (${Math.round(audio.size / 1000000)} MB)`)}
       </button>
       {(audioOn) &&
         <button
-          id="scroll-button"
+          type="button"
           title="Auto-Scroll"
-          className={styles.button}
-          onClick={() => toggleAutoscroll(!autoscroll)}
+          className={
+            classNames({
+              [styles.button]: true,
+              [styles.buttonDarkmodeOn]: darkmode,
+            })
+          }
+          onClick={e => toggleAutoscroll(e, !autoscroll)}
         >
-          {(autoscroll) ? 'Disable' : 'Enable' } Auto-Scroll
+           Autoscroll {(autoscroll) ? 'Off' : 'On'}
         </button>
       }
     </div>
@@ -50,8 +73,10 @@ Controls.propTypes = {
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   autoscroll: PropTypes.bool.isRequired,
   buffering: PropTypes.bool.isRequired,
+  darkmode: PropTypes.bool.isRequired,
   toggleAudio: PropTypes.func.isRequired,
   toggleAutoscroll: PropTypes.func.isRequired,
+  toggleDarkmode: PropTypes.func.isRequired,
   audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }).isRequired,
 };
 

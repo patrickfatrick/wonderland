@@ -12,11 +12,11 @@ export default function NavBar({
   return (
     <div className={styles.navbar}>
       {info && (
-        <ul className={styles.list}>
-          <li className={styles.item}>
+        <ul className={styles.navbarItems}>
+          <li className={styles.metadata}>
             <span className={styles.title}>
               {isSmallScreen()
-                ? truncate(info.title, 30)
+                ? truncate(info.title, 16)
                 : info.title
               }
             </span>

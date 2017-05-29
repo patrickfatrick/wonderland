@@ -1,11 +1,9 @@
 @import "../../styles/variables.css";
 
-.whitespace {
-  padding-left: 0.1rem;
-  padding-right: 0.2rem;
-}
-
 .line {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+
   &:focus,
   &:active {
     background-color: var(--lightGray);
@@ -18,6 +16,19 @@
   }
 
   &.lineActive {
-    background-color: var(--yellow) !important;
+    background-color: var(--golden);
+    color: var(--black) !important;
+  }
+}
+
+.lineDarkmodeOn {
+  &:focus,
+  &:active {
+    background-color: var(--darkerGray);
+  }
+
+  &.lineActiveDarkmodeOn {
+    background-color: var(--astroTurf);
+    color: var(--black) !important;
   }
 }

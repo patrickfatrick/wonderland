@@ -1,3 +1,5 @@
+/* globals window */
+
 /**
  * From normalizr, `data` will look like the following,
  * where ids are stored in arrays inside the parent object for order's sake,
@@ -48,6 +50,9 @@ export default {
     renderIndex: -1,
     bookLocation: '',
     assetsLocation: '',
+    darkmode: Object.prototype.hasOwnProperty.call(window.localStorage, 'darkmode')
+    ? window.localStorage.getItem('darkmode') === 'true'
+    : false,
   },
   chapters: {},
   renderedContainers: [],

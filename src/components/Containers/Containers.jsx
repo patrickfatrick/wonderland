@@ -26,7 +26,6 @@ export default class Containers extends Component {
 
     return (
       <div
-        id="book-viewer"
         className={styles.containers}
         ref={(el) => {
           this.bookViewerElement = el;

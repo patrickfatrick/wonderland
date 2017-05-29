@@ -4,6 +4,7 @@ const SET_BOOK = 'data/SET_BOOK';
 const SET_BOOK_LOCATION = 'data/SET_BOOK_LOCATION';
 const SET_ASSETS_LOCATION = 'data/SET_ASSETS_LOCATION';
 const INCREMENT_RENDER_INDEX = 'data/INCREMENT_RENDER_INDEX';
+const SET_DARKMODE = 'data/TOGGLE_DARKMODE';
 
 function normalizeData(state, data) {
   return {
@@ -29,6 +30,8 @@ export default function reducer(state = initialState.data, action) {
       return { ...state, assetsLocation: action.location };
     case INCREMENT_RENDER_INDEX:
       return renderIndexHandler(state, action.diff);
+    case SET_DARKMODE:
+      return { ...state, darkmode: action.bool };
     default:
       return state;
   }
@@ -48,4 +51,8 @@ export function setAssetsLocation(location) {
 
 export function incrementRenderIndex(diff = 1) {
   return { type: INCREMENT_RENDER_INDEX, diff };
+}
+
+export function setDarkmode(bool) {
+  return { type: SET_DARKMODE, bool };
 }

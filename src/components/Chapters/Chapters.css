@@ -15,8 +15,18 @@
   margin: 0;
 
   &:active,
+  &:focus,
   &.chapterOptionButtonActive {
     background-color: var(--lightGray);
+  }
+}
+
+.chapterSelectToggleDarkmodeOn,
+.chapterOptionButtonDarkmodeOn {
+  &:active,
+  &:focus,
+  &.chapterOptionButtonActiveDarkmodeOn {
+    background-color: var(--darkerGray);
   }
 }
 
@@ -30,7 +40,7 @@
   padding-left: 0;
   width: 100%;
   text-align: center;
-  background-color: var(--white);
+  background-color: inherit;
   overflow-y: scroll;
   max-height: 250px;
 
@@ -43,7 +53,7 @@
   }
 
   @media (min-height: 800px) {
-    max-height: none;
+    max-height: 800px;
   }
 
   &.chapterSelectToggled {
@@ -52,27 +62,28 @@
 }
 
 .chapterHeading {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  left: 0;
   font-size: 2rem;
   font-family: var(--cormorant);
   text-align: center;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  position: absolute;
-  top: 4rem;
-  left: 0;
-  width: 100%;
-  display: inline-block;
+  background-color: inherit;
 
-  @media (--medium) {
+  @media (--large) {
+    lost-column: 14/30;
+    position: relative;
     top: 0.5rem;
   }
 }
 
 .chapterHeadingOption {
+  lost-column: 12/12;
   display: block;
   position: relative;
   top: 0;
-  background-color: var(--white);
+  background-color: inherit;
   margin: 0 auto;
   padding: 0.5rem 0;
 }

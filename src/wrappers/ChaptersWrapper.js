@@ -7,6 +7,7 @@ function mapStatetoProps(state) {
   return {
     chapters: state.chapters,
     chapterOrder: state.data.book.chapters,
+    darkmode: state.data.darkmode,
     activeChapter: Object.keys(state.chapters).find(chapterId => state.chapters[chapterId].active),
     chapterSelectToggled: false,
     audioPlayerElement: state.audioPlayer.element,

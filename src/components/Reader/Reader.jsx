@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ContainersWrapper from '../../wrappers/ContainersWrapper';
 import NavBar from '../NavBar';
 import FrontMatter from '../FrontMatter';
@@ -18,6 +19,7 @@ export default class Reader extends Component {
       chapters: PropTypes.array,
     }).isRequired,
     bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
+    darkmode: PropTypes.bool.isRequired,
     imagesLocation: PropTypes.string.isRequired,
     info: PropTypes.shape({
       author: PropTypes.string,
@@ -55,6 +57,7 @@ export default class Reader extends Component {
   render() {
     const {
       book,
+      darkmode,
       assetsLocation,
       imagesLocation,
       bookViewerElement,
@@ -68,9 +71,15 @@ export default class Reader extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div
+        className={
+          classNames({
+            [styles.readerContainer]: true,
+            [styles.readerContainerDarkmodeOn]: darkmode,
+          })
+        }
+      >
         <div
-          id="audio-container"
           className={styles.audioContainer}
         >
           <audio // eslint-disable-line jsx-a11y/media-has-caption

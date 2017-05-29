@@ -15,6 +15,7 @@ function mapStateToProps(state) {
     autoscroll: state.audioPlayer.autoscroll,
     book: state.data.book,
     bookViewerElement: state.audioPlayer.bookViewerElement,
+    darkmode: state.data.darkmode,
     assetsLocation: state.data.assetsLocation,
     imagesLocation: `${state.data.assetsLocation}images/`,
     info: state.data.book.info,

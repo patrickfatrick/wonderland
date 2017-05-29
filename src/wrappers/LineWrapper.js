@@ -6,6 +6,7 @@ import Line from '../components/Line';
 function mapStateToProps(state, ownProps) {
   return {
     audioOn: state.audioPlayer.audioOn,
+    darkmode: state.data.darkmode,
     timestamp: state.audioPlayer.timestamp,
     audioPlayerElement: state.audioPlayer.element,
     line: state.lines[ownProps.lineId],

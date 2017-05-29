@@ -8,19 +8,27 @@
   min-height: 120px;
   top: 0;
   left: 0;
-  background: white;
+  background-color: inherit;
 
-  @media (--medium) {
+  @media (--large) {
     min-height: 75px;
   }
 }
 
-.item {
+.metadata {
+  lost-column: 11/30;
   display: inline-block;
   font-family: var(--cormorant);
+
+  @media (--large) {
+    lost-column: 8/30;
+  }
 }
 
-.list {
+.navbarItems {
+  lost-utility: clearfix;
+  list-style: none;
+  background-color: inherit;
   position: relative;
   margin: 0;
   padding: 1rem 0.5rem;
