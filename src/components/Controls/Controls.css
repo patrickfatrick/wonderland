@@ -1,7 +1,7 @@
 @import "../../styles/variables.css";
 
 .buttonContainer {
-  lost-column: 19/30;
+  lost-column: 18/30;
   text-align: right;
   display: inline-block;
   padding-top: 0.5rem;
@@ -19,7 +19,7 @@
   font-size: 0.8rem;
   line-height: 0.8rem;
   border: 1px solid var(--darkGray);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   min-width: 1.5rem;
   min-height: 1.5rem;
   text-align: center;

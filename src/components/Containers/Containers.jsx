@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Container from '../Container';
-import styles from './Containers.css';
 
 export default class Containers extends Component {
   static propTypes = {
@@ -26,7 +25,6 @@ export default class Containers extends Component {
 
     return (
       <div
-        className={styles.containers}
         ref={(el) => {
           this.bookViewerElement = el;
         }}

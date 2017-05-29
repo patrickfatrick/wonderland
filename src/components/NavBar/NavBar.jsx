@@ -16,7 +16,7 @@ export default function NavBar({
           <li className={styles.metadata}>
             <span className={styles.title}>
               {isSmallScreen()
-                ? truncate(info.title, 16)
+                ? truncate(info.title, 18)
                 : info.title
               }
             </span>

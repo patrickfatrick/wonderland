@@ -38,7 +38,7 @@ export default class Container extends Component {
     } = this.props;
 
     return (
-      <div>
+      <div className={styles.container}>
         {(container.type === 'flourish') && <Flourish key={container.id} />}
         {(container.type === 'image') &&
           <Image

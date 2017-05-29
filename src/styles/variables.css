@@ -25,3 +25,5 @@
 
 @custom-media --medium (width >= 768px);
 @custom-media --large (width >= 992px);
+
+@lost gutter 1rem;
