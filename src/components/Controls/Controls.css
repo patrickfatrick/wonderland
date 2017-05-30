@@ -14,6 +14,7 @@
 }
 
 .button {
+  font-family: 'Verdana', sans-serif;
   margin-left: 3px;
   margin-right: 3px;
   font-size: 0.8rem;
@@ -49,9 +50,19 @@
   border-radius: 1rem;
   background-color: var(--darkestGray);
   border-color: var(--lightGray);
+
+  &:active,
+  &:focus {
+    background-color: var(--lightGray);
+  }
 }
 
 .darkmodeButtonDarkmodeOn {
   background-color: var(--white);
   border-color: var(--darkGray);
+
+  &:active,
+  &:focus {
+    background-color: var(--darkGray);
+  }
 }

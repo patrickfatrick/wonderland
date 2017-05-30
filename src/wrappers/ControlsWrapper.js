@@ -2,14 +2,14 @@
 
 import { connect } from 'react-redux';
 import { setAudioOn, setAutoscroll, updateBufferedTime } from '../store/ducks/audio-player';
-import { setDarkmode } from '../store/ducks/data';
+import { setDarkmode } from '../store/ducks/application';
 import Controls from '../components/Controls';
 
 function mapStatetoProps(state) {
   return {
     audioPlayerElement: state.audioPlayer.element,
     buffering: state.audioPlayer.buffering,
-    darkmode: state.data.darkmode,
+    darkmode: state.application.darkmode,
     captions: state.captions,
     audioOn: state.audioPlayer.audioOn,
     autoscroll: state.audioPlayer.autoscroll,

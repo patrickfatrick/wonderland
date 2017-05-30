@@ -1,4 +1,4 @@
-/* globals HTMLAudioElement */
+/* globals window HTMLAudioElement */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,14 +8,21 @@ import styles from './Line.css';
 export default function Line({
   audioOn,
   darkmode,
+  lineId,
   line,
-  lineHandler,
+  seek,
   audioPlayerElement, // eslint-disable-line react/prop-types
 }) {
+  function lineHandler(e, player, seconds) {
+    const target = e.currentTarget;
+    seek(player, seconds);
+    window.setTimeout(() => target.blur(), 100);
+  }
+
   return (
     <span>
       <a
-        href={`#${line.id}`}
+        href={`#${lineId}`}
         tabIndex="0"
         className={
           classNames({
@@ -40,13 +47,14 @@ Line.propTypes = {
   audioOn: PropTypes.bool.isRequired,
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   darkmode: PropTypes.bool.isRequired,
+  lineId: PropTypes.string.isRequired,
   line: PropTypes.shape({
     active: PropTypes.bool,
     content: PropTypes.string,
     timestampStart: PropTypes.number,
     timestampEnd: PropTypes.number,
   }).isRequired,
-  lineHandler: PropTypes.func.isRequired,
+  seek: PropTypes.func.isRequired,
 };
 
 Line.defaultProps = {

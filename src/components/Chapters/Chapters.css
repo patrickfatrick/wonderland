@@ -21,6 +21,10 @@
   }
 }
 
+.chapterOptionButton {
+  font-size: 1.6rem;
+}
+
 .chapterSelectToggleDarkmodeOn,
 .chapterOptionButtonDarkmodeOn {
   &:active,
@@ -35,7 +39,7 @@
 
   display: none;
   position: absolute;
-  top: 3rem;
+  top: 4rem;
   left: 0;
   padding-left: 0;
   width: 100%;
@@ -49,15 +53,19 @@
   }
 
   @media (min-height: 700px) {
-    max-height: 600px;
+    max-height: 500px;
   }
 
   @media (min-height: 800px) {
-    max-height: 800px;
+    max-height: 600px;
   }
 
   &.chapterSelectToggled {
     display: block;
+  }
+
+  &.chapterSelectDarkmodeOn {
+    @apply --boxShadowDarkmodeOn;
   }
 }
 

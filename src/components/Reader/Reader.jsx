@@ -97,6 +97,7 @@ export default class Reader extends Component {
         <NavBar
           info={info}
           seek={seek}
+          darkmode={darkmode}
         />
         <div
           className={styles.reader}

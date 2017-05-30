@@ -59,18 +59,18 @@ export default class Container extends Component {
           </div>
         }
         {(container.type === 'paragraph') &&
-          <span
-            className={styles.indent}
-          />
-        }
-        {(container.type === 'paragraph') &&
-          container.lines.map(lineId => (
-            <LineWrapper
-              key={lineId}
-              seek={seek}
-              lineId={lineId}
+          <div>
+            <span
+              className={styles.indent}
             />
-          ))
+            {container.lines.map(lineId => (
+              <LineWrapper
+                key={lineId}
+                seek={seek}
+                lineId={lineId}
+              />
+            ))}
+          </div>
         }
         {(container.type === 'text') &&
           // This is fine as the html would be generated in the server

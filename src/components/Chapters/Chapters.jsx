@@ -73,10 +73,13 @@ export default class Chapters extends Component {
           {!activeChapter && 'Select a Chapter'}
         </button>
         <ul
-          className={classNames(
-            styles.chapterSelect,
-            { [styles.chapterSelectToggled]: this.state.chapterSelectToggled },
-          )}
+          className={
+            classNames({
+              [styles.chapterSelect]: true,
+              [styles.chapterSelectDarkmodeOn]: darkmode,
+              [styles.chapterSelectToggled]: this.state.chapterSelectToggled,
+            })
+          }
         >
           {Object.keys(chapters).length && chapterOrder.map((chapterId, i) => (
             <li

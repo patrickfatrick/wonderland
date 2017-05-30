@@ -5,13 +5,17 @@
 
   position: fixed;
   width: 100%;
-  min-height: 120px;
+  height: 8rem;
   top: 0;
   left: 0;
   background-color: inherit;
 
   @media (--large) {
-    min-height: 75px;
+    height: 5rem;
+  }
+
+  &.navbarDarkmodeOn {
+    @apply --boxShadowDarkmodeOn;
   }
 }
 

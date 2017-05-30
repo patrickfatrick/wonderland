@@ -20,8 +20,8 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: var(--white);
-}
 
-.readerContainerDarkmodeOn {
-  @apply --darkmode;
+  &.readerContainerDarkmodeOn {
+    @apply --darkmode;
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ControlsWrapper from '../../wrappers/ControlsWrapper';
 import ChaptersWrapper from '../../wrappers/ChaptersWrapper';
 import { truncate, isSmallScreen } from '../../lib/utils';
@@ -8,9 +9,17 @@ import styles from './NavBar.css';
 export default function NavBar({
   info,
   seek,
+  darkmode,
 }) {
   return (
-    <div className={styles.navbar}>
+    <div
+      className={
+        classNames({
+          [styles.navbar]: true,
+          [styles.navbarDarkmodeOn]: darkmode,
+        })
+      }
+    >
       {info && (
         <ul className={styles.navbarItems}>
           <li className={styles.metadata}>
@@ -37,4 +46,5 @@ NavBar.propTypes = {
     title: PropTypes.string,
   }).isRequired,
   seek: PropTypes.func.isRequired,
+  darkmode: PropTypes.bool.isRequired,
 };

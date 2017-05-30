@@ -30,6 +30,13 @@
  */
 
 export default {
+  application: {
+    renderIndex: -1,
+    assetsLocation: '',
+    darkmode: Object.prototype.hasOwnProperty.call(window.localStorage, 'darkmode')
+    ? window.localStorage.getItem('darkmode') === 'true'
+    : false,
+  },
   data: {
     book: {
       audio: {
@@ -47,12 +54,6 @@ export default {
     chapters: {},
     containers: {},
     lines: {},
-    renderIndex: -1,
-    bookLocation: '',
-    assetsLocation: '',
-    darkmode: Object.prototype.hasOwnProperty.call(window.localStorage, 'darkmode')
-    ? window.localStorage.getItem('darkmode') === 'true'
-    : false,
   },
   chapters: {},
   renderedContainers: [],

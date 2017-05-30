@@ -46,13 +46,11 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "classnames": "^2.2.5",
-    "jss": "^7.1.1",
     "lost": "^8.0.0",
     "normalizr": "^3.2.3",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-jss": "^6.1.1",
     "react-redux": "^5.0.5",
     "redux": "^3.3.1",
     "redux-logger": "^3.0.6",

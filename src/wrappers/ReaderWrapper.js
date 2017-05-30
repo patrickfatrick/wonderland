@@ -1,7 +1,8 @@
 /* globals window */
 
 import { connect } from 'react-redux';
-import { setBook, setBookLocation, setAssetsLocation, incrementRenderIndex } from '../store/ducks/data';
+import { setBook } from '../store/ducks/data';
+import { setAssetsLocation, incrementRenderIndex } from '../store/ducks/application';
 import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../store/ducks/audio-player';
 import { setChapters, setActiveChapter } from '../store/ducks/chapters';
 import { setActiveLine, setLines } from '../store/ducks/lines';
@@ -15,15 +16,15 @@ function mapStateToProps(state) {
     autoscroll: state.audioPlayer.autoscroll,
     book: state.data.book,
     bookViewerElement: state.audioPlayer.bookViewerElement,
-    darkmode: state.data.darkmode,
-    assetsLocation: state.data.assetsLocation,
-    imagesLocation: `${state.data.assetsLocation}images/`,
+    darkmode: state.application.darkmode,
+    assetsLocation: state.application.assetsLocation,
+    imagesLocation: `${state.application.assetsLocation}images/`,
     info: state.data.book.info,
     frontmatter: state.data.book.frontmatter,
     backmatter: state.data.book.backmatter,
     player: state.audioPlayer.element,
     timestamp: state.audioPlayer.timestamp,
-    renderIndex: state.data.renderIndex,
+    renderIndex: state.application.renderIndex,
   };
 }
 
@@ -31,9 +32,10 @@ function mapDispatchToProps(dispatch) {
   // First increment the renderIndex by one, which allows us to render more containers
   function updateRenderIndexAndRender() {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
-      if (getState().data.renderIndex >= getState().data.book.chapters.length - 1) return;
+      const data = getState().data;
+      if (getState().application.renderIndex >= data.book.chapters.length - 1) return;
       dispatch(incrementRenderIndex());
-      dispatch(renderContainers(getState().data));
+      dispatch(renderContainers(data, getState().application.renderIndex));
     };
   }
 
@@ -46,7 +48,6 @@ function mapDispatchToProps(dispatch) {
         dispatch(setBook(response));
         dispatch(setChapters(response.chapters));
         dispatch(setLines(response.lines));
-        // dispatch(updateRenderIndexAndRender());
       });
     };
   }
@@ -77,7 +78,6 @@ function mapDispatchToProps(dispatch) {
     },
     mountBookAndAssets(path) {
       dispatch(getBookAsync(`${path}data.json`));
-      dispatch(setBookLocation(`${path}data.json`));
       dispatch(setAssetsLocation(`${path}assets/`));
     },
     scrollHandler({ scrollPos, offset }) {
