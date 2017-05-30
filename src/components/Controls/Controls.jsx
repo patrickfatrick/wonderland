@@ -2,11 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 import classNames from 'classnames';
 import styles from './Controls.css';
 
-function Controls({
+export default function Controls({
   audioOn,
   audio,
   audioPlayerElement,
@@ -83,5 +82,3 @@ Controls.propTypes = {
 Controls.defaultProps = {
   audioPlayerElement: {},
 };
-
-export default injectSheet(styles)(Controls);
