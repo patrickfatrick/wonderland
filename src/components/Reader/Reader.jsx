@@ -1,5 +1,6 @@
 /* globals window document HTMLDivElement */
 
+import { throttle } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -46,13 +47,13 @@ export default class Reader extends Component {
 
   componentDidMount() {
     this.props.refPlayer(this.player);
-    window.addEventListener('scroll', () => {
-      this.props.scrollHandler({
-        scrollPos: window.scrollY,
-        offset: document.body.clientHeight - window.innerHeight,
-      });
-    });
+    window.addEventListener('scroll', throttle(this.scrollHandler, 50));
   }
+
+  scrollHandler = () => this.props.scrollHandler({
+    scrollPos: window.scrollY,
+    offset: document.body.clientHeight - window.innerHeight,
+  })
 
   render() {
     const {
