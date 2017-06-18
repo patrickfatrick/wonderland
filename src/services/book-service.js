@@ -1,4 +1,6 @@
 /* globals fetch */
+
+import 'whatwg-fetch';
 import { normalize, schema } from 'normalizr';
 
 // See https://github.com/paularmstrong/normalizr
