@@ -35,8 +35,7 @@
 }
 
 .chapterSelect {
-  @apply --boxShadow;
-
+  box-shadow: var(--defaultBoxShadow);
   display: none;
   position: absolute;
   top: 4rem;
@@ -65,7 +64,7 @@
   }
 
   &.chapterSelectDarkmodeOn {
-    @apply --boxShadowDarkmodeOn;
+    box-shadow: var(--darkmodeBoxShadow);
   }
 }
 

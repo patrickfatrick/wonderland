@@ -39,13 +39,9 @@ export default class Reader extends Component {
     bookViewerElement: {},
   }
 
-  componentWillMount() {
-    const { path, mountBookAndAssets } = this.props;
-    mountBookAndAssets(path);
-  }
-
   componentDidMount() {
-    const { refPlayer } = this.props;
+    const { refPlayer, path, mountBookAndAssets } = this.props;
+    mountBookAndAssets(path);
     refPlayer(this.player);
     window.addEventListener('scroll', this.scrollHandlerThrottled);
   }
