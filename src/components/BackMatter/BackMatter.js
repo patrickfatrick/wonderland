@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from '../Container';
+import Block from '../Block';
 import styles from './BackMatter.css';
 
 export default function BackMatter({
@@ -9,11 +9,11 @@ export default function BackMatter({
 }) {
   return (
     <div className={styles.backmatter}>
-      {backmatter.map(container => (
-        <Container
-          key={container.id}
+      {backmatter.map(block => (
+        <Block
+          key={block.id}
           imagesLocation={imagesLocation}
-          container={container}
+          block={block}
         />
       ))}
     </div>

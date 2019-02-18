@@ -1,9 +1,7 @@
-/* globals window */
-
 import { connect } from 'react-redux';
-import { setAudioOn, setAutoscroll, updateBufferedTime } from '../store/ducks/audio-player';
-import { setDarkmode } from '../store/ducks/application';
-import Controls from '../components/Controls';
+import { setAudioOn, setAutoscroll, updateBufferedTime } from '../../store/ducks/audio-player';
+import { setDarkmode } from '../../store/ducks/application';
+import Controls from './Controls';
 
 function mapStatetoProps(state) {
   return {

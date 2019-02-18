@@ -1,11 +1,20 @@
-const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 const base = require('./webpack.config.base');
 
 module.exports = merge(base, {
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false
-    })
-  ]
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          output: { comments: false },
+          compress: {
+            dead_code: true,
+            drop_console: true,
+          },
+        },
+      }),
+    ],
+  },
 });

@@ -1,8 +1,11 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
-    'property-no-unknown': [ true, {
-      ignoreProperties: [ '/^lost-/' ]
-    }]
-  }
-}
+    'at-rule-no-unknown': [true, {
+      ignoreAtRules: [/^lost-?/],
+    }],
+    'property-no-unknown': [true, {
+      ignoreProperties: [/^lost-/],
+    }],
+  },
+};

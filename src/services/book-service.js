@@ -13,17 +13,17 @@ export default async function getBook(location) {
       return { ...input, active: false };
     },
   });
-  const container = new schema.Entity('containers');
+  const block = new schema.Entity('blocks');
   const line = new schema.Entity('lines', {}, {
     processStrategy(input) {
       return { ...input, active: false };
     },
   });
-  container.define({
+  block.define({
     lines: [line],
   });
   chapter.define({
-    containers: [container],
+    blocks: [block],
   });
   book.define({
     chapters: [chapter],

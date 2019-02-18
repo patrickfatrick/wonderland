@@ -1,5 +1,3 @@
-/* globals window, HTMLAudioElement */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -32,12 +30,14 @@ export default class Chapters extends Component {
   }
 
   toggleChapterSelect = () => {
-    this.setState({ chapterSelectToggled: !this.state.chapterSelectToggled });
+    const { chapterSelectToggled } = this.state;
+    this.setState({ chapterSelectToggled: !chapterSelectToggled });
   }
 
   scrollToChapterHeading = (chapterId) => {
+    const { chapters } = this.props;
     scrollToY(
-      this.props.chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
+      chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
     );
   }
 
@@ -50,6 +50,7 @@ export default class Chapters extends Component {
       audioPlayerElement,
       chapterSelectHandler,
     } = this.props;
+    const { chapterSelectToggled } = this.state;
 
     return (
       <li className={styles.chapterHeading}>
@@ -77,7 +78,7 @@ export default class Chapters extends Component {
             classNames({
               [styles.chapterSelect]: true,
               [styles.chapterSelectDarkmodeOn]: darkmode,
-              [styles.chapterSelectToggled]: this.state.chapterSelectToggled,
+              [styles.chapterSelectToggled]: chapterSelectToggled,
             })
           }
         >

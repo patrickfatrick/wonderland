@@ -1,14 +1,12 @@
-/* globals window */
-
 import { connect } from 'react-redux';
-import { setBook } from '../store/ducks/data';
-import { setAssetsLocation, incrementRenderIndex } from '../store/ducks/application';
-import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../store/ducks/audio-player';
-import { setChapters, setActiveChapter } from '../store/ducks/chapters';
-import { setActiveLine, setLines } from '../store/ducks/lines';
-import { renderContainers } from '../store/ducks/rendered-containers';
-import getBook from '../services/book-service';
-import Reader from '../components/Reader';
+import { setBook } from '../../store/ducks/data';
+import { setAssetsLocation, incrementRenderIndex } from '../../store/ducks/application';
+import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../../store/ducks/audio-player';
+import { setChapters, setActiveChapter } from '../../store/ducks/chapters';
+import { setActiveLine, setLines } from '../../store/ducks/lines';
+import { renderBlocks } from '../../store/ducks/rendered-blocks';
+import getBook from '../../services/book-service';
+import Reader from './Reader';
 
 function mapStateToProps(state) {
   return {
@@ -29,13 +27,13 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // First increment the renderIndex by one, which allows us to render more containers
+  // First increment the renderIndex by one, which allows us to render more blocks
   function updateRenderIndexAndRender() {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
-      const data = getState().data;
+      const { data } = getState();
       if (getState().application.renderIndex >= data.book.chapters.length - 1) return;
       dispatch(incrementRenderIndex());
-      dispatch(renderContainers(data, getState().application.renderIndex));
+      dispatch(renderBlocks(data, getState().application.renderIndex));
     };
   }
 
@@ -44,11 +42,11 @@ function mapDispatchToProps(dispatch) {
   function getBookAsync(location) {
     return () => {
       getBook(location)
-      .then((response) => {
-        dispatch(setBook(response));
-        dispatch(setChapters(response.chapters));
-        dispatch(setLines(response.lines));
-      });
+        .then((response) => {
+          dispatch(setBook(response));
+          dispatch(setChapters(response.chapters));
+          dispatch(setLines(response.lines));
+        });
     };
   }
 

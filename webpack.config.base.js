@@ -1,18 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin')
+const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     'whatwg-fetch',
-    './src/main'
+    './src/main',
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
     publicPath: 'http://localhost:8080/dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -20,38 +20,46 @@ module.exports = {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        use: [ 'eslint-loader' ]
+        use: ['eslint-loader'],
       },
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
         use: [
-          'react-hot-loader',
-          'babel-loader'
-        ]
+          'babel-loader',
+        ],
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=1&camelCase=true&localIdentName=[name]__[local]___[hash:base64:5]',
-            'postcss-loader'
-          ]
-        })
-      }
-    ]
+        use: [
+          ExtractCssChunksPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              camelCase: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            },
+          },
+          'postcss-loader',
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [ '.js', '.jsx' ]
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractCssChunksPlugin({
+      filename: 'styles.css',
+      cssModules: true,
+    }),
     new StylelintPlugin({
-      files: [ 'src/**/*.css' ]
-    })
-  ]
+      files: ['src/**/*.css'],
+    }),
+  ],
 };

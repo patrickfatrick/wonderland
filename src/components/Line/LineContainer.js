@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Line from '../components/Line';
+import Line from './Line';
 
 function mapStateToProps(state, ownProps) {
   return {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Container from '../Container';
+import Block from '../Block';
 
-export default class Containers extends Component {
+export default class Blocks extends Component {
   static propTypes = {
     imagesLocation: PropTypes.string.isRequired,
     pageItems: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -12,7 +12,8 @@ export default class Containers extends Component {
   }
 
   componentDidMount() {
-    this.props.refBookViewer(this.bookViewerElement);
+    const { refBookViewer } = this.props;
+    refBookViewer(this.bookViewerElement);
   }
 
   render() {
@@ -30,9 +31,9 @@ export default class Containers extends Component {
         }}
       >
         {pageItems.map(pageItem => (
-          <Container
+          <Block
             key={pageItem.id}
-            container={pageItem}
+            block={pageItem}
             seek={seek}
             imagesLocation={imagesLocation}
             refChapterHeading={refChapterHeading}

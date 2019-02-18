@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { incrementRenderIndex } from '../store/ducks/application';
-import { renderContainers } from '../store/ducks/rendered-containers';
-import Chapters from '../components/Chapters';
+import { incrementRenderIndex } from '../../store/ducks/application';
+import { renderBlocks } from '../../store/ducks/rendered-blocks';
+import Chapters from './Chapters';
 
 function mapStatetoProps(state) {
   return {
@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch, ownProps) {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
       const diff = index - getState().application.renderIndex;
       dispatch(incrementRenderIndex(diff));
-      dispatch(renderContainers(getState().data, getState().application.renderIndex, diff));
+      dispatch(renderBlocks(getState().data, getState().application.renderIndex, diff));
     };
   }
 

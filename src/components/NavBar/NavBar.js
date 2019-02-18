@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ControlsWrapper from '../../wrappers/ControlsWrapper';
-import ChaptersWrapper from '../../wrappers/ChaptersWrapper';
+import Controls from '../Controls';
+import Chapters from '../Chapters';
 import { truncate, isSmallScreen } from '../../lib/utils';
 import styles from './NavBar.css';
 
@@ -32,8 +32,8 @@ export default function NavBar({
             <br />
             {info.author}
           </li>
-          <ChaptersWrapper seek={seek} />
-          <ControlsWrapper />
+          <Chapters seek={seek} />
+          <Controls />
         </ul>
       )}
     </div>

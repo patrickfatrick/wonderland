@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LineWrapper from '../../wrappers/LineWrapper';
+import Line from '../Line';
 import Flourish from '../Flourish';
 import Image from '../Image';
-import styles from './Container.css';
+import styles from './Block.css';
 
-export default class Container extends Component {
+export default class Block extends Component {
   static propTypes = {
-    container: PropTypes.shape({
+    block: PropTypes.shape({
       id: PropTypes.string,
       chapterId: PropTypes.string,
       type: PropTypes.string,
@@ -25,61 +25,69 @@ export default class Container extends Component {
   }
 
   componentDidMount() {
+    const { refChapterHeading, block } = this.props;
     if (this.chapterHeading) {
-      this.props.refChapterHeading(this.chapterHeading, this.props.container.chapterId);
+      refChapterHeading(this.chapterHeading, block.chapterId);
     }
   }
 
-  render() {
-    const {
-      container,
-      imagesLocation,
-      seek,
-    } = this.props;
-
-    return (
-      <div className={styles.container}>
-        {(container.type === 'flourish') && <Flourish key={container.id} />}
-        {(container.type === 'image') &&
+  get children() {
+    const { block, imagesLocation, seek } = this.props;
+    switch (block.type) {
+      case 'flourish':
+        return <Flourish key={block.id} />;
+      case 'image':
+        return (
           <Image
-            key={container.id}
-            image={container}
+            key={block.id}
+            image={block}
             imagesLocation={imagesLocation}
           />
-        }
-        {(container.type === 'heading') &&
+        );
+      case 'heading':
+        return (
           <div
-            key={container.id}
+            key={block.id}
             className={styles.heading}
             ref={(node) => {
               this.chapterHeading = node;
             }}
           >
-            {container.title}
+            {block.title}
           </div>
-        }
-        {(container.type === 'paragraph') &&
+        );
+      case 'paragraph':
+        return (
           <div>
             <span
               className={styles.indent}
             />
-            {container.lines.map(lineId => (
-              <LineWrapper
+            {block.lines.map(lineId => (
+              <Line
                 key={lineId}
                 seek={seek}
                 lineId={lineId}
               />
             ))}
           </div>
-        }
-        {(container.type === 'text') &&
-          // This is fine as the html would be generated in the server
+        );
+      case 'preformatted':
+        return (
           <span
             dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-              __html: container.content,
+              __html: block.content,
             }}
           />
-        }
+        );
+      default:
+        return null;
+    }
+  }
+
+  render() {
+    return (
+      <div className={styles.block}>
+        {this.children}
       </div>
     );
   }

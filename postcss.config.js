@@ -1,9 +1,15 @@
+const postcssImport = require('postcss-import');
+const postcssCssnext = require('postcss-cssnext');
+const lost = require('lost');
+const cssnano = require('cssnano');
+
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('postcss-cssnext')({
-      browsers: [ 'last 2 versions', '> 5%' ]
+    postcssImport,
+    postcssCssnext(),
+    lost,
+    cssnano({
+      preset: 'default',
     }),
-    require('lost')
-  ]
-}
+  ],
+};

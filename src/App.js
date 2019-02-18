@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReaderWrapper from './wrappers/ReaderWrapper';
+import { hot } from 'react-hot-loader/root';
+import Reader from './components/Reader';
 import './styles/base.css';
 
 function App({
@@ -8,7 +9,7 @@ function App({
 }) {
   return (
     <div className="container">
-      <ReaderWrapper path={path} />
+      <Reader path={path} />
     </div>
   );
 }
@@ -17,4 +18,4 @@ App.propTypes = {
   path: PropTypes.string.isRequired,
 };
 
-export default App;
+export default hot(App);

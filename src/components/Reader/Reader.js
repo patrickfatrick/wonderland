@@ -1,10 +1,8 @@
-/* globals window document HTMLDivElement */
-
 import { throttle } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ContainersWrapper from '../../wrappers/ContainersWrapper';
+import Blocks from '../Blocks';
 import NavBar from '../NavBar';
 import FrontMatter from '../FrontMatter';
 import BackMatter from '../BackMatter';
@@ -42,18 +40,30 @@ export default class Reader extends Component {
   }
 
   componentWillMount() {
-    this.props.mountBookAndAssets(this.props.path);
+    const { path, mountBookAndAssets } = this.props;
+    mountBookAndAssets(path);
   }
 
   componentDidMount() {
-    this.props.refPlayer(this.player);
-    window.addEventListener('scroll', throttle(this.scrollHandler, 50));
+    const { refPlayer } = this.props;
+    refPlayer(this.player);
+    window.addEventListener('scroll', this.scrollHandlerThrottled);
   }
 
-  scrollHandler = () => this.props.scrollHandler({
-    scrollPos: window.scrollY,
-    offset: document.body.clientHeight - window.innerHeight,
-  })
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollHandlerThrottled);
+  }
+
+  scrollHandler = () => {
+    const { scrollHandler } = this.props;
+    scrollHandler({
+      scrollPos: window.scrollY,
+      offset: document.body.clientHeight - window.innerHeight,
+    });
+  }
+
+  // eslint-disable-next-line react/sort-comp
+  scrollHandlerThrottled = throttle(this.scrollHandler, 50);
 
   render() {
     const {
@@ -108,15 +118,17 @@ export default class Reader extends Component {
             info={info}
             frontmatter={frontmatter}
           />
-          <ContainersWrapper
+          <Blocks
             imagesLocation={imagesLocation}
             seek={seek}
           />
-          {renderIndex >= book.chapters.length - 1 &&
+          {renderIndex >= book.chapters.length - 1
+            && (
             <BackMatter
               imagesLocation={imagesLocation}
               backmatter={backmatter}
             />
+            )
           }
         </div>
       </div>

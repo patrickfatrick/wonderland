@@ -6,9 +6,9 @@ Hosted version can be found at https://patrickfatrick.github.io/wonderland/
 
 ```bash
 $ git clone git@github.com:patrickfatrick/wonderland.git
-$ yarn # or npm install
-$ yarn run dev # or npm run dev
-$ yarn run debug # to turn on a logging middleware for state changes
+$ npm i
+$ npm start
+$ npm run debug # to turn on a logging middleware for state changes
 ```
 
 Navigate to localhost:8080.

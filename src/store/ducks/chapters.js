@@ -10,8 +10,8 @@ const SET_ACTIVE_CHAPTER = 'chapters/SET_ACTIVE_CHAPTER';
 function setActiveChapterHandler(state, scrollPos) {
   const prev = Object.keys(state).find(chapterId => state[chapterId].active);
   const next = Object.keys(state).reverse().find(chapterId => (
-    state[chapterId].el &&
-    (scrollPos >= state[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30))
+    state[chapterId].el
+    && (scrollPos >= state[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30))
   ));
 
   // Return early if they match

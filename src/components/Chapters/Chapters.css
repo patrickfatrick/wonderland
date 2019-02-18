@@ -5,6 +5,10 @@
   top: 0;
 }
 
+.chapterOptionButton {
+  font-size: 1.6rem;
+}
+
 .chapterSelectToggle,
 .chapterOptionButton {
   border: none;
@@ -19,10 +23,6 @@
   &.chapterOptionButtonActive {
     background-color: var(--lightGray);
   }
-}
-
-.chapterOptionButton {
-  font-size: 1.6rem;
 }
 
 .chapterSelectToggleDarkmodeOn,

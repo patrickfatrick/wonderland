@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from '../Container';
+import Block from '../Block';
 import styles from './FrontMatter.css';
 
 export default function FrontMatter({
@@ -16,10 +16,10 @@ export default function FrontMatter({
       <div className={styles.author}>
         {info.author}
       </div>
-      {frontmatter.map(container => (
-        <Container
-          key={container.id}
-          container={container}
+      {frontmatter.map(block => (
+        <Block
+          key={block.id}
+          block={block}
           imagesLocation={imagesLocation}
         />
       ))}

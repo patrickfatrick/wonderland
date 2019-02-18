@@ -48,7 +48,8 @@ export default function Controls({
         {buffering && 'Loading...'}
         {!buffering && ((audioOn) ? 'Pause' : `Play (${Math.round(audio.size / 1000000)} MB)`)}
       </button>
-      {(audioOn) &&
+      {(audioOn)
+        && (
         <button
           type="button"
           title="Auto-Scroll"
@@ -60,8 +61,11 @@ export default function Controls({
           }
           onClick={e => toggleAutoscroll(e, !autoscroll)}
         >
-           Autoscroll {(autoscroll) ? 'Off' : 'On'}
+           Autoscroll
+          {' '}
+          {(autoscroll) ? 'Off' : 'On'}
         </button>
+        )
       }
     </div>
   );

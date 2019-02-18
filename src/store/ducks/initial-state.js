@@ -1,5 +1,3 @@
-/* globals window */
-
 /**
  * From normalizr, `data` will look like the following,
  * where ids are stored in arrays inside the parent object for order's sake,
@@ -8,10 +6,10 @@
  *
  * book: { ... , chapters: ['id1', 'id2'] },
  * chapters: {
- *   id1: { ... , containers: ['id3', 'id4'] },
- *   id2: { ... , containers: ['id5', 'id6'] },
+ *   id1: { ... , blocks: ['id3', 'id4'] },
+ *   id2: { ... , blocks: ['id5', 'id6'] },
  * },
- * containers: {
+ * blocks: {
  *   id3: { ... , lines: ['id7', 'id8'] },
  *   id4: { ... , lines: ['id9', 'id10'] },
  *   id5: { ... , lines: ['id11', 'id12'] },
@@ -34,8 +32,8 @@ export default {
     renderIndex: -1,
     assetsLocation: '',
     darkmode: Object.prototype.hasOwnProperty.call(window.localStorage, 'darkmode')
-    ? window.localStorage.getItem('darkmode') === 'true'
-    : false,
+      ? window.localStorage.getItem('darkmode') === 'true'
+      : false,
   },
   data: {
     book: {
@@ -52,11 +50,11 @@ export default {
       backmatter: [],
     },
     chapters: {},
-    containers: {},
+    blocks: {},
     lines: {},
   },
   chapters: {},
-  renderedContainers: [],
+  renderedBlocks: [],
   lines: {},
   audioPlayer: {
     audioSrc: '',

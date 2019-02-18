@@ -1,3 +1,1 @@
-import Line from './Line';
-
-export default Line;
+export { default } from './LineContainer';

@@ -1,3 +1,1 @@
-import BackMatter from './BackMatter';
-
-export default BackMatter;
+export { default } from './BackMatter';

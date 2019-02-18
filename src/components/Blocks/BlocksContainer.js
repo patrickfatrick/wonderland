@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { setBookViewerElement } from '../store/ducks/audio-player';
-import { setChapterHeadingEl } from '../store/ducks/chapters';
-import Containers from '../components/Containers';
+import { setBookViewerElement } from '../../store/ducks/audio-player';
+import { setChapterHeadingEl } from '../../store/ducks/chapters';
+import Blocks from './Blocks';
 
 function mapStateToProps(state) {
   return {
     chapters: state.data.chapters,
-    pageItems: state.renderedContainers,
+    pageItems: state.renderedBlocks,
   };
 }
 
@@ -24,4 +24,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Containers);
+)(Blocks);

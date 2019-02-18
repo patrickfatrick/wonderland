@@ -1,3 +1,1 @@
-import Chapters from './Chapters';
-
-export default Chapters;
+export { default } from './ChaptersContainer';

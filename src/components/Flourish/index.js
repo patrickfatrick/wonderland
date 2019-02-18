@@ -1,3 +1,1 @@
-import Flourish from './Flourish';
-
-export default Flourish;
+export { default } from './Flourish';

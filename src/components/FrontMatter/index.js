@@ -1,3 +1,1 @@
-import FrontMatter from './FrontMatter';
-
-export default FrontMatter;
+export { default } from './FrontMatter';
