@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'intersection-observer';
 import { isMediumScreen } from '../../lib/utils';
 import styles from './Image.css';
 

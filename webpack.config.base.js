@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     '@babel/polyfill',
     'whatwg-fetch',
+    'intersection-observer',
     './src/main',
   ],
   output: {
