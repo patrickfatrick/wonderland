@@ -1,94 +1,98 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Line from '../Line';
 import Flourish from '../Flourish';
 import Image from '../Image';
 import styles from './Block.css';
 
-export default class Block extends Component {
-  static propTypes = {
-    block: PropTypes.shape({
-      id: PropTypes.string,
-      chapterId: PropTypes.string,
-      type: PropTypes.string,
-      title: PropTypes.string,
-      lines: PropTypes.array,
-    }).isRequired,
-    imagesLocation: PropTypes.string.isRequired,
-    refChapterHeading: PropTypes.func,
-    seek: PropTypes.func,
-  };
+export default function Block({
+  block,
+  imagesLocation,
+  refChapterHeading,
+  seek,
+}) {
+  const chapterHeading = useRef();
+  let children = null;
 
-  static defaultProps = {
-    refChapterHeading() {},
-    seek() {},
-  }
+  useEffect(() => {
+    const { current: ref } = chapterHeading;
+    if (ref) refChapterHeading(ref, block.chapterId);
+  }, [children]);
 
-  componentDidMount() {
-    const { refChapterHeading, block } = this.props;
-    if (this.chapterHeading) {
-      refChapterHeading(this.chapterHeading, block.chapterId);
-    }
-  }
-
-  get children() {
-    const { block, imagesLocation, seek } = this.props;
-    switch (block.type) {
-      case 'flourish':
-        return <Flourish key={block.id} />;
-      case 'image':
-        return (
-          <Image
-            key={block.id}
-            image={block}
-            imagesLocation={imagesLocation}
-          />
-        );
-      case 'heading':
-        return (
-          <div
-            key={block.id}
-            className={styles.heading}
-            ref={(node) => {
-              this.chapterHeading = node;
-            }}
-          >
-            {block.title}
-          </div>
-        );
-      case 'paragraph':
-        return (
-          <div>
-            <span
-              className={styles.indent}
-            />
-            {block.lines.map(lineId => (
-              <Line
-                key={lineId}
-                seek={seek}
-                lineId={lineId}
-              />
-            ))}
-          </div>
-        );
-      case 'preformatted':
-        return (
+  switch (block.type) {
+    case 'flourish':
+      children = <Flourish key={block.id} />;
+      break;
+    case 'image':
+      children = (
+        <Image
+          key={block.id}
+          image={block}
+          imagesLocation={imagesLocation}
+        />
+      );
+      break;
+    case 'heading':
+      children = (
+        <div
+          key={block.id}
+          className={styles.heading}
+          ref={chapterHeading}
+        >
+          {block.title}
+        </div>
+      );
+      break;
+    case 'paragraph':
+      children = (
+        <div>
           <span
-            dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
-              __html: block.content,
-            }}
+            className={styles.indent}
           />
-        );
-      default:
-        return null;
-    }
+          {block.lines.map(lineId => (
+            <Line
+              key={lineId}
+              seek={seek}
+              lineId={lineId}
+            />
+          ))}
+        </div>
+      );
+      break;
+    case 'preformatted':
+      children = (
+        <span
+          dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
+            __html: block.content,
+          }}
+        />
+      );
+      break;
+    default:
+      children = null;
   }
 
-  render() {
-    return (
-      <div className={styles.block}>
-        {this.children}
-      </div>
-    );
-  }
+  return (
+    <div className={styles.block}>
+      {children}
+    </div>
+  );
 }
+
+Block.propTypes = {
+  block: PropTypes.shape({
+    id: PropTypes.string,
+    chapterId: PropTypes.string,
+    type: PropTypes.string,
+    title: PropTypes.string,
+    lines: PropTypes.array,
+  }).isRequired,
+  imagesLocation: PropTypes.string.isRequired,
+  refChapterHeading: PropTypes.func,
+  seek: PropTypes.func,
+};
+
+Block.defaultProps = {
+  refChapterHeading: () => {},
+  seek: () => {},
+};

@@ -1,54 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { truncate, isSmallScreen, scrollToY } from '../../lib/utils';
+import { truncate, isSmallScreen } from '../../lib/utils';
+import ChapterButton from '../ChapterButton';
 import styles from './Chapters.css';
 
 
 export default class Chapters extends Component {
-  static propTypes = {
-    chapters: PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string,
-      timestamp: PropTypes.number,
-    }).isRequired,
-    chapterOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
-    darkmode: PropTypes.bool.isRequired,
-    activeChapter: PropTypes.string,
-    chapterSelectHandler: PropTypes.func.isRequired,
-    audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
-  }
+  state = { chapterSelectToggled: false };
 
-  static defaultProps = {
-    activeChapter: '',
-    audioPlayerElement: {},
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = { chapterSelectToggled: false };
+  get chapterSelectHeading() {
+    const { chapters, activeChapter } = this.props;
+    if (!activeChapter) return 'Select a Chapter';
+    const { title } = chapters[activeChapter];
+    return isSmallScreen() ? truncate(title, 18) : title;
   }
 
   toggleChapterSelect = () => {
-    const { chapterSelectToggled } = this.state;
-    this.setState({ chapterSelectToggled: !chapterSelectToggled });
+    this.setState((prevState) => {
+      const { chapterSelectToggled } = prevState;
+      return { chapterSelectToggled: !chapterSelectToggled };
+    });
   }
 
-  scrollToChapterHeading = (chapterId) => {
-    const { chapters } = this.props;
-    scrollToY(
-      chapters[chapterId].el.offsetTop - (isSmallScreen() ? 75 : 30),
-    );
-  }
+  handleToggleChapterSelect = (e) => {
+    e.currentTarget.blur();
+    this.toggleChapterSelect();
+  };
 
   render() {
     const {
       chapters,
       chapterOrder,
       darkmode,
-      activeChapter,
-      audioPlayerElement,
-      chapterSelectHandler,
+      seek,
     } = this.props;
     const { chapterSelectToggled } = this.state;
 
@@ -56,10 +41,7 @@ export default class Chapters extends Component {
       <li className={styles.chapterHeading}>
         <button
           type="button"
-          onClick={(e) => {
-            e.currentTarget.blur();
-            this.toggleChapterSelect();
-          }}
+          onClick={this.handleToggleChapterSelect}
           className={
             classNames({
               [styles.chapterSelectToggle]: true,
@@ -67,11 +49,7 @@ export default class Chapters extends Component {
             })
           }
         >
-          {activeChapter && (isSmallScreen()
-            ? truncate(chapters[activeChapter].title, 18)
-            : chapters[activeChapter].title)
-          }
-          {!activeChapter && 'Select a Chapter'}
+          {this.chapterSelectHeading}
         </button>
         <ul
           className={
@@ -83,44 +61,29 @@ export default class Chapters extends Component {
           }
         >
           {Object.keys(chapters).length && chapterOrder.map((chapterId, i) => (
-            <li
+            <ChapterButton
               key={chapterId}
-              className={classNames(
-                styles.chapterHeading,
-                styles.chapterHeadingOption,
-              )}
-            >
-              <button
-                type="button"
-                className={
-                  classNames({
-                    [styles.chapterOptionButton]: true,
-                    [styles.chapterOptionButtonActive]: chapters[chapterId].active,
-                    [styles.chapterOptionButtonDarkmodeOn]: darkmode,
-                    [styles.chapterOptionButtonActiveDarkmodeOn]: chapters[chapterId].active
-                    && darkmode,
-                  })
-                }
-                onClick={
-                  (e) => {
-                    e.currentTarget.blur();
-                    this.toggleChapterSelect(false);
-                    chapterSelectHandler(i, audioPlayerElement, chapters[chapterId].timestamp);
-                    // Wait until everything has been rendered if that's needed,
-                    // which can potentially take some time
-                    window.setTimeout(() => this.scrollToChapterHeading(chapterId), 1500);
-                  }
-                }
-              >
-                {isSmallScreen()
-                  ? truncate(chapters[chapterId].title, 18)
-                  : chapters[chapterId].title
-                }
-              </button>
-            </li>
+              chapter={chapters[chapterId]}
+              index={i}
+              darkmode={darkmode}
+              toggleChapterSelect={this.toggleChapterSelect}
+              seek={seek}
+            />
           ))}
         </ul>
       </li>
     );
   }
 }
+
+Chapters.propTypes = {
+  chapters: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  chapterOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
+  darkmode: PropTypes.bool.isRequired,
+  activeChapter: PropTypes.string,
+  seek: PropTypes.func.isRequired,
+};
+
+Chapters.defaultProps = {
+  activeChapter: '',
+};

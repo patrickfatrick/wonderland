@@ -9,36 +9,6 @@ import BackMatter from '../BackMatter';
 import styles from './Reader.css';
 
 export default class Reader extends Component {
-  static propTypes = {
-    autoscroll: PropTypes.bool.isRequired,
-    assetsLocation: PropTypes.string.isRequired,
-    book: PropTypes.shape({
-      assetsLocation: PropTypes.string,
-      audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }),
-      chapters: PropTypes.array,
-    }).isRequired,
-    bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
-    darkmode: PropTypes.bool.isRequired,
-    imagesLocation: PropTypes.string.isRequired,
-    info: PropTypes.shape({
-      author: PropTypes.string,
-      title: PropTypes.string,
-    }).isRequired,
-    frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
-    backmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
-    mountBookAndAssets: PropTypes.func.isRequired,
-    path: PropTypes.string.isRequired,
-    refPlayer: PropTypes.func.isRequired,
-    seek: PropTypes.func.isRequired,
-    timeUpdate: PropTypes.func.isRequired,
-    scrollHandler: PropTypes.func.isRequired,
-    renderIndex: PropTypes.number.isRequired,
-  }
-
-  static defaultProps = {
-    bookViewerElement: {},
-  }
-
   componentDidMount() {
     const { refPlayer, path, mountBookAndAssets } = this.props;
     mountBookAndAssets(path);
@@ -131,3 +101,33 @@ export default class Reader extends Component {
     );
   }
 }
+
+Reader.propTypes = {
+  autoscroll: PropTypes.bool.isRequired,
+  assetsLocation: PropTypes.string.isRequired,
+  book: PropTypes.shape({
+    assetsLocation: PropTypes.string,
+    audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }),
+    chapters: PropTypes.array,
+  }).isRequired,
+  bookViewerElement: PropTypes.instanceOf(HTMLDivElement),
+  darkmode: PropTypes.bool.isRequired,
+  imagesLocation: PropTypes.string.isRequired,
+  info: PropTypes.shape({
+    author: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+  frontmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
+  backmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
+  mountBookAndAssets: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  refPlayer: PropTypes.func.isRequired,
+  seek: PropTypes.func.isRequired,
+  timeUpdate: PropTypes.func.isRequired,
+  scrollHandler: PropTypes.func.isRequired,
+  renderIndex: PropTypes.number.isRequired,
+};
+
+Reader.defaultProps = {
+  bookViewerElement: {},
+};
