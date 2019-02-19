@@ -3,10 +3,10 @@ import { setBookViewerElement } from '../../store/ducks/audio-player';
 import { setChapterHeadingEl } from '../../store/ducks/chapters';
 import Blocks from './Blocks';
 
-function mapStateToProps(state) {
+function mapStateToProps({ data, renderedBlocks }) {
   return {
-    chapters: state.data.chapters,
-    pageItems: state.renderedBlocks,
+    chapters: data.chapters,
+    pageItems: renderedBlocks,
   };
 }
 

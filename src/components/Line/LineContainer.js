@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Line from './Line';
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps({ audioPlayer, application, lines }, ownProps) {
   return {
-    audioOn: state.audioPlayer.audioOn,
-    darkmode: state.application.darkmode,
-    timestamp: state.audioPlayer.timestamp,
-    audioPlayerElement: state.audioPlayer.element,
-    line: state.lines[ownProps.lineId],
+    audioOn: audioPlayer.audioOn,
+    darkmode: application.darkmode,
+    timestamp: audioPlayer.timestamp,
+    audioPlayerElement: audioPlayer.element,
+    line: lines[ownProps.lineId],
   };
 }
 

@@ -7,9 +7,7 @@ import styles from './Block.css';
 
 export default function Block({
   block,
-  imagesLocation,
   refChapterHeading,
-  seek,
 }) {
   const chapterHeading = useRef();
   let children = null;
@@ -28,7 +26,6 @@ export default function Block({
         <Image
           key={block.id}
           image={block}
-          imagesLocation={imagesLocation}
         />
       );
       break;
@@ -52,7 +49,6 @@ export default function Block({
           {block.lines.map(lineId => (
             <Line
               key={lineId}
-              seek={seek}
               lineId={lineId}
             />
           ))}
@@ -87,12 +83,9 @@ Block.propTypes = {
     title: PropTypes.string,
     lines: PropTypes.array,
   }).isRequired,
-  imagesLocation: PropTypes.string.isRequired,
   refChapterHeading: PropTypes.func,
-  seek: PropTypes.func,
 };
 
 Block.defaultProps = {
   refChapterHeading: () => {},
-  seek: () => {},
 };

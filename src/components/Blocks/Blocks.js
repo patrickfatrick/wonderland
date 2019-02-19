@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Block from '../Block';
 
 export default function Blocks({
-  imagesLocation,
   pageItems,
   refBookViewer,
   refChapterHeading,
-  seek,
 }) {
   const bookViewerElement = useRef();
 
@@ -24,8 +22,6 @@ export default function Blocks({
         <Block
           key={pageItem.id}
           block={pageItem}
-          seek={seek}
-          imagesLocation={imagesLocation}
           refChapterHeading={refChapterHeading}
         />
       ))}
@@ -34,9 +30,7 @@ export default function Blocks({
 }
 
 Blocks.propTypes = {
-  imagesLocation: PropTypes.string.isRequired,
   pageItems: PropTypes.arrayOf(PropTypes.object).isRequired,
   refBookViewer: PropTypes.func.isRequired,
   refChapterHeading: PropTypes.func.isRequired,
-  seek: PropTypes.func.isRequired,
 };

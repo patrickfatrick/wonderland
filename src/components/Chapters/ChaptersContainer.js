@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import Chapters from './Chapters';
 
-function mapStatetoProps(state) {
+function mapStatetoProps({ chapters, data, application }) {
   return {
-    chapters: state.chapters,
-    chapterOrder: state.data.book.chapters,
-    darkmode: state.application.darkmode,
-    activeChapter: Object.keys(state.chapters).find(chapterId => state.chapters[chapterId].active),
+    chapters,
+    chapterOrder: data.book.chapters,
+    darkmode: application.darkmode,
+    activeChapter: Object.keys(chapters).find(chapterId => chapters[chapterId].active),
     chapterSelectToggled: false,
   };
 }

@@ -1,1 +1,1 @@
-export { default } from './BackMatter';
+export { default } from './BackMatterContainer';

@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import { isMediumScreen } from '../../lib/utils';
 import styles from './Image.css';
 
+function renderActualImage(image, src, imagesLocation) {
+  return (entries) => {
+    entries.forEach((entry) => {
+      const { current: ref } = image;
+      if (entry.intersectionRatio < 0.5) return;
+      if (ref.src.includes(src)) return;
+      ref.src = imagesLocation + src;
+    });
+  };
+}
+
 export default function Image({
   image: {
     src,
@@ -13,21 +24,15 @@ export default function Image({
 }) {
   const image = useRef(null);
 
-  const renderActualImage = (entries) => {
-    entries.forEach((entry) => {
-      const { current: ref } = image;
-      if (entry.intersectionRatio < 0.5) return;
-      if (ref.src.includes(src)) return;
-      ref.src = imagesLocation + src;
-    });
-  };
-
   // eslint-disable-next-line react/sort-comp
-  const interSectionObserver = new IntersectionObserver(renderActualImage, {
-    root: null,
-    rootMargin: '0px',
-    threshold: [0.5],
-  });
+  const interSectionObserver = new IntersectionObserver(
+    renderActualImage(image, src, imagesLocation),
+    {
+      root: null,
+      rootMargin: '0px',
+      threshold: [0.5],
+    },
+  );
 
   useEffect(() => {
     const { current: ref } = image;

@@ -3,15 +3,14 @@ import { setAudioOn, setAutoscroll, updateBufferedTime } from '../../store/ducks
 import { setDarkmode } from '../../store/ducks/application';
 import Controls from './Controls';
 
-function mapStatetoProps(state) {
+function mapStatetoProps({ audioPlayer, application, data }) {
   return {
-    audioPlayerElement: state.audioPlayer.element,
-    buffering: state.audioPlayer.buffering,
-    darkmode: state.application.darkmode,
-    captions: state.captions,
-    audioOn: state.audioPlayer.audioOn,
-    autoscroll: state.audioPlayer.autoscroll,
-    audio: state.data.book.audio,
+    audioPlayerElement: audioPlayer.element,
+    buffering: audioPlayer.buffering,
+    darkmode: application.darkmode,
+    audioOn: audioPlayer.audioOn,
+    autoscroll: audioPlayer.autoscroll,
+    audio: data.book.audio,
   };
 }
 

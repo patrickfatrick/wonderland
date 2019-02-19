@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import { incrementRenderIndex } from '../../store/ducks/application';
 import { renderBlocks } from '../../store/ducks/rendered-blocks';
+import { seek } from '../../lib/utils';
 import ChapterButton from './ChapterButton';
 
-function mapStatetoProps(state) {
+function mapStatetoProps({ application, audioPlayer }) {
   return {
-    darkmode: state.application.darkmode,
-    audioPlayerElement: state.audioPlayer.element,
+    darkmode: application.darkmode,
+    audioPlayerElement: audioPlayer.element,
   };
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   function updateRenderIndexAndRender(index) {
     return (dispatch, getState) => { // eslint-disable-line no-shadow
       const diff = index - getState().application.renderIndex;
@@ -21,7 +22,7 @@ function mapDispatchToProps(dispatch, ownProps) {
 
   return {
     chapterSelectHandler(index, player, seconds) {
-      ownProps.seek(player, seconds);
+      seek(player, seconds);
       dispatch(updateRenderIndexAndRender(index));
     },
   };

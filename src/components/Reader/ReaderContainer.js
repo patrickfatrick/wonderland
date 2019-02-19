@@ -1,28 +1,21 @@
 import { connect } from 'react-redux';
 import { setBook } from '../../store/ducks/data';
 import { setAssetsLocation, incrementRenderIndex } from '../../store/ducks/application';
-import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../../store/ducks/audio-player';
 import { setChapters, setActiveChapter } from '../../store/ducks/chapters';
-import { setActiveLine, setLines } from '../../store/ducks/lines';
+import { setLines } from '../../store/ducks/lines';
 import { renderBlocks } from '../../store/ducks/rendered-blocks';
 import getBook from '../../services/book-service';
 import Reader from './Reader';
 
-function mapStateToProps(state) {
+function mapStateToProps({ audioPlayer, application, data }) {
   return {
-    audioOn: state.audioPlayer.audioOn,
-    autoscroll: state.audioPlayer.autoscroll,
-    book: state.data.book,
-    bookViewerElement: state.audioPlayer.bookViewerElement,
-    darkmode: state.application.darkmode,
-    assetsLocation: state.application.assetsLocation,
-    imagesLocation: `${state.application.assetsLocation}images/`,
-    info: state.data.book.info,
-    frontmatter: state.data.book.frontmatter,
-    backmatter: state.data.book.backmatter,
-    player: state.audioPlayer.element,
-    timestamp: state.audioPlayer.timestamp,
-    renderIndex: state.application.renderIndex,
+    audioOn: audioPlayer.audioOn,
+    book: data.book,
+    darkmode: application.darkmode,
+    info: data.book.info,
+    player: audioPlayer.element,
+    timestamp: audioPlayer.timestamp,
+    renderIndex: application.renderIndex,
   };
 }
 
@@ -50,35 +43,12 @@ function mapDispatchToProps(dispatch) {
     };
   }
 
-  function updateTimes(e) {
-    return () => {
-      dispatch(setTimestamp(e.target.currentTime));
-      dispatch(setActiveLine(e.target.currentTime));
-    };
-  }
-
-  function autoscrollHandler(viewer) {
-    const activeLine = viewer.querySelector('[data-active-line=true]');
-    if (activeLine) window.scroll(0, activeLine.offsetTop - 200);
-  }
-
   return {
-    timeUpdate(e, viewer, autoscroll) {
-      dispatch(updateTimes(e));
-      dispatch(updateBufferedTime(e.target));
-      if (autoscroll) autoscrollHandler(viewer);
-    },
-    seek(player, seconds) {
-      player.currentTime = seconds; // eslint-disable-line no-param-reassign
-    },
-    refPlayer(node) {
-      dispatch(setAudioPlayer(node));
-    },
     mountBookAndAssets(path) {
       dispatch(getBookAsync(`${path}data.json`));
       dispatch(setAssetsLocation(`${path}assets/`));
     },
-    scrollHandler({ scrollPos, offset }) {
+    scrollHandler(scrollPos, offset) {
       if (scrollPos >= offset - 200) dispatch(updateRenderIndexAndRender());
       dispatch(setActiveChapter(scrollPos));
     },

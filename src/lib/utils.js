@@ -42,3 +42,7 @@ export function scrollToY(scrollTargetY = 0, time = 0.5) {
   // call it once to get started
   tick();
 }
+
+export function seek(player, seconds) {
+  player.currentTime = seconds; // eslint-disable-line no-param-reassign
+}

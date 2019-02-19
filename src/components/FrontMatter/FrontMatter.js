@@ -4,7 +4,6 @@ import Block from '../Block';
 import styles from './FrontMatter.css';
 
 export default function FrontMatter({
-  imagesLocation,
   info,
   frontmatter,
 }) {
@@ -20,7 +19,6 @@ export default function FrontMatter({
         <Block
           key={block.id}
           block={block}
-          imagesLocation={imagesLocation}
         />
       ))}
     </div>
@@ -28,7 +26,6 @@ export default function FrontMatter({
 }
 
 FrontMatter.propTypes = {
-  imagesLocation: PropTypes.string.isRequired,
   info: PropTypes.shape({
     title: PropTypes.string,
     author: PropTypes.string,

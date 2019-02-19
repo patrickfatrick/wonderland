@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { seek } from '../../lib/utils';
 import styles from './Line.css';
+
+function lineHandler(e, player, seconds) {
+  const target = e.currentTarget;
+  seek(player, seconds);
+  window.setTimeout(() => target.blur(), 100);
+}
 
 export default function Line({
   audioOn,
   darkmode,
   lineId,
   line,
-  seek,
   audioPlayerElement, // eslint-disable-line react/prop-types
 }) {
-  function lineHandler(e, player, seconds) {
-    const target = e.currentTarget;
-    seek(player, seconds);
-    window.setTimeout(() => target.blur(), 100);
-  }
-
   return (
     <span>
       <a
@@ -52,7 +52,6 @@ Line.propTypes = {
     timestampStart: PropTypes.number,
     timestampEnd: PropTypes.number,
   }).isRequired,
-  seek: PropTypes.func.isRequired,
 };
 
 Line.defaultProps = {

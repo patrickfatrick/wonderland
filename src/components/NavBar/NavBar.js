@@ -8,7 +8,6 @@ import styles from './NavBar.css';
 
 export default function NavBar({
   info,
-  seek,
   darkmode,
 }) {
   return (
@@ -32,7 +31,7 @@ export default function NavBar({
             <br />
             {info.author}
           </li>
-          <Chapters seek={seek} />
+          <Chapters />
           <Controls />
         </ul>
       )}
@@ -45,6 +44,5 @@ NavBar.propTypes = {
     author: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
-  seek: PropTypes.func.isRequired,
   darkmode: PropTypes.bool.isRequired,
 };

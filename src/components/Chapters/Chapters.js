@@ -33,7 +33,6 @@ export default class Chapters extends Component {
       chapters,
       chapterOrder,
       darkmode,
-      seek,
     } = this.props;
     const { chapterSelectToggled } = this.state;
 
@@ -67,7 +66,6 @@ export default class Chapters extends Component {
               index={i}
               darkmode={darkmode}
               toggleChapterSelect={this.toggleChapterSelect}
-              seek={seek}
             />
           ))}
         </ul>
@@ -81,7 +79,6 @@ Chapters.propTypes = {
   chapterOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
   darkmode: PropTypes.bool.isRequired,
   activeChapter: PropTypes.string,
-  seek: PropTypes.func.isRequired,
 };
 
 Chapters.defaultProps = {
