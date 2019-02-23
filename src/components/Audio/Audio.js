@@ -12,15 +12,15 @@ export default class Audio extends Component {
     const { timeUpdate, bookViewerElement, autoscroll } = this.props;
     timeUpdate(e, bookViewerElement, autoscroll);
     this.autoscroll();
-  };
+  }
 
-  autoscroll = () => {
+  autoscroll() {
     const { bookViewerElement, autoscroll } = this.props;
     if (!autoscroll) return;
     const activeLine = bookViewerElement.querySelector('[data-active-line=true]');
     if (!activeLine) return;
     window.scroll(0, activeLine.offsetTop - 200);
-  };
+  }
 
   render() {
     const { audioLocation } = this.props;

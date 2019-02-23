@@ -1,32 +1,50 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { isMediumScreen } from '../../lib/utils';
+import { debounce } from 'lodash';
+import assignStyles from '../../lib/assignStyles';
 import styles from './Image.css';
 
-function renderActualImage(image, src, imagesLocation) {
-  return (entries) => {
-    entries.forEach((entry) => {
-      const { current: ref } = image;
-      if (entry.intersectionRatio < 0.5) return;
-      if (ref.src.includes(src)) return;
-      ref.src = imagesLocation + src;
-    });
-  };
-}
+export default class Image extends Component {
+  state = { nodeWidth: 0 };
 
-export default function Image({
-  image: {
-    src,
-    dimensions,
-    thumb,
-  },
-  imagesLocation,
-}) {
-  const image = useRef(null);
+  componentDidMount() {
+    this.interSectionObserver.observe(this.imageNode);
+    this.resizeObserver.observe(document.body);
+  }
+
+  componentWillUnmount() {
+    this.interSectionObserver.unobserve(this.imageNode);
+    this.resizeObserver.unobserve(document.body);
+  }
+
+  set nodeWidth(width) {
+    this.setState({ nodeWidth: width });
+  }
+
+  get styles() {
+    return assignStyles.bind(this)('minHeight');
+  }
+
+  get minHeight() {
+    const { image: { dimensions } } = this.props;
+    const { nodeWidth } = this.state;
+    return nodeWidth < 600
+      ? dimensions[1] / (dimensions[0] / document.body.clientWidth)
+      : dimensions[1];
+  }
 
   // eslint-disable-next-line react/sort-comp
-  const interSectionObserver = new IntersectionObserver(
-    renderActualImage(image, src, imagesLocation),
+  renderActualImage = (entries) => {
+    const { image: { src }, imagesLocation } = this.props;
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio < 0.5) return;
+      if (this.imageNode.src.includes(src)) return;
+      this.imageNode.src = imagesLocation + src;
+    });
+  }
+
+  interSectionObserver = new IntersectionObserver(
+    this.renderActualImage,
     {
       root: null,
       rootMargin: '0px',
@@ -34,37 +52,42 @@ export default function Image({
     },
   );
 
-  useEffect(() => {
-    const { current: ref } = image;
-    if (ref) interSectionObserver.observe(ref);
-    return () => interSectionObserver.unobserve(ref);
-  });
+  resizeObserver = new ResizeObserver(debounce((entries) => {
+    const { width } = entries[0].contentRect;
+    this.nodeWidth = width;
+  }, 100));
 
-  const minWidth = (isMediumScreen())
-    ? '100%'
-    : dimensions[0];
-
-  const minHeight = (isMediumScreen())
-    ? dimensions[1] / (dimensions[0] / document.body.clientWidth)
-    : dimensions[1];
-
-  return (
-    <div className={styles.imageContainer}>
-      <img
-        alt={src}
-        className={styles.image}
-        style={{ minWidth, minHeight }}
-        src={src ? imagesLocation + thumb : null}
-        ref={image}
-      />
-    </div>
-  );
+  render() {
+    const {
+      image,
+      imagesLocation,
+    } = this.props;
+    return (
+      <div
+        className={styles.imageContainer}
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
+        <img
+          alt={image.src}
+          className={styles.image}
+          style={this.styles}
+          src={image.src ? imagesLocation + image.thumb : null}
+          ref={(node) => {
+            this.imageNode = node;
+          }}
+        />
+      </div>
+    );
+  }
 }
 
 Image.propTypes = {
   image: PropTypes.shape({
     type: PropTypes.string,
     src: PropTypes.string,
+    dimensions: PropTypes.arrayOf(PropTypes.number),
     thumb: PropTypes.string,
   }).isRequired,
   imagesLocation: PropTypes.string.isRequired,

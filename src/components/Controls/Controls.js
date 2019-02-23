@@ -17,7 +17,7 @@ export default function Controls({
   toggleDarkmode,
 }) {
   return (
-    <div
+    <li
       id="button-container"
       className={styles.buttonContainer}
     >
@@ -67,7 +67,7 @@ export default function Controls({
         </button>
         )
       }
-    </div>
+    </li>
   );
 }
 

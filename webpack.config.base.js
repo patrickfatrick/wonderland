@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     '@babel/polyfill',
     'whatwg-fetch',
+    'resize-observer-polyfill/dist/ResizeObserver.global.js',
     'intersection-observer',
     './src/main',
   ],

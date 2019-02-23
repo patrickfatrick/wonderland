@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { debounce } from 'lodash';
 import { truncate, isSmallScreen, scrollToY } from '../../lib/utils';
 import styles from './ChapterButton.css';
 
 export default class ChapterButton extends Component {
+  state = { nodeWidth: 0 };
+
+  componentDidMount() {
+    this.resizeObserver.observe(this.node);
+  }
+
+  componentWillUnmount() {
+    this.resizeObserver.unobserve(this.node);
+  }
+
+  set nodeWidth(width) {
+    this.setState({ nodeWidth: width });
+  }
+
+  get chapterSelectHeading() {
+    const { chapter: { title } } = this.props;
+    const { nodeWidth } = this.state;
+    return nodeWidth < 480 ? truncate(title, 18) : title;
+  }
+
   handleChapterSelect = () => {
     const {
       index,
@@ -18,14 +39,17 @@ export default class ChapterButton extends Component {
     // Wait until everything has been rendered if that's needed,
     // which can potentially take some time
     window.setTimeout(this.scrollToChapterHeading, 1500);
-  };
+  }
 
   scrollToChapterHeading = () => {
     const { chapter } = this.props;
-    scrollToY(
-      chapter.el.offsetTop - (isSmallScreen() ? 75 : 30),
-    );
+    scrollToY(chapter.el.offsetTop - (isSmallScreen() ? 75 : 30));
   }
+
+  resizeObserver = new ResizeObserver(debounce((entries) => {
+    const { width } = entries[0].contentRect;
+    this.nodeWidth = width;
+  }, 100))
 
   render() {
     const {
@@ -38,6 +62,9 @@ export default class ChapterButton extends Component {
           styles.chapterHeading,
           styles.chapterHeadingOption,
         )}
+        ref={(node) => {
+          this.node = node;
+        }}
       >
         <button
           type="button"
@@ -52,10 +79,7 @@ export default class ChapterButton extends Component {
           }
           onClick={this.handleChapterSelect}
         >
-          {isSmallScreen()
-            ? truncate(chapter.title, 18)
-            : chapter.title
-          }
+          {this.chapterSelectHeading}
         </button>
       </li>
     );

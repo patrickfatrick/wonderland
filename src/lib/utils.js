@@ -3,12 +3,8 @@ export function truncate(string = '', num) {
   return string.length >= num ? `${string.substring(0, num)}...` : string;
 }
 
-export function isSmallScreen() {
-  return document.body.clientWidth <= 480;
-}
-
-export function isMediumScreen() {
-  return document.body.clientWidth <= 600;
+export function isSmallScreen(width = document.body.clientWidth) {
+  return width <= 480;
 }
 
 // See https://github.com/danro/easing-js/blob/master/easing.js

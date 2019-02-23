@@ -32,7 +32,7 @@
   box-shadow: var(--defaultBoxShadow);
   display: none;
   position: absolute;
-  top: 4rem;
+  top: 7rem;
   left: 0;
   padding-left: 0;
   width: 100%;
@@ -40,6 +40,10 @@
   background-color: inherit;
   overflow-y: scroll;
   max-height: 250px;
+
+  @media (--large) {
+    top: 4rem;
+  }
 
   @media (min-height: 600px) {
     max-height: 400px;
@@ -63,24 +67,23 @@
 }
 
 .chapterHeading {
-  position: absolute;
-  width: 100%;
   top: 4rem;
   left: 0;
+  flex: 1 100%;
   font-size: 2rem;
   font-family: var(--cormorant);
   text-align: center;
   background-color: inherit;
 
   @media (--large) {
-    lost-column: 14/30;
+    flex: 1 60%;
+    order: 2;
     position: relative;
     top: 0;
   }
 }
 
 .chapterHeadingOption {
-  lost-column: 12/12;
   display: block;
   position: relative;
   top: 0;

@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { truncate, isSmallScreen } from '../../lib/utils';
+import { debounce } from 'lodash';
+import { truncate } from '../../lib/utils';
 import ChapterButton from '../ChapterButton';
 import styles from './Chapters.css';
 
-
 export default class Chapters extends Component {
-  state = { chapterSelectToggled: false };
+  state = { chapterSelectToggled: false, nodeWidth: 0 };
+
+  componentDidMount() {
+    this.resizeObserver.observe(document.body);
+  }
+
+  componentWillUnmount() {
+    this.resizeObserver.unobserve(document.body);
+  }
+
+  set nodeWidth(width) {
+    this.setState({ nodeWidth: width });
+  }
 
   get chapterSelectHeading() {
     const { chapters, activeChapter } = this.props;
+    const { nodeWidth } = this.state;
     if (!activeChapter) return 'Select a Chapter';
     const { title } = chapters[activeChapter];
-    return isSmallScreen() ? truncate(title, 18) : title;
+    return nodeWidth < 480 ? truncate(title, 18) : title;
   }
+
+  resizeObserver = new ResizeObserver(debounce((entries) => {
+    const { width } = entries[0].contentRect;
+    this.nodeWidth = width;
+  }, 100))
 
   toggleChapterSelect = () => {
     this.setState((prevState) => {
@@ -37,7 +55,12 @@ export default class Chapters extends Component {
     const { chapterSelectToggled } = this.state;
 
     return (
-      <li className={styles.chapterHeading}>
+      <li
+        className={styles.chapterHeading}
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
         <button
           type="button"
           onClick={this.handleToggleChapterSelect}

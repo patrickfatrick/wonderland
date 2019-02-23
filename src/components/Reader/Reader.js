@@ -14,6 +14,7 @@ export default class Reader extends Component {
     const { path, mountBookAndAssets } = this.props;
     mountBookAndAssets(path);
     window.addEventListener('scroll', this.userScrollHandlerThrottled);
+    this.resizeObserver.observe(this.node);
   }
 
   componentWillUnmount() {
@@ -28,7 +29,9 @@ export default class Reader extends Component {
   };
 
   // eslint-disable-next-line react/sort-comp
-  userScrollHandlerThrottled = throttle(this.userScrollHandler, 50);
+  userScrollHandlerThrottled = throttle(this.userScrollHandler, 100);
+
+  resizeObserver = new ResizeObserver(this.userScrollHandlerThrottled);
 
   render() {
     const {
@@ -45,6 +48,9 @@ export default class Reader extends Component {
             [styles.readerContainerDarkmodeOn]: darkmode,
           })
         }
+        ref={(node) => {
+          this.node = node;
+        }}
       >
         <Audio />
         <NavBar />
