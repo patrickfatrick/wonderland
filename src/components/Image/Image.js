@@ -11,14 +11,14 @@ export default function Image({
   const { nodeWidth, node } = useResizeObserver();
 
   const renderFullSizeImage = useCallback((entries) => {
-    const entry = entries[0];
+    const [entry] = entries;
     const { src } = image;
-    if (entry.intersectionRatio < 0.5) return;
+    if (!entry.isIntersecting) return;
     if (entry.target.src.includes(src)) return;
     entry.target.src = imagesLocation + src;
   }, [image.src, imagesLocation]);
 
-  const imageNode = useIntersectionObserver(renderFullSizeImage, 0.5);
+  const imageNode = useIntersectionObserver(renderFullSizeImage, [0.25, 0.5, 0.75, 1]);
 
   const { dimensions } = image;
   const minHeight = nodeWidth < 600

@@ -8,7 +8,7 @@ export default function (callback, threshold = 0) {
       {
         root: null,
         rootMargin: '0px',
-        threshold: [threshold],
+        threshold,
       },
     );
     io.observe(node.current);

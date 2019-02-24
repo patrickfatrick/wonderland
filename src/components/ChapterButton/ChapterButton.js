@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { debounce } from 'lodash';
 import truncate from '../../utils/truncate';
+import seek from '../../utils/seek';
 import isSmallScreen from '../../utils/isSmallScreen';
 import scrollToY from '../../utils/scrollToY';
 import useResizeObserver from '../../hooks/useResizeObserver';
@@ -16,7 +17,7 @@ export default function ChapterButton({
   chapter,
   index,
   darkmode,
-  chapterSelectHandler,
+  renderMore,
   toggleChapterSelect,
   audioPlayerElement,
 }) {
@@ -32,11 +33,12 @@ export default function ChapterButton({
     }
   }, 250), [chapter.el, scrollingQueued]);
 
-  const chapterSelectListener = useCallback(() => {
+  const clickHandler = useCallback(() => {
     toggleChapterSelect(false);
-    chapterSelectHandler(index, audioPlayerElement, chapter.timestamp);
+    seek(audioPlayerElement, chapter.timestamp);
+    renderMore(index);
     setScrollingQueued(true);
-  }, [toggleChapterSelect, chapterSelectHandler, index, audioPlayerElement, chapter.timestamp]);
+  }, [toggleChapterSelect, renderMore, index, audioPlayerElement, chapter.timestamp]);
 
   const { title } = chapter;
   // When hidden, nodeWidth = 0, which can be awkward when being shown
@@ -62,7 +64,7 @@ export default function ChapterButton({
             && darkmode,
           })
         }
-        onClick={chapterSelectListener}
+        onClick={clickHandler}
       >
         {chapterSelectHeading}
       </button>
@@ -78,7 +80,7 @@ ChapterButton.propTypes = {
   }).isRequired,
   index: PropTypes.number.isRequired,
   darkmode: PropTypes.bool.isRequired,
-  chapterSelectHandler: PropTypes.func.isRequired,
+  renderMore: PropTypes.func.isRequired,
   toggleChapterSelect: PropTypes.func.isRequired,
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
 };

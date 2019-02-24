@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import seek from '../../utils/seek';
 import styles from './Line.css';
-
-function lineHandler(e, player, seconds) {
-  const target = e.currentTarget;
-  seek(player, seconds);
-  window.setTimeout(() => target.blur(), 100);
-}
 
 export default function Line({
   audioOn,
   darkmode,
   lineId,
   line,
-  audioPlayerElement, // eslint-disable-line react/prop-types
+  audioPlayerElement,
 }) {
+  const clickHandler = useCallback(() => {
+    seek(audioPlayerElement, line.timestampStart);
+  }, [audioPlayerElement, line.timestampStart]);
+
   return (
     <span>
       <a
@@ -31,7 +29,7 @@ export default function Line({
           })
         }
         data-active-line={line.active && audioOn}
-        onClick={e => lineHandler(e, audioPlayerElement, line.timestampStart)}
+        onClick={clickHandler}
         // This is fine as the html would be generated in the server
         dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
           __html: line.content,

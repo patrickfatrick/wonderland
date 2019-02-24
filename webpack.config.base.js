@@ -9,6 +9,7 @@ module.exports = {
     'whatwg-fetch',
     'resize-observer-polyfill/dist/ResizeObserver.global.js',
     'intersection-observer',
+    'requestidlecallback',
     './src/main',
   ],
   output: {

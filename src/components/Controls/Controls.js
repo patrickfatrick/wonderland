@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Controls.css';
@@ -14,6 +14,21 @@ export default function Controls({
   toggleAutoscroll,
   toggleDarkmode,
 }) {
+  const darkModeClickHandler = useCallback((e) => {
+    e.currentTarget.blur();
+    toggleDarkmode(!darkmode);
+  }, [darkmode]);
+
+  const audioClickHandler = useCallback((e) => {
+    e.currentTarget.blur();
+    toggleAudio(audioPlayerElement, !audioOn);
+  }, [audioPlayerElement, audioOn]);
+
+  const autoscrollClickHandler = useCallback((e) => {
+    e.currentTarget.blur();
+    toggleAutoscroll(!autoscroll);
+  }, [autoscroll]);
+
   return (
     <li
       id="button-container"
@@ -29,7 +44,7 @@ export default function Controls({
             [styles.darkmodeButtonDarkmodeOn]: darkmode,
           })
         }
-        onClick={e => toggleDarkmode(e, !darkmode)}
+        onClick={darkModeClickHandler}
       />
       <button
         type="button"
@@ -41,7 +56,7 @@ export default function Controls({
             [styles.buttonDarkmodeOn]: darkmode,
           })
         }
-        onClick={e => toggleAudio(e, audioPlayerElement, !audioOn)}
+        onClick={audioClickHandler}
       >
         {buffering && 'Loading...'}
         {!buffering && ((audioOn) ? 'Pause' : `Play (${Math.round(audio.size / 1000000)} MB)`)}
@@ -57,7 +72,7 @@ export default function Controls({
               [styles.buttonDarkmodeOn]: darkmode,
             })
           }
-          onClick={e => toggleAutoscroll(e, !autoscroll)}
+          onClick={autoscrollClickHandler}
         >
            Autoscroll
           {' '}

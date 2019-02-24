@@ -14,24 +14,27 @@ function mapStatetoProps({ audioPlayer, application, data }) {
   };
 }
 
+function setupPlayer(player, bool) {
+  return (dispatch) => {
+    dispatch(setAudioOn(bool));
+    if (bool && player.src) {
+      player.play();
+      dispatch(updateBufferedTime(player));
+    } else {
+      player.pause();
+    }
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
-    toggleAudio(e, player, bool) {
-      e.currentTarget.blur();
-      dispatch(setAudioOn(bool));
-      if (bool && player.src) {
-        player.play();
-        dispatch(updateBufferedTime(player));
-      } else {
-        player.pause();
-      }
+    toggleAudio(player, bool) {
+      dispatch(setupPlayer(player, bool));
     },
-    toggleAutoscroll(e, bool) {
-      e.currentTarget.blur();
+    toggleAutoscroll(bool) {
       dispatch(setAutoscroll(bool));
     },
-    toggleDarkmode(e, bool) {
-      e.currentTarget.blur();
+    toggleDarkmode(bool) {
       window.localStorage.setItem('darkmode', bool);
       dispatch(setDarkmode(bool));
     },

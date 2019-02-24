@@ -11,4 +11,8 @@ function mapStateToProps({ audioPlayer, application, lines }, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(Line);
+function mapDispatchToProps() {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Line);

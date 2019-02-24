@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { throttle } from 'lodash';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import Audio from '../Audio';
 import Blocks from '../Blocks';
 import NavBar from '../NavBar';
@@ -14,21 +15,25 @@ export default function Reader({
   darkmode,
   mountBookAndAssets,
   path,
-  scrollHandler,
+  setActiveChapter,
+  renderMore,
   renderIndex,
 }) {
   const node = useRef();
+
+  const handleIntersection = useCallback((entries) => {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
+    window.requestIdleCallback(renderMore, { timeout: 500 });
+  }, []);
+  const sentinelNode = useIntersectionObserver(handleIntersection, 1);
 
   useLayoutEffect(() => {
     mountBookAndAssets(path);
   }, []);
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      const scrollPos = window.scrollY;
-      const offset = document.body.clientHeight - window.innerHeight;
-      scrollHandler(scrollPos, offset);
-    }, 100);
+    const handleScroll = throttle(() => setActiveChapter(window.scrollY), 250);
     window.addEventListener('scroll', handleScroll);
     const ro = new ResizeObserver(handleScroll);
     ro.observe(node.current);
@@ -55,6 +60,7 @@ export default function Reader({
       >
         <FrontMatter />
         <Blocks />
+        <div className="sentinel" ref={sentinelNode} />
         {renderIndex >= book.chapters.length - 1 && <BackMatter />}
       </div>
     </div>
@@ -70,6 +76,7 @@ Reader.propTypes = {
   darkmode: PropTypes.bool.isRequired,
   mountBookAndAssets: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
-  scrollHandler: PropTypes.func.isRequired,
+  setActiveChapter: PropTypes.func.isRequired,
+  renderMore: PropTypes.func.isRequired,
   renderIndex: PropTypes.number.isRequired,
 };
