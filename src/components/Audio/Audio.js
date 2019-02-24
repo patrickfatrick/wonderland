@@ -1,45 +1,45 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Audio.css';
 
-export default class Audio extends Component {
-  componentDidMount() {
-    const { refPlayer } = this.props;
-    refPlayer(this.player);
-  }
+export default function Audio({
+  audioLocation,
+  autoscroll,
+  timeUpdate,
+  bookViewerElement,
+  refPlayer,
+}) {
+  const node = useRef();
 
-  onTimeUpdateHandler = (e) => {
-    const { timeUpdate, bookViewerElement, autoscroll } = this.props;
-    timeUpdate(e, bookViewerElement, autoscroll);
-    this.autoscroll();
-  }
+  useEffect(() => {
+    refPlayer(node.current);
+  }, []);
 
-  autoscroll() {
-    const { bookViewerElement, autoscroll } = this.props;
+  const autoscrollHandler = useCallback(() => {
     if (!autoscroll) return;
     const activeLine = bookViewerElement.querySelector('[data-active-line=true]');
     if (!activeLine) return;
     window.scroll(0, activeLine.offsetTop - 200);
-  }
+  }, [bookViewerElement, autoscroll]);
 
-  render() {
-    const { audioLocation } = this.props;
-    return (
-      <div
-        className={styles.audioContainer}
-      >
-        <audio // eslint-disable-line jsx-a11y/media-has-caption
-          preload="metadata"
-          type="audio/mp4"
-          src={audioLocation}
-          onTimeUpdate={this.onTimeUpdateHandler}
-          ref={(node) => {
-            this.player = node;
-          }}
-        />
-      </div>
-    );
-  }
+  const onTimeUpdateHandler = useCallback((e) => {
+    timeUpdate(e, bookViewerElement, autoscroll);
+    autoscrollHandler();
+  }, [timeUpdate, bookViewerElement, autoscroll, autoscrollHandler]);
+
+  return (
+    <div
+      className={styles.audioContainer}
+    >
+      <audio // eslint-disable-line jsx-a11y/media-has-caption
+        preload="metadata"
+        type="audio/mp4"
+        src={audioLocation}
+        onTimeUpdate={onTimeUpdateHandler}
+        ref={node}
+      />
+    </div>
+  );
 }
 
 Audio.propTypes = {

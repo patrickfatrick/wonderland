@@ -1,76 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { debounce } from 'lodash';
+import truncate from '../../utils/truncate';
+import useResizeObserver from '../../hooks/useResizeObserver';
 import Controls from '../Controls';
 import Chapters from '../Chapters';
-import { truncate } from '../../lib/utils';
 import styles from './NavBar.css';
 
-export default class NavBar extends Component {
-  state = {
-    metadataNodeWidth: 0,
-  }
+export default function NavBar({
+  info,
+  darkmode,
+}) {
+  const { node: metadataNode, nodeWidth: metadataNodeWidth } = useResizeObserver();
 
-  componentDidMount() {
-    this.resizeObserver.observe(this.metadataNode);
-  }
+  const title = metadataNodeWidth < 250 ? truncate(info.title, 18) : info.title;
 
-  componentWillUnmount() {
-    this.resizeObserver.unobserve(this.metadataNode);
-  }
-
-  set metadataNodeWidth(width) {
-    this.setState({ metadataNodeWidth: width });
-  }
-
-  get title() {
-    const { info: { title } } = this.props;
-    const { metadataNodeWidth } = this.state;
-    return metadataNodeWidth < 250 ? truncate(title, 18) : title;
-  }
-
-  resizeObserver = new ResizeObserver(debounce((entries) => {
-    const nodeWidth = entries[0].contentRect.width;
-    this.metadataNodeWidth = nodeWidth;
-  }, 100));
-
-  render() {
-    const {
-      info,
-      darkmode,
-    } = this.props;
-
-    return (
-      <div
-        className={
-          classNames({
-            [styles.navbar]: true,
-            [styles.navbarDarkmodeOn]: darkmode,
-          })
-        }
-      >
-        {info && (
-          <ul className={styles.navbarItems}>
-            <li
-              className={styles.metadata}
-              ref={(node) => {
-                this.metadataNode = node;
-              }}
-            >
-              <span className={styles.title}>
-                {this.title}
-              </span>
-              <br />
-              {info.author}
-            </li>
-            <Controls />
-            <Chapters />
-          </ul>
-        )}
-      </div>
-    );
-  }
+  return (
+    <div
+      className={
+        classNames({
+          [styles.navbar]: true,
+          [styles.navbarDarkmodeOn]: darkmode,
+        })
+      }
+    >
+      {info && (
+        <ul className={styles.navbarItems}>
+          <li
+            className={styles.metadata}
+            ref={metadataNode}
+          >
+            <span className={styles.title}>
+              {title}
+            </span>
+            <br />
+            {info.author}
+          </li>
+          <Controls />
+          <Chapters />
+        </ul>
+      )}
+    </div>
+  );
 }
 
 NavBar.propTypes = {

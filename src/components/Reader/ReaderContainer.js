@@ -12,7 +12,6 @@ function mapStateToProps({ audioPlayer, application, data }) {
     audioOn: audioPlayer.audioOn,
     book: data.book,
     darkmode: application.darkmode,
-    info: data.book.info,
     player: audioPlayer.element,
     timestamp: audioPlayer.timestamp,
     renderIndex: application.renderIndex,

@@ -1,100 +1,73 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { debounce } from 'lodash';
-import { truncate } from '../../lib/utils';
+import truncate from '../../utils/truncate';
+import useResizeObserver from '../../hooks/useResizeObserver';
 import ChapterButton from '../ChapterButton';
 import styles from './Chapters.css';
 
-export default class Chapters extends Component {
-  state = { chapterSelectToggled: false, nodeWidth: 0 };
+export default function Chapters({
+  chapters,
+  chapterOrder,
+  darkmode,
+  activeChapter,
+}) {
+  const [toggled, setToggled] = useState(false);
+  const { nodeWidth, node } = useResizeObserver();
 
-  componentDidMount() {
-    this.resizeObserver.observe(document.body);
-  }
+  const toggle = useCallback(() => {
+    setToggled(!toggled);
+  }, [toggled]);
 
-  componentWillUnmount() {
-    this.resizeObserver.unobserve(document.body);
-  }
-
-  set nodeWidth(width) {
-    this.setState({ nodeWidth: width });
-  }
-
-  get chapterSelectHeading() {
-    const { chapters, activeChapter } = this.props;
-    const { nodeWidth } = this.state;
-    if (!activeChapter) return 'Select a Chapter';
-    const { title } = chapters[activeChapter];
-    return nodeWidth < 480 ? truncate(title, 18) : title;
-  }
-
-  resizeObserver = new ResizeObserver(debounce((entries) => {
-    const { width } = entries[0].contentRect;
-    this.nodeWidth = width;
-  }, 100))
-
-  toggleChapterSelect = () => {
-    this.setState((prevState) => {
-      const { chapterSelectToggled } = prevState;
-      return { chapterSelectToggled: !chapterSelectToggled };
-    });
-  }
-
-  handleToggleChapterSelect = (e) => {
+  const handleClick = useCallback((e) => {
     e.currentTarget.blur();
-    this.toggleChapterSelect();
-  };
+    toggle();
+  }, [toggle]);
 
-  render() {
-    const {
-      chapters,
-      chapterOrder,
-      darkmode,
-    } = this.props;
-    const { chapterSelectToggled } = this.state;
-
-    return (
-      <li
-        className={styles.chapterHeading}
-        ref={(node) => {
-          this.node = node;
-        }}
-      >
-        <button
-          type="button"
-          onClick={this.handleToggleChapterSelect}
-          className={
-            classNames({
-              [styles.chapterSelectToggle]: true,
-              [styles.chapterSelectToggleDarkmodeOn]: darkmode,
-            })
-          }
-        >
-          {this.chapterSelectHeading}
-        </button>
-        <ul
-          className={
-            classNames({
-              [styles.chapterSelect]: true,
-              [styles.chapterSelectDarkmodeOn]: darkmode,
-              [styles.chapterSelectToggled]: chapterSelectToggled,
-            })
-          }
-        >
-          {Object.keys(chapters).length && chapterOrder.map((chapterId, i) => (
-            <ChapterButton
-              key={chapterId}
-              chapter={chapters[chapterId]}
-              index={i}
-              darkmode={darkmode}
-              toggleChapterSelect={this.toggleChapterSelect}
-            />
-          ))}
-        </ul>
-      </li>
-    );
+  let heading = 'Select a Chapter';
+  if (activeChapter) {
+    const { title } = chapters[activeChapter];
+    heading = nodeWidth < 480 ? truncate(title, 18) : title;
   }
+
+  return (
+    <li
+      className={styles.chapterHeading}
+      ref={node}
+    >
+      <button
+        type="button"
+        onClick={handleClick}
+        className={
+          classNames({
+            [styles.chapterSelectToggle]: true,
+            [styles.chapterSelectToggleDarkmodeOn]: darkmode,
+          })
+        }
+      >
+        {heading}
+      </button>
+      <ul
+        className={
+          classNames({
+            [styles.chapterSelect]: true,
+            [styles.chapterSelectDarkmodeOn]: darkmode,
+            [styles.chapterSelectToggled]: toggled,
+          })
+        }
+      >
+        {Object.keys(chapters).length && chapterOrder.map((chapterId, i) => (
+          <ChapterButton
+            key={chapterId}
+            chapter={chapters[chapterId]}
+            index={i}
+            darkmode={darkmode}
+            toggleChapterSelect={toggle}
+          />
+        ))}
+      </ul>
+    </li>
+  );
 }
 
 Chapters.propTypes = {

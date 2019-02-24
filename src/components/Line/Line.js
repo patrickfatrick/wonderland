@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { seek } from '../../lib/utils';
+import seek from '../../utils/seek';
 import styles from './Line.css';
 
 function lineHandler(e, player, seconds) {

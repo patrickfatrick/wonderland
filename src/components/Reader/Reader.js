@@ -1,7 +1,7 @@
-import { throttle } from 'lodash';
-import React, { Component } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { throttle } from 'lodash';
 import Audio from '../Audio';
 import Blocks from '../Blocks';
 import NavBar from '../NavBar';
@@ -9,61 +9,56 @@ import FrontMatter from '../FrontMatter';
 import BackMatter from '../BackMatter';
 import styles from './Reader.css';
 
-export default class Reader extends Component {
-  componentDidMount() {
-    const { path, mountBookAndAssets } = this.props;
+export default function Reader({
+  book,
+  darkmode,
+  mountBookAndAssets,
+  path,
+  scrollHandler,
+  renderIndex,
+}) {
+  const node = useRef();
+
+  useLayoutEffect(() => {
     mountBookAndAssets(path);
-    window.addEventListener('scroll', this.userScrollHandlerThrottled);
-    this.resizeObserver.observe(this.node);
-  }
+  }, []);
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.userScrollHandlerThrottled);
-  }
+  useEffect(() => {
+    const handleScroll = throttle(() => {
+      const scrollPos = window.scrollY;
+      const offset = document.body.clientHeight - window.innerHeight;
+      scrollHandler(scrollPos, offset);
+    }, 100);
+    window.addEventListener('scroll', handleScroll);
+    const ro = new ResizeObserver(handleScroll);
+    ro.observe(node.current);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      ro.unobserve(node.current);
+    };
+  }, []);
 
-  userScrollHandler = () => {
-    const { scrollHandler } = this.props;
-    const scrollPos = window.scrollY;
-    const offset = document.body.clientHeight - window.innerHeight;
-    scrollHandler(scrollPos, offset);
-  };
-
-  // eslint-disable-next-line react/sort-comp
-  userScrollHandlerThrottled = throttle(this.userScrollHandler, 100);
-
-  resizeObserver = new ResizeObserver(this.userScrollHandlerThrottled);
-
-  render() {
-    const {
-      book,
-      darkmode,
-      renderIndex,
-    } = this.props;
-
-    return (
+  return (
+    <div
+      className={
+        classNames({
+          [styles.readerContainer]: true,
+          [styles.readerContainerDarkmodeOn]: darkmode,
+        })
+      }
+      ref={node}
+    >
+      <Audio />
+      <NavBar />
       <div
-        className={
-          classNames({
-            [styles.readerContainer]: true,
-            [styles.readerContainerDarkmodeOn]: darkmode,
-          })
-        }
-        ref={(node) => {
-          this.node = node;
-        }}
+        className={styles.reader}
       >
-        <Audio />
-        <NavBar />
-        <div
-          className={styles.reader}
-        >
-          <FrontMatter />
-          <Blocks />
-          {renderIndex >= book.chapters.length - 1 && <BackMatter />}
-        </div>
+        <FrontMatter />
+        <Blocks />
+        {renderIndex >= book.chapters.length - 1 && <BackMatter />}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 Reader.propTypes = {
@@ -73,10 +68,6 @@ Reader.propTypes = {
     chapters: PropTypes.array,
   }).isRequired,
   darkmode: PropTypes.bool.isRequired,
-  info: PropTypes.shape({
-    author: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
   mountBookAndAssets: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
   scrollHandler: PropTypes.func.isRequired,

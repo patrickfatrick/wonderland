@@ -1,4 +1,4 @@
-import { isSmallScreen } from '../../lib/utils';
+import isSmallScreen from '../../utils/isSmallScreen';
 import initialState from './initial-state';
 
 const SET_CHAPTERS = 'chapters/SET_CHAPTERS';

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { incrementRenderIndex } from '../../store/ducks/application';
 import { renderBlocks } from '../../store/ducks/rendered-blocks';
-import { seek } from '../../lib/utils';
+import seek from '../../utils/seek';
 import ChapterButton from './ChapterButton';
 
 function mapStatetoProps({ application, audioPlayer }) {
