@@ -14,10 +14,13 @@ function mapStatetoProps({ audioPlayer, application, data }) {
   };
 }
 
+/* eslint-disable no-param-reassign */
 function setupPlayer(player, bool) {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(setAudioOn(bool));
     if (bool && player.src) {
+      if (!player.seekable.length) player.load(); // some browsers cannot seek until the audio loads
+      player.currentTime = getState().audioPlayer.timestamp;
       player.play();
       dispatch(updateBufferedTime(player));
     } else {
@@ -25,6 +28,7 @@ function setupPlayer(player, bool) {
     }
   };
 }
+/* eslint-enable no-param-reassign */
 
 function mapDispatchToProps(dispatch) {
   return {

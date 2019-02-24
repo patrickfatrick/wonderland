@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { setTimestamp } from '../../store/ducks/audio-player';
 import Line from './Line';
 
 function mapStateToProps({ audioPlayer, application, lines }, ownProps) {
@@ -11,8 +12,12 @@ function mapStateToProps({ audioPlayer, application, lines }, ownProps) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    updateAudioTimestamp(timestamp) {
+      dispatch(setTimestamp(timestamp));
+    },
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Line);

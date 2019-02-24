@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { incrementRenderIndex } from '../../store/ducks/application';
 import { renderBlocks } from '../../store/ducks/rendered-blocks';
+import { setTimestamp } from '../../store/ducks/audio-player';
 import ChapterButton from './ChapterButton';
 
 function mapStatetoProps({ application, audioPlayer }) {
@@ -22,6 +23,9 @@ function mapDispatchToProps(dispatch) {
   return {
     renderMore(index) {
       dispatch(updateRenderIndexAndRender(index));
+    },
+    updateAudioTimestamp(timestamp) {
+      dispatch(setTimestamp(timestamp));
     },
   };
 }

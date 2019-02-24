@@ -18,6 +18,7 @@ export default function ChapterButton({
   index,
   darkmode,
   renderMore,
+  updateAudioTimestamp,
   toggleChapterSelect,
   audioPlayerElement,
 }) {
@@ -33,9 +34,11 @@ export default function ChapterButton({
     }
   }, 250), [chapter.el, scrollingQueued]);
 
+  // Both seek the player and store the timestamp in the store in case the player is not seekable
   const clickHandler = useCallback(() => {
     toggleChapterSelect(false);
     seek(audioPlayerElement, chapter.timestamp);
+    updateAudioTimestamp(chapter.timestamp);
     renderMore(index);
     setScrollingQueued(true);
   }, [toggleChapterSelect, renderMore, index, audioPlayerElement, chapter.timestamp]);
@@ -81,6 +84,7 @@ ChapterButton.propTypes = {
   index: PropTypes.number.isRequired,
   darkmode: PropTypes.bool.isRequired,
   renderMore: PropTypes.func.isRequired,
+  updateAudioTimestamp: PropTypes.func.isRequired,
   toggleChapterSelect: PropTypes.func.isRequired,
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
 };

@@ -10,9 +10,12 @@ export default function Line({
   lineId,
   line,
   audioPlayerElement,
+  updateAudioTimestamp,
 }) {
+  // Both seek the player and store the timestamp in the store in case the player is not seekable
   const clickHandler = useCallback(() => {
     seek(audioPlayerElement, line.timestampStart);
+    updateAudioTimestamp(line.timestampStart);
   }, [audioPlayerElement, line.timestampStart]);
 
   return (
@@ -44,6 +47,7 @@ Line.propTypes = {
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
   darkmode: PropTypes.bool.isRequired,
   lineId: PropTypes.string.isRequired,
+  updateAudioTimestamp: PropTypes.func.isRequired,
   line: PropTypes.shape({
     active: PropTypes.bool,
     content: PropTypes.string,
