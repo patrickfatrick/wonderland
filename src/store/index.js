@@ -1,24 +1,23 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './ducks/reducer';
 
+const isDebug = process.env.NODE_ENV === 'debug';
 const middlewares = [thunk];
 
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers =
-  process.env.NODE_ENV === 'debug' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
-/* eslint-enable no-underscore-dangle */
+const composeEnhancers = isDebug ? composeWithDevTools({}) : compose;
 
-if (process.env.NODE_ENV === 'debug') {
+if (isDebug) {
   middlewares.push(createLogger());
 }
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
 export default createStore(
-  reducer, /* preloadedState, */
+  reducer,
+  /* preloadedState, */
   enhancer,
 );
