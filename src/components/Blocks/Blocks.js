@@ -12,7 +12,7 @@ export default function Blocks({
   useEffect(() => {
     const { current: ref } = bookViewerElement;
     if (ref) refBookViewer(ref);
-  }, []);
+  }, [refBookViewer]);
 
   return (
     <div

@@ -41,7 +41,14 @@ export default function ChapterButton({
     updateAudioTimestamp(chapter.timestamp);
     renderMore(index);
     setScrollingQueued(true);
-  }, [toggleChapterSelect, renderMore, index, audioPlayerElement, chapter.timestamp]);
+  }, [
+    updateAudioTimestamp,
+    toggleChapterSelect,
+    renderMore,
+    index,
+    audioPlayerElement,
+    chapter.timestamp,
+  ]);
 
   const { title } = chapter;
   // When hidden, nodeWidth = 0, which can be awkward when being shown

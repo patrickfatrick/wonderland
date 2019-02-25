@@ -3,6 +3,9 @@ module.exports = {
     browser: true,
   },
   extends: 'airbnb',
+  plugins: [
+    'react-hooks'
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
@@ -23,6 +26,8 @@ module.exports = {
       {
         extensions: ['.js', '.jsx']
       }
-    ]
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
 }

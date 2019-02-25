@@ -13,7 +13,7 @@ export default function Audio({
 
   useEffect(() => {
     refPlayer(node.current);
-  }, []);
+  }, [refPlayer]);
 
   const autoscrollHandler = useCallback(() => {
     if (!autoscroll) return;

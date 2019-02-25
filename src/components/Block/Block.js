@@ -15,7 +15,7 @@ export default function Block({
   useEffect(() => {
     const { current: ref } = chapterHeading;
     if (ref) refChapterHeading(ref, block.chapterId);
-  }, []);
+  }, [block.chapterId, refChapterHeading]);
 
   switch (block.type) {
     case 'flourish':

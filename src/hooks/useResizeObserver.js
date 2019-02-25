@@ -12,7 +12,7 @@ export default function (debounceThreshold = 100) {
     }, debounceThreshold));
     ro.observe(node.current);
     return () => ro.unobserve(node.current);
-  }, []);
+  }, [debounceThreshold]);
 
   return {
     nodeWidth,

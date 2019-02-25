@@ -13,7 +13,7 @@ export default function (callback, threshold = 0) {
     );
     io.observe(node.current);
     return () => io.unobserve(node.current);
-  }, []);
+  }, [callback, threshold]);
 
   return node;
 }

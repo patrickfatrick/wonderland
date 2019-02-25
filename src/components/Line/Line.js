@@ -16,7 +16,7 @@ export default function Line({
   const clickHandler = useCallback(() => {
     seek(audioPlayerElement, line.timestampStart);
     updateAudioTimestamp(line.timestampStart);
-  }, [audioPlayerElement, line.timestampStart]);
+  }, [updateAudioTimestamp, audioPlayerElement, line.timestampStart]);
 
   return (
     <span>

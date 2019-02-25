@@ -17,17 +17,17 @@ export default function Controls({
   const darkModeClickHandler = useCallback((e) => {
     e.currentTarget.blur();
     toggleDarkmode(!darkmode);
-  }, [darkmode]);
+  }, [toggleDarkmode, darkmode]);
 
   const audioClickHandler = useCallback((e) => {
     e.currentTarget.blur();
     toggleAudio(audioPlayerElement, !audioOn);
-  }, [audioPlayerElement, audioOn]);
+  }, [toggleAudio, audioPlayerElement, audioOn]);
 
   const autoscrollClickHandler = useCallback((e) => {
     e.currentTarget.blur();
     toggleAutoscroll(!autoscroll);
-  }, [autoscroll]);
+  }, [toggleAutoscroll, autoscroll]);
 
   return (
     <li

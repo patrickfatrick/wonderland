@@ -25,12 +25,12 @@ export default function Reader({
     const [entry] = entries;
     if (!entry.isIntersecting) return;
     window.requestIdleCallback(renderMore, { timeout: 500 });
-  }, []);
+  }, [renderMore]);
   const sentinelNode = useIntersectionObserver(handleIntersection, 1);
 
   useLayoutEffect(() => {
     mountBookAndAssets(path);
-  }, []);
+  }, [mountBookAndAssets, path]);
 
   useEffect(() => {
     const handleScroll = throttle(() => setActiveChapter(window.scrollY), 250);
@@ -41,7 +41,7 @@ export default function Reader({
       window.removeEventListener('scroll', handleScroll);
       ro.unobserve(node.current);
     };
-  }, []);
+  }, [setActiveChapter]);
 
   return (
     <div

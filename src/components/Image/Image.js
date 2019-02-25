@@ -16,7 +16,7 @@ export default function Image({
     if (!entry.isIntersecting) return;
     if (entry.target.src.includes(src)) return;
     entry.target.src = imagesLocation + src;
-  }, [image.src, imagesLocation]);
+  }, [image, imagesLocation]);
 
   const imageNode = useIntersectionObserver(renderFullSizeImage, [0.25, 0.5, 0.75, 1]);
 
