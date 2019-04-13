@@ -1,11 +1,11 @@
 @import "../../styles/variables.css";
 
 .buttonContainer {
-  text-align: right;
+  background-color: transparent;
+  box-sizing: border-box;
   flex: 1 60%;
   padding-top: 0.5rem;
-  box-sizing: border-box;
-  background-color: transparent;
+  text-align: right;
 
   @media (--large) {
     flex: 1 20%;
@@ -14,19 +14,19 @@
 }
 
 .button {
+  background-color: inherit;
+  border: 1px solid var(--darkGray);
+  border-radius: 4px;
+  color: inherit;
   font-family: 'Verdana', sans-serif;
-  margin-left: 3px;
-  margin-right: 3px;
   font-size: 0.8rem;
   line-height: 0.8rem;
-  border: 1px solid var(--darkGray);
-  padding: 0.5rem;
-  min-width: 1.5rem;
+  margin-left: 3px;
+  margin-right: 3px;
   min-height: 1.5rem;
+  min-width: 1.5rem;
+  padding: 0.5rem;
   text-align: center;
-  background-color: inherit;
-  color: inherit;
-  border-radius: 4px;
 
   &:active,
   &:focus {
@@ -46,10 +46,11 @@
 }
 
 .darkmodeButton {
-  padding: 0.5rem;
-  border-radius: 1rem;
   background-color: var(--darkestGray);
   border-color: var(--lightGray);
+  border-radius: 1rem;
+  color: var(--lightGray);
+  padding: 0.5rem;
 
   &:active,
   &:focus {
@@ -60,6 +61,7 @@
 .darkmodeButtonDarkmodeOn {
   background-color: var(--white);
   border-color: var(--darkGray);
+  color: var(--black);
 
   &:active,
   &:focus {

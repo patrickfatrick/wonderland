@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Line from '../Line';
-import Flourish from '../Flourish';
-import Image from '../Image';
-import styles from './Block.css';
+import React, { Fragment, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import Line from "../Line";
+import Flourish from "../Flourish";
+import Image from "../Image";
+import blockShape from "../../shapes/blockShape";
+import styles from "./Block.css";
 
 export default function Block({
   block,
@@ -18,10 +19,10 @@ export default function Block({
   }, [block.chapterId, refChapterHeading]);
 
   switch (block.type) {
-    case 'flourish':
+    case "flourish":
       children = <Flourish key={block.id} />;
       break;
-    case 'image':
+    case "image":
       children = (
         <Image
           key={block.id}
@@ -29,20 +30,20 @@ export default function Block({
         />
       );
       break;
-    case 'heading':
+    case "heading":
       children = (
-        <div
+        <h1
           key={block.id}
           className={styles.heading}
           ref={chapterHeading}
         >
           {block.title}
-        </div>
+        </h1>
       );
       break;
-    case 'paragraph':
+    case "paragraph":
       children = (
-        <div>
+        <Fragment>
           <span
             className={styles.indent}
           />
@@ -52,12 +53,24 @@ export default function Block({
               lineId={lineId}
             />
           ))}
-        </div>
+        </Fragment>
       );
       break;
-    case 'preformatted':
-      children = (
+    case "fixed":
+      children = block.lines ? (
+        block.lines.map(lineId => (
+          <div
+            className={styles.fixedLine}
+            key={lineId}
+          >
+            <Line
+              lineId={lineId}
+            />
+          </div>
+        ))
+      ) : (
         <span
+          className={styles.fixed}
           dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
             __html: block.content,
           }}
@@ -76,13 +89,7 @@ export default function Block({
 }
 
 Block.propTypes = {
-  block: PropTypes.shape({
-    id: PropTypes.string,
-    chapterId: PropTypes.string,
-    type: PropTypes.string,
-    title: PropTypes.string,
-    lines: PropTypes.array,
-  }).isRequired,
+  block: blockShape.isRequired,
   refChapterHeading: PropTypes.func,
 };
 

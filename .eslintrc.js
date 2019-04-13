@@ -10,6 +10,9 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true
+    },
+    babelOptions: {
+      configFile: "./.babelrc.js"
     }
   },
   rules: {
@@ -28,6 +31,7 @@ module.exports = {
       }
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
+    'quotes': ['error', 'double']
   },
 }

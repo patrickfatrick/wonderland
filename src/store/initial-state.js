@@ -29,22 +29,32 @@
 
 export default {
   application: {
+    readerContainerElement: null,
+    audioPlayerElement: null,
     renderIndex: -1,
-    assetsLocation: '',
-    darkmode: Object.prototype.hasOwnProperty.call(window.localStorage, 'darkmode')
-      ? window.localStorage.getItem('darkmode') === 'true'
-      : false,
+    assetsLocation: "",
+    audioOn: false,
+    autoscrollOn: false,
+    darkmode:
+      window.localStorage.getItem("darkmode") ?? "0"
+        |> Number.parseInt(?, 10)
+        |> Boolean,
+    activeChapter:
+      window.localStorage.getItem("activeChapter") ?? null,
+    activeLine:
+      window.localStorage.getItem("activeLine") ?? null,
   },
   data: {
     book: {
       audio: {
-        src: '',
+        src: "",
         size: 0,
       },
       frontmatter: [],
       info: {
-        title: '',
-        author: '',
+        title: "",
+        author: "",
+        performers: [],
       },
       chapters: [],
       backmatter: [],
@@ -57,12 +67,8 @@ export default {
   renderedBlocks: [],
   lines: {},
   audioPlayer: {
-    audioSrc: '',
-    audioOn: false,
-    autoscroll: false,
-    bookViewerElement: null,
+    audioSrc: "",
     buffering: false,
-    element: null,
     timestamp: 0,
   },
 };

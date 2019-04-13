@@ -1,36 +1,25 @@
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Block from '../Block';
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import Block from "../Block";
 
 export default function Blocks({
-  pageItems,
-  refBookViewer,
+  renderedBlocks,
   refChapterHeading,
 }) {
-  const bookViewerElement = useRef();
-
-  useEffect(() => {
-    const { current: ref } = bookViewerElement;
-    if (ref) refBookViewer(ref);
-  }, [refBookViewer]);
-
   return (
-    <div
-      ref={bookViewerElement}
-    >
-      {pageItems.map(pageItem => (
+    <Fragment>
+      {renderedBlocks.map(pageItem => (
         <Block
           key={pageItem.id}
           block={pageItem}
           refChapterHeading={refChapterHeading}
         />
       ))}
-    </div>
+    </Fragment>
   );
 }
 
 Blocks.propTypes = {
-  pageItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-  refBookViewer: PropTypes.func.isRequired,
+  renderedBlocks: PropTypes.arrayOf(PropTypes.object).isRequired,
   refChapterHeading: PropTypes.func.isRequired,
 };

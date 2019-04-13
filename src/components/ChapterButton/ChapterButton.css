@@ -1,7 +1,9 @@
+@import "../../styles/variables.css";
+
 .chapterOptionButton {
+  background-color: inherit;
   border: none;
   color: inherit;
-  background-color: inherit;
   font-family: inherit;
   font-size: inherit;
   margin: 0;
@@ -22,14 +24,14 @@
 }
 
 .chapterHeading {
-  position: absolute;
-  width: 100%;
-  top: 4rem;
-  left: 0;
-  font-size: 2rem;
-  font-family: var(--cormorant);
-  text-align: center;
   background-color: inherit;
+  font-family: var(--cormorant);
+  font-size: 2rem;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 4rem;
+  width: 100%;
 
   @media (--large) {
     position: relative;
@@ -38,10 +40,10 @@
 }
 
 .chapterHeadingOption {
-  display: block;
-  position: relative;
-  top: 0;
   background-color: inherit;
+  display: block;
   margin: 0 auto;
   padding: 0.5rem 0;
+  position: relative;
+  top: 0;
 }

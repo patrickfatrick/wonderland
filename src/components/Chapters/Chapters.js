@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import truncate from '../../utils/truncate';
-import useResizeObserver from '../../hooks/useResizeObserver';
-import ChapterButton from '../ChapterButton';
-import styles from './Chapters.css';
+import React, { useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import c from "classnames";
+import truncate from "../../utils/truncate";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import chapterShape from "../../shapes/chapterShape";
+import ChapterButton from "../ChapterButton";
+import styles from "./Chapters.css";
 
 export default function Chapters({
   chapters,
-  chapterOrder,
   darkmode,
   activeChapter,
 }) {
@@ -24,9 +24,9 @@ export default function Chapters({
     toggle();
   }, [toggle]);
 
-  let heading = 'Select a Chapter';
+  let heading = "Select a Chapter";
   if (activeChapter) {
-    const { title } = chapters[activeChapter];
+    const { title } = activeChapter;
     heading = nodeWidth < 480 ? truncate(title, 18) : title;
   }
 
@@ -39,7 +39,7 @@ export default function Chapters({
         type="button"
         onClick={handleClick}
         className={
-          classNames({
+          c({
             [styles.chapterSelectToggle]: true,
             [styles.chapterSelectToggleDarkmodeOn]: darkmode,
           })
@@ -49,17 +49,17 @@ export default function Chapters({
       </button>
       <ul
         className={
-          classNames({
+          c({
             [styles.chapterSelect]: true,
             [styles.chapterSelectDarkmodeOn]: darkmode,
             [styles.chapterSelectToggled]: toggled,
           })
         }
       >
-        {Object.keys(chapters).length && chapterOrder.map((chapterId, i) => (
+        {chapters.map((chapter, i) => (
           <ChapterButton
-            key={chapterId}
-            chapter={chapters[chapterId]}
+            key={chapter.id}
+            chapter={chapter}
             index={i}
             darkmode={darkmode}
             toggleChapterSelect={toggle}
@@ -71,12 +71,12 @@ export default function Chapters({
 }
 
 Chapters.propTypes = {
-  chapters: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  chapterOrder: PropTypes.arrayOf(PropTypes.string).isRequired,
+  chapters: PropTypes.arrayOf(chapterShape),
   darkmode: PropTypes.bool.isRequired,
-  activeChapter: PropTypes.string,
+  activeChapter: chapterShape,
 };
 
 Chapters.defaultProps = {
-  activeChapter: '',
+  activeChapter: null,
+  chapters: [],
 };

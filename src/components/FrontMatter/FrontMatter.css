@@ -1,13 +1,53 @@
+@import "../../styles/variables.css";
+
 .frontmatter {
-  text-align: center;
   margin-bottom: 6rem;
+  text-align: center;
 }
 
 .title {
   font-size: 2.5rem;
+  font-weight: normal;
 }
 
 .author {
   font-size: 1.4rem;
   margin-bottom: 10rem;
+}
+
+.performedBy {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.performedByList {
+  list-style: none;
+  margin-bottom: 100px;
+  overflow-x: hidden;
+  padding: 0;
+  text-align: left;
+}
+
+.performedByListItem {
+  &::before {
+    content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+    float: left;
+    white-space: nowrap;
+    width: 0;
+  }
+}
+
+.role,
+.performer {
+  background: var(--white);
+  padding: 0 2px;
+}
+
+.roleDarkmodeOn,
+.performerDarkmodeOn {
+  background: var(--darkestGray);
+}
+
+.performer {
+  float: right;
 }

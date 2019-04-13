@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import Image from './Image';
+import { connect } from "react-redux";
+import Image from "./Image";
 
 function mapStateToProps({ application }) {
   return {
-    imagesLocation: `${application.assetsLocation}images/`,
+    imagesLocation: `${application.assetsLocation}/images`,
   };
 }
 

@@ -4,5 +4,10 @@
 		{
 			"path": "."
 		}
-	]
+	],
+  "settings": {
+    "ESLint-Formatter": {
+      "config_path": ".eslintrc.js"
+    }
+  }
 }

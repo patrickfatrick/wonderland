@@ -1,12 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700");
 
+html,
+body,
+section {
+  height: 100%;
+  width: 100%;
+}
+
+section {
+  overflow: hidden;
+}
+
 body {
+  color: rgb(27, 27, 27);
   margin: 0;
 }
 
 a {
-  cursor: pointer;
   color: inherit;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -21,6 +33,6 @@ button::-moz-focus-inner {
 }
 
 h3 {
-  margin-bottom: 0;
   font-weight: normal;
+  margin-bottom: 0;
 }

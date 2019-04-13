@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import useResizeObserver from '../../hooks/useResizeObserver';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import styles from './Image.css';
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import imageShape from "../../shapes/imageShape";
+import styles from "./Image.css";
 
 export default function Image({
   image,
@@ -15,16 +16,16 @@ export default function Image({
     const { src } = image;
     if (!entry.isIntersecting) return;
     if (entry.target.src.includes(src)) return;
-    entry.target.src = imagesLocation + src;
+    entry.target.src = `${imagesLocation}/${src}`;
   }, [image, imagesLocation]);
 
   const imageNode = useIntersectionObserver(renderFullSizeImage, [0.25, 0.5, 0.75, 1]);
 
-  const { dimensions } = image;
+  const { dimensions, src, thumb } = image;
   const minHeight = nodeWidth < 600
     ? dimensions[1] / (dimensions[0] / document.body.clientWidth)
     : dimensions[1];
-  const width = nodeWidth < 600 ? '100%' : dimensions[0];
+  const width = nodeWidth < 600 ? "100%" : dimensions[0];
   const imageStyles = { minHeight, width };
 
   return (
@@ -33,10 +34,10 @@ export default function Image({
       ref={node}
     >
       <img
-        alt={image.src}
+        alt={src}
         className={styles.image}
         style={imageStyles}
-        src={image.src ? imagesLocation + image.thumb : null}
+        src={src ? `${imagesLocation}/${thumb}` : null}
         ref={imageNode}
       />
     </div>
@@ -44,11 +45,6 @@ export default function Image({
 }
 
 Image.propTypes = {
-  image: PropTypes.shape({
-    type: PropTypes.string,
-    src: PropTypes.string,
-    dimensions: PropTypes.arrayOf(PropTypes.number),
-    thumb: PropTypes.string,
-  }).isRequired,
+  image: imageShape.isRequired,
   imagesLocation: PropTypes.string.isRequired,
 };

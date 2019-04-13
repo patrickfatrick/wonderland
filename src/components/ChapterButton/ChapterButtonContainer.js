@@ -1,21 +1,23 @@
-import { connect } from 'react-redux';
-import { incrementRenderIndex } from '../../store/ducks/application';
-import { renderBlocks } from '../../store/ducks/rendered-blocks';
-import { setTimestamp } from '../../store/ducks/audio-player';
-import ChapterButton from './ChapterButton';
+import { connect } from "react-redux";
+import { incrementRenderIndex } from "../../store/ducks/application";
+import { renderBlocks } from "../../store/ducks/rendered-blocks";
+import { setTimestamp } from "../../store/ducks/audio-player";
+import ChapterButton from "./ChapterButton";
 
-function mapStatetoProps({ application, audioPlayer }) {
+function mapStatetoProps({ application }) {
   return {
+    readerContainerElement: application.readerContainerElement,
     darkmode: application.darkmode,
-    audioPlayerElement: audioPlayer.element,
+    audioPlayerElement: application.audioPlayerElement,
   };
 }
 
 function updateRenderIndexAndRender(index) {
-  return (dispatch, getState) => { // eslint-disable-line no-shadow
+  return (dispatch, getState) => {
     const diff = index - getState().application.renderIndex;
     dispatch(incrementRenderIndex(diff));
-    dispatch(renderBlocks(getState().data, getState().application.renderIndex, diff));
+    const { data, application: { renderIndex } } = getState();
+    dispatch(renderBlocks(data, renderIndex, diff));
   };
 }
 

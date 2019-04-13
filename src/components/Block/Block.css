@@ -11,13 +11,20 @@
 }
 
 .indent {
-  padding-right: 1rem;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .heading {
   font-size: 2rem;
-  text-align: center;
-  margin-top: 3rem;
+  font-weight: normal;
   margin-bottom: 3rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.fixed,
+.fixedLine {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }

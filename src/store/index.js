@@ -1,20 +1,16 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from './ducks/reducer';
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import { createLogger } from "redux-logger";
+import reducer from "./ducks/reducer";
 
-const isDebug = process.env.NODE_ENV === 'debug';
+const isQuiet = process.env.QUIET === "true";
 const middlewares = [thunk];
 
-const composeEnhancers = isDebug ? composeWithDevTools({}) : compose;
-
-if (isDebug) {
+if (!isQuiet) {
   middlewares.push(createLogger());
 }
 
-const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+const enhancer = compose(applyMiddleware(...middlewares));
 
 export default createStore(
   reducer,

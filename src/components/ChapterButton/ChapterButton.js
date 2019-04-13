@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { debounce } from 'lodash';
-import truncate from '../../utils/truncate';
-import seek from '../../utils/seek';
-import isSmallScreen from '../../utils/isSmallScreen';
-import scrollToY from '../../utils/scrollToY';
-import useResizeObserver from '../../hooks/useResizeObserver';
-import styles from './ChapterButton.css';
-
-function scrollToEl(el) {
-  scrollToY(el.offsetTop - (isSmallScreen() ? 75 : 30), 0.5);
-}
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import c from "classnames";
+import truncate from "../../utils/truncate";
+import seek from "../../utils/seek";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import useQueuedScroll from "../../hooks/useQueuedScroll";
+import chapterShape from "../../shapes/chapterShape";
+import styles from "./ChapterButton.css";
 
 export default function ChapterButton({
   chapter,
@@ -20,19 +15,14 @@ export default function ChapterButton({
   renderMore,
   updateAudioTimestamp,
   toggleChapterSelect,
+  readerContainerElement,
   audioPlayerElement,
 }) {
-  const [scrollingQueued, setScrollingQueued] = useState(false);
+  const [scrollingQueued, setScrollingQueued] = useQueuedScroll(
+    readerContainerElement,
+    chapter.el,
+  );
   const { nodeWidth, node } = useResizeObserver();
-
-  // Debounce this effect so that it will only run once offsetTop becomes static
-  useEffect(debounce(() => {
-    const { el } = chapter;
-    if (el?.offsetTop && scrollingQueued) {
-      scrollToEl(el);
-      setScrollingQueued(false);
-    }
-  }, 250), [chapter.el, scrollingQueued]);
 
   // Both seek the player and store the timestamp in the store in case the player is not seekable
   const clickHandler = useCallback(() => {
@@ -40,7 +30,7 @@ export default function ChapterButton({
     seek(audioPlayerElement, chapter.timestamp);
     updateAudioTimestamp(chapter.timestamp);
     renderMore(index);
-    setScrollingQueued(true);
+    setScrollingQueued(!scrollingQueued);
   }, [
     updateAudioTimestamp,
     toggleChapterSelect,
@@ -48,16 +38,18 @@ export default function ChapterButton({
     index,
     audioPlayerElement,
     chapter.timestamp,
+    scrollingQueued,
+    setScrollingQueued,
   ]);
 
-  const { title } = chapter;
+  const { id, title, active } = chapter;
   // When hidden, nodeWidth = 0, which can be awkward when being shown
   const chapterSelectHeading = nodeWidth && nodeWidth < 480 ? truncate(title, 18) : title;
 
   return (
     <li
-      key={chapter.id}
-      className={classNames(
+      key={id}
+      className={c(
         styles.chapterHeading,
         styles.chapterHeadingOption,
       )}
@@ -66,11 +58,11 @@ export default function ChapterButton({
       <button
         type="button"
         className={
-          classNames({
+          c({
             [styles.chapterOptionButton]: true,
-            [styles.chapterOptionButtonActive]: chapter.active,
+            [styles.chapterOptionButtonActive]: active,
             [styles.chapterOptionButtonDarkmodeOn]: darkmode,
-            [styles.chapterOptionButtonActiveDarkmodeOn]: chapter.active
+            [styles.chapterOptionButtonActiveDarkmodeOn]: active
             && darkmode,
           })
         }
@@ -83,19 +75,17 @@ export default function ChapterButton({
 }
 
 ChapterButton.propTypes = {
-  chapter: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    timestamp: PropTypes.number,
-  }).isRequired,
+  chapter: chapterShape.isRequired,
   index: PropTypes.number.isRequired,
   darkmode: PropTypes.bool.isRequired,
   renderMore: PropTypes.func.isRequired,
   updateAudioTimestamp: PropTypes.func.isRequired,
   toggleChapterSelect: PropTypes.func.isRequired,
+  readerContainerElement: PropTypes.instanceOf(HTMLDivElement),
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
 };
 
 ChapterButton.defaultProps = {
-  audioPlayerElement: {},
+  readerContainerElement: null,
+  audioPlayerElement: null,
 };

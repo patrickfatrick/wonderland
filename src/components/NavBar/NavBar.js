@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import truncate from '../../utils/truncate';
-import useResizeObserver from '../../hooks/useResizeObserver';
-import Controls from '../Controls';
-import Chapters from '../Chapters';
-import styles from './NavBar.css';
+import React from "react";
+import PropTypes from "prop-types";
+import c from "classnames";
+import truncate from "../../utils/truncate";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import Controls from "../Controls";
+import Chapters from "../Chapters";
+import infoShape from "../../shapes/infoShape";
+import styles from "./NavBar.css";
 
 export default function NavBar({
   info,
@@ -18,7 +19,7 @@ export default function NavBar({
   return (
     <div
       className={
-        classNames({
+        c({
           [styles.navbar]: true,
           [styles.navbarDarkmodeOn]: darkmode,
         })
@@ -45,9 +46,6 @@ export default function NavBar({
 }
 
 NavBar.propTypes = {
-  info: PropTypes.shape({
-    author: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
+  info: infoShape.isRequired,
   darkmode: PropTypes.bool.isRequired,
 };

@@ -1,16 +1,16 @@
-import { connect } from 'react-redux';
-import { setBook } from '../../store/ducks/data';
-import { setAssetsLocation, incrementRenderIndex } from '../../store/ducks/application';
-import { setChapters, setActiveChapter } from '../../store/ducks/chapters';
-import { setLines } from '../../store/ducks/lines';
-import { renderBlocks } from '../../store/ducks/rendered-blocks';
-import getBook from '../../services/book-service';
-import isSmallScreen from '../../utils/isSmallScreen';
-import Reader from './Reader';
+import { connect } from "react-redux";
+import { setBook } from "../../store/ducks/data";
+import { setAssetsLocation, incrementRenderIndex, setReaderContainerEl } from "../../store/ducks/application";
+import { setChapters, setActiveChapter } from "../../store/ducks/chapters";
+import { setLines } from "../../store/ducks/lines";
+import { renderBlocks } from "../../store/ducks/rendered-blocks";
+import getBook from "../../services/book-service";
+import isSmallScreen from "../../utils/isSmallScreen";
+import Reader from "./Reader";
 
 function mapStateToProps({ audioPlayer, application, data }) {
   return {
-    audioOn: audioPlayer.audioOn,
+    audioOn: application.audioOn,
     book: data.book,
     darkmode: application.darkmode,
     player: audioPlayer.element,
@@ -59,13 +59,16 @@ function mapDispatchToProps(dispatch) {
   return {
     mountBookAndAssets(path) {
       dispatch(getBookAsync(`${path}data.json`));
-      dispatch(setAssetsLocation(`${path}assets/`));
+      dispatch(setAssetsLocation(`${path}assets`));
     },
     setActiveChapter(scrollPos) {
       dispatch(dispatchSetActiveChapter(scrollPos));
     },
     renderMore() {
       dispatch(updateRenderIndexAndRender());
+    },
+    refReaderContainer(el) {
+      dispatch(setReaderContainerEl(el));
     },
   };
 }

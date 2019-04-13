@@ -1,6 +1,6 @@
-import initialState from './initial-state';
+import initialState from "../initial-state";
 
-const RENDER_BLOCKS = 'rendered-blocks/RENDER_BLOCKS';
+const RENDER_BLOCKS = "rendered-blocks/RENDER_BLOCKS";
 
 // Adds blocks to the renderedBlocks array in the state
 // Which is what is actually rendered

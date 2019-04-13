@@ -1,10 +1,22 @@
 @import "../../styles/variables.css";
 
+.container {
+  background: white;
+  height: 100%;
+  width: 100%;
+}
+
+.containerDarkmodeOn {
+  background: var(--darkestGray);
+}
+
 .reader {
-  margin: 6rem auto 3rem;
-  text-align: justify;
-  font-size: 1.3rem;
   font-family: var(--cormorant);
+  font-size: 1.3rem;
+  margin: 6rem auto 3rem;
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+  text-align: justify;
   width: 100%;
 
   @media (--medium) {
@@ -13,12 +25,29 @@
 }
 
 .readerContainer {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
   background-color: var(--white);
+  height: 100%;
+  overflow-y: scroll;
+  width: 100%;
 
   &.readerContainerDarkmodeOn {
     background-color: var(--darkestGray);
     color: var(--lightGray);
   }
+}
+
+.overlay {
+  bottom: 0;
+  filter: blur(10px);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.overlayHidden {
+  filter: none;
 }

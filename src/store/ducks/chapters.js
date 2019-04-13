@@ -1,11 +1,13 @@
-import initialState from './initial-state';
+import initialState from "../initial-state";
 
-const SET_CHAPTERS = 'chapters/SET_CHAPTERS';
-const SET_CHAPTER_HEADING_EL = 'chapters/SET_CHAPTER_HEADING_EL';
-const SET_ACTIVE_CHAPTER = 'chapters/SET_ACTIVE_CHAPTER';
+const SET_CHAPTERS = "chapters/SET_CHAPTERS";
+const SET_CHAPTER_HEADING_EL = "chapters/SET_CHAPTER_HEADING_EL";
+const SET_ACTIVE_CHAPTER = "chapters/SET_ACTIVE_CHAPTER";
 
 function setActiveChapterHandler(state, prev, next) {
   if (prev === next) return state;
+
+  window.localStorage.setItem("activeChapter", next ?? "");
 
   return {
     ...state,

@@ -1,7 +1,7 @@
-import easeInOutQuint from './easeInOutQuint';
+import easeInOutQuint from "./easeInOutQuint";
 
 // Adapted from http://stackoverflow.com/questions/12199363/scrollto-with-animation
-export default function scrollToY(scrollTargetY = 0, time = 0.5) {
+export default function scrollToY(scrollElement, scrollTargetY = 0, time = 0.5) {
   let currentTime = 0;
 
   // add animation loop
@@ -11,12 +11,12 @@ export default function scrollToY(scrollTargetY = 0, time = 0.5) {
 
     if (p < 1) {
       window.requestAnimationFrame(tick);
-      window.scrollTo(
+      scrollElement.scrollTo(
         0,
-        window.scrollY + ((scrollTargetY - window.scrollY) * easeInOutQuint(p)),
+        scrollElement.scrollTop + ((scrollTargetY - scrollElement.scrollTop) * easeInOutQuint(p)),
       );
     } else {
-      window.scrollTo(0, scrollTargetY);
+      scrollElement.scrollTo(0, scrollTargetY);
     }
   }
 

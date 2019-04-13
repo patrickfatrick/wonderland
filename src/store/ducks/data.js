@@ -1,6 +1,6 @@
-import initialState from './initial-state';
+import initialState from "../initial-state";
 
-const SET_BOOK = 'data/SET_BOOK';
+const SET_BOOK = "data/SET_BOOK";
 
 function normalizeData(state, data) {
   return {

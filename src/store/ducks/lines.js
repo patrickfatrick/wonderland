@@ -1,10 +1,12 @@
-import initialState from './initial-state';
+import initialState from "../initial-state";
 
-const SET_LINES = 'lines/SET_LINES';
-const SET_ACTIVE_LINE = 'lines/SET_ACTIVE_LINE';
+const SET_LINES = "lines/SET_LINES";
+const SET_ACTIVE_LINE = "lines/SET_ACTIVE_LINE";
 
 function setActiveLineHandler(state, prev, next) {
   if (prev === next) return state;
+
+  window.localStorage.setItem("activeLine", next ?? "");
 
   return {
     ...state,

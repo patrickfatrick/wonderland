@@ -25,11 +25,11 @@
 }
 
 .navbarItems {
+  background-color: inherit;
   display: flex;
   flex-flow: row wrap;
-  list-style: none;
   justify-content: space-between;
-  background-color: inherit;
+  list-style: none;
   margin: 0;
   padding: 1rem 0.5rem;
 

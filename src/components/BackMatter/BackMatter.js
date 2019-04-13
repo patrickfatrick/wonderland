@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Block from '../Block';
-import styles from './BackMatter.css';
+import React from "react";
+import Block from "../Block";
+import backmatterShape from "../../shapes/backmatterShape";
+import styles from "./BackMatter.css";
 
 export default function BackMatter({
   backmatter,
@@ -19,5 +19,5 @@ export default function BackMatter({
 }
 
 BackMatter.propTypes = {
-  backmatter: PropTypes.arrayOf(PropTypes.object).isRequired,
+  backmatter: backmatterShape.isRequired,
 };

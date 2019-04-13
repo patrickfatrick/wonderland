@@ -11,5 +11,10 @@ module.exports = {
     '@babel/plugin-transform-react-jsx',
     '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-proposal-nullish-coalescing-operator',
+    "@babel/plugin-proposal-partial-application",
+    [
+      "@babel/plugin-proposal-pipeline-operator",
+      { "proposal": "minimal" }
+    ]
   ],
 }

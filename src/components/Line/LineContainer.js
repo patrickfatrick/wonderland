@@ -1,14 +1,16 @@
-import { connect } from 'react-redux';
-import { setTimestamp } from '../../store/ducks/audio-player';
-import Line from './Line';
+import { connect } from "react-redux";
+import { setTimestamp } from "../../store/ducks/audio-player";
+import selectLine from "../../store/selectors/lineSelector";
+import Line from "./Line";
 
-function mapStateToProps({ audioPlayer, application, lines }, ownProps) {
+function mapStateToProps(state, ownProps) {
+  const { audioPlayer, application } = state;
   return {
-    audioOn: audioPlayer.audioOn,
+    audioOn: application.audioOn,
     darkmode: application.darkmode,
     timestamp: audioPlayer.timestamp,
-    audioPlayerElement: audioPlayer.element,
-    line: lines[ownProps.lineId],
+    audioPlayerElement: application.audioPlayerElement,
+    line: selectLine(state, ownProps.lineId),
   };
 }
 

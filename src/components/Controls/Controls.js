@@ -1,19 +1,29 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styles from './Controls.css';
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import c from "classnames";
+import useQueuedScroll from "../../hooks/useQueuedScroll";
+import styles from "./Controls.css";
 
 export default function Controls({
   audioOn,
+  autoscrollOn,
   audio,
   audioPlayerElement,
-  autoscroll,
+  readerContainerElement,
   buffering,
   darkmode,
   toggleAudio,
   toggleAutoscroll,
   toggleDarkmode,
 }) {
+  const activeLineElement = document.querySelector("[data-active-line=true]");
+
+  const [scrollingQueued, setScrollingQueued] = useQueuedScroll(
+    readerContainerElement,
+    activeLineElement,
+    { offset: 200 },
+  );
+
   const darkModeClickHandler = useCallback((e) => {
     e.currentTarget.blur();
     toggleDarkmode(!darkmode);
@@ -21,13 +31,14 @@ export default function Controls({
 
   const audioClickHandler = useCallback((e) => {
     e.currentTarget.blur();
+    if (!audioOn && !autoscrollOn) setScrollingQueued(!scrollingQueued);
     toggleAudio(audioPlayerElement, !audioOn);
-  }, [toggleAudio, audioPlayerElement, audioOn]);
+  }, [toggleAudio, audioPlayerElement, audioOn, autoscrollOn, setScrollingQueued, scrollingQueued]);
 
   const autoscrollClickHandler = useCallback((e) => {
     e.currentTarget.blur();
-    toggleAutoscroll(!autoscroll);
-  }, [toggleAutoscroll, autoscroll]);
+    toggleAutoscroll(!autoscrollOn);
+  }, [toggleAutoscroll, autoscrollOn]);
 
   return (
     <li
@@ -36,21 +47,23 @@ export default function Controls({
     >
       <button
         type="button"
-        title="Darkmode"
+        title="Toggle Darkmode"
         className={
-          classNames({
+          c({
             [styles.button]: true,
             [styles.darkmodeButton]: true,
             [styles.darkmodeButtonDarkmodeOn]: darkmode,
           })
         }
         onClick={darkModeClickHandler}
-      />
+      >
+        D
+      </button>
       <button
         type="button"
-        title="Control Audio"
+        title="Toggle Audio"
         className={
-          classNames({
+          c({
             [styles.button]: true,
             [styles.buttonDisabled]: buffering,
             [styles.buttonDarkmodeOn]: darkmode,
@@ -58,16 +71,16 @@ export default function Controls({
         }
         onClick={audioClickHandler}
       >
-        {buffering && 'Loading...'}
-        {!buffering && ((audioOn) ? 'Pause' : `Play (${Math.round(audio.size / 1000000)} MB)`)}
+        {buffering && "Loading..."}
+        {!buffering && ((audioOn) ? "Pause" : `Play (${Math.round(audio.size / 1000000)} MB)`)}
       </button>
       {(audioOn)
         && (
         <button
           type="button"
-          title="Auto-Scroll"
+          title="Toggle Auto-Scroll"
           className={
-            classNames({
+            c({
               [styles.button]: true,
               [styles.buttonDarkmodeOn]: darkmode,
             })
@@ -75,8 +88,8 @@ export default function Controls({
           onClick={autoscrollClickHandler}
         >
            Autoscroll
-          {' '}
-          {(autoscroll) ? 'Off' : 'On'}
+          {" "}
+          {(autoscrollOn) ? "Off" : "On"}
         </button>
         )
       }
@@ -86,8 +99,9 @@ export default function Controls({
 
 Controls.propTypes = {
   audioOn: PropTypes.bool.isRequired,
+  readerContainerElement: PropTypes.instanceOf(HTMLDivElement),
   audioPlayerElement: PropTypes.instanceOf(HTMLAudioElement),
-  autoscroll: PropTypes.bool.isRequired,
+  autoscrollOn: PropTypes.bool.isRequired,
   buffering: PropTypes.bool.isRequired,
   darkmode: PropTypes.bool.isRequired,
   toggleAudio: PropTypes.func.isRequired,
@@ -97,5 +111,6 @@ Controls.propTypes = {
 };
 
 Controls.defaultProps = {
-  audioPlayerElement: {},
+  readerContainerElement: null,
+  audioPlayerElement: null,
 };

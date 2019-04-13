@@ -1,13 +1,14 @@
-import { connect } from 'react-redux';
-import { setTimestamp, setAudioPlayer, updateBufferedTime } from '../../store/ducks/audio-player';
-import { setActiveLine } from '../../store/ducks/lines';
-import Audio from './Audio';
+import { connect } from "react-redux";
+import { setAudioPlayerEl } from "../../store/ducks/application";
+import { setTimestamp, updateBufferedTime } from "../../store/ducks/audio-player";
+import { setActiveLine } from "../../store/ducks/lines";
+import Audio from "./Audio";
 
-function mapStateToProps({ data, application, audioPlayer }) {
+function mapStateToProps({ data, application }) {
   return {
-    audioLocation: `${application.assetsLocation}audio/${data.book.audio.src}`,
-    autoscroll: audioPlayer.autoscroll,
-    bookViewerElement: audioPlayer.bookViewerElement,
+    audioLocation: `${application.assetsLocation}/audio/${data.book.audio.src}`,
+    autoscrollOn: application.autoscrollOn,
+    readerContainerElement: application.readerContainerElement,
   };
 }
 
@@ -33,7 +34,7 @@ function mapDispatchToProps(dispatch) {
       dispatch(updateBufferedTime(e.target));
     },
     refPlayer(node) {
-      dispatch(setAudioPlayer(node));
+      dispatch(setAudioPlayerEl(node));
     },
   };
 }

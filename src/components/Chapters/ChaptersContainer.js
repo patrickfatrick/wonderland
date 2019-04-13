@@ -1,12 +1,13 @@
-import { connect } from 'react-redux';
-import Chapters from './Chapters';
+import { connect } from "react-redux";
+import selectChapters from "../../store/selectors/chaptersSelector";
+import selectActiveChapter from "../../store/selectors/activeChapterSelector";
+import Chapters from "./Chapters";
 
-function mapStatetoProps({ chapters, data, application }) {
+function mapStatetoProps(state) {
   return {
-    chapters,
-    chapterOrder: data.book.chapters,
-    darkmode: application.darkmode,
-    activeChapter: Object.keys(chapters).find(chapterId => chapters[chapterId].active),
+    chapters: selectChapters(state),
+    darkmode: state.application.darkmode,
+    activeChapter: selectActiveChapter(state),
     chapterSelectToggled: false,
   };
 }
