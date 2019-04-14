@@ -49,6 +49,7 @@ export default {
       audio: {
         src: "",
         size: 0,
+        duration: 0,
       },
       frontmatter: [],
       info: {

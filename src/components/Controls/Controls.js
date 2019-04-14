@@ -40,6 +40,12 @@ export default function Controls({
     toggleAutoscroll(!autoscrollOn);
   }, [toggleAutoscroll, autoscrollOn]);
 
+  const { duration } = audio;
+  const durationHours = Math.floor(duration / 3600).toString();
+  const durationMins = Math.floor((duration % 3600) / 60).toString().padStart(2, "0");
+  const durationSecs = Math.floor((duration % 3600) % 60).toString().padStart(2, "0");
+  const size = Math.ceil(audio.size / 1000000);
+
   return (
     <li
       id="button-container"
@@ -72,7 +78,7 @@ export default function Controls({
         onClick={audioClickHandler}
       >
         {buffering && "Loading..."}
-        {!buffering && ((audioOn) ? "Pause" : `Play (${Math.round(audio.size / 1000000)} MB)`)}
+        {!buffering && ((audioOn) ? "Pause" : `Play (${durationHours}:${durationMins}:${durationSecs} / ${size}MB)`)}
       </button>
       {(audioOn)
         && (
