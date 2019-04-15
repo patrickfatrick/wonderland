@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, Fragment } from "react";
 import PropTypes from "prop-types";
 import c from "classnames";
 import useQueuedScroll from "../../hooks/useQueuedScroll";
@@ -7,7 +7,8 @@ import styles from "./Controls.css";
 export default function Controls({
   audioOn,
   autoscrollOn,
-  audio,
+  prettyDuration,
+  prettySize,
   audioPlayerElement,
   readerContainerElement,
   buffering,
@@ -40,11 +41,15 @@ export default function Controls({
     toggleAutoscroll(!autoscrollOn);
   }, [toggleAutoscroll, autoscrollOn]);
 
-  const { duration } = audio;
-  const durationHours = Math.floor(duration / 3600).toString();
-  const durationMins = Math.floor((duration % 3600) / 60).toString().padStart(2, "0");
-  const durationSecs = Math.floor((duration % 3600) % 60).toString().padStart(2, "0");
-  const size = Math.ceil(audio.size / 1000000);
+  let playButtonText = (
+    <Fragment>
+      Play
+      {" "}
+      <small>{`(${prettyDuration} / ${prettySize})`}</small>
+    </Fragment>
+  );
+  if (buffering) playButtonText = "Loading...";
+  if (audioOn && !buffering) playButtonText = "Pause";
 
   return (
     <li
@@ -71,16 +76,14 @@ export default function Controls({
         className={
           c({
             [styles.button]: true,
-            [styles.buttonDisabled]: buffering,
             [styles.buttonDarkmodeOn]: darkmode,
           })
         }
         onClick={audioClickHandler}
       >
-        {buffering && "Loading..."}
-        {!buffering && ((audioOn) ? "Pause" : `Play (${durationHours}:${durationMins}:${durationSecs} / ${size}MB)`)}
+        {playButtonText}
       </button>
-      {(audioOn)
+      {audioOn
         && (
         <button
           type="button"
@@ -113,7 +116,8 @@ Controls.propTypes = {
   toggleAudio: PropTypes.func.isRequired,
   toggleAutoscroll: PropTypes.func.isRequired,
   toggleDarkmode: PropTypes.func.isRequired,
-  audio: PropTypes.shape({ src: PropTypes.string, size: PropTypes.number }).isRequired,
+  prettyDuration: PropTypes.string.isRequired,
+  prettySize: PropTypes.string.isRequired,
 };
 
 Controls.defaultProps = {

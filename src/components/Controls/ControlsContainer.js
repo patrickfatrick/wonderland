@@ -1,9 +1,12 @@
 import { connect } from "react-redux";
 import { updateBufferedTime } from "../../store/ducks/audio-player";
 import { setAudioOn, setAutoscrollOn, setDarkmode } from "../../store/ducks/application";
+import prettyDurationSelector from "../../store/selectors/prettyDurationSelector";
+import prettySizeSelector from "../../store/selectors/prettySizeSelector";
 import Controls from "./Controls";
 
-function mapStatetoProps({ audioPlayer, application, data }) {
+function mapStatetoProps(state) {
+  const { audioPlayer, application, data } = state;
   return {
     readerContainerElement: application.readerContainerElement,
     audioPlayerElement: application.audioPlayerElement,
@@ -12,6 +15,8 @@ function mapStatetoProps({ audioPlayer, application, data }) {
     audioOn: application.audioOn,
     autoscrollOn: application.autoscrollOn,
     audio: data.book.audio,
+    prettyDuration: prettyDurationSelector(state),
+    prettySize: prettySizeSelector(state),
   };
 }
 
