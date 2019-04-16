@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "test",
-    "start": "cross-env NODE_ENV=development QUIET=false concurrently \"npm:dev:*\"",
-    "quiet": "cross-env NODE_ENV=development QUIET=true npm run dev:server",
-    "build": "cross-env NODE_ENV=production webpack --mode production -p --config webpack.config.build.js",
+    "start": "concurrently \"npm:dev:*\"",
+    "start:prod": "npm run prod:serve",
+    "build": "webpack --mode production -p --config webpack.config.build.js",
     "deploy": "git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master",
     "lint:js": "esw --color",
     "lint:css": "stylelint \"src/**/*.css\"",
@@ -16,7 +16,9 @@
     "lint-fix:css": "stylelint \"src/**/*.css\" --fix",
     "lint-fix": "concurrently npm:lint-fix:*",
     "dev:tools": "\"react-devtools\"",
-    "dev:server": "webpack-dev-server --mode development --config webpack.config.dev.js --inline --hot"
+    "dev:serve": "npm run serve -- --mode development --config webpack.config.dev.js",
+    "prod:serve": "npm run serve -- --mode production --config webpack.config.build.js",
+    "serve": "webpack-dev-server --inline --hot"
   },
   "author": "Patrick Fricano <patrick.fricano@icloud.com>",
   "license": "MIT",

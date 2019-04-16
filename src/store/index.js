@@ -3,10 +3,10 @@ import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
 import reducer from "./ducks/reducer";
 
-const isQuiet = process.env.QUIET === "true";
+const isDevelopment = process.env.NODE_ENV === "development";
 const middlewares = [thunk];
 
-if (!isQuiet) {
+if (isDevelopment) {
   middlewares.push(createLogger());
 }
 

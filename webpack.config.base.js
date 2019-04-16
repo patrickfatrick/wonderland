@@ -54,10 +54,6 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   plugins: [
-    new webpack.EnvironmentPlugin([
-      "NODE_ENV",
-      "QUIET",
-    ]),
     new ExtractCssChunksPlugin({
       filename: "styles.css",
       cssModules: true,
