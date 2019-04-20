@@ -10,8 +10,8 @@ import styles from "./Intro.css";
 
 export default function Intro({
   book,
-  chapter,
-  line,
+  activeChapter,
+  activeLine,
   darkmode,
   shouldDisplay,
   toggleShouldDisplay,
@@ -22,25 +22,26 @@ export default function Intro({
 }) {
   const [scrollingQueued, setScrollingQueued] = useQueuedScroll(
     readerContainerElement,
-    chapter?.el,
+    activeChapter?.el,
   );
 
   const resumeButtonHandler = useCallback(() => {
+    const timestamp = activeLine?.timestamp[0] ?? activeChapter?.timestamp ?? 0;
     toggleShouldDisplay();
-    seek(audioPlayerElement, line?.timestamp[0] ?? 0);
-    updateAudioTimestamp(line?.timestamp[0] ?? 0);
-    renderMore(book.chapters.indexOf(chapter?.id));
+    seek(audioPlayerElement, timestamp);
+    updateAudioTimestamp(timestamp);
+    renderMore(book.chapters.indexOf(activeChapter?.id));
     setScrollingQueued(!scrollingQueued);
   }, [
-    audioPlayerElement,
-    line,
-    updateAudioTimestamp,
-    book.chapters,
-    chapter,
-    renderMore,
+    activeLine,
     toggleShouldDisplay,
-    scrollingQueued,
+    audioPlayerElement,
+    updateAudioTimestamp,
+    renderMore,
+    book.chapters,
+    activeChapter,
     setScrollingQueued,
+    scrollingQueued,
   ]);
 
   const startButtonHandler = useCallback(() => {
@@ -76,7 +77,7 @@ export default function Intro({
         <div
           className={styles.buttons}
         >
-          {chapter || line ? (
+          {activeChapter || activeLine ? (
             <Fragment>
               <button
                 type="button"
@@ -113,8 +114,8 @@ export default function Intro({
 
 Intro.propTypes = {
   book: bookShape.isRequired,
-  line: lineShape,
-  chapter: chapterShape,
+  activeLine: lineShape,
+  activeChapter: chapterShape,
   darkmode: PropTypes.bool.isRequired,
   shouldDisplay: PropTypes.bool.isRequired,
   toggleShouldDisplay: PropTypes.func.isRequired,
@@ -125,8 +126,8 @@ Intro.propTypes = {
 };
 
 Intro.defaultProps = {
-  line: null,
-  chapter: null,
+  activeLine: null,
+  activeChapter: null,
   readerContainerElement: null,
   audioPlayerElement: null,
 };

@@ -10,8 +10,8 @@ function mapStateToProps(state) {
   return {
     book,
     darkmode: application.darkmode,
-    chapter: selectChapter(state, application.activeChapter),
-    line: selectLine(state, application.activeLine),
+    activeChapter: selectChapter(state, application.activeChapter),
+    activeLine: selectLine(state, application.activeLine),
     readerContainerElement: application.readerContainerElement,
     audioPlayerElement: application.audioPlayerElement,
   };
