@@ -4,15 +4,15 @@ import { hot } from "react-hot-loader/root";
 import Reader from "./components/Reader";
 
 function App({
-  path,
+  bookId,
 }) {
   return (
-    <Reader path={path} />
+    <Reader bookId={bookId} />
   );
 }
 
 App.propTypes = {
-  path: PropTypes.string.isRequired,
+  bookId: PropTypes.string.isRequired,
 };
 
 export default hot(App);

@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import NavBar from "./NavBar";
 
-function mapStateToProps({ data, application }) {
+function mapStateToProps(state) {
+  const { book, application } = state;
   return {
-    info: data.book.info,
+    info: book.info,
     darkmode: application.darkmode,
   };
 }

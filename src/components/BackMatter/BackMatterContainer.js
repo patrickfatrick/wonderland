@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import BackMatter from "./BackMatter";
 
-function mapStateToProps({ data }) {
+function mapStateToProps(state) {
   return {
-    backmatter: data.book.backmatter,
+    backmatter: state.book.backmatter,
   };
 }
 

@@ -1,17 +1,18 @@
 import { connect } from "react-redux";
-import { setBook } from "../../store/ducks/data";
+import { setBook } from "../../store/ducks/book";
 import { setAssetsLocation, incrementRenderIndex, setReaderContainerEl } from "../../store/ducks/application";
 import { setChapters, setActiveChapter } from "../../store/ducks/chapters";
 import { setLines } from "../../store/ducks/lines";
-import { renderBlocks } from "../../store/ducks/rendered-blocks";
+import { setBlocks } from "../../store/ducks/blocks";
 import getBook from "../../services/book-service";
 import isSmallScreen from "../../utils/isSmallScreen";
 import Reader from "./Reader";
 
-function mapStateToProps({ audioPlayer, application, data }) {
+function mapStateToProps(state) {
+  const { audioPlayer, application, book } = state;
   return {
+    book,
     audioOn: application.audioOn,
-    book: data.book,
     darkmode: application.darkmode,
     player: audioPlayer.element,
     timestamp: audioPlayer.timestamp,
@@ -22,21 +23,21 @@ function mapStateToProps({ audioPlayer, application, data }) {
 // First increment the renderIndex by one, which allows us to render more blocks
 function updateRenderIndexAndRender() {
   return (dispatch, getState) => {
-    const { data } = getState();
-    if (getState().application.renderIndex >= data.book.chapters.length - 1) return;
+    const { book, application } = getState();
+    if (application.renderIndex >= book.chapters.length - 1) return;
     dispatch(incrementRenderIndex());
-    dispatch(renderBlocks(data, getState().application.renderIndex));
   };
 }
 
 // Uses book-service to retrieve the book data from the server,
 // normalize it, and then dispatch the data-setting actions
-function getBookAsync(location) {
+function getBookAsync(bookId) {
   return (dispatch) => {
-    getBook(location)
+    getBook(bookId)
       .then((response) => {
-        dispatch(setBook(response));
+        dispatch(setBook(response.book[bookId]));
         dispatch(setChapters(response.chapters));
+        dispatch(setBlocks(response.blocks));
         dispatch(setLines(response.lines));
       });
   };
@@ -45,7 +46,7 @@ function getBookAsync(location) {
 function dispatchSetActiveChapter(scrollPos) {
   return (dispatch, getState) => {
     const state = getState();
-    const { chapters: chapterOrder } = state.data.book;
+    const { chapters: chapterOrder } = state.book;
     const { chapters } = state;
     const prev = chapterOrder.find(chapterId => chapters[chapterId].active);
     const next = [...chapterOrder].reverse().find(chapterId => (
@@ -57,9 +58,9 @@ function dispatchSetActiveChapter(scrollPos) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    mountBookAndAssets(path) {
-      dispatch(getBookAsync(`${path}data.json`));
-      dispatch(setAssetsLocation(`${path}assets`));
+    mountBookAndAssets(bookId) {
+      dispatch(getBookAsync(bookId));
+      dispatch(setAssetsLocation(`data/${bookId}/assets`));
     },
     setActiveChapter(scrollPos) {
       dispatch(dispatchSetActiveChapter(scrollPos));

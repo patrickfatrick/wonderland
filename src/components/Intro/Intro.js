@@ -27,8 +27,8 @@ export default function Intro({
 
   const resumeButtonHandler = useCallback(() => {
     toggleShouldDisplay();
-    seek(audioPlayerElement, line?.timestampStart ?? 0);
-    updateAudioTimestamp(line?.timestampStart ?? 0);
+    seek(audioPlayerElement, line?.timestamp[0] ?? 0);
+    updateAudioTimestamp(line?.timestamp[0] ?? 0);
     renderMore(book.chapters.indexOf(chapter?.id));
     setScrollingQueued(!scrollingQueued);
   }, [

@@ -15,9 +15,9 @@ export default function Line({
   const node = useRef();
   // Both seek the player and store the timestamp in the store in case the player is not seekable
   const clickHandler = useCallback(() => {
-    seek(audioPlayerElement, line.timestampStart);
-    updateAudioTimestamp(line.timestampStart);
-  }, [updateAudioTimestamp, audioPlayerElement, line.timestampStart]);
+    seek(audioPlayerElement, line.timestamp[0]);
+    updateAudioTimestamp(line.timestamp[0]);
+  }, [audioPlayerElement, line.timestamp, updateAudioTimestamp]);
 
   const { active, content } = line;
 

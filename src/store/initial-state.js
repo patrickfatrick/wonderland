@@ -44,28 +44,23 @@ export default {
     activeLine:
       window.localStorage.getItem("activeLine") ?? null,
   },
-  data: {
-    book: {
-      audio: {
-        src: "",
-        size: 0,
-        duration: 0,
-      },
-      frontmatter: [],
-      info: {
-        title: "",
-        author: "",
-        performers: [],
-      },
-      chapters: [],
-      backmatter: [],
+  book: {
+    audio: {
+      src: "",
+      size: 0,
+      duration: 0,
     },
-    chapters: {},
-    blocks: {},
-    lines: {},
+    frontmatter: [],
+    info: {
+      title: "",
+      author: "",
+      performers: [],
+    },
+    chapters: [],
+    backmatter: [],
   },
   chapters: {},
-  renderedBlocks: [],
+  blocks: {},
   lines: {},
   audioPlayer: {
     audioSrc: "",

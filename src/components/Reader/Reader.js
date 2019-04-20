@@ -21,7 +21,7 @@ export default function Reader({
   book,
   darkmode,
   mountBookAndAssets,
-  path,
+  bookId,
   setActiveChapter,
   refReaderContainer,
   renderMore,
@@ -42,8 +42,8 @@ export default function Reader({
   const sentinelNode = useIntersectionObserver(handleIntersection, 1);
 
   useEffect(() => {
-    mountBookAndAssets(path);
-  }, [mountBookAndAssets, path]);
+    mountBookAndAssets(bookId);
+  }, [mountBookAndAssets, bookId]);
 
   useEffect(() => {
     refReaderContainer(node.current);
@@ -97,7 +97,7 @@ Reader.propTypes = {
   book: bookShape.isRequired,
   darkmode: PropTypes.bool.isRequired,
   mountBookAndAssets: PropTypes.func.isRequired,
-  path: PropTypes.string.isRequired,
+  bookId: PropTypes.string.isRequired,
   setActiveChapter: PropTypes.func.isRequired,
   refReaderContainer: PropTypes.func.isRequired,
   renderMore: PropTypes.func.isRequired,

@@ -6,7 +6,7 @@ import prettySizeSelector from "../../store/selectors/prettySizeSelector";
 import Controls from "./Controls";
 
 function mapStatetoProps(state) {
-  const { audioPlayer, application, data } = state;
+  const { audioPlayer, application, book } = state;
   return {
     readerContainerElement: application.readerContainerElement,
     audioPlayerElement: application.audioPlayerElement,
@@ -14,7 +14,7 @@ function mapStatetoProps(state) {
     darkmode: application.darkmode,
     audioOn: application.audioOn,
     autoscrollOn: application.autoscrollOn,
-    audio: data.book.audio,
+    audio: book.audio,
     prettyDuration: prettyDurationSelector(state),
     prettySize: prettySizeSelector(state),
   };

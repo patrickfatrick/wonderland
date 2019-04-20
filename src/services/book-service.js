@@ -1,11 +1,9 @@
-/* globals fetch */
-
 import "whatwg-fetch";
 import { normalize, schema } from "normalizr";
 
 // See https://github.com/paularmstrong/normalizr
-export default async function getBook(location) {
-  const response = await fetch(location);
+export default async function getBook(bookId) {
+  const response = await fetch(`data/${bookId}/data.json`);
   const json = await response.json();
   const book = new schema.Entity("book");
   const chapter = new schema.Entity("chapters", {}, {

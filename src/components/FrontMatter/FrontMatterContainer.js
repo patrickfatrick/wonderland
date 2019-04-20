@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import FrontMatter from "./FrontMatter";
 
-function mapStateToProps({ data, application }) {
+function mapStateToProps(state) {
+  const { book, application } = state;
   return {
-    info: data.book.info,
-    frontmatter: data.book.frontmatter,
+    info: book.info,
+    frontmatter: book.frontmatter,
     darkmode: application.darkmode,
     imagesLocation: `${application.assetsLocation}/images/`,
   };

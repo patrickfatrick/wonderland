@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import { setChapterHeadingEl } from "../../store/ducks/chapters";
+import selectRenderedBlocks from "../../store/selectors/renderedBlocksSelector";
 import Blocks from "./Blocks";
 
-function mapStateToProps({ renderedBlocks }) {
+function mapStateToProps(state) {
   return {
-    renderedBlocks,
+    renderedBlocks: selectRenderedBlocks(state),
   };
 }
 

@@ -2,11 +2,13 @@ import { connect } from "react-redux";
 import { setAudioPlayerEl } from "../../store/ducks/application";
 import { setTimestamp, updateBufferedTime } from "../../store/ducks/audio-player";
 import { setActiveLine } from "../../store/ducks/lines";
+import isBetween from "../../utils/isBetween";
 import Audio from "./Audio";
 
-function mapStateToProps({ data, application }) {
+function mapStateToProps(state) {
+  const { book, application } = state;
   return {
-    audioLocation: `${application.assetsLocation}/audio/${data.book.audio.src}`,
+    audioLocation: `${application.assetsLocation}/audio/${book.audio.src}`,
     autoscrollOn: application.autoscrollOn,
     readerContainerElement: application.readerContainerElement,
   };
@@ -20,8 +22,9 @@ function dispatchSetActiveLine(currentTime) {
     const prev = lineIds.find(lineId => lines[lineId].active);
     const next = lineIds.find((lineId) => {
       const line = lines[lineId];
-      return currentTime >= line.timestampStart && currentTime < line.timestampEnd;
+      return isBetween(currentTime, line.timestamp[0], line.timestamp[1]);
     });
+
     dispatch(setActiveLine(prev, next));
   };
 }
