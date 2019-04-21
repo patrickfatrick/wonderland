@@ -1,7 +1,12 @@
 import { connect } from "react-redux";
 import { setBook } from "../../store/ducks/book";
-import { setAssetsLocation, incrementRenderIndex, setReaderContainerEl } from "../../store/ducks/application";
-import { setChapters, setActiveChapter } from "../../store/ducks/chapters";
+import {
+  setActiveChapter,
+  setAssetsLocation,
+  incrementRenderIndex,
+  setReaderContainerEl,
+} from "../../store/ducks/application";
+import { setChapters } from "../../store/ducks/chapters";
 import { setLines } from "../../store/ducks/lines";
 import { setBlocks } from "../../store/ducks/blocks";
 import getBook from "../../services/book-service";
@@ -46,13 +51,11 @@ function getBookAsync(bookId) {
 function dispatchSetActiveChapter(scrollPos) {
   return (dispatch, getState) => {
     const state = getState();
-    const { chapters: chapterOrder } = state.book;
-    const { chapters } = state;
-    const prev = chapterOrder.find(chapterId => chapters[chapterId].active);
+    const { book: { chapters: chapterOrder }, chapters } = state;
     const next = [...chapterOrder].reverse().find(chapterId => (
       scrollPos >= chapters[chapterId]?.el?.offsetTop - (isSmallScreen() ? 75 : 30)
     ));
-    dispatch(setActiveChapter(prev, next));
+    dispatch(setActiveChapter(next));
   };
 }
 

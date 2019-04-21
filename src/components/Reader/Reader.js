@@ -51,7 +51,9 @@ export default function Reader({
 
   useEffect(() => {
     const ref = node.current;
-    const handleScroll = throttle(() => setActiveChapter(ref.scrollTop), 250);
+    const handleScroll = throttle(() => {
+      if (!shouldDisplayIntro) setActiveChapter(ref.scrollTop);
+    }, 250);
     ref.addEventListener("scroll", handleScroll);
     const ro = new ResizeObserver(handleScroll);
     ro.observe(ref);
@@ -59,7 +61,7 @@ export default function Reader({
       ref.removeEventListener("scroll", handleScroll);
       ro.unobserve(ref);
     };
-  }, [setActiveChapter]);
+  }, [setActiveChapter, shouldDisplayIntro]);
 
   return (
     <div className={c(styles.container, { [styles.containerDarkmodeOn]: darkmode })}>
@@ -69,12 +71,7 @@ export default function Reader({
       />
       <div className={c(styles.overlay, { [styles.overlayHidden]: !shouldDisplayIntro })}>
         <div
-          className={
-            c({
-              [styles.readerContainer]: true,
-              [styles.readerContainerDarkmodeOn]: darkmode,
-            })
-          }
+          className={c(styles.readerContainer, { [styles.readerContainerDarkmodeOn]: darkmode })}
           ref={node}
         >
           {book.audio.src && <Audio />}

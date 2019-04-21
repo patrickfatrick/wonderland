@@ -11,6 +11,7 @@ function mapStateToProps(state, ownProps) {
     timestamp: audioPlayer.timestamp,
     audioPlayerElement: application.audioPlayerElement,
     line: selectLine(state, ownProps.lineId),
+    activeLineId: application.activeLine,
   };
 }
 

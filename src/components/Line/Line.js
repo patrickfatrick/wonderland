@@ -9,6 +9,7 @@ export default function Line({
   audioOn,
   darkmode,
   line,
+  activeLineId,
   audioPlayerElement,
   updateAudioTimestamp,
 }) {
@@ -19,7 +20,8 @@ export default function Line({
     updateAudioTimestamp(line.timestamp[0]);
   }, [audioPlayerElement, line.timestamp, updateAudioTimestamp]);
 
-  const { active, content } = line;
+  const { content } = line;
+  const isActive = line.id === activeLineId;
 
   return (
     <span>
@@ -30,11 +32,11 @@ export default function Line({
           c({
             [styles.line]: true,
             [styles.lineDarkmodeOn]: darkmode,
-            [styles.lineActive]: (!darkmode && active && audioOn),
-            [styles.lineActiveDarkmodeOn]: (darkmode && active && audioOn),
+            [styles.lineActive]: (!darkmode && isActive && audioOn),
+            [styles.lineActiveDarkmodeOn]: (darkmode && isActive && audioOn),
           })
         }
-        data-active-line={active}
+        data-active-line={isActive}
         onClick={clickHandler}
         dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
           __html: content,
@@ -51,8 +53,10 @@ Line.propTypes = {
   darkmode: PropTypes.bool.isRequired,
   updateAudioTimestamp: PropTypes.func.isRequired,
   line: lineShape.isRequired,
+  activeLineId: PropTypes.string,
 };
 
 Line.defaultProps = {
   audioPlayerElement: null,
+  activeLineId: null,
 };

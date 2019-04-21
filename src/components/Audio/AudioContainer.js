@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { setAudioPlayerEl } from "../../store/ducks/application";
+import { setAudioPlayerEl, setActiveLine } from "../../store/ducks/application";
 import { setTimestamp, updateBufferedTime } from "../../store/ducks/audio-player";
-import { setActiveLine } from "../../store/ducks/lines";
 import isBetween from "../../utils/isBetween";
 import Audio from "./Audio";
 
@@ -19,13 +18,12 @@ function dispatchSetActiveLine(currentTime) {
     const { lines } = getState();
     // First finds the current active line, then what it should be based on the timestamp
     const lineIds = Object.keys(lines);
-    const prev = lineIds.find(lineId => lines[lineId].active);
     const next = lineIds.find((lineId) => {
       const line = lines[lineId];
       return isBetween(currentTime, line.timestamp[0], line.timestamp[1]);
     });
 
-    dispatch(setActiveLine(prev, next));
+    dispatch(setActiveLine(next));
   };
 }
 
