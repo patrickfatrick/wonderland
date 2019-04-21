@@ -1,6 +1,6 @@
 {
   "name": "wonderland",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "A guided reading of Alice's Adventures in Wonderland for React and Redux",
   "main": "index.html",
   "scripts": {
