@@ -1,10 +1,10 @@
-import React, { Fragment, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import Line from "../Line";
-import Flourish from "../Flourish";
-import Image from "../Image";
-import blockShape from "../../shapes/blockShape";
-import styles from "./Block.css";
+import React, { Fragment, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Line from '../Line';
+import Flourish from '../Flourish';
+import Image from '../Image';
+import blockShape from '../../shapes/blockShape';
+import styles from './Block.css';
 
 export default function Block({
   block,
@@ -19,10 +19,10 @@ export default function Block({
   }, [block.chapterId, refChapterHeading]);
 
   switch (block.type) {
-    case "flourish":
+    case 'flourish':
       children = <Flourish key={block.id} />;
       break;
-    case "image":
+    case 'image':
       children = (
         <Image
           key={block.id}
@@ -30,7 +30,7 @@ export default function Block({
         />
       );
       break;
-    case "heading":
+    case 'heading':
       children = (
         <h1
           key={block.id}
@@ -41,7 +41,7 @@ export default function Block({
         </h1>
       );
       break;
-    case "paragraph":
+    case 'paragraph':
       children = (
         <Fragment>
           <span
@@ -56,7 +56,7 @@ export default function Block({
         </Fragment>
       );
       break;
-    case "fixed":
+    case 'fixed':
       children = block.lines ? (
         block.lines.map(lineId => (
           <div

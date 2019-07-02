@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import FrontMatter from "./FrontMatter";
+import { connect } from 'react-redux';
+import FrontMatter from './FrontMatter';
 
 function mapStateToProps(state) {
   const { book, application } = state;

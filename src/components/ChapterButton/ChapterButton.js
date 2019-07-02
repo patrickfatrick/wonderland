@@ -1,12 +1,12 @@
-import React, { useCallback } from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import truncate from "../../utils/truncate";
-import seek from "../../utils/seek";
-import useResizeObserver from "../../hooks/useResizeObserver";
-import useQueuedScroll from "../../hooks/useQueuedScroll";
-import chapterShape from "../../shapes/chapterShape";
-import styles from "./ChapterButton.css";
+import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import truncate from '../../utils/truncate';
+import seek from '../../utils/seek';
+import useResizeObserver from '../../hooks/useResizeObserver';
+import useQueuedScroll from '../../hooks/useQueuedScroll';
+import chapterShape from '../../shapes/chapterShape';
+import styles from './ChapterButton.css';
 
 export default function ChapterButton({
   chapter,

@@ -1,14 +1,14 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_ASSETS_LOCATION = "application/SET_ASSETS_LOCATION";
-const INCREMENT_RENDER_INDEX = "application/INCREMENT_RENDER_INDEX";
-const SET_DARKMODE = "application/TOGGLE_DARKMODE";
-const SET_AUDIO_ON = "application/SET_AUDIO_ON";
-const SET_AUTOSCROLL_ON = "application/SET_AUTOSCROLL";
-const SET_READER_CONTAINER_EL = "application/SET_READER_CONTAINER_EL";
-const SET_AUDIO_PLAYER_EL = "application/SET_AUDIO_PLAYER_EL";
-const SET_ACTIVE_LINE = "application/SET_ACTIVE_LINE";
-const SET_ACTIVE_CHAPTER = "application/SET_ACTIVE_CHAPTER";
+const SET_ASSETS_LOCATION = 'application/SET_ASSETS_LOCATION';
+const INCREMENT_RENDER_INDEX = 'application/INCREMENT_RENDER_INDEX';
+const SET_DARKMODE = 'application/TOGGLE_DARKMODE';
+const SET_AUDIO_ON = 'application/SET_AUDIO_ON';
+const SET_AUTOSCROLL_ON = 'application/SET_AUTOSCROLL';
+const SET_READER_CONTAINER_EL = 'application/SET_READER_CONTAINER_EL';
+const SET_AUDIO_PLAYER_EL = 'application/SET_AUDIO_PLAYER_EL';
+const SET_ACTIVE_LINE = 'application/SET_ACTIVE_LINE';
+const SET_ACTIVE_CHAPTER = 'application/SET_ACTIVE_CHAPTER';
 
 function renderIndexHandler(state, diff) {
   if (diff <= 0) return state;
@@ -16,18 +16,18 @@ function renderIndexHandler(state, diff) {
 }
 
 function setDarkmodeHandler(state, bool) {
-  window.localStorage.setItem("darkmode", +bool);
+  window.localStorage.setItem('darkmode', +bool);
 
   return { ...state, darkmode: bool };
 }
 
 function setActiveLineHandler(state, activeLine) {
-  window.localStorage.setItem("activeLine", activeLine);
+  window.localStorage.setItem('activeLine', activeLine);
   return { ...state, activeLine };
 }
 
 function setActiveChapterHandler(state, activeChapter) {
-  window.localStorage.setItem("activeChapter", activeChapter);
+  window.localStorage.setItem('activeChapter', activeChapter);
   return { ...state, activeChapter };
 }
 

@@ -1,4 +1,4 @@
-import easeInOutQuint from "./easeInOutQuint";
+import easeInOutQuint from './easeInOutQuint';
 
 // Adapted from http://stackoverflow.com/questions/12199363/scrollto-with-animation
 export default function scrollToY(scrollElement, scrollTargetY = 0, time = 0.5) {

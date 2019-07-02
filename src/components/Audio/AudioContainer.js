@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
-import { setAudioPlayerEl, setActiveLine } from "../../store/ducks/application";
-import { setTimestamp, updateBufferedTime } from "../../store/ducks/audio-player";
-import isBetween from "../../utils/isBetween";
-import Audio from "./Audio";
+import { connect } from 'react-redux';
+import { setAudioPlayerEl, setActiveLine } from '../../store/ducks/application';
+import { setTimestamp, updateBufferedTime } from '../../store/ducks/audio-player';
+import isBetween from '../../utils/isBetween';
+import Audio from './Audio';
 
 function mapStateToProps(state) {
   const { book, application } = state;

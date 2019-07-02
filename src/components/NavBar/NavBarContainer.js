@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import NavBar from "./NavBar";
+import { connect } from 'react-redux';
+import NavBar from './NavBar';
 
 function mapStateToProps(state) {
   const { book, application } = state;

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export default function (callback, threshold = 0) {
   const node = useRef();
@@ -8,7 +8,7 @@ export default function (callback, threshold = 0) {
       callback,
       {
         root: null,
-        rootMargin: "0px",
+        rootMargin: '0px',
         threshold,
       },
     );

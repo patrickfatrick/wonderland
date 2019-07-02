@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import truncate from "../../utils/truncate";
-import useResizeObserver from "../../hooks/useResizeObserver";
-import chapterShape from "../../shapes/chapterShape";
-import ChapterButton from "../ChapterButton";
-import styles from "./Chapters.css";
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import truncate from '../../utils/truncate';
+import useResizeObserver from '../../hooks/useResizeObserver';
+import chapterShape from '../../shapes/chapterShape';
+import ChapterButton from '../ChapterButton';
+import styles from './Chapters.css';
 
 export default function Chapters({
   chapters,
@@ -24,7 +24,7 @@ export default function Chapters({
     toggle();
   }, [toggle]);
 
-  let heading = "Select a Chapter";
+  let heading = 'Select a Chapter';
   if (activeChapter) {
     const { title } = activeChapter;
     heading = nodeWidth < 480 ? truncate(title, 18) : title;

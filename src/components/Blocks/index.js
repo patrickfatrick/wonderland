@@ -1,1 +1,1 @@
-export { default } from "./BlocksContainer";
+export { default } from './BlocksContainer';

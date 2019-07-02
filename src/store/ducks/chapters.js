@@ -1,7 +1,7 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_CHAPTERS = "chapters/SET_CHAPTERS";
-const SET_CHAPTER_HEADING_EL = "chapters/SET_CHAPTER_HEADING_EL";
+const SET_CHAPTERS = 'chapters/SET_CHAPTERS';
+const SET_CHAPTER_HEADING_EL = 'chapters/SET_CHAPTER_HEADING_EL';
 
 function setChapterHeadingElHandler(state, chapterId, el) {
   const chapter = state[chapterId];

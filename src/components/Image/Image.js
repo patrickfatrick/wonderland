@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import PropTypes from "prop-types";
-import useResizeObserver from "../../hooks/useResizeObserver";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import imageShape from "../../shapes/imageShape";
-import styles from "./Image.css";
+import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
+import useResizeObserver from '../../hooks/useResizeObserver';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import imageShape from '../../shapes/imageShape';
+import styles from './Image.css';
 
 export default function Image({
   image,
@@ -25,7 +25,7 @@ export default function Image({
   const minHeight = nodeWidth < 600
     ? dimensions[1] / (dimensions[0] / document.body.clientWidth)
     : dimensions[1];
-  const width = nodeWidth < 600 ? "100%" : dimensions[0];
+  const width = nodeWidth < 600 ? '100%' : dimensions[0];
   const imageStyles = { minHeight, width };
 
   return (

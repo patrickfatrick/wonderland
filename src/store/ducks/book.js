@@ -1,6 +1,6 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_BOOK = "book/SET_BOOK";
+const SET_BOOK = 'book/SET_BOOK';
 
 export default function reducer(state = initialState.book, action) {
   switch (action.type) {

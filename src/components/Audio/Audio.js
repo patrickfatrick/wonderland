@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useCallback } from "react";
-import PropTypes from "prop-types";
-import styles from "./Audio.css";
+import React, { useEffect, useRef, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import styles from './Audio.css';
 
 export default function Audio({
   audioLocation,
@@ -17,7 +17,7 @@ export default function Audio({
 
   const autoscrollHandler = useCallback(() => {
     if (!autoscrollOn) return;
-    const activeLine = readerContainerElement.querySelector("[data-active-line=true]");
+    const activeLine = readerContainerElement.querySelector('[data-active-line=true]');
     if (!activeLine) return;
     readerContainerElement.scroll(0, activeLine.offsetTop - 200);
   }, [autoscrollOn, readerContainerElement]);

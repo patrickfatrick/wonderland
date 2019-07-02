@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   env: {
     browser: true,
@@ -12,7 +14,7 @@ module.exports = {
       jsx: true
     },
     babelOptions: {
-      configFile: "./.babelrc.js"
+      configFile: path.join(__dirname, ".babelrc.js")
     }
   },
   rules: {
@@ -31,7 +33,6 @@ module.exports = {
       }
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'quotes': ['error', 'double']
+    'react-hooks/exhaustive-deps': 'warn'
   },
 }

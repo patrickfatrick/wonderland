@@ -3,19 +3,19 @@ import React, {
   useRef,
   useEffect,
   useCallback,
-} from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import { throttle } from "lodash";
-import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import Intro from "../Intro";
-import Audio from "../Audio";
-import Blocks from "../Blocks";
-import NavBar from "../NavBar";
-import FrontMatter from "../FrontMatter";
-import BackMatter from "../BackMatter";
-import bookShape from "../../shapes/bookShape";
-import styles from "./Reader.css";
+} from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import { throttle } from 'lodash';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import Intro from '../Intro';
+import Audio from '../Audio';
+import Blocks from '../Blocks';
+import NavBar from '../NavBar';
+import FrontMatter from '../FrontMatter';
+import BackMatter from '../BackMatter';
+import bookShape from '../../shapes/bookShape';
+import styles from './Reader.css';
 
 export default function Reader({
   book,
@@ -54,11 +54,11 @@ export default function Reader({
     const handleScroll = throttle(() => {
       if (!shouldDisplayIntro) setActiveChapter(ref.scrollTop);
     }, 250);
-    ref.addEventListener("scroll", handleScroll);
+    ref.addEventListener('scroll', handleScroll);
     const ro = new ResizeObserver(handleScroll);
     ro.observe(ref);
     return () => {
-      ref.removeEventListener("scroll", handleScroll);
+      ref.removeEventListener('scroll', handleScroll);
       ro.unobserve(ref);
     };
   }, [setActiveChapter, shouldDisplayIntro]);

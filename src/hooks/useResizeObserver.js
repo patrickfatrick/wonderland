@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { debounce } from "lodash";
+import { useState, useEffect, useRef } from 'react';
+import { debounce } from 'lodash';
 
 export default function (debounceThreshold = 100) {
   const [nodeWidth, setNodeWidth] = useState(0);

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { debounce } from "lodash";
-import isSmallScreen from "../utils/isSmallScreen";
-import scrollToY from "../utils/scrollToY";
+import { useState, useEffect } from 'react';
+import { debounce } from 'lodash';
+import isSmallScreen from '../utils/isSmallScreen';
+import scrollToY from '../utils/scrollToY';
 
 function scrollToEl(container, target, options = {}) {
   const { offset = 0 } = options;

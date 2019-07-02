@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import Block from "../Block";
-import infoShape from "../../shapes/infoShape";
-import frontmatterShape from "../../shapes/frontmatterShape";
-import styles from "./FrontMatter.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import Block from '../Block';
+import infoShape from '../../shapes/infoShape';
+import frontmatterShape from '../../shapes/frontmatterShape';
+import styles from './FrontMatter.css';
 
 export default function FrontMatter({
   info,

@@ -1,8 +1,8 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_AUDIO_SRC = "audio-player/SET_AUDIO_SRC";
-const SET_TIMESTAMP = "audio-player/SET_TIMESTAMP";
-const UPDATE_BUFFERED_TIME = "audio-player/UPDATE_BUFFERED_TIME";
+const SET_AUDIO_SRC = 'audio-player/SET_AUDIO_SRC';
+const SET_TIMESTAMP = 'audio-player/SET_TIMESTAMP';
+const UPDATE_BUFFERED_TIME = 'audio-player/UPDATE_BUFFERED_TIME';
 
 function updateBufferedTimeHandler(state, audioElement) {
   // Length should not be more than 1

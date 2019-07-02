@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import selectChapters from "../../store/selectors/chaptersSelector";
-import selectActiveChapter from "../../store/selectors/activeChapterSelector";
-import Chapters from "./Chapters";
+import { connect } from 'react-redux';
+import selectChapters from '../../store/selectors/chaptersSelector';
+import selectActiveChapter from '../../store/selectors/activeChapterSelector';
+import Chapters from './Chapters';
 
 function mapStatetoProps(state) {
   return {

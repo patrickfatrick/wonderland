@@ -1,7 +1,7 @@
-import React from "react";
-import Block from "../Block";
-import backmatterShape from "../../shapes/backmatterShape";
-import styles from "./BackMatter.css";
+import React from 'react';
+import Block from '../Block';
+import backmatterShape from '../../shapes/backmatterShape';
+import styles from './BackMatter.css';
 
 export default function BackMatter({
   backmatter,

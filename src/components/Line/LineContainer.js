@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import { setTimestamp } from "../../store/ducks/audio-player";
-import selectLine from "../../store/selectors/lineSelector";
-import Line from "./Line";
+import { connect } from 'react-redux';
+import { setTimestamp } from '../../store/ducks/audio-player';
+import selectLine from '../../store/selectors/lineSelector';
+import Line from './Line';
 
 function mapStateToProps(state, ownProps) {
   const { audioPlayer, application } = state;

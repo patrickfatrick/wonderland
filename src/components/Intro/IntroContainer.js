@@ -1,9 +1,9 @@
-import { connect } from "react-redux";
-import { incrementRenderIndex } from "../../store/ducks/application";
-import { setTimestamp } from "../../store/ducks/audio-player";
-import selectChapter from "../../store/selectors/chapterSelector";
-import selectLine from "../../store/selectors/lineSelector";
-import Intro from "./Intro";
+import { connect } from 'react-redux';
+import { incrementRenderIndex } from '../../store/ducks/application';
+import { setTimestamp } from '../../store/ducks/audio-player';
+import selectChapter from '../../store/selectors/chapterSelector';
+import selectLine from '../../store/selectors/lineSelector';
+import Intro from './Intro';
 
 function mapStateToProps(state) {
   const { application, book } = state;

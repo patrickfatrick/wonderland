@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import truncate from "../../utils/truncate";
-import useResizeObserver from "../../hooks/useResizeObserver";
-import Controls from "../Controls";
-import Chapters from "../Chapters";
-import infoShape from "../../shapes/infoShape";
-import styles from "./NavBar.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import truncate from '../../utils/truncate';
+import useResizeObserver from '../../hooks/useResizeObserver';
+import Controls from '../Controls';
+import Chapters from '../Chapters';
+import infoShape from '../../shapes/infoShape';
+import styles from './NavBar.css';
 
 export default function NavBar({
   info,
@@ -31,7 +31,7 @@ export default function NavBar({
             className={styles.metadata}
             ref={metadataNode}
           >
-            <span className={styles.title}>
+            <span>
               {title}
             </span>
             <br />

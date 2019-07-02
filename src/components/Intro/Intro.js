@@ -1,12 +1,12 @@
-import React, { Fragment, useCallback } from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import seek from "../../utils/seek";
-import useQueuedScroll from "../../hooks/useQueuedScroll";
-import bookShape from "../../shapes/bookShape";
-import chapterShape from "../../shapes/chapterShape";
-import lineShape from "../../shapes/lineShape";
-import styles from "./Intro.css";
+import React, { Fragment, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import seek from '../../utils/seek';
+import useQueuedScroll from '../../hooks/useQueuedScroll';
+import bookShape from '../../shapes/bookShape';
+import chapterShape from '../../shapes/chapterShape';
+import lineShape from '../../shapes/lineShape';
+import styles from './Intro.css';
 
 export default function Intro({
   book,
@@ -46,8 +46,8 @@ export default function Intro({
 
   const startButtonHandler = useCallback(() => {
     toggleShouldDisplay();
-    window.localStorage.removeItem("activeLine");
-    window.localStorage.removeItem("activeChapter");
+    window.localStorage.removeItem('activeLine');
+    window.localStorage.removeItem('activeChapter');
   }, [toggleShouldDisplay]);
 
   return (
@@ -82,7 +82,7 @@ export default function Intro({
               <button
                 type="button"
                 title="Resume"
-                className={c("button", styles.button)}
+                className={c('button', styles.button)}
                 onClick={resumeButtonHandler}
               >
                 Resume
@@ -90,7 +90,7 @@ export default function Intro({
               <button
                 type="button"
                 title="Restart"
-                className={c("button", styles.button)}
+                className={c('button', styles.button)}
                 onClick={startButtonHandler}
               >
                 Restart
@@ -100,7 +100,7 @@ export default function Intro({
             <button
               type="button"
               title="Start"
-              className={c("button", styles.button)}
+              className={c('button', styles.button)}
               onClick={startButtonHandler}
             >
               Start

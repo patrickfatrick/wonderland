@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { hot } from "react-hot-loader/root";
-import Reader from "./components/Reader";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader/root';
+import Reader from './components/Reader';
 
 function App({
   bookId,

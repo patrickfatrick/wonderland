@@ -1,6 +1,6 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_LINES = "lines/SET_LINES";
+const SET_LINES = 'lines/SET_LINES';
 
 export default function reducer(state = initialState.lines, action) {
   switch (action.type) {

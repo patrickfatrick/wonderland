@@ -1,6 +1,6 @@
-import initialState from "../initial-state";
+import initialState from '../initial-state';
 
-const SET_BLOCKS = "blocks/SET_BLOCKS";
+const SET_BLOCKS = 'blocks/SET_BLOCKS';
 
 export default function reducer(state = initialState.blocks, action) {
   switch (action.type) {

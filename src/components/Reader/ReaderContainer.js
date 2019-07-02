@@ -1,17 +1,17 @@
-import { connect } from "react-redux";
-import { setBook } from "../../store/ducks/book";
+import { connect } from 'react-redux';
+import { setBook } from '../../store/ducks/book';
 import {
   setActiveChapter,
   setAssetsLocation,
   incrementRenderIndex,
   setReaderContainerEl,
-} from "../../store/ducks/application";
-import { setChapters } from "../../store/ducks/chapters";
-import { setLines } from "../../store/ducks/lines";
-import { setBlocks } from "../../store/ducks/blocks";
-import getBook from "../../services/book-service";
-import isSmallScreen from "../../utils/isSmallScreen";
-import Reader from "./Reader";
+} from '../../store/ducks/application';
+import { setChapters } from '../../store/ducks/chapters';
+import { setLines } from '../../store/ducks/lines';
+import { setBlocks } from '../../store/ducks/blocks';
+import getBook from '../../services/book-service';
+import isSmallScreen from '../../utils/isSmallScreen';
+import Reader from './Reader';
 
 function mapStateToProps(state) {
   const { audioPlayer, application, book } = state;

@@ -1,8 +1,8 @@
-import React, { useCallback, Fragment } from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import useQueuedScroll from "../../hooks/useQueuedScroll";
-import styles from "./Controls.css";
+import React, { useCallback, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import useQueuedScroll from '../../hooks/useQueuedScroll';
+import styles from './Controls.css';
 
 export default function Controls({
   audioOn,
@@ -17,7 +17,7 @@ export default function Controls({
   toggleAutoscroll,
   toggleDarkmode,
 }) {
-  const activeLineElement = document.querySelector("[data-active-line=true]");
+  const activeLineElement = document.querySelector('[data-active-line=true]');
 
   const [scrollingQueued, setScrollingQueued] = useQueuedScroll(
     readerContainerElement,
@@ -44,12 +44,12 @@ export default function Controls({
   let playButtonText = (
     <Fragment>
       Play
-      {" "}
+      {' '}
       <small>{`(${prettyDuration} / ${prettySize})`}</small>
     </Fragment>
   );
-  if (buffering) playButtonText = "Loading...";
-  if (audioOn && !buffering) playButtonText = "Pause";
+  if (buffering) playButtonText = 'Loading...';
+  if (audioOn && !buffering) playButtonText = 'Pause';
 
   return (
     <li
@@ -97,8 +97,8 @@ export default function Controls({
           onClick={autoscrollClickHandler}
         >
            Autoscroll
-          {" "}
-          {(autoscrollOn) ? "Off" : "On"}
+          {' '}
+          {(autoscrollOn) ? 'Off' : 'On'}
         </button>
         )
       }

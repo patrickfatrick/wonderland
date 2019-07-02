@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import BackMatter from "./BackMatter";
+import { connect } from 'react-redux';
+import BackMatter from './BackMatter';
 
 function mapStateToProps(state) {
   return {

@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Flourish.css";
+import React from 'react';
+import styles from './Flourish.css';
 
 export default function Flourish() { // eslint-disable-line react/prop-types
   return (

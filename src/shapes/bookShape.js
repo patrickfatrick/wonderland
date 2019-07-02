@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import frontmatterShape from "./frontmatterShape";
-import backmatterShape from "./backmatterShape";
-import infoShape from "./infoShape";
-import audioShape from "./audioShape";
+import PropTypes from 'prop-types';
+import frontmatterShape from './frontmatterShape';
+import backmatterShape from './backmatterShape';
+import infoShape from './infoShape';
+import audioShape from './audioShape';
 
 export default PropTypes.shape({
   id: PropTypes.string,

@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import { incrementRenderIndex } from "../../store/ducks/application";
-import { setTimestamp } from "../../store/ducks/audio-player";
-import ChapterButton from "./ChapterButton";
+import { connect } from 'react-redux';
+import { incrementRenderIndex } from '../../store/ducks/application';
+import { setTimestamp } from '../../store/ducks/audio-player';
+import ChapterButton from './ChapterButton';
 
 function mapStatetoProps(state) {
   const { application } = state;

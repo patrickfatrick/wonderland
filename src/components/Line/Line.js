@@ -1,9 +1,9 @@
-import React, { useCallback, useRef } from "react";
-import PropTypes from "prop-types";
-import c from "classnames";
-import seek from "../../utils/seek";
-import lineShape from "../../shapes/lineShape";
-import styles from "./Line.css";
+import React, { useCallback, useRef } from 'react';
+import PropTypes from 'prop-types';
+import c from 'classnames';
+import seek from '../../utils/seek';
+import lineShape from '../../shapes/lineShape';
+import styles from './Line.css';
 
 export default function Line({
   audioOn,
